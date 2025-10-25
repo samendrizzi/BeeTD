@@ -1,0 +1,8 @@
+{
+			"easyScores": [0, 0, 0, 0],
+			"easyUnlocks": [0],
+			"mediumScores": [0, 0, 0, 0],
+			"mediumUnlocks": [0],
+			"hardScores": [0, 0, 0, 0],
+			"hardUnlocks": [0]
+}
