@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using TMPro;
+using Unity.VisualScripting;
+using System;
 
 public class StructureUIHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
@@ -21,11 +23,8 @@ public class StructureUIHandler : MonoBehaviour, IPointerEnterHandler, IPointerE
     [SerializeField] private Button button7;
     [SerializeField] private Button button8;
     [SerializeField] private GameObject rangeIndicator;
-    private float upgrade1Cost;
-    private float upgrade2Cost;
-    private float upgrade3Cost;
-    private float upgrade4Cost;
-    private float upgrade5Cost;
+    private float[] upgradeCost;
+    private float[] unitCost;
     private float sellPrice;
     private float cost;
     private int index;
@@ -40,6 +39,7 @@ public class StructureUIHandler : MonoBehaviour, IPointerEnterHandler, IPointerE
     public int targetingIndex = 0;
     public bool influence = false;
     private GameObject plot;
+    private GameObject[] units;
 
     public void OnPointerEnter(PointerEventData eventData)
     {
@@ -79,7 +79,7 @@ public class StructureUIHandler : MonoBehaviour, IPointerEnterHandler, IPointerE
             //info button
             button2.gameObject.SetActive(true);
             button2.gameObject.GetComponentInChildren<TMP_Text>().text = "Info";
-            plot = Physics2D.CircleCastAll(transform.position, 0.1f, (Vector2)transform.position, 0f, GlobalValues.main.plotMask)[0].transform.gameObject;
+            plot = Physics2D.CircleCastAll(transform.position, 0.1f, (Vector2)transform.position, 0f, GlobalValues.main.plotMask | GlobalValues.main.flowerMask)[0].transform.gameObject;
             isHive = plot.GetComponent<Plot>().isHive;
         }
         else 
@@ -88,14 +88,8 @@ public class StructureUIHandler : MonoBehaviour, IPointerEnterHandler, IPointerE
             UIscale = UI.transform.localScale.x / 2.28f;
             isHive = gameObject.GetComponent<Plot>().isHive;
             isBuildable = gameObject.GetComponent<Plot>().isBuildable;
+            isFlower = gameObject.GetComponent<Plot>().isResourceNode;
             cost = 0f;
-            float range = GlobalValues.main.flowerRange; ;
-            LayerMask flowerMask = GlobalValues.main.flowerMask;
-            RaycastHit2D[] flowers = Physics2D.CircleCastAll(transform.position, range, (Vector2)transform.position, 0f, flowerMask);
-            if (flowers.Length > 0) 
-            {
-                isFlower = true;
-            }
             if (isBuildable == true) 
             {
                 if (isHive == true) 
@@ -115,32 +109,67 @@ public class StructureUIHandler : MonoBehaviour, IPointerEnterHandler, IPointerE
         //exit button
         button4.gameObject.SetActive(true);
         button4.gameObject.GetComponentInChildren<TMP_Text>().text = "Exit";
-        //upgrade options
+        //upgrade / Purchase options
+        Array.Resize(ref upgradeCost, upgradeIndex.Length);
+        Array.Resize(ref unitCost, upgradeIndex.Length);
         if (upgradeIndex.Length >= 1)
         {
-            button7.gameObject.SetActive(true);
-            upgrade1Cost = GlobalValues.main.TOWERcost[upgradeIndex[0]] - cost;
-            button7.gameObject.GetComponentInChildren<TMP_Text>().text = GlobalValues.main.TOWERname[upgradeIndex[0]] + ": " + upgrade1Cost.ToString() + " Nectar";
-            if (upgradeIndex.Length >= 2)
+            if (((1 << gameObject.layer) & GlobalValues.main.incomeMask) != 0)
             {
-                button0.gameObject.SetActive(true);
-                upgrade2Cost = GlobalValues.main.TOWERcost[upgradeIndex[1]] - cost;
-                button0.gameObject.GetComponentInChildren<TMP_Text>().text = GlobalValues.main.TOWERname[upgradeIndex[1]] + ": " + upgrade2Cost.ToString() + " Nectar";
-                if (upgradeIndex.Length >= 3)
+                button7.gameObject.SetActive(true);
+                unitCost[0] = GlobalValues.main.UNITcost[upgradeIndex[0]];
+                button7.gameObject.GetComponentInChildren<TMP_Text>().text = GlobalValues.main.UNITname[upgradeIndex[0]] + ": " + unitCost[0].ToString() + " Nectar";
+                if (upgradeIndex.Length >= 2)
                 {
-                    button1.gameObject.SetActive(true);
-                    upgrade3Cost = GlobalValues.main.TOWERcost[upgradeIndex[2]] - cost;
-                    button1.gameObject.GetComponentInChildren<TMP_Text>().text = GlobalValues.main.TOWERname[upgradeIndex[2]] + ": " + upgrade3Cost.ToString() + " Nectar";
-                    if (upgradeIndex.Length >= 4)
+                    button0.gameObject.SetActive(true);
+                    unitCost[1] = GlobalValues.main.UNITcost[upgradeIndex[1]];
+                    button0.gameObject.GetComponentInChildren<TMP_Text>().text = GlobalValues.main.UNITname[upgradeIndex[1]] + ": " + unitCost[1].ToString() + " Nectar";
+                    if (upgradeIndex.Length >= 3)
                     {
-                        button6.gameObject.SetActive(true);
-                        upgrade4Cost = GlobalValues.main.TOWERcost[upgradeIndex[3]] - cost;
-                        button6.gameObject.GetComponentInChildren<TMP_Text>().text = GlobalValues.main.TOWERname[upgradeIndex[3]] + ": " + upgrade4Cost.ToString() + " Nectar";
-                        if (upgradeIndex.Length >= 5)
+                        button1.gameObject.SetActive(true);
+                        unitCost[2] = GlobalValues.main.UNITcost[upgradeIndex[2]];
+                        button1.gameObject.GetComponentInChildren<TMP_Text>().text = GlobalValues.main.UNITname[upgradeIndex[2]] + ": " + unitCost[2].ToString() + " Nectar";
+                        if (upgradeIndex.Length >= 4)
                         {
-                            button5.gameObject.SetActive(true);
-                            upgrade5Cost = GlobalValues.main.TOWERcost[upgradeIndex[4]] - cost;
-                            button5.gameObject.GetComponentInChildren<TMP_Text>().text = GlobalValues.main.TOWERname[upgradeIndex[4]] + ": " + upgrade5Cost.ToString() + " Nectar";
+                            button6.gameObject.SetActive(true);
+                            unitCost[3] = GlobalValues.main.UNITcost[upgradeIndex[3]];
+                            button6.gameObject.GetComponentInChildren<TMP_Text>().text = GlobalValues.main.UNITname[upgradeIndex[3]] + ": " + unitCost[3].ToString() + " Nectar";
+                            if (upgradeIndex.Length >= 5)
+                            {
+                                button5.gameObject.SetActive(true);
+                                unitCost[4] = GlobalValues.main.UNITcost[upgradeIndex[4]];
+                                button5.gameObject.GetComponentInChildren<TMP_Text>().text = GlobalValues.main.UNITname[upgradeIndex[4]] + ": " + unitCost[4].ToString() + " Nectar";
+                            }
+                        }
+                    }
+                }
+            }
+            else
+            {
+                button7.gameObject.SetActive(true);
+                upgradeCost[0] = GlobalValues.main.TOWERcost[upgradeIndex[0]] - cost;
+                button7.gameObject.GetComponentInChildren<TMP_Text>().text = GlobalValues.main.TOWERname[upgradeIndex[0]] + ": " + upgradeCost[0].ToString() + " Nectar";
+                if (upgradeIndex.Length >= 2)
+                {
+                    button0.gameObject.SetActive(true);
+                    upgradeCost[1] = GlobalValues.main.TOWERcost[upgradeIndex[1]] - cost;
+                    button0.gameObject.GetComponentInChildren<TMP_Text>().text = GlobalValues.main.TOWERname[upgradeIndex[1]] + ": " + upgradeCost[1].ToString() + " Nectar";
+                    if (upgradeIndex.Length >= 3)
+                    {
+                        button1.gameObject.SetActive(true);
+                        upgradeCost[2] = GlobalValues.main.TOWERcost[upgradeIndex[2]] - cost;
+                        button1.gameObject.GetComponentInChildren<TMP_Text>().text = GlobalValues.main.TOWERname[upgradeIndex[2]] + ": " + upgradeCost[2].ToString() + " Nectar";
+                        if (upgradeIndex.Length >= 4)
+                        {
+                            button6.gameObject.SetActive(true);
+                            upgradeCost[3] = GlobalValues.main.TOWERcost[upgradeIndex[3]] - cost;
+                            button6.gameObject.GetComponentInChildren<TMP_Text>().text = GlobalValues.main.TOWERname[upgradeIndex[3]] + ": " + upgradeCost[3].ToString() + " Nectar";
+                            if (upgradeIndex.Length >= 5)
+                            {
+                                button5.gameObject.SetActive(true);
+                                upgradeCost[4] = GlobalValues.main.TOWERcost[upgradeIndex[4]] - cost;
+                                button5.gameObject.GetComponentInChildren<TMP_Text>().text = GlobalValues.main.TOWERname[upgradeIndex[4]] + ": " + upgradeCost[4].ToString() + " Nectar";
+                            }
                         }
                     }
                 }
@@ -233,58 +262,31 @@ public class StructureUIHandler : MonoBehaviour, IPointerEnterHandler, IPointerE
         UI.SetActive(false);
     }
 
-    public void Upgrade1()
+    public void Upgrade(int i)
     {
-        if (LevelManager.main.nectar >= upgrade1Cost)
+        if (LevelManager.main.nectar >= upgradeCost[i])
         {
-            RaycastHit2D[] plots = Physics2D.CircleCastAll(transform.position, 0.1f, (Vector2)transform.position, 0f, GlobalValues.main.plotMask);
+            RaycastHit2D[] plots = Physics2D.CircleCastAll(transform.position, 0.1f, (Vector2)transform.position, 0f, GlobalValues.main.plotMask | GlobalValues.main.flowerMask);
             Plot plotScript = plots[0].transform.GetComponent<Plot>();
-            LevelManager.main.nectar -= upgrade1Cost;
-            plotScript.Build(upgradeIndex[0]);
+            LevelManager.main.nectar -= upgradeCost[i];
+            plotScript.Build(upgradeIndex[i]);
         }
     }
 
-    public void Upgrade2()
+    public void BuyUnit(int i)
     {
-        if (LevelManager.main.nectar >= upgrade2Cost)
+        if (LevelManager.main.nectar >= unitCost[i])
         {
-            RaycastHit2D[] plots = Physics2D.CircleCastAll(transform.position, 0.1f, (Vector2)transform.position, 0f, GlobalValues.main.plotMask);
-            Plot plotScript = plots[0].transform.GetComponent<Plot>();
-            LevelManager.main.nectar -= upgrade2Cost;
-            plotScript.Build(upgradeIndex[1]);
-        }
-    }
-
-    public void Upgrade3()
-    {
-        if (LevelManager.main.nectar >= upgrade3Cost)
-        {
-            RaycastHit2D[] plots = Physics2D.CircleCastAll(transform.position, 0.1f, (Vector2)transform.position, 0f, GlobalValues.main.plotMask);
-            Plot plotScript = plots[0].transform.GetComponent<Plot>();
-            LevelManager.main.nectar -= upgrade3Cost;
-            plotScript.Build(upgradeIndex[2]);
-        }
-    }
-
-    public void Upgrade4()
-    {
-        if (LevelManager.main.nectar >= upgrade4Cost)
-        {
-            RaycastHit2D[] plots = Physics2D.CircleCastAll(transform.position, 0.1f, (Vector2)transform.position, 0f, GlobalValues.main.plotMask);
-            Plot plotScript = plots[0].transform.GetComponent<Plot>();
-            LevelManager.main.nectar -= upgrade4Cost;
-            plotScript.Build(upgradeIndex[3]);
-        }
-    }
-
-    public void Upgrade5()
-    {
-        if (LevelManager.main.nectar >= upgrade5Cost)
-        {
-            RaycastHit2D[] plots = Physics2D.CircleCastAll(transform.position, 0.1f, (Vector2)transform.position, 0f, GlobalValues.main.plotMask);
-            Plot plotScript = plots[0].transform.GetComponent<Plot>();
-            LevelManager.main.nectar -= upgrade5Cost;
-            plotScript.Build(upgradeIndex[4]);
+            LevelManager.main.nectar -= unitCost[i];
+            GameObject prefabToSpawn = GlobalValues.main.UNITprefab[upgradeIndex[i]]; ;
+            Transform start = gameObject.transform;
+            Transform nextPoint = LevelManager.main.queenBee.transform;
+            float angle = Mathf.Atan2(LevelManager.main.queenBee.transform.position.y - gameObject.transform.position.y, LevelManager.main.queenBee.transform.position.x - gameObject.transform.position.x) * Mathf.Rad2Deg - 90f;
+            Quaternion unitRotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
+            GameObject unit = Instantiate(prefabToSpawn, gameObject.transform.position, unitRotation);
+            CloseUI();
+            //Array.Resize(ref units, units.Length + 1);
+            //units[units.Length - 1] = unit;
         }
     }
 
@@ -363,12 +365,26 @@ public class StructureUIHandler : MonoBehaviour, IPointerEnterHandler, IPointerE
 
     public void Button0()
     {
-        Upgrade2();
+        if (((1 << gameObject.layer) & GlobalValues.main.incomeMask) != 0)
+        {
+            BuyUnit(1);
+        }
+        else
+        {
+            Upgrade(1);
+        }
     }
 
     public void Button1()
     {
-        Upgrade3();
+        if (((1 << gameObject.layer) & GlobalValues.main.incomeMask) != 0)
+        {
+            BuyUnit(2);
+        }
+        else
+        {
+            Upgrade(2);
+        }
     }
 
     public void Button2()
@@ -394,18 +410,39 @@ public class StructureUIHandler : MonoBehaviour, IPointerEnterHandler, IPointerE
         }
         else if (upgradeIndex.Length >= 5)
         {
-            Upgrade5();
+            if (((1 << gameObject.layer) & GlobalValues.main.incomeMask) != 0)
+            {
+                BuyUnit(4);
+            }
+            else
+            {
+                Upgrade(4);
+            }
         }
     }
 
     public void Button6()
     {
-        Upgrade4();
+        if (((1 << gameObject.layer) & GlobalValues.main.incomeMask) != 0)
+        {
+            BuyUnit(3);
+        }
+        else
+        {
+            Upgrade(3);
+        }
     }
 
     public void Button7()
     {
-        Upgrade1();
+        if (((1 << gameObject.layer) & GlobalValues.main.incomeMask) != 0)
+        {
+            BuyUnit(0);
+        }
+        else
+        {
+            Upgrade(0);
+        }
     }
 
     public void Button8()

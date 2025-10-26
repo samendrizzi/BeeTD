@@ -47,6 +47,7 @@ public class GlobalValues : MonoBehaviour
     [SerializeField] public int rampRatio = 10;
     [SerializeField] public int rampCap = 10;
     [SerializeField] public float honeyHealRatio = 0.25f;
+    [SerializeField] public float workerHealRatio = 0.25f;
     [SerializeField] public float queenThornRatio = 1f;
     [SerializeField] public float eggLayRatio = 1f;
     [SerializeField] public float healAuraRatio = 1f;
@@ -64,6 +65,8 @@ public class GlobalValues : MonoBehaviour
     [SerializeField] public float waveSpawnRatio = 0.7f;
     [SerializeField] public float enemyWaypointDistance = 0.2f;
     [SerializeField] public float enemyRotationSpeed = 150f;
+    [SerializeField] public float unitWaypointDistance = 0.2f;
+    [SerializeField] public float unitRotationSpeed = 150f;
     [SerializeField] public string[] targetingOptions = new string[] { "Near", "Far", "Weak", "Strong", "Ground", "Flying" };
     [SerializeField] public LayerMask plotMask;
     [SerializeField] public LayerMask enemyMask;
@@ -148,6 +151,241 @@ public class GlobalValues : MonoBehaviour
     [SerializeField] public string yellowFlowerText = "Pollen source that increases range";
     [SerializeField] public float yellowFlowerModifier = 1.5f; //range multiplier
     [SerializeField] public float yellowFlowerRarity = 2f;
+
+    [Header("_______________________")]
+    [Header("Units")]
+
+    [Header("Worker Bee")]
+    [Header("ID 0")]
+    [Header("References")]
+    [SerializeField] public GameObject UNIT0prefab;
+    [SerializeField] public GameObject UNIT0prefab2;
+    [Header("Attributes")]
+    [SerializeField] public string UNIT0name = "Worker Bee";
+    [SerializeField] public float UNIT0hitPoints = 10f;
+    [SerializeField] public float UNIT0armor = 0f;
+    [SerializeField] public bool UNIT0healthBar = false;
+    [SerializeField] public float UNIT0cost = 0f;
+    [SerializeField] public float UNIT0moveSpeed = 2f;
+    [SerializeField] public bool UNIT0willFly = true;
+    [SerializeField] public int UNIT0carryCapacity = 35;
+    [SerializeField] public bool UNIT0willStealNectar = true;
+    [SerializeField] public bool UNIT0willStealHoney = false;
+    [SerializeField] public bool UNIT0willAttack = true;
+    [SerializeField] public string UNIT0effect = "none";
+    [SerializeField] public float UNIT0effectModifier = 0f;
+    [SerializeField] public float UNIT0attackDamage = 1f;
+    [SerializeField] public float UNIT0attackRate = 1f;
+    [Header("")]
+    [Header("ID 1")]
+    [Header("References")]
+    [SerializeField] public GameObject UNIT1prefab;
+    [SerializeField] public GameObject UNIT1prefab2;
+    [Header("Attributes")]
+    [SerializeField] public string UNIT1name = "Ant Egg";
+    [SerializeField] public float UNIT1hitPoints = 2f;
+    [SerializeField] public float UNIT1armor = 20f;
+    [SerializeField] public bool UNIT1healthBar = false;
+    [SerializeField] public float UNIT1cost = 0f;
+    [SerializeField] public float UNIT1moveSpeed = 0f;
+    [SerializeField] public bool UNIT1willFly = false;
+    [SerializeField] public int UNIT1carryCapacity = 0;
+    [SerializeField] public bool UNIT1willStealNectar = false;
+    [SerializeField] public bool UNIT1willStealHoney = false;
+    [SerializeField] public bool UNIT1willAttack = true;
+    [SerializeField] public string UNIT1effect = "Hatch Ant";
+    [SerializeField] public float UNIT1effectModifier = 1f;
+    [SerializeField] public float UNIT1attackDamage = 0f;
+    [SerializeField] public float UNIT1attackRate = 1f;
+    [Header("")]
+    [Header("ID 2")]
+    [Header("References")]
+    [SerializeField] public GameObject UNIT2prefab;
+    [SerializeField] public GameObject UNIT2prefab2;
+    [Header("Attributes")]
+    [SerializeField] public string UNIT2name = "Ant Queen";
+    [SerializeField] public float UNIT2hitPoints = 10f;
+    [SerializeField] public float UNIT2armor = 20f;
+    [SerializeField] public bool UNIT2healthBar = true;
+    [SerializeField] public float UNIT2cost = 0f;
+    [SerializeField] public float UNIT2moveSpeed = 0.5f;
+    [SerializeField] public bool UNIT2willFly = false;
+    [SerializeField] public int UNIT2carryCapacity = 50;
+    [SerializeField] public bool UNIT2willStealNectar = true;
+    [SerializeField] public bool UNIT2willStealHoney = false;
+    [SerializeField] public bool UNIT2willAttack = true;
+    [SerializeField] public string UNIT2effect = "Lay Ant Eggs";
+    [SerializeField] public float UNIT2effectModifier = 2f;
+    [SerializeField] public float UNIT2attackDamage = 2f;
+    [SerializeField] public float UNIT2attackRate = 1f;
+    [Header("")]
+    [Header("ID 3")]
+    [Header("References")]
+    [SerializeField] public GameObject UNIT3prefab;
+    [SerializeField] public GameObject UNIT3prefab2;
+    [Header("Attributes")]
+    [SerializeField] public string UNIT3name = "Fire Ant";
+    [SerializeField] public float UNIT3hitPoints = 2f;
+    [SerializeField] public float UNIT3armor = 30f;
+    [SerializeField] public bool UNIT3healthBar = false;
+    [SerializeField] public float UNIT3cost = 0f;
+    [SerializeField] public float UNIT3moveSpeed = 2f;
+    [SerializeField] public bool UNIT3willFly = false;
+    [SerializeField] public int UNIT3carryCapacity = 10;
+    [SerializeField] public bool UNIT3willStealNectar = false;
+    [SerializeField] public bool UNIT3willStealHoney = false;
+    [SerializeField] public bool UNIT3willAttack = true;
+    [SerializeField] public string UNIT3effect = "none";
+    [SerializeField] public float UNIT3effectModifier = 0f;
+    [SerializeField] public float UNIT3attackDamage = 1f;
+    [SerializeField] public float UNIT3attackRate = 1f;
+    [Header("")]
+    [Header("ID 4")]
+    [Header("References")]
+    [SerializeField] public GameObject UNIT4prefab;
+    [SerializeField] public GameObject UNIT4prefab2;
+    [Header("Attributes")]
+    [SerializeField] public string UNIT4name = "Beatle";
+    [SerializeField] public float UNIT4hitPoints = 20f;
+    [SerializeField] public float UNIT4armor = 80f;
+    [SerializeField] public bool UNIT4healthBar = true;
+    [SerializeField] public float UNIT4cost = 0f;
+    [SerializeField] public float UNIT4moveSpeed = 0.5f;
+    [SerializeField] public bool UNIT4willFly = false;
+    [SerializeField] public int UNIT4carryCapacity = 50;
+    [SerializeField] public bool UNIT4willStealNectar = true;
+    [SerializeField] public bool UNIT4willStealHoney = false;
+    [SerializeField] public bool UNIT4willAttack = true;
+    [SerializeField] public string UNIT4effect = "none";
+    [SerializeField] public float UNIT4effectModifier = 0f;
+    [SerializeField] public float UNIT4attackDamage = 5f;
+    [SerializeField] public float UNIT4attackRate = 0.5f;
+    [Header("")]
+    [Header("ID 5")]
+    [Header("References")]
+    [SerializeField] public GameObject UNIT5prefab;
+    [SerializeField] public GameObject UNIT5prefab2;
+    [Header("Attributes")]
+    [SerializeField] public string UNIT5name = "Catapillar";
+    [SerializeField] public float UNIT5hitPoints = 30f;
+    [SerializeField] public float UNIT5armor = 60f;
+    [SerializeField] public bool UNIT5healthBar = true;
+    [SerializeField] public float UNIT5cost = 0f;
+    [SerializeField] public float UNIT5moveSpeed = 0.5f;
+    [SerializeField] public bool UNIT5willFly = false;
+    [SerializeField] public int UNIT5carryCapacity = 50;
+    [SerializeField] public bool UNIT5willStealNectar = true;
+    [SerializeField] public bool UNIT5willStealHoney = false;
+    [SerializeField] public bool UNIT5willAttack = true;
+    [SerializeField] public string UNIT5effect = "none";
+    [SerializeField] public float UNIT5effectModifier = 0f;
+    [SerializeField] public float UNIT5attackDamage = 2f;
+    [SerializeField] public float UNIT5attackRate = 1f;
+    [Header("")]
+    [Header("ID 6")]
+    [Header("References")]
+    [SerializeField] public GameObject UNIT6prefab;
+    [SerializeField] public GameObject UNIT6prefab2;
+    [Header("Attributes")]
+    [SerializeField] public string UNIT6name = "Ladybug";
+    [SerializeField] public float UNIT6hitPoints = 10f;
+    [SerializeField] public float UNIT6armor = 50f;
+    [SerializeField] public bool UNIT6healthBar = true;
+    [SerializeField] public float UNIT6cost = 0f;
+    [SerializeField] public float UNIT6moveSpeed = 0.5f;
+    [SerializeField] public bool UNIT6willFly = false;
+    [SerializeField] public int UNIT6carryCapacity = 30;
+    [SerializeField] public bool UNIT6willStealNectar = true;
+    [SerializeField] public bool UNIT6willStealHoney = false;
+    [SerializeField] public bool UNIT6willAttack = true;
+    [SerializeField] public string UNIT6effect = "Heal Aura";
+    [SerializeField] public float UNIT6effectModifier = 2f;
+    [SerializeField] public float UNIT6attackDamage = 1f;
+    [SerializeField] public float UNIT6attackRate = 1f;
+    [Header("")]
+    [Header("ID 7")]
+    [Header("References")]
+    [SerializeField] public GameObject UNIT7prefab;
+    [SerializeField] public GameObject UNIT7prefab2;
+    [Header("Attributes")]
+    [SerializeField] public string UNIT7name = "Fly";
+    [SerializeField] public float UNIT7hitPoints = 2f;
+    [SerializeField] public float UNIT7armor = 0f;
+    [SerializeField] public bool UNIT7healthBar = false;
+    [SerializeField] public float UNIT7cost = 0f;
+    [SerializeField] public float UNIT7moveSpeed = 2f;
+    [SerializeField] public bool UNIT7willFly = true;
+    [SerializeField] public int UNIT7carryCapacity = 10;
+    [SerializeField] public bool UNIT7willStealNectar = true;
+    [SerializeField] public bool UNIT7willStealHoney = false;
+    [SerializeField] public bool UNIT7willAttack = true;
+    [SerializeField] public string UNIT7effect = "none";
+    [SerializeField] public float UNIT7effectModifier = 0f;
+    [SerializeField] public float UNIT7attackDamage = 0.5f;
+    [SerializeField] public float UNIT7attackRate = 1f;
+    [Header("")]
+    [Header("ID 8")]
+    [Header("References")]
+    [SerializeField] public GameObject UNIT8prefab;
+    [SerializeField] public GameObject UNIT8prefab2;
+    [Header("Attributes")]
+    [SerializeField] public string UNIT8name = "Wasp";
+    [SerializeField] public float UNIT8hitPoints = 5f;
+    [SerializeField] public float UNIT8armor = 20f;
+    [SerializeField] public bool UNIT8healthBar = false;
+    [SerializeField] public float UNIT8cost = 0f;
+    [SerializeField] public float UNIT8moveSpeed = 1f;
+    [SerializeField] public bool UNIT8willFly = true;
+    [SerializeField] public int UNIT8carryCapacity = 20;
+    [SerializeField] public bool UNIT8willStealNectar = false;
+    [SerializeField] public bool UNIT8willStealHoney = false;
+    [SerializeField] public bool UNIT8willAttack = true;
+    [SerializeField] public string UNIT8effect = "none";
+    [SerializeField] public float UNIT8effectModifier = 0f;
+    [SerializeField] public float UNIT8attackDamage = 1f;
+    [SerializeField] public float UNIT8attackRate = 1f;
+    [Header("")]
+    [Header("ID 9")]
+    [Header("References")]
+    [SerializeField] public GameObject UNIT9prefab;
+    [SerializeField] public GameObject UNIT9prefab2;
+    [Header("Attributes")]
+    [SerializeField] public string UNIT9name = "Wasp Egg";
+    [SerializeField] public float UNIT9hitPoints = 3f;
+    [SerializeField] public float UNIT9armor = 40f;
+    [SerializeField] public bool UNIT9healthBar = false;
+    [SerializeField] public float UNIT9cost = 0f;
+    [SerializeField] public float UNIT9moveSpeed = 0f;
+    [SerializeField] public bool UNIT9willFly = true;
+    [SerializeField] public int UNIT9carryCapacity = 0;
+    [SerializeField] public bool UNIT9willStealNectar = false;
+    [SerializeField] public bool UNIT9willStealHoney = false;
+    [SerializeField] public bool UNIT9willAttack = true;
+    [SerializeField] public string UNIT9effect = "none";
+    [SerializeField] public float UNIT9effectModifier = 1f;
+    [SerializeField] public float UNIT9attackDamage = 0f;
+    [SerializeField] public float UNIT9attackRate = 1f;
+    [Header("")]
+    [Header("ID 10")]
+    [Header("References")]
+    [SerializeField] public GameObject UNIT10prefab;
+    [SerializeField] public GameObject UNIT10prefab2;
+    [Header("Attributes")]
+    [SerializeField] public string UNIT10name = "Wasp Queen";
+    [SerializeField] public float UNIT10hitPoints = 20f;
+    [SerializeField] public float UNIT10armor = 40f;
+    [SerializeField] public bool UNIT10healthBar = true;
+    [SerializeField] public float UNIT10cost = 0f;
+    [SerializeField] public float UNIT10moveSpeed = 0.5f;
+    [SerializeField] public bool UNIT10willFly = true;
+    [SerializeField] public int UNIT10carryCapacity = 20;
+    [SerializeField] public bool UNIT10willStealNectar = false;
+    [SerializeField] public bool UNIT10willStealHoney = false;
+    [SerializeField] public bool UNIT10willAttack = true;
+    [SerializeField] public string UNIT10effect = "Lay Wasp Eggs";
+    [SerializeField] public float UNIT10effectModifier = 2f;
+    [SerializeField] public float UNIT10attackDamage = 2f;
+    [SerializeField] public float UNIT10attackRate = 1f;
 
     [Header("_______________________")]
     [Header("Mobs")]
@@ -1846,6 +2084,24 @@ public class GlobalValues : MonoBehaviour
     public string[] FLOWERText;
     public float[] FLOWERModifier;
     public float[] FLOWERRarity;
+    //Units
+    public GameObject[] UNITprefab;
+    public GameObject[] UNITprefab2;
+    public string[] UNITname;
+    public float[] UNIThitPoints;
+    public float[] UNITarmor;
+    public bool[] UNIThealthBar;
+    public float[] UNITcost;
+    public float[] UNITmoveSpeed;
+    public bool[] UNITwillFly;
+    public int[] UNITcarryCapacity;
+    public bool[] UNITwillStealNectar;
+    public bool[] UNITwillStealHoney;
+    public bool[] UNITwillAttack;
+    public string[] UNITeffect;
+    public float[] UNITeffectModifier;
+    public float[] UNITattackDamage;
+    public float[] UNITattackRate;
     //Mobs
     public GameObject[] ENEMYprefab;
     public GameObject[] ENEMYprefab2;
@@ -1924,6 +2180,25 @@ public class GlobalValues : MonoBehaviour
         FLOWERText = new string[] { closedFlowerText, blueFlowerText, whiteFlowerText, pinkFlowerText, purpleFlowerText, goldFlowerText, redFlowerText, yellowFlowerText };
         FLOWERModifier = new float[] { closedFlowerModifier, blueFlowerModifier, whiteFlowerModifier, pinkFlowerModifier, purpleFlowerModifier, goldFlowerModifier, redFlowerModifier, yellowFlowerModifier };
         FLOWERRarity = new float[] { closedFlowerRarity, blueFlowerRarity, whiteFlowerRarity, pinkFlowerRarity, purpleFlowerRarity, goldFlowerRarity, redFlowerRarity, yellowFlowerRarity };
+        //Unit Arrays
+        UNITprefab = new GameObject[] { UNIT0prefab, UNIT1prefab, UNIT2prefab, UNIT3prefab, UNIT4prefab, UNIT5prefab, UNIT6prefab, UNIT7prefab, UNIT8prefab, UNIT9prefab, UNIT10prefab };
+        UNITprefab2 = new GameObject[] { UNIT0prefab2, UNIT1prefab2, UNIT2prefab2, UNIT3prefab2, UNIT4prefab2, UNIT5prefab2, UNIT6prefab2, UNIT7prefab2, UNIT8prefab2, UNIT9prefab2, UNIT10prefab2 };
+        UNITname = new string[] { UNIT0name, UNIT1name, UNIT2name, UNIT3name, UNIT4name, UNIT5name, UNIT6name, UNIT7name, UNIT8name, UNIT9name, UNIT10name };
+        UNIThitPoints = new float[] { UNIT0hitPoints, UNIT1hitPoints, UNIT2hitPoints, UNIT3hitPoints, UNIT4hitPoints, UNIT5hitPoints, UNIT6hitPoints, UNIT7hitPoints, UNIT8hitPoints, UNIT9hitPoints, UNIT10hitPoints };
+        UNITarmor = new float[] {UNIT0armor, UNIT1armor, UNIT2armor, UNIT3armor, UNIT4armor, UNIT5armor, UNIT6armor, UNIT7armor, UNIT8armor, UNIT9armor, UNIT10armor };
+        UNIThealthBar = new bool[] {UNIT0healthBar, UNIT1healthBar, UNIT2healthBar, UNIT3healthBar, UNIT4healthBar, UNIT5healthBar, UNIT6healthBar, UNIT7healthBar, UNIT8healthBar, UNIT9healthBar, UNIT10healthBar };
+        UNITcost = new float[] {UNIT0cost, UNIT1cost, UNIT2cost, UNIT3cost, UNIT4cost, UNIT5cost, UNIT6cost, UNIT7cost, UNIT8cost, UNIT9cost, UNIT10cost };
+        UNITmoveSpeed = new float[] {UNIT0moveSpeed, UNIT1moveSpeed, UNIT2moveSpeed, UNIT3moveSpeed, UNIT4moveSpeed, UNIT5moveSpeed, UNIT6moveSpeed, UNIT7moveSpeed, UNIT8moveSpeed, UNIT9moveSpeed, UNIT10moveSpeed };
+        UNITwillFly = new bool[] {UNIT0willFly, UNIT1willFly, UNIT2willFly, UNIT3willFly, UNIT4willFly, UNIT5willFly, UNIT6willFly, UNIT7willFly, UNIT8willFly, UNIT9willFly, UNIT10willFly };
+        UNITcarryCapacity = new int[] {UNIT0carryCapacity, UNIT1carryCapacity, UNIT2carryCapacity, UNIT3carryCapacity, UNIT4carryCapacity, UNIT5carryCapacity, UNIT6carryCapacity, UNIT7carryCapacity, UNIT8carryCapacity, UNIT9carryCapacity, UNIT10carryCapacity };
+        UNITwillStealNectar = new bool[] {UNIT0willStealNectar, UNIT1willStealNectar, UNIT2willStealNectar, UNIT3willStealNectar, UNIT4willStealNectar, UNIT5willStealNectar, UNIT6willStealNectar, UNIT7willStealNectar, UNIT8willStealNectar, UNIT9willStealNectar, UNIT10willStealNectar };
+        UNITwillStealHoney = new bool[] {UNIT0willStealHoney, UNIT1willStealHoney, UNIT2willStealHoney, UNIT3willStealHoney, UNIT4willStealHoney, UNIT5willStealHoney, UNIT6willStealHoney, UNIT7willStealHoney, UNIT8willStealHoney, UNIT9willStealHoney, UNIT10willStealHoney };
+        UNITwillAttack = new bool[] {UNIT0willAttack, UNIT1willAttack, UNIT2willAttack, UNIT3willAttack, UNIT4willAttack, UNIT5willAttack, UNIT6willAttack, UNIT7willAttack, UNIT8willAttack, UNIT9willAttack, UNIT10willAttack };
+        UNITeffect = new string[] {UNIT0effect, UNIT1effect, UNIT2effect, UNIT3effect, UNIT4effect, UNIT5effect, UNIT6effect, UNIT7effect, UNIT8effect, UNIT9effect, UNIT10effect };
+        UNITeffectModifier = new float[] {UNIT0effectModifier, UNIT1effectModifier, UNIT2effectModifier, UNIT3effectModifier, UNIT4effectModifier, UNIT5effectModifier, UNIT6effectModifier, UNIT7effectModifier, UNIT8effectModifier, UNIT9effectModifier, UNIT10effectModifier };
+        UNITattackDamage = new float[] {UNIT0attackDamage, UNIT1attackDamage, UNIT2attackDamage, UNIT3attackDamage, UNIT4attackDamage, UNIT5attackDamage, UNIT6attackDamage, UNIT7attackDamage, UNIT8attackDamage, UNIT9attackDamage, UNIT10attackDamage };
+        UNITattackRate = new float[] {UNIT0attackRate, UNIT1attackRate, UNIT2attackRate, UNIT3attackRate, UNIT4attackRate, UNIT5attackRate, UNIT6attackRate, UNIT7attackRate, UNIT8attackRate, UNIT9attackRate, UNIT10attackRate };
+
         //Mob Arrays
         ENEMYprefab = new GameObject[] { ENEMY0prefab, ENEMY1prefab, ENEMY2prefab, ENEMY3prefab, ENEMY4prefab, ENEMY5prefab, ENEMY6prefab, ENEMY7prefab, ENEMY8prefab, ENEMY9prefab, ENEMY10prefab, ENEMY11prefab, ENEMY12prefab, ENEMY13prefab, ENEMY14prefab, ENEMY15prefab, ENEMY16prefab, ENEMY17prefab, ENEMY18prefab, ENEMY19prefab, ENEMY20prefab, ENEMY21prefab, ENEMY22prefab, ENEMY23prefab, ENEMY24prefab, ENEMY25prefab, ENEMY26prefab, ENEMY27prefab, ENEMY28prefab, ENEMY29prefab, ENEMY30prefab };
         ENEMYprefab2 = new GameObject[] { ENEMY0prefab2, ENEMY1prefab2, ENEMY2prefab2, ENEMY3prefab2, ENEMY4prefab2, ENEMY5prefab2, ENEMY6prefab2, ENEMY7prefab2, ENEMY8prefab2, ENEMY9prefab2, ENEMY10prefab2, ENEMY11prefab2, ENEMY12prefab2, ENEMY13prefab2, ENEMY14prefab2, ENEMY15prefab2, ENEMY16prefab2, ENEMY17prefab2, ENEMY18prefab2, ENEMY19prefab2, ENEMY20prefab2, ENEMY21prefab2, ENEMY22prefab2, ENEMY23prefab2, ENEMY24prefab2, ENEMY25prefab2, ENEMY26prefab2, ENEMY27prefab2, ENEMY28prefab2, ENEMY29prefab2, ENEMY30prefab2 };

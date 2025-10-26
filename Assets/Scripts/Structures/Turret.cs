@@ -64,6 +64,12 @@ public class Turret : MonoBehaviour
     public float investmentRateBase = 0f;
     private StructureUIHandler UI;
     private string canHit = "None";
+    public bool isSapped = false;
+    public float nectar = 0f;
+    private float maxNectar = 0f;
+    private float nectarRate = 0f;
+    private float maxNectarBase = 0f;
+    private float nectarRateBase = 0f;
 
     private void Start()
     {
@@ -79,9 +85,7 @@ public class Turret : MonoBehaviour
         cost = GlobalValues.main.TOWERcost[index];
         targetingRange = GlobalValues.main.TOWERtargetingRange[index];
         rotationSpeed = GlobalValues.main.TOWERrotationSpeed[index];
-        damage = GlobalValues.main.TOWERdamage[index];
         armorPierce = GlobalValues.main.TOWERarmorPierce[index];
-        aps = GlobalValues.main.TOWERaps[index];
         hasTargetSettings = GlobalValues.main.TOWERhasTargetSettings[index];
         effect = GlobalValues.main.TOWEReffect[index];
         effectDuration = GlobalValues.main.TOWEReffectDuration[index];
@@ -89,12 +93,26 @@ public class Turret : MonoBehaviour
         efficiency = GlobalValues.main.TOWERefficiency[index];
         ignoreTerrain = GlobalValues.main.TOWERignoreTerrain[index];
         canHit = GlobalValues.main.TOWERcanHit[index];
-        apsBase = aps;
-        damageBase = damage;
         targetingRangeBase = targetingRange;
         effectDurationBase = effectDuration;
         effectRatioBase = effectRatio;
         efficiencyBase = efficiency;
+        if (((1 << gameObject.layer) & GlobalValues.main.incomeMask) != 0)
+        {
+            nectar = 0f;
+            maxNectar = GlobalValues.main.TOWERdamage[index];
+            maxNectarBase = maxNectar;
+            nectarRate = GlobalValues.main.TOWERaps[index];
+            nectarRateBase = nectarRate;
+        }
+        else
+        {
+            aps = GlobalValues.main.TOWERaps[index];
+            damage = GlobalValues.main.TOWERdamage[index];
+            apsBase = aps;
+            damageBase = damage;
+        }
+
         if ((GlobalValues.main.investmentMask & (1 << gameObject.layer)) != 0)
         {
             investmentRate = efficiency * GlobalValues.main.investmentMultiplier;
@@ -152,18 +170,30 @@ public class Turret : MonoBehaviour
                 return;
             }
 
+            if (ignoreTerrain == false && isTargetObstructed() == true)
+            {
+                target = null;
+            }
+
             RotateTowardsTarget();
         }
+        else if (((1 << gameObject.layer) & GlobalValues.main.incomeMask) != 0 && isSapped == false && nectar < maxNectar && LevelManager.main.levelStarted == true)
+        {
+            //create nectar
+            nectar += Time.deltaTime * LevelManager.main.timing * nectarRate;
+            if (nectar > maxNectar)
+            {
+                nectar = maxNectar;
+            }
+        }
+
         if (effect != "none" && timeUntilEffect <= 0f)
         {
-            Effect();
-        }
-        timeUntilEffect -= Time.deltaTime * LevelManager.main.timing;
-
-        
-        if (ignoreTerrain == false && isTargetObstructed() == true)
-        {
-            target = null;
+            if (timeUntilEffect <= 0f)
+            {
+                Effect();
+            }
+            timeUntilEffect -= Time.deltaTime * LevelManager.main.timing;
         }
     }
 
@@ -172,10 +202,14 @@ public class Turret : MonoBehaviour
         if (buff == true)
         {
             generationRate = generationRateBase;
+            nectarRate = nectarRateBase;
+            isSapped = false;
         }
         else
         {
+            nectarRate = 0f;
             generationRate = 0f;
+            isSapped = true;
         }
         if (flowerIndex == 0) //closed flower
         {
@@ -183,10 +217,12 @@ public class Turret : MonoBehaviour
             if (buff == true)
             {
                 generationRate = 0f;
+                nectarRate = 0f;
             }
             else
             {
                 generationRate = 0f;
+                nectarRate = 0f;
 
             }
         }
@@ -220,6 +256,7 @@ public class Turret : MonoBehaviour
             if (buff == true)
             {
                 generationRate = generationRate * flowerMultiplier;
+                nectarRate = nectarRate * flowerMultiplier;
             }
         }
         else if (flowerIndex == 4) //purple flower major income
@@ -227,17 +264,18 @@ public class Turret : MonoBehaviour
             if (buff == true)
             {
                 generationRate = generationRate * flowerMultiplier;
+                nectarRate = nectarRate * flowerMultiplier;
             }
         }
         else if (flowerIndex == 5) //gold flower bonus stored nectar
         {
             if (buff == true)
             {
-                honeyRate = generationRate * flowerMultiplier;
+                honeyRate = nectarRate * flowerMultiplier;
             }
             else
             {
-                honeyRate = generationRate / flowerMultiplier;
+                honeyRate = nectarRate / flowerMultiplier;
             }
         }
         else if (flowerIndex == 6) //red flower damage
@@ -422,10 +460,13 @@ public class Turret : MonoBehaviour
 
     private void RotateTowardsTarget()
     {
-        float angle = Mathf.Atan2(target.position.y - transform.position.y, target.position.x - transform.position.x) * Mathf.Rad2Deg - 90f;
+        if (target != null)
+        {
+            float angle = Mathf.Atan2(target.position.y - transform.position.y, target.position.x - transform.position.x) * Mathf.Rad2Deg - 90f;
 
-        Quaternion targetRotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
-        turretRotationPoint.rotation = Quaternion.RotateTowards(turretRotationPoint.rotation, targetRotation, rotationSpeed * Time.deltaTime * LevelManager.main.timing);
+            Quaternion targetRotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
+            turretRotationPoint.rotation = Quaternion.RotateTowards(turretRotationPoint.rotation, targetRotation, rotationSpeed * Time.deltaTime * LevelManager.main.timing);
+        }
     }
 
     private bool CheckTargetIsInRange()

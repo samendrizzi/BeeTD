@@ -258,7 +258,7 @@ RectTransform:
   m_Father: {fileID: 239279093}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -872,10 +872,10 @@ RectTransform:
   - {fileID: 835063136}
   m_Father: {fileID: 2106886720}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 0, y: -225}
+  m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &204131677
 MonoBehaviour:
@@ -1341,10 +1341,10 @@ RectTransform:
   - {fileID: 162386945}
   m_Father: {fileID: 2106886720}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 0, y: -75}
+  m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &318327563
 MonoBehaviour:
@@ -1588,10 +1588,10 @@ RectTransform:
   - {fileID: 1645774735}
   m_Father: {fileID: 2106886720}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 0, y: -25}
+  m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &444481702
 MonoBehaviour:
@@ -2116,6 +2116,7 @@ MonoBehaviour:
   rampRatio: 10
   rampCap: 10
   honeyHealRatio: 0.25
+  workerHealRatio: 0.25
   queenThornRatio: 0.5
   eggLayRatio: 1
   healAuraRatio: 1
@@ -2133,6 +2134,8 @@ MonoBehaviour:
   waveSpawnRatio: 0.5
   enemyWaypointDistance: 0.2
   enemyRotationSpeed: 150
+  unitWaypointDistance: 0.2
+  unitRotationSpeed: 150
   targetingOptions:
   - Near
   - Far
@@ -2199,6 +2202,193 @@ MonoBehaviour:
   yellowFlowerText: Pollen source that increases range
   yellowFlowerModifier: 1.5
   yellowFlowerRarity: 0.8
+  UNIT0prefab: {fileID: 5400552394083257877, guid: ee18f8343b138334589ffed6834256ab, type: 3}
+  UNIT0prefab2: {fileID: 0}
+  UNIT0name: Worker Bee
+  UNIT0hitPoints: 10
+  UNIT0armor: 0
+  UNIT0healthBar: 0
+  UNIT0cost: 50
+  UNIT0moveSpeed: 2
+  UNIT0willFly: 1
+  UNIT0carryCapacity: 20
+  UNIT0willStealNectar: 1
+  UNIT0willStealHoney: 0
+  UNIT0willAttack: 1
+  UNIT0effect: none
+  UNIT0effectModifier: 0
+  UNIT0attackDamage: 1
+  UNIT0attackRate: 1
+  UNIT1prefab: {fileID: 0}
+  UNIT1prefab2: {fileID: 0}
+  UNIT1name: Ant Egg
+  UNIT1hitPoints: 2
+  UNIT1armor: 20
+  UNIT1healthBar: 0
+  UNIT1cost: 0
+  UNIT1moveSpeed: 0
+  UNIT1willFly: 0
+  UNIT1carryCapacity: 0
+  UNIT1willStealNectar: 0
+  UNIT1willStealHoney: 0
+  UNIT1willAttack: 1
+  UNIT1effect: Hatch Ant
+  UNIT1effectModifier: 1
+  UNIT1attackDamage: 0
+  UNIT1attackRate: 1
+  UNIT2prefab: {fileID: 0}
+  UNIT2prefab2: {fileID: 0}
+  UNIT2name: Ant Queen
+  UNIT2hitPoints: 10
+  UNIT2armor: 20
+  UNIT2healthBar: 1
+  UNIT2cost: 0
+  UNIT2moveSpeed: 0.5
+  UNIT2willFly: 0
+  UNIT2carryCapacity: 50
+  UNIT2willStealNectar: 1
+  UNIT2willStealHoney: 0
+  UNIT2willAttack: 1
+  UNIT2effect: Lay Ant Eggs
+  UNIT2effectModifier: 2
+  UNIT2attackDamage: 2
+  UNIT2attackRate: 1
+  UNIT3prefab: {fileID: 0}
+  UNIT3prefab2: {fileID: 0}
+  UNIT3name: Fire Ant
+  UNIT3hitPoints: 2
+  UNIT3armor: 30
+  UNIT3healthBar: 0
+  UNIT3cost: 0
+  UNIT3moveSpeed: 2
+  UNIT3willFly: 0
+  UNIT3carryCapacity: 10
+  UNIT3willStealNectar: 0
+  UNIT3willStealHoney: 0
+  UNIT3willAttack: 1
+  UNIT3effect: none
+  UNIT3effectModifier: 0
+  UNIT3attackDamage: 1
+  UNIT3attackRate: 1
+  UNIT4prefab: {fileID: 0}
+  UNIT4prefab2: {fileID: 0}
+  UNIT4name: Beatle
+  UNIT4hitPoints: 20
+  UNIT4armor: 80
+  UNIT4healthBar: 1
+  UNIT4cost: 0
+  UNIT4moveSpeed: 0.5
+  UNIT4willFly: 0
+  UNIT4carryCapacity: 50
+  UNIT4willStealNectar: 1
+  UNIT4willStealHoney: 0
+  UNIT4willAttack: 1
+  UNIT4effect: none
+  UNIT4effectModifier: 0
+  UNIT4attackDamage: 5
+  UNIT4attackRate: 0.5
+  UNIT5prefab: {fileID: 0}
+  UNIT5prefab2: {fileID: 0}
+  UNIT5name: Catapillar
+  UNIT5hitPoints: 30
+  UNIT5armor: 60
+  UNIT5healthBar: 1
+  UNIT5cost: 0
+  UNIT5moveSpeed: 0.5
+  UNIT5willFly: 0
+  UNIT5carryCapacity: 50
+  UNIT5willStealNectar: 1
+  UNIT5willStealHoney: 0
+  UNIT5willAttack: 1
+  UNIT5effect: none
+  UNIT5effectModifier: 0
+  UNIT5attackDamage: 2
+  UNIT5attackRate: 1
+  UNIT6prefab: {fileID: 0}
+  UNIT6prefab2: {fileID: 0}
+  UNIT6name: Ladybug
+  UNIT6hitPoints: 10
+  UNIT6armor: 50
+  UNIT6healthBar: 1
+  UNIT6cost: 0
+  UNIT6moveSpeed: 0.5
+  UNIT6willFly: 0
+  UNIT6carryCapacity: 30
+  UNIT6willStealNectar: 1
+  UNIT6willStealHoney: 0
+  UNIT6willAttack: 1
+  UNIT6effect: Heal Aura
+  UNIT6effectModifier: 2
+  UNIT6attackDamage: 1
+  UNIT6attackRate: 1
+  UNIT7prefab: {fileID: 0}
+  UNIT7prefab2: {fileID: 0}
+  UNIT7name: Fly
+  UNIT7hitPoints: 2
+  UNIT7armor: 0
+  UNIT7healthBar: 0
+  UNIT7cost: 0
+  UNIT7moveSpeed: 2
+  UNIT7willFly: 1
+  UNIT7carryCapacity: 10
+  UNIT7willStealNectar: 1
+  UNIT7willStealHoney: 0
+  UNIT7willAttack: 1
+  UNIT7effect: none
+  UNIT7effectModifier: 0
+  UNIT7attackDamage: 0.5
+  UNIT7attackRate: 1
+  UNIT8prefab: {fileID: 0}
+  UNIT8prefab2: {fileID: 0}
+  UNIT8name: Wasp
+  UNIT8hitPoints: 5
+  UNIT8armor: 20
+  UNIT8healthBar: 0
+  UNIT8cost: 0
+  UNIT8moveSpeed: 1
+  UNIT8willFly: 1
+  UNIT8carryCapacity: 20
+  UNIT8willStealNectar: 0
+  UNIT8willStealHoney: 0
+  UNIT8willAttack: 1
+  UNIT8effect: none
+  UNIT8effectModifier: 0
+  UNIT8attackDamage: 1
+  UNIT8attackRate: 1
+  UNIT9prefab: {fileID: 0}
+  UNIT9prefab2: {fileID: 0}
+  UNIT9name: Wasp Egg
+  UNIT9hitPoints: 3
+  UNIT9armor: 40
+  UNIT9healthBar: 0
+  UNIT9cost: 0
+  UNIT9moveSpeed: 0
+  UNIT9willFly: 1
+  UNIT9carryCapacity: 0
+  UNIT9willStealNectar: 0
+  UNIT9willStealHoney: 0
+  UNIT9willAttack: 1
+  UNIT9effect: none
+  UNIT9effectModifier: 1
+  UNIT9attackDamage: 0
+  UNIT9attackRate: 1
+  UNIT10prefab: {fileID: 0}
+  UNIT10prefab2: {fileID: 0}
+  UNIT10name: Wasp Queen
+  UNIT10hitPoints: 20
+  UNIT10armor: 40
+  UNIT10healthBar: 1
+  UNIT10cost: 0
+  UNIT10moveSpeed: 0.5
+  UNIT10willFly: 1
+  UNIT10carryCapacity: 20
+  UNIT10willStealNectar: 0
+  UNIT10willStealHoney: 0
+  UNIT10willAttack: 1
+  UNIT10effect: Lay Wasp Eggs
+  UNIT10effectModifier: 2
+  UNIT10attackDamage: 2
+  UNIT10attackRate: 1
   ENEMY0prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
   ENEMY0prefab2: {fileID: 0}
   ENEMY0name: Ant
@@ -3255,17 +3445,17 @@ MonoBehaviour:
   TOWER16name: Nectar Gatherer
   TOWER16targetingRange: 3
   TOWER16rotationSpeed: 300
-  TOWER16damage: 0
+  TOWER16damage: 100
   TOWER16armorPierce: 0
-  TOWER16aps: 0
+  TOWER16aps: 3
   TOWER16effect: none
   TOWER16effectDuration: 0
   TOWER16effectRatio: 0
-  TOWER16upgradeIndex: 1100000012000000
-  TOWER16efficiency: 1
+  TOWER16upgradeIndex: 00000000
+  TOWER16efficiency: 0.1
   TOWER16hasTargetSettings: 0
   TOWER16ignoreTerrain: 0
-  TOWER16cost: 100
+  TOWER16cost: 25
   TOWER16canHit: None
   TOWER17prefab: {fileID: 7862540307379288715, guid: 21fcee2611e336847a22698a43deda82, type: 3}
   TOWER17enemyMask:
@@ -3581,6 +3771,23 @@ MonoBehaviour:
   FLOWERText: []
   FLOWERModifier: []
   FLOWERRarity: []
+  UNITprefab: []
+  UNITprefab2: []
+  UNITname: []
+  UNIThitPoints: []
+  UNITarmor: []
+  UNIThealthBar: 
+  UNITcost: []
+  UNITmoveSpeed: []
+  UNITwillFly: 
+  UNITcarryCapacity: 
+  UNITwillStealNectar: 
+  UNITwillStealHoney: 
+  UNITwillAttack: 
+  UNITeffect: []
+  UNITeffectModifier: []
+  UNITattackDamage: []
+  UNITattackRate: []
   ENEMYprefab: []
   ENEMYprefab2: []
   ENEMYname: []
@@ -5893,10 +6100,10 @@ RectTransform:
   - {fileID: 491665302}
   m_Father: {fileID: 2106886720}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 0, y: -175}
+  m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1048881535
 MonoBehaviour:
@@ -6367,10 +6574,10 @@ RectTransform:
   - {fileID: 205760198}
   m_Father: {fileID: 2106886720}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 0, y: -275}
+  m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1099717815
 MonoBehaviour:
@@ -7812,7 +8019,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1493610876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8542,10 +8749,10 @@ RectTransform:
   - {fileID: 1059710728}
   m_Father: {fileID: 2106886720}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 0, y: -125}
+  m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1697883566
 MonoBehaviour:
@@ -9447,7 +9654,7 @@ RectTransform:
   m_Father: {fileID: 1647674259}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -10170,10 +10377,10 @@ RectTransform:
   - {fileID: 1831056169}
   m_Father: {fileID: 2106886720}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 0, y: -325}
+  m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2141736749
 MonoBehaviour:

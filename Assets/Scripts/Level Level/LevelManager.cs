@@ -97,7 +97,7 @@ public class LevelManager : MonoBehaviour
     }
 
     public void CalculateIncome()
-    {      
+    {
         incomeRate = GlobalValues.main.basenectarGeneration;
         bonusInvestmentRate = 0f;
         GameObject[] root = UnityEngine.Object.FindObjectsOfType<GameObject>();
