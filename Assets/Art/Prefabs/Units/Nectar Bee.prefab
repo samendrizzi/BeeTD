@@ -117,7 +117,7 @@ GameObject:
   - component: {fileID: 4664417706638342079}
   - component: {fileID: 6165578376602024101}
   m_Layer: 29
-  m_Name: Worker Bee
+  m_Name: Nectar Bee
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

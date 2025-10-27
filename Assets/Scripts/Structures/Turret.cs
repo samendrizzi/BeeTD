@@ -117,7 +117,7 @@ public class Turret : MonoBehaviour
         {
             investmentRate = efficiency * GlobalValues.main.investmentMultiplier;
             investmentRateBase = investmentRate;
-            LevelManager.main.CalculateInvestment();
+            //LevelManager.main.CalculateInvestment();
         }
         else if ((GlobalValues.main.incomeMask & (1 << gameObject.layer)) != 0)
         {

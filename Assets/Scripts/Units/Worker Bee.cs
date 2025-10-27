@@ -47,6 +47,7 @@ public class WorkerBee : MonoBehaviour
     private float timeUntilEffect = 5f;
     private float waypointDistance;
     private float rotationSpeed;
+    public string work;
 
 
     public int onPath = 1;
@@ -89,8 +90,20 @@ public class WorkerBee : MonoBehaviour
 
         }
         //track bees
-        Array.Resize(ref LevelManager.main.workerBees, LevelManager.main.workerBees.Length + 1);
-        LevelManager.main.workerBees[LevelManager.main.workerBees.Length - 1] = gameObject;
+        if (index == 0)
+        {
+            work = "nectar";
+            Array.Resize(ref LevelManager.main.nectarBees, LevelManager.main.nectarBees.Length + 1);
+            LevelManager.main.nectarBees[LevelManager.main.nectarBees.Length - 1] = gameObject;
+        }
+        else
+        {
+            work = "honey";
+            Array.Resize(ref LevelManager.main.honeyBees, LevelManager.main.honeyBees.Length + 1);
+            LevelManager.main.honeyBees[LevelManager.main.honeyBees.Length - 1] = gameObject;
+            flower = LevelManager.main.honeyCombs[0];
+            target = flower.transform;
+        }
         LevelManager.main.OrganizeBees();
     }
 
@@ -122,18 +135,33 @@ public class WorkerBee : MonoBehaviour
 
         if (Vector2.Distance(target.position, transform.position) <= waypointDistance && isAttacking == false && frozen == false)
         {
-            if (inventoryFull == true && target == queenBee.transform)
+            if (work == "nectar")
             {
-                DepositNectar();
-                return;
+                if (inventoryFull == true && target == queenBee.transform)
+                {
+                    DepositNectar();
+                    return;
+                }
+                else if (inventoryFull == false && target == flower.transform)
+                {
+                    CollectNectar(flower);
+                }
+                else
+                {
+                    Debug.Log("Worker Bee done be confused where to go.");
+                }
             }
-            else if (inventoryFull == false && target == flower.transform)
+            else if (work == "honey")
             {
-                CollectNectar(flower);
-            }
-            else
-            {
-                Debug.Log("Worker Bee done be confused where to go.");
+                if (timeUntilEffect <= 0)
+                {
+                    timeUntilEffect = 1f;
+                    LevelManager.main.IncreaseHoney(effectModifier);
+                }
+                else
+                {
+                    timeUntilEffect -= Time.deltaTime;
+                }
             }
         }
 

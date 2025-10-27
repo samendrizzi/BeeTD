@@ -40,7 +40,9 @@ public class LevelManager : MonoBehaviour
     public float timing = 1f;
     public float honeyGeneratedRatio = 0f;
     public GameObject[] discoveredFlowers = new GameObject[] { };
-    public GameObject[] workerBees = new GameObject[] { };
+    public GameObject[] honeyCombs = new GameObject[] { };
+    public GameObject[] nectarBees = new GameObject[] { };
+    public GameObject[] honeyBees = new GameObject[] { };
 
     public float nectar;
 
@@ -64,7 +66,18 @@ public class LevelManager : MonoBehaviour
         investmentMask = GlobalValues.main.investmentMask;
         incomeMask = GlobalValues.main.incomeMask;
         CalculateIncome();
-        CalculateInvestment();
+        //CalculateInvestment();
+        UIManager.main.NormalSpeed();
+        GameObject[] root = UnityEngine.Object.FindObjectsOfType<GameObject>();
+        foreach (GameObject obj in root)
+        {
+            if ((investmentMask | (1 << obj.layer)) == investmentMask)
+            {
+                Array.Resize(ref honeyCombs, honeyCombs.Length + 1);
+                honeyCombs[honeyCombs.Length - 1] = obj;
+            }
+        }
+        honeyCombs = honeyCombs.OrderBy(point => Vector2.Distance(queenBee.transform.position, point.transform.position)).ToArray();
     }
 
     public void IncreaseNectar(float amount)
@@ -86,18 +99,23 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    public void CalculateInvestment()
+    public void IncreaseHoney(float amount)
     {
-        investmentRate = 0f;
-        GameObject[] root = UnityEngine.Object.FindObjectsOfType<GameObject>();
-        foreach (GameObject obj in root)
-        {
-            if ((investmentMask | (1 << obj.layer)) == investmentMask && obj.GetComponent<Turret>().isDestroyed == false)
-            {
-                investmentRate += obj.GetComponent<Turret>().investmentRate;
-            }
-        }
+        honey += amount;
     }
+
+    //public void CalculateInvestment()
+    //{
+        //investmentRate = 0f;
+        //GameObject[] root = UnityEngine.Object.FindObjectsOfType<GameObject>();
+        //foreach (GameObject obj in root)
+        //{
+            //if ((investmentMask | (1 << obj.layer)) == investmentMask && obj.GetComponent<Turret>().isDestroyed == false)
+            //{
+                //investmentRate += obj.GetComponent<Turret>().investmentRate;
+            //}
+        //}
+    //}
 
     public void CalculateIncome()
     {
@@ -274,43 +292,67 @@ public class LevelManager : MonoBehaviour
 
     public void OrganizeBees()
     {
-        int numberOfBees = workerBees.Length;
-        if (numberOfBees > 0)
+        OrganizeNectarBees();
+        OrganizeHoneyBees();
+    }
+
+    private void OrganizeNectarBees()
+    {
+        int numberOfNectarBees = nectarBees.Length;
+
+        if (numberOfNectarBees > 0)
         {
-            WorkerBee Bee = workerBees[0].GetComponent<WorkerBee>();
+            WorkerBee Bee = nectarBees[0].GetComponent<WorkerBee>();
             float beeMoveSpeed = Bee.baseSpeed;
             float beeCarryCapacity = Bee.carryCapacity;
             float beeGatherRate = Bee.effectModifier;
             float beeTimeToGather = beeCarryCapacity / beeGatherRate;
-            //int numberOfFlowers = discoveredFlowers.Length;
             discoveredFlowers = discoveredFlowers.OrderBy(point => Vector2.Distance(queenBee.transform.position, point.transform.position)).ToArray();
             int assignedBees = 0;
             foreach (GameObject obj in discoveredFlowers)
             {
-                int maxNumberOfBees = Mathf.FloorToInt((Vector2.Distance(obj.transform.position, queenBee.transform.position) * (2) / beeMoveSpeed + beeTimeToGather) / beeTimeToGather);
-                for (int i = 0; i < maxNumberOfBees; i++)
+                int maxnumberOfNectarBees = Mathf.FloorToInt((Vector2.Distance(obj.transform.position, queenBee.transform.position) * (2) / beeMoveSpeed + beeTimeToGather) / beeTimeToGather);
+                for (int i = 0; i < maxnumberOfNectarBees; i++)
                 {
-                    if (assignedBees >= numberOfBees)
+                    if (assignedBees >= numberOfNectarBees)
                     {
                         return;
                     }
-                    AssignBee(workerBees[assignedBees], obj);
+                    AssignBee(nectarBees[assignedBees], obj);
                     assignedBees++;
                 }
-                if (assignedBees >= numberOfBees)
+                if (assignedBees >= numberOfNectarBees)
                 {
                     return;
                 }
             }
             int y = 0;
-            while (assignedBees < numberOfBees)
+            while (assignedBees < numberOfNectarBees)
             {
-                AssignBee(workerBees[assignedBees], discoveredFlowers[y]);
+                AssignBee(nectarBees[assignedBees], discoveredFlowers[y]);
                 assignedBees++;
                 y++;
                 if (y >= discoveredFlowers.Length)
                 {
                     y = 0;
+                }
+            }
+        }
+    }
+
+    private void OrganizeHoneyBees()
+    {
+        int numberOfHoneyBees = honeyBees.Length;
+        if (numberOfHoneyBees > 0)
+        {
+            int assignedHoneyBees = 0;
+            foreach (GameObject obj in honeyCombs)
+            {
+                AssignBee(honeyBees[assignedHoneyBees], obj);
+                assignedHoneyBees++;
+                if (assignedHoneyBees >= numberOfHoneyBees)
+                {
+                    return;
                 }
             }
         }
@@ -337,7 +379,7 @@ public class LevelManager : MonoBehaviour
         if (nectar >= cost)
         {
             nectar -= cost;
-            GameObject prefabToSpawn = GlobalValues.main.UNITprefab[i]; ;
+            GameObject prefabToSpawn = GlobalValues.main.UNITprefab[i];
             Transform start = queenBee.transform;
             Transform nextPoint = gameObject.transform;
             float angle = Mathf.Atan2(nextPoint.position.y - start.position.y, nextPoint.position.x - start.position.x) * Mathf.Rad2Deg - 90f;
