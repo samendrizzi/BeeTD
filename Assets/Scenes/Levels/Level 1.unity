@@ -2138,7 +2138,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9156115538744241620, guid: c9e340c175dd9fa4abd52a8e27e15f61, type: 3}
       propertyPath: m_Name
-      value: Honey Comb (3)
+      value: Honey Comb (10)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3902,7 +3902,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9156115538744241620, guid: c9e340c175dd9fa4abd52a8e27e15f61, type: 3}
       propertyPath: m_Name
-      value: Honey Comb (8)
+      value: Honey Comb (15)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10531,7 +10531,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9156115538744241620, guid: c9e340c175dd9fa4abd52a8e27e15f61, type: 3}
       propertyPath: m_Name
-      value: Honey Comb (6)
+      value: Honey Comb (16)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11111,7 +11111,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9156115538744241620, guid: c9e340c175dd9fa4abd52a8e27e15f61, type: 3}
       propertyPath: m_Name
-      value: Honey Comb (9)
+      value: Honey Comb (13)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11839,7 +11839,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9156115538744241620, guid: c9e340c175dd9fa4abd52a8e27e15f61, type: 3}
       propertyPath: m_Name
-      value: Honey Comb (19)
+      value: Honey Comb (18)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12049,7 +12049,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9156115538744241620, guid: c9e340c175dd9fa4abd52a8e27e15f61, type: 3}
       propertyPath: m_Name
-      value: Honey Comb (5)
+      value: Honey Comb (12)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13770,7 +13770,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9156115538744241620, guid: c9e340c175dd9fa4abd52a8e27e15f61, type: 3}
       propertyPath: m_Name
-      value: Honey Comb (7)
+      value: Honey Comb (17)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15951,7 +15951,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9156115538744241620, guid: c9e340c175dd9fa4abd52a8e27e15f61, type: 3}
       propertyPath: m_Name
-      value: Honey Comb (12)
+      value: Honey Comb (5)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -21465,7 +21465,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9156115538744241620, guid: c9e340c175dd9fa4abd52a8e27e15f61, type: 3}
       propertyPath: m_Name
-      value: Honey Comb (13)
+      value: Honey Comb (4)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -22045,7 +22045,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9156115538744241620, guid: c9e340c175dd9fa4abd52a8e27e15f61, type: 3}
       propertyPath: m_Name
-      value: Honey Comb (4)
+      value: Honey Comb (11)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -22403,7 +22403,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9156115538744241620, guid: c9e340c175dd9fa4abd52a8e27e15f61, type: 3}
       propertyPath: m_Name
-      value: Honey Comb
+      value: Honey Comb (9)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -23279,7 +23279,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9156115538744241620, guid: c9e340c175dd9fa4abd52a8e27e15f61, type: 3}
       propertyPath: m_Name
-      value: Honey Comb (10)
+      value: Honey Comb (14)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -26468,7 +26468,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9156115538744241620, guid: c9e340c175dd9fa4abd52a8e27e15f61, type: 3}
       propertyPath: m_Name
-      value: Honey Comb (14)
+      value: Honey Comb (3)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -28652,7 +28652,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9156115538744241620, guid: c9e340c175dd9fa4abd52a8e27e15f61, type: 3}
       propertyPath: m_Name
-      value: Honey Comb (1)
+      value: Honey Comb (7)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -28788,7 +28788,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9156115538744241620, guid: c9e340c175dd9fa4abd52a8e27e15f61, type: 3}
       propertyPath: m_Name
-      value: Honey Comb (2)
+      value: Honey Comb (8)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -30556,7 +30556,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9156115538744241620, guid: c9e340c175dd9fa4abd52a8e27e15f61, type: 3}
       propertyPath: m_Name
-      value: Honey Comb (16)
+      value: Honey Comb (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -33409,7 +33409,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9156115538744241620, guid: c9e340c175dd9fa4abd52a8e27e15f61, type: 3}
       propertyPath: m_Name
-      value: Honey Comb (15)
+      value: Honey Comb (2)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -37079,58 +37079,70 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 490234949}
     m_Modifications:
-    - target: {fileID: 7945665055211121443, guid: c9e340c175dd9fa4abd52a8e27e15f61, type: 3}
+    - target: {fileID: 7945665055211121443, guid: 79f1de25f0ba24e43999a8c51fdfad1f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.325
+      objectReference: {fileID: 0}
+    - target: {fileID: 7945665055211121443, guid: 79f1de25f0ba24e43999a8c51fdfad1f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.325
+      objectReference: {fileID: 0}
+    - target: {fileID: 7945665055211121443, guid: 79f1de25f0ba24e43999a8c51fdfad1f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7945665055211121443, guid: 79f1de25f0ba24e43999a8c51fdfad1f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6
       objectReference: {fileID: 0}
-    - target: {fileID: 7945665055211121443, guid: c9e340c175dd9fa4abd52a8e27e15f61, type: 3}
+    - target: {fileID: 7945665055211121443, guid: 79f1de25f0ba24e43999a8c51fdfad1f, type: 3}
       propertyPath: m_LocalPosition.y
       value: 9.526
       objectReference: {fileID: 0}
-    - target: {fileID: 7945665055211121443, guid: c9e340c175dd9fa4abd52a8e27e15f61, type: 3}
+    - target: {fileID: 7945665055211121443, guid: 79f1de25f0ba24e43999a8c51fdfad1f, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7945665055211121443, guid: c9e340c175dd9fa4abd52a8e27e15f61, type: 3}
+    - target: {fileID: 7945665055211121443, guid: 79f1de25f0ba24e43999a8c51fdfad1f, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7945665055211121443, guid: c9e340c175dd9fa4abd52a8e27e15f61, type: 3}
+    - target: {fileID: 7945665055211121443, guid: 79f1de25f0ba24e43999a8c51fdfad1f, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7945665055211121443, guid: c9e340c175dd9fa4abd52a8e27e15f61, type: 3}
+    - target: {fileID: 7945665055211121443, guid: 79f1de25f0ba24e43999a8c51fdfad1f, type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7945665055211121443, guid: c9e340c175dd9fa4abd52a8e27e15f61, type: 3}
+    - target: {fileID: 7945665055211121443, guid: 79f1de25f0ba24e43999a8c51fdfad1f, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7945665055211121443, guid: c9e340c175dd9fa4abd52a8e27e15f61, type: 3}
+    - target: {fileID: 7945665055211121443, guid: 79f1de25f0ba24e43999a8c51fdfad1f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7945665055211121443, guid: c9e340c175dd9fa4abd52a8e27e15f61, type: 3}
+    - target: {fileID: 7945665055211121443, guid: 79f1de25f0ba24e43999a8c51fdfad1f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7945665055211121443, guid: c9e340c175dd9fa4abd52a8e27e15f61, type: 3}
+    - target: {fileID: 7945665055211121443, guid: 79f1de25f0ba24e43999a8c51fdfad1f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9156115538744241620, guid: c9e340c175dd9fa4abd52a8e27e15f61, type: 3}
+    - target: {fileID: 9156115538744241620, guid: 79f1de25f0ba24e43999a8c51fdfad1f, type: 3}
       propertyPath: m_Name
-      value: Honey Comb (17)
+      value: Hive Plot
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: c9e340c175dd9fa4abd52a8e27e15f61, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 79f1de25f0ba24e43999a8c51fdfad1f, type: 3}
 --- !u!4 &1969415981 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 7945665055211121443, guid: c9e340c175dd9fa4abd52a8e27e15f61, type: 3}
+  m_CorrespondingSourceObject: {fileID: 7945665055211121443, guid: 79f1de25f0ba24e43999a8c51fdfad1f, type: 3}
   m_PrefabInstance: {fileID: 1969415980}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1977241572
@@ -37363,70 +37375,58 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 490234949}
     m_Modifications:
-    - target: {fileID: 7945665055211121443, guid: 79f1de25f0ba24e43999a8c51fdfad1f, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.325
-      objectReference: {fileID: 0}
-    - target: {fileID: 7945665055211121443, guid: 79f1de25f0ba24e43999a8c51fdfad1f, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.325
-      objectReference: {fileID: 0}
-    - target: {fileID: 7945665055211121443, guid: 79f1de25f0ba24e43999a8c51fdfad1f, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7945665055211121443, guid: 79f1de25f0ba24e43999a8c51fdfad1f, type: 3}
+    - target: {fileID: 7945665055211121443, guid: c9e340c175dd9fa4abd52a8e27e15f61, type: 3}
       propertyPath: m_LocalPosition.x
       value: -9.75
       objectReference: {fileID: 0}
-    - target: {fileID: 7945665055211121443, guid: 79f1de25f0ba24e43999a8c51fdfad1f, type: 3}
+    - target: {fileID: 7945665055211121443, guid: c9e340c175dd9fa4abd52a8e27e15f61, type: 3}
       propertyPath: m_LocalPosition.y
       value: 4.763
       objectReference: {fileID: 0}
-    - target: {fileID: 7945665055211121443, guid: 79f1de25f0ba24e43999a8c51fdfad1f, type: 3}
+    - target: {fileID: 7945665055211121443, guid: c9e340c175dd9fa4abd52a8e27e15f61, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7945665055211121443, guid: 79f1de25f0ba24e43999a8c51fdfad1f, type: 3}
+    - target: {fileID: 7945665055211121443, guid: c9e340c175dd9fa4abd52a8e27e15f61, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7945665055211121443, guid: 79f1de25f0ba24e43999a8c51fdfad1f, type: 3}
+    - target: {fileID: 7945665055211121443, guid: c9e340c175dd9fa4abd52a8e27e15f61, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7945665055211121443, guid: 79f1de25f0ba24e43999a8c51fdfad1f, type: 3}
+    - target: {fileID: 7945665055211121443, guid: c9e340c175dd9fa4abd52a8e27e15f61, type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7945665055211121443, guid: 79f1de25f0ba24e43999a8c51fdfad1f, type: 3}
+    - target: {fileID: 7945665055211121443, guid: c9e340c175dd9fa4abd52a8e27e15f61, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7945665055211121443, guid: 79f1de25f0ba24e43999a8c51fdfad1f, type: 3}
+    - target: {fileID: 7945665055211121443, guid: c9e340c175dd9fa4abd52a8e27e15f61, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7945665055211121443, guid: 79f1de25f0ba24e43999a8c51fdfad1f, type: 3}
+    - target: {fileID: 7945665055211121443, guid: c9e340c175dd9fa4abd52a8e27e15f61, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7945665055211121443, guid: 79f1de25f0ba24e43999a8c51fdfad1f, type: 3}
+    - target: {fileID: 7945665055211121443, guid: c9e340c175dd9fa4abd52a8e27e15f61, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9156115538744241620, guid: 79f1de25f0ba24e43999a8c51fdfad1f, type: 3}
+    - target: {fileID: 9156115538744241620, guid: c9e340c175dd9fa4abd52a8e27e15f61, type: 3}
       propertyPath: m_Name
-      value: Hive Plot
+      value: Honey Comb (19)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 79f1de25f0ba24e43999a8c51fdfad1f, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: c9e340c175dd9fa4abd52a8e27e15f61, type: 3}
 --- !u!4 &1991829799 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 7945665055211121443, guid: 79f1de25f0ba24e43999a8c51fdfad1f, type: 3}
+  m_CorrespondingSourceObject: {fileID: 7945665055211121443, guid: c9e340c175dd9fa4abd52a8e27e15f61, type: 3}
   m_PrefabInstance: {fileID: 1991829798}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1994508533
@@ -38074,7 +38074,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9156115538744241620, guid: c9e340c175dd9fa4abd52a8e27e15f61, type: 3}
       propertyPath: m_Name
-      value: Honey Comb (11)
+      value: Honey Comb (6)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -40153,7 +40153,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9156115538744241620, guid: c9e340c175dd9fa4abd52a8e27e15f61, type: 3}
       propertyPath: m_Name
-      value: Honey Comb (18)
+      value: Honey Comb
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

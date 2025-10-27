@@ -3457,7 +3457,7 @@ MonoBehaviour:
   BOSS10attackDamage: 1
   BOSS10attackRate: 1
   buildable: 0000000001000000060000000b000000
-  buildableHive: 0000000015000000
+  buildableHive: 0000000001000000060000000b000000
   buildableFlower: 
   TOWER0prefab: {fileID: 7862540307379288715, guid: d9fd7239e24496547817566e0fea8547, type: 3}
   TOWER0enemyMask:

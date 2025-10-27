@@ -362,6 +362,7 @@ public class LevelManager : MonoBehaviour
     {
         Array.Resize(ref discoveredFlowers, discoveredFlowers.Length + 1);
         discoveredFlowers[discoveredFlowers.Length - 1] = flower;
+        OrganizeNectarBees();
     }
 
     public void AssignBee(GameObject b, GameObject f)
