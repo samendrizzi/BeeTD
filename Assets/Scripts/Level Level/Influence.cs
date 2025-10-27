@@ -9,8 +9,8 @@ public class Influence : MonoBehaviour
     public static Influence main;
 
     public LineRenderer circleRenderer;
-    public float startRadius = 5f;
-    public float endRadius = 5f;
+    public float startRadius = 50f;
+    public float endRadius = 50f;
     public float currentRadius;
     private float xPos;
     private float yPos;
@@ -36,7 +36,7 @@ public class Influence : MonoBehaviour
 
     public void Update()
     {
-        currentRadius = startRadius + LevelManager.main.honeyGeneratedRatio * (endRadius - startRadius) / GlobalValues.main.influenceModifier;
+        currentRadius = startRadius * 100 + LevelManager.main.honeyGeneratedRatio * (endRadius - startRadius) / GlobalValues.main.influenceModifier;
         DrawCircle(currentRadius);
     }
 

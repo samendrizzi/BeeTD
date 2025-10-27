@@ -253,7 +253,7 @@ public class WaveSpawner : MonoBehaviour
     {
          if (finalWave == false)
          {
-             waveCountdown -= Time.deltaTime * LevelManager.main.timing;
+             waveCountdown -= Time.deltaTime;
              if (waveCountdown <= 0)
              {
                  EndWave();
@@ -268,8 +268,8 @@ public class WaveSpawner : MonoBehaviour
          {
              return;
          }
-         timeSinceLastSpawnPath1 += Time.deltaTime * LevelManager.main.timing;
-         timeSinceLastSpawnPath2 += Time.deltaTime * LevelManager.main.timing;
+         timeSinceLastSpawnPath1 += Time.deltaTime;
+         timeSinceLastSpawnPath2 += Time.deltaTime;
 
          if (timeSinceLastSpawnPath1 >= (1f / enemiesPerSecondPath1) && enemiesLeftToSpawnPath1 > 0)
          {

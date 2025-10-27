@@ -126,7 +126,7 @@ public class Enemy : MonoBehaviour
             rb.velocity = direction * moveSpeed * LevelManager.main.timing;
             float angle = Mathf.Atan2(target.position.y - transform.position.y, target.position.x - transform.position.x) * Mathf.Rad2Deg - 90f;
             Quaternion targetRotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * moveSpeed * Time.deltaTime * LevelManager.main.timing);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * moveSpeed * Time.deltaTime);
         }
         if (isAttacking == true)
         {
@@ -181,7 +181,7 @@ public class Enemy : MonoBehaviour
 
         if (isAttacking == true && frozen == false)
         {
-            timeUntilAttack += Time.deltaTime * LevelManager.main.timing;
+            timeUntilAttack += Time.deltaTime;
 
             if (timeUntilAttack >= 1f / attackRate)
             {
@@ -190,7 +190,7 @@ public class Enemy : MonoBehaviour
         }
         if (effect != "none")
         {
-            timeUntilEffect -= Time.deltaTime * LevelManager.main.timing;
+            timeUntilEffect -= Time.deltaTime;
             if (timeUntilEffect <= 0)
             {
                 ActivateEffect();

@@ -342,7 +342,7 @@ public class StructureUIHandler : MonoBehaviour, IPointerEnterHandler, IPointerE
         gameObject.GetComponent<Turret>().generationRate = 0f;
         gameObject.GetComponent<Turret>().honeyRate = 0f;
         gameObject.GetComponent<Turret>().investmentRate = 0f;
-        LevelManager.main.CalculateInvestment();
+        //LevelManager.main.CalculateInvestment();
         LevelManager.main.CalculateIncome();
         Destroy(gameObject);
     }

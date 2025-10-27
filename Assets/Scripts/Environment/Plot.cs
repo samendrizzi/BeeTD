@@ -53,7 +53,7 @@ public class Plot : MonoBehaviour
             {
                 fog = false;
                 sr.sprite = originalSprite;
-                //Found();
+                Found();
             }
             else
             {
@@ -132,6 +132,10 @@ public class Plot : MonoBehaviour
         sr.sprite = originalSprite;
         sr.color = originalColor;
         startColor = originalColor;
+        if (fog == true && (((1 << gameObject.layer) & GlobalValues.main.flowerMask) != 0))
+        {
+            LevelManager.main.FoundFlower(gameObject);
+        }
         fog = false;
     }
 

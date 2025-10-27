@@ -23,6 +23,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] public Slider queenHealthBar;
     [SerializeField] public Slider honeyRequiredBar;
     [SerializeField] public TextMeshProUGUI queenHealthNumbered;
+    [SerializeField] public TextMeshProUGUI buyUnit1;
+    [SerializeField] public TextMeshProUGUI buyUnit2;
     public string speed = "Normal";
     public bool pause = false;
     private Color normalColor = Color.white;
@@ -44,6 +46,9 @@ public class UIManager : MonoBehaviour
         honeyRequiredBar.maxValue = LevelManager.main.honeyRequired;
         //Set Speed
         NormalSpeed();
+        //Add text to buttons
+        buyUnit1.text = GlobalValues.main.UNITname[0] + ": " + GlobalValues.main.UNITcost[0] + "n";
+        buyUnit2.text = GlobalValues.main.UNITname[1] + ": " + GlobalValues.main.UNITcost[1] + "n";
     }
 
     private void Update()
@@ -144,6 +149,11 @@ public class UIManager : MonoBehaviour
         fastSpeedButton.GetComponent<Image>().color = normalColor;
         veryFastSpeedButton.GetComponent<Image>().color = pressedColor;
         WaveUpdate();
+    }
+
+    public void BuyUnit(int i)
+    {
+        LevelManager.main.BuyUnit(i);
     }
 }
 
