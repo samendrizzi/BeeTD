@@ -2216,7 +2216,7 @@ MonoBehaviour:
   UNIT0willStealHoney: 0
   UNIT0willAttack: 1
   UNIT0effect: none
-  UNIT0effectModifier: 0
+  UNIT0effectModifier: 3
   UNIT0attackDamage: 1
   UNIT0attackRate: 1
   UNIT1prefab: {fileID: 0}

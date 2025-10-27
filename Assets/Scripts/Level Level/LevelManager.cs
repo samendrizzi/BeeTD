@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.SceneManagement;
+using System.Linq;
 
 public class LevelManager : MonoBehaviour
 {
@@ -38,6 +39,8 @@ public class LevelManager : MonoBehaviour
     public bool pause = false;
     public float timing = 1f;
     public float honeyGeneratedRatio = 0f;
+    public GameObject[] discoveredFlowers = new GameObject[] { };
+    public GameObject[] workerBees = new GameObject[] { };
 
     public float nectar;
 
@@ -115,12 +118,12 @@ public class LevelManager : MonoBehaviour
     {
         if (finalWave == false && levelStarted == true)
         {
-            honey += (bonusInvestmentRate + investmentRate) * Time.deltaTime * LevelManager.main.timing;
-            nectar += (incomeRate) * Time.deltaTime * LevelManager.main.timing;
+            honey += (bonusInvestmentRate + investmentRate) * Time.deltaTime;
+            nectar += (incomeRate) * Time.deltaTime;
         }
         else if (levelStarted == true)
         {
-            nectar += (incomeRate) * Time.deltaTime * LevelManager.main.timing;
+            nectar += (incomeRate) * Time.deltaTime;
         }
         honeyGeneratedRatio = honey / honeyRequired;
     }
@@ -148,6 +151,7 @@ public class LevelManager : MonoBehaviour
         numberOfOpenedFlowers = 0f;
         flowers = new GameObject[] { };
         flowersToBloom = new GameObject[] { };
+        discoveredFlowers = new GameObject[] { };
         GameObject[] root = UnityEngine.Object.FindObjectsOfType<GameObject>();
         foreach (GameObject obj in root)
         {
@@ -155,6 +159,11 @@ public class LevelManager : MonoBehaviour
             {
                 Array.Resize(ref flowers, flowers.Length + 1);
                 flowers[flowers.Length - 1] = obj;
+                //track discovered flowers
+                if (obj.GetComponent<Plot>().fog == false)
+                {
+                    FoundFlower(obj);
+                }
                 if (obj.GetComponent<Identify>().ID == 0)
                 {
                     numberOfClosedFlowers++;
@@ -259,6 +268,81 @@ public class LevelManager : MonoBehaviour
         else if (speed == "Very Fast")
         {
             timing = GlobalValues.main.veryFastTiming;
+        }
+        Time.timeScale = timing;
+    }
+
+    public void OrganizeBees()
+    {
+        int numberOfBees = workerBees.Length;
+        if (numberOfBees > 0)
+        {
+            WorkerBee Bee = workerBees[0].GetComponent<WorkerBee>();
+            float beeMoveSpeed = Bee.baseSpeed;
+            float beeCarryCapacity = Bee.carryCapacity;
+            float beeGatherRate = Bee.effectModifier;
+            float beeTimeToGather = beeCarryCapacity / beeGatherRate;
+            //int numberOfFlowers = discoveredFlowers.Length;
+            discoveredFlowers = discoveredFlowers.OrderBy(point => Vector2.Distance(queenBee.transform.position, point.transform.position)).ToArray();
+            int assignedBees = 0;
+            foreach (GameObject obj in discoveredFlowers)
+            {
+                int maxNumberOfBees = Mathf.FloorToInt((Vector2.Distance(obj.transform.position, queenBee.transform.position) * (2) / beeMoveSpeed + beeTimeToGather) / beeTimeToGather);
+                for (int i = 0; i < maxNumberOfBees; i++)
+                {
+                    if (assignedBees >= numberOfBees)
+                    {
+                        return;
+                    }
+                    AssignBee(workerBees[assignedBees], obj);
+                    assignedBees++;
+                }
+                if (assignedBees >= numberOfBees)
+                {
+                    return;
+                }
+            }
+            int y = 0;
+            while (assignedBees < numberOfBees)
+            {
+                AssignBee(workerBees[assignedBees], discoveredFlowers[y]);
+                assignedBees++;
+                y++;
+                if (y >= discoveredFlowers.Length)
+                {
+                    y = 0;
+                }
+            }
+        }
+    }
+
+    public void FoundFlower(GameObject flower)
+    {
+        Array.Resize(ref discoveredFlowers, discoveredFlowers.Length + 1);
+        discoveredFlowers[discoveredFlowers.Length - 1] = flower;
+    }
+
+    public void AssignBee(GameObject b, GameObject f)
+    {
+        WorkerBee Bee = b.GetComponent<WorkerBee>();
+        Bee.flower = f;
+        if (Bee.target != queenBee.transform)
+        {
+            Bee.target = f.transform;
+        }
+    }
+    public void BuyUnit(int i)
+    {
+        float cost = GlobalValues.main.UNITcost[i];
+        if (nectar >= cost)
+        {
+            nectar -= cost;
+            GameObject prefabToSpawn = GlobalValues.main.UNITprefab[i]; ;
+            Transform start = queenBee.transform;
+            Transform nextPoint = gameObject.transform;
+            float angle = Mathf.Atan2(nextPoint.position.y - start.position.y, nextPoint.position.x - start.position.x) * Mathf.Rad2Deg - 90f;
+            Quaternion unitRotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
+            GameObject unit = Instantiate(prefabToSpawn, start.position, unitRotation);
         }
     }
 }

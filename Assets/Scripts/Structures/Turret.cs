@@ -155,7 +155,7 @@ public class Turret : MonoBehaviour
             }
             else if (target != null)
             {
-                timeUntilFire += Time.deltaTime * LevelManager.main.timing;
+                timeUntilFire += Time.deltaTime;
 
                 if (timeUntilFire >= 1f / aps)
                 {
@@ -180,7 +180,7 @@ public class Turret : MonoBehaviour
         else if (((1 << gameObject.layer) & GlobalValues.main.incomeMask) != 0 && isSapped == false && nectar < maxNectar && LevelManager.main.levelStarted == true)
         {
             //create nectar
-            nectar += Time.deltaTime * LevelManager.main.timing * nectarRate;
+            nectar += Time.deltaTime * nectarRate;
             if (nectar > maxNectar)
             {
                 nectar = maxNectar;
@@ -193,7 +193,7 @@ public class Turret : MonoBehaviour
             {
                 Effect();
             }
-            timeUntilEffect -= Time.deltaTime * LevelManager.main.timing;
+            timeUntilEffect -= Time.deltaTime;
         }
     }
 
@@ -465,7 +465,7 @@ public class Turret : MonoBehaviour
             float angle = Mathf.Atan2(target.position.y - transform.position.y, target.position.x - transform.position.x) * Mathf.Rad2Deg - 90f;
 
             Quaternion targetRotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
-            turretRotationPoint.rotation = Quaternion.RotateTowards(turretRotationPoint.rotation, targetRotation, rotationSpeed * Time.deltaTime * LevelManager.main.timing);
+            turretRotationPoint.rotation = Quaternion.RotateTowards(turretRotationPoint.rotation, targetRotation, rotationSpeed * Time.deltaTime);
         }
     }
 

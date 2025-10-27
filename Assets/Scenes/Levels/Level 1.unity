@@ -1859,7 +1859,7 @@ MonoBehaviour:
   queenBee: {fileID: 1873209414}
   queenBeeHP: 100
   queenBeeMaxHP: 100
-  honey: 0
+  honey: 500
   honeyRequired: 500
   percentageOfFlowersUsed: 1
   influenceCenter: {fileID: 963130572}
@@ -1994,6 +1994,8 @@ MonoBehaviour:
   pause: 0
   timing: 1
   honeyGeneratedRatio: 0
+  discoveredFlowers: []
+  workerBees: []
   nectar: 500
 --- !u!4 &68999845
 Transform:
@@ -8214,10 +8216,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 490234949}
     m_Modifications:
-    - target: {fileID: 8767738084471890597, guid: 6b7580f4db5746441a4179d3b26bc29d, type: 3}
-      propertyPath: hasBloomed
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7945665055211121443, guid: 206ffbb8fdc1047409e2a6c6e2fda7ec, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.325
@@ -8277,6 +8275,10 @@ PrefabInstance:
     - target: {fileID: 9156115538744241620, guid: 206ffbb8fdc1047409e2a6c6e2fda7ec, type: 3}
       propertyPath: m_Name
       value: Flower Closed
+      objectReference: {fileID: 0}
+    - target: {fileID: 8767738084471890597, guid: 6b7580f4db5746441a4179d3b26bc29d, type: 3}
+      propertyPath: hasBloomed
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

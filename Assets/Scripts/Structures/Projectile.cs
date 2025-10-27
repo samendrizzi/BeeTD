@@ -79,7 +79,7 @@ public class Projectile : MonoBehaviour
         float angle = Mathf.Atan2(target.position.y - transform.position.y, target.position.x - transform.position.x) * Mathf.Rad2Deg - 90f;
 
         Quaternion targetRotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 500 * Time.deltaTime * LevelManager.main.timing);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 500 * Time.deltaTime);
           
     }
 

@@ -23,6 +23,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] public Slider queenHealthBar;
     [SerializeField] public Slider honeyRequiredBar;
     [SerializeField] public TextMeshProUGUI queenHealthNumbered;
+    [SerializeField] public GameObject[] unitsToBuy;
     public string speed = "Normal";
     public bool pause = false;
     private Color normalColor = Color.white;
@@ -144,6 +145,11 @@ public class UIManager : MonoBehaviour
         fastSpeedButton.GetComponent<Image>().color = normalColor;
         veryFastSpeedButton.GetComponent<Image>().color = pressedColor;
         WaveUpdate();
+    }
+
+    public void BuyUnit(int i)
+    {
+        LevelManager.main.BuyUnit(i);
     }
 }
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using UnityEngine.UI;
+using System;
 
 public class WorkerBee : MonoBehaviour
 {
@@ -30,14 +31,15 @@ public class WorkerBee : MonoBehaviour
     public float effectModifier;
     public bool willStealNectar;
     public bool willStealHoney = false;
+    public float nectar = 0f;
 
 
     public bool isDestroyed = false;
     private GameObject queenBee;
-    public GameObject tower;
+    public GameObject flower;
     public Transform target;
-    private Turret turret;
-    private float baseSpeed;
+    private Plot F;
+    public float baseSpeed;
     public bool inventoryFull = false;
     public bool isAttacking = false;
     private float timeUntilAttack;
@@ -53,13 +55,14 @@ public class WorkerBee : MonoBehaviour
 
     private void Start()
     {
+        //setup
         rotationSpeed = GlobalValues.main.unitRotationSpeed;
         waypointDistance = GlobalValues.main.unitWaypointDistance;
         int index = GetComponent<Identify>().ID;
         prefab = GlobalValues.main.UNITprefab[index];
         prefab2 = GlobalValues.main.UNITprefab2[index];
         uName = GlobalValues.main.UNITname[index];
-        moveSpeed = GlobalValues.main.UNITmoveSpeed[index] * GlobalValues.main.difficultyMultiplier;
+        moveSpeed = GlobalValues.main.UNITmoveSpeed[index];
         willFly = GlobalValues.main.UNITwillFly[index];
         carryCapacity = GlobalValues.main.UNITcarryCapacity[index];
         willAttack = GlobalValues.main.UNITwillAttack[index];
@@ -74,16 +77,6 @@ public class WorkerBee : MonoBehaviour
         hasHealthBar = GlobalValues.main.UNIThealthBar[index];
         willStealHoney = GlobalValues.main.UNITwillStealHoney[index];
         willStealNectar = GlobalValues.main.UNITwillStealNectar[index];
-        RaycastHit2D[] towers = Physics2D.CircleCastAll(transform.position, 0.5f, (Vector2)transform.position, 0f, GlobalValues.main.incomeMask);
-        if (towers.Length > 0)
-        {
-            tower = towers[0].transform.gameObject;
-            turret = tower.GetComponent<Turret>();
-        }
-        else
-        {
-            Debug.Log("Worker Bee Tower not found.");
-        }
         if (hasHealthBar == true)
         {
             healthBar.maxValue = hitPoints;
@@ -95,7 +88,10 @@ public class WorkerBee : MonoBehaviour
         {
 
         }
-        target = tower.transform;
+        //track bees
+        Array.Resize(ref LevelManager.main.workerBees, LevelManager.main.workerBees.Length + 1);
+        LevelManager.main.workerBees[LevelManager.main.workerBees.Length - 1] = gameObject;
+        LevelManager.main.OrganizeBees();
     }
 
     private void Update()
@@ -117,7 +113,7 @@ public class WorkerBee : MonoBehaviour
             rb.velocity = direction * moveSpeed * LevelManager.main.timing;
             float angle = Mathf.Atan2(target.position.y - transform.position.y, target.position.x - transform.position.x) * Mathf.Rad2Deg - 90f;
             Quaternion targetRotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * moveSpeed * Time.deltaTime * LevelManager.main.timing);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * moveSpeed * Time.deltaTime);
         }
         if (isAttacking == true)
         {
@@ -131,9 +127,9 @@ public class WorkerBee : MonoBehaviour
                 DepositNectar();
                 return;
             }
-            else if (inventoryFull == false && target == tower.transform)
+            else if (inventoryFull == false && target == flower.transform)
             {
-                CollectNectar();
+                CollectNectar(flower);
             }
             else
             {
@@ -252,17 +248,23 @@ public class WorkerBee : MonoBehaviour
     {
         Heal(carryCapacity * GlobalValues.main.workerHealRatio);
         inventoryFull = false;
-        LevelManager.main.IncreaseNectar(carryCapacity);
-        target = tower.transform;
+        LevelManager.main.IncreaseNectar(nectar);
+        nectar = 0f;
+        target = flower.transform;
     }
 
-    public void CollectNectar()
+    public void CollectNectar(GameObject f)
     {
-        if (turret.nectar >= carryCapacity)
+        if (f.GetComponent<Plot>().isSapped == false)
         {
-            turret.nectar -= carryCapacity;
-            inventoryFull = true;
-            target = queenBee.transform;
+            nectar += effectModifier;
+            f.GetComponent<Plot>().SapFlower(1);
+            if (nectar >= carryCapacity)
+            {
+                nectar = carryCapacity;
+                inventoryFull = true;
+                target = queenBee.transform;
+            }
         }
     }
 }
