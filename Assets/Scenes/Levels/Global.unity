@@ -2437,7 +2437,7 @@ MonoBehaviour:
   influenceModifier: 0.5
   basenectarGeneration: 0.25
   flowerRange: 0.8
-  globalFertility: 1
+  globalFertility: 3
   honeyDropModifier: 0.75
   investmentMultiplier: 0.25
   investmentCost: 2

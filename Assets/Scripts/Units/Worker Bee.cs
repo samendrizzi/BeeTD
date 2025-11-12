@@ -44,7 +44,7 @@ public class WorkerBee : MonoBehaviour
     public bool isAttacking = false;
     private float timeUntilAttack;
     private bool frozen = false;
-    private float timeUntilEffect = 5f;
+    private float timeUntilEffect = 0f;
     private float waypointDistance;
     private float rotationSpeed;
     public string work;
@@ -117,21 +117,27 @@ public class WorkerBee : MonoBehaviour
         
         Vector2 direction = (target.position - transform.position).normalized;
 
-        if (frozen == true)
+        if (frozen == true || timeUntilAttack > 0 || timeUntilEffect > 0 )
         {
             rb.velocity = direction * 0;
+            if (frozen == false)
+            {
+                timeUntilAttack -= Time.deltaTime;
+                timeUntilEffect -= Time.deltaTime;
+            }
+            return;
         }
         else
         {
-            rb.velocity = direction * moveSpeed * LevelManager.main.timing;
+            rb.velocity = direction * moveSpeed;
             float angle = Mathf.Atan2(target.position.y - transform.position.y, target.position.x - transform.position.x) * Mathf.Rad2Deg - 90f;
             Quaternion targetRotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
             transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * moveSpeed * Time.deltaTime);
         }
-        if (isAttacking == true)
-        {
-            rb.velocity = rb.velocity / 5 * LevelManager.main.timing;
-        }
+        //if (isAttacking == true)
+        //{
+           // rb.velocity = rb.velocity / 5;
+        //}
 
         if (Vector2.Distance(target.position, transform.position) <= waypointDistance && isAttacking == false && frozen == false)
         {
@@ -156,7 +162,7 @@ public class WorkerBee : MonoBehaviour
                 if (timeUntilEffect <= 0)
                 {
                     timeUntilEffect = 1f;
-                    LevelManager.main.IncreaseHoney(effectModifier);
+                    CreateHoney();
                 }
                 else
                 {
@@ -165,10 +171,10 @@ public class WorkerBee : MonoBehaviour
             }
         }
 
-        if (effect != "none")
-        {
+        //if (effect != "none")
+        //{
             //
-        }
+        //}
         
     }
 
@@ -285,14 +291,23 @@ public class WorkerBee : MonoBehaviour
     {
         if (f.GetComponent<Plot>().isSapped == false)
         {
-            nectar += effectModifier;
-            f.GetComponent<Plot>().SapFlower(1);
-            if (nectar >= carryCapacity)
-            {
-                nectar = carryCapacity;
-                inventoryFull = true;
-                target = queenBee.transform;
-            }
+            nectar = carryCapacity;
+            f.GetComponent<Plot>().SapFlower(carryCapacity / LevelManager.main.nectarGenerationRate);
+            inventoryFull = true;
+            target = queenBee.transform;
         }
+        else
+        {
+            timeUntilAttack = 0.25f;
+        }
+    }
+
+    public void CreateHoney()
+    {
+        if (LevelManager.main.finalWave == false)
+        {
+            LevelManager.main.IncreaseHoney(effectModifier);
+        }
+        timeUntilEffect = 1f;
     }
 }

@@ -70,7 +70,7 @@ public class Enemy : MonoBehaviour
         effectModifier = GlobalValues.main.ENEMYeffectModifier[index] * GlobalValues.main.difficultyMultiplier;
         willStealHoney = GlobalValues.main.ENEMYwillStealHoney[index];
         baseSpeed = moveSpeed;
-        hitPoints = GlobalValues.main.ENEMYhitPoints[index] * GlobalValues.main.difficultyMultiplier;
+        hitPoints = GlobalValues.main.ENEMYhitPoints[index] * GlobalValues.main.difficultyMultiplier * (1 + (LevelManager.main.difficultyScaling * WaveSpawner.main.currentWave));
         armor = GlobalValues.main.ENEMYarmor[index];
         maxHP = hitPoints;
         bounty = GlobalValues.main.ENEMYbounty[index];
@@ -123,14 +123,14 @@ public class Enemy : MonoBehaviour
         }
         else
         {
-            rb.velocity = direction * moveSpeed * LevelManager.main.timing;
+            rb.velocity = direction * moveSpeed;
             float angle = Mathf.Atan2(target.position.y - transform.position.y, target.position.x - transform.position.x) * Mathf.Rad2Deg - 90f;
             Quaternion targetRotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
             transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * moveSpeed * Time.deltaTime);
         }
         if (isAttacking == true)
         {
-            rb.velocity = rb.velocity / 5 * LevelManager.main.timing;
+            rb.velocity = rb.velocity / 5;
         }
 
         if (Vector2.Distance(target.position, transform.position) <= waypointDistance && isAttacking == false && frozen == false)

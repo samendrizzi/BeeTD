@@ -74,7 +74,7 @@ public class Projectile : MonoBehaviour
 
         Vector2 direction = (target.position - transform.position).normalized;
 
-        rb.velocity = direction * projectileSpeed * LevelManager.main.timing;
+        rb.velocity = direction * projectileSpeed;
 
         float angle = Mathf.Atan2(target.position.y - transform.position.y, target.position.x - transform.position.x) * Mathf.Rad2Deg - 90f;
 

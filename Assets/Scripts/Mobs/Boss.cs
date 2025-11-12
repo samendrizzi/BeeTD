@@ -159,7 +159,7 @@ public class Boss : MonoBehaviour
             }
             else
             {
-                rb.velocity = direction * moveSpeed * LevelManager.main.timing;
+                rb.velocity = direction * moveSpeed;
                 float angle = Mathf.Atan2(target.position.y - transform.position.y, target.position.x - transform.position.x) * Mathf.Rad2Deg - 90f;
                 Quaternion targetRotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
                 transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 150 * moveSpeed * Time.deltaTime);

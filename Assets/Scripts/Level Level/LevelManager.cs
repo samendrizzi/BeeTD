@@ -18,6 +18,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] public float honey = 100f;
     [SerializeField] public float honeyRequired = 100f;
     [SerializeField] public float percentageOfFlowersUsed = 1f;
+    [SerializeField] public float difficultyScaling = 0.05f;
     [SerializeField] public Transform influenceCenter;
     [SerializeField] public Transform[] path1;
     [SerializeField] public Transform[] flyingPath1;
@@ -38,6 +39,7 @@ public class LevelManager : MonoBehaviour
     public string speed = "Normal";
     public bool pause = false;
     public float timing = 1f;
+    public float nectarGenerationRate = 3f;
     public float honeyGeneratedRatio = 0f;
     public GameObject[] discoveredFlowers = new GameObject[] { };
     public GameObject[] honeyCombs = new GameObject[] { };
@@ -65,8 +67,8 @@ public class LevelManager : MonoBehaviour
         BloomFlowers();
         investmentMask = GlobalValues.main.investmentMask;
         incomeMask = GlobalValues.main.incomeMask;
+        nectarGenerationRate = GlobalValues.main.globalFertility;
         CalculateIncome();
-        //CalculateInvestment();
         UIManager.main.NormalSpeed();
         GameObject[] root = UnityEngine.Object.FindObjectsOfType<GameObject>();
         foreach (GameObject obj in root)
@@ -305,13 +307,11 @@ public class LevelManager : MonoBehaviour
             WorkerBee Bee = nectarBees[0].GetComponent<WorkerBee>();
             float beeMoveSpeed = Bee.baseSpeed;
             float beeCarryCapacity = Bee.carryCapacity;
-            float beeGatherRate = Bee.effectModifier;
-            float beeTimeToGather = beeCarryCapacity / beeGatherRate;
             discoveredFlowers = discoveredFlowers.OrderBy(point => Vector2.Distance(queenBee.transform.position, point.transform.position)).ToArray();
             int assignedBees = 0;
             foreach (GameObject obj in discoveredFlowers)
             {
-                int maxnumberOfNectarBees = Mathf.FloorToInt((Vector2.Distance(obj.transform.position, queenBee.transform.position) * (2) / beeMoveSpeed + beeTimeToGather) / beeTimeToGather);
+                int maxnumberOfNectarBees = Mathf.FloorToInt((Vector2.Distance(obj.transform.position, queenBee.transform.position) * (2) / beeMoveSpeed) / (beeCarryCapacity / nectarGenerationRate));
                 for (int i = 0; i < maxnumberOfNectarBees; i++)
                 {
                     if (assignedBees >= numberOfNectarBees)
