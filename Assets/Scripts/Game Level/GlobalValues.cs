@@ -48,6 +48,8 @@ public class GlobalValues : MonoBehaviour
     [SerializeField] public int rampCap = 10;
     [SerializeField] public float honeyHealRatio = 0.25f;
     [SerializeField] public float workerHealRatio = 0.25f;
+    [SerializeField] public float workerBeeCost = 50f;
+    [SerializeField] public float workerBeeCostIncrease = 0.1f;
     [SerializeField] public float queenThornRatio = 1f;
     [SerializeField] public float eggLayRatio = 1f;
     [SerializeField] public float healAuraRatio = 1f;
@@ -62,6 +64,7 @@ public class GlobalValues : MonoBehaviour
     [SerializeField] public float skunkSprayTimer = 10f;
     [SerializeField] public float skunkSprayDuration = 3f;
     [SerializeField] public float waveLength = 30f;
+    [SerializeField] public float startingWaveCountdown = 10f;
     [SerializeField] public float waveSpawnRatio = 0.7f;
     [SerializeField] public float enemyWaypointDistance = 0.2f;
     [SerializeField] public float enemyRotationSpeed = 150f;
@@ -75,6 +78,10 @@ public class GlobalValues : MonoBehaviour
     [SerializeField] public LayerMask towerMask;
     [SerializeField] public LayerMask investmentMask;
     [SerializeField] public LayerMask incomeMask;
+
+    [Header("_______________________")]
+    [Header("Performance Settings")]
+    [SerializeField] public int UIFrameRatio = 5;
 
     [Header("_______________________")]
     [Header("Camera Controls")]

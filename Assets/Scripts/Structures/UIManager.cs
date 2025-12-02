@@ -24,12 +24,17 @@ public class UIManager : MonoBehaviour
     [SerializeField] public Slider honeyRequiredBar;
     [SerializeField] public TextMeshProUGUI queenHealthNumbered;
     [SerializeField] public TextMeshProUGUI buyUnit1;
-    [SerializeField] public TextMeshProUGUI buyUnit2;
+    [SerializeField] public TextMeshProUGUI unassignedBees;
+    [SerializeField] public TextMeshProUGUI nectarBees;
+    [SerializeField] public TextMeshProUGUI honeyBees;
+    [SerializeField] public Toggle autoAssignHoneyBee;
+    [SerializeField] public Toggle autoAssignNectarBee;
+
     public string speed = "Normal";
     public bool pause = false;
     private Color normalColor = Color.white;
     private Color pressedColor = Color.grey;
-
+    private int frameCounter = 0;
 
     private void Awake()
     {
@@ -44,21 +49,21 @@ public class UIManager : MonoBehaviour
     {
         queenHealthBar.maxValue = LevelManager.main.queenBeeMaxHP;
         honeyRequiredBar.maxValue = LevelManager.main.honeyRequired;
-        //Set Speed
-        NormalSpeed();
-        //Add text to buttons
-        buyUnit1.text = GlobalValues.main.UNITname[0] + ": " + GlobalValues.main.UNITcost[0] + "n";
-        buyUnit2.text = GlobalValues.main.UNITname[1] + ": " + GlobalValues.main.UNITcost[1] + "n";
     }
 
     private void Update()
     {
-        nectarCounterUI.text = Mathf.Round(LevelManager.main.nectar).ToString();
-        honeyRequiredBar.value = Mathf.Round(LevelManager.main.honey);
-        honeyCounterRequiredUI.text = Mathf.Round(LevelManager.main.honey).ToString() + " / " + LevelManager.main.honeyRequired;
-        waveSpawnCounterUI.text = Mathf.Round(GameObject.Find("LevelManager").GetComponent<WaveSpawner>().waveCountdown).ToString();
-        queenHealthBar.value = LevelManager.main.queenBeeHP;
-        queenHealthNumbered.text = Mathf.Round(LevelManager.main.queenBeeHP).ToString() + " / " + Mathf.Round(LevelManager.main.queenBeeMaxHP).ToString();
+        if (frameCounter >= GlobalValues.main.UIFrameRatio)
+        {
+            nectarCounterUI.text = Mathf.Round(LevelManager.main.nectar).ToString();
+            honeyRequiredBar.value = Mathf.Round(LevelManager.main.honey);
+            honeyCounterRequiredUI.text = Mathf.Round(LevelManager.main.honey).ToString() + " / " + LevelManager.main.honeyRequired;
+            waveSpawnCounterUI.text = Mathf.Round(GameObject.Find("LevelManager").GetComponent<WaveSpawner>().waveCountdown).ToString();
+            queenHealthBar.value = LevelManager.main.queenBeeHP;
+            queenHealthNumbered.text = Mathf.Round(LevelManager.main.queenBeeHP).ToString() + " / " + Mathf.Round(LevelManager.main.queenBeeMaxHP).ToString();
+            frameCounter = 0;
+        }
+        frameCounter++;
     }
 
 
@@ -154,6 +159,44 @@ public class UIManager : MonoBehaviour
     public void BuyUnit(int i)
     {
         LevelManager.main.BuyUnit(i);
+    }
+
+    public void AssignNectarBee(bool add)
+    {
+        LevelManager.main.AssignBeeToNectar(add);
+    }
+
+    public void AssignHoneyBee(bool add)
+    {
+        LevelManager.main.AssignBeeToHoney(add);
+    }
+
+    public void ToggleAutoNectarBeeAssign() 
+    {
+        bool value = autoAssignNectarBee.isOn;
+        if (value == true)
+        {
+            LevelManager.main.autoAssignBees = "nectar";
+            autoAssignHoneyBee.SetIsOnWithoutNotify(false);
+        }
+        else if (value == false)
+        {
+            LevelManager.main.autoAssignBees = "unassigned";
+        }
+    }
+
+    public void ToggleAutoHoneyBeeAssign() 
+    {
+        bool value = autoAssignHoneyBee.isOn;
+        if (value == true)
+        {
+            LevelManager.main.autoAssignBees = "honey";
+            autoAssignNectarBee.SetIsOnWithoutNotify(false);
+        }
+        else if (value == false)
+        {
+            LevelManager.main.autoAssignBees = "unassigned";
+        }
     }
 }
 

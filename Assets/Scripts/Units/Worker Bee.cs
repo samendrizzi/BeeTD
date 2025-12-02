@@ -47,7 +47,7 @@ public class WorkerBee : MonoBehaviour
     private float timeUntilEffect = 0f;
     private float waypointDistance;
     private float rotationSpeed;
-    public string work;
+    public string work = "unassigned";
 
 
     public int onPath = 1;
@@ -85,32 +85,14 @@ public class WorkerBee : MonoBehaviour
             healthBar.gameObject.SetActive(true);
         }
         queenBee = LevelManager.main.queenBee.gameObject;
-        if (willFly == true)
-        {
-
-        }
         //track bees
-        if (index == 0)
-        {
-            work = "nectar";
-            Array.Resize(ref LevelManager.main.nectarBees, LevelManager.main.nectarBees.Length + 1);
-            LevelManager.main.nectarBees[LevelManager.main.nectarBees.Length - 1] = gameObject;
-        }
-        else
-        {
-            work = "honey";
-            Array.Resize(ref LevelManager.main.honeyBees, LevelManager.main.honeyBees.Length + 1);
-            LevelManager.main.honeyBees[LevelManager.main.honeyBees.Length - 1] = gameObject;
-            flower = LevelManager.main.honeyCombs[0];
-            target = flower.transform;
-        }
         LevelManager.main.OrganizeBees();
     }
 
     private void Update()
     {
 
-        if (LevelManager.main.levelStarted == false)
+        if (LevelManager.main.levelStarted == false || work == "unassigned")
         {
             return;
         }
@@ -310,4 +292,10 @@ public class WorkerBee : MonoBehaviour
         }
         timeUntilEffect = 1f;
     }
+
+    public void ResetBee() 
+    {
+        rb.velocity = Vector2.zero;
+    }
+
 }

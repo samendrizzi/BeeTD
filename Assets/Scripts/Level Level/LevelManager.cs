@@ -43,10 +43,13 @@ public class LevelManager : MonoBehaviour
     public float honeyGeneratedRatio = 0f;
     public GameObject[] discoveredFlowers = new GameObject[] { };
     public GameObject[] honeyCombs = new GameObject[] { };
+    public GameObject[] workerBees = new GameObject[] { };
+    public GameObject[] unassignedBees = new GameObject[] { };
     public GameObject[] nectarBees = new GameObject[] { };
     public GameObject[] honeyBees = new GameObject[] { };
-
+    public float workerBeeCost;
     public float nectar;
+    public string autoAssignBees = "nectar";
 
     private void Awake()
     {
@@ -80,6 +83,11 @@ public class LevelManager : MonoBehaviour
             }
         }
         honeyCombs = honeyCombs.OrderBy(point => Vector2.Distance(queenBee.transform.position, point.transform.position)).ToArray();
+        workerBeeCost = GlobalValues.main.workerBeeCost * (1 + (GlobalValues.main.workerBeeCostIncrease * workerBees.Length));
+        UpdateQueensCommand();
+        //Set Speed
+        UIManager.main.NormalSpeed();
+        UIManager.main.TogglePause();
     }
 
     public void IncreaseNectar(float amount)
@@ -235,6 +243,7 @@ public class LevelManager : MonoBehaviour
     public void EndLevel()
     {
         //No other logic atm
+        UIManager.main.TogglePause();
         Victory();
     }
 
@@ -294,8 +303,12 @@ public class LevelManager : MonoBehaviour
 
     public void OrganizeBees()
     {
+        //Update UI Bee Count
+        UpdateQueensCommand();
+        //Direct Bees
         OrganizeNectarBees();
         OrganizeHoneyBees();
+        OrganizeUnassignedBees();
     }
 
     private void OrganizeNectarBees()
@@ -318,7 +331,7 @@ public class LevelManager : MonoBehaviour
                     {
                         return;
                     }
-                    AssignBee(nectarBees[assignedBees], obj);
+                    AssignBeeToFlower(nectarBees[assignedBees], obj);
                     assignedBees++;
                 }
                 if (assignedBees >= numberOfNectarBees)
@@ -329,7 +342,7 @@ public class LevelManager : MonoBehaviour
             int y = 0;
             while (assignedBees < numberOfNectarBees)
             {
-                AssignBee(nectarBees[assignedBees], discoveredFlowers[y]);
+                AssignBeeToFlower(nectarBees[assignedBees], discoveredFlowers[y]);
                 assignedBees++;
                 y++;
                 if (y >= discoveredFlowers.Length)
@@ -348,12 +361,24 @@ public class LevelManager : MonoBehaviour
             int assignedHoneyBees = 0;
             foreach (GameObject obj in honeyCombs)
             {
-                AssignBee(honeyBees[assignedHoneyBees], obj);
+                AssignBeeToFlower(honeyBees[assignedHoneyBees], obj);
                 assignedHoneyBees++;
                 if (assignedHoneyBees >= numberOfHoneyBees)
                 {
                     return;
                 }
+            }
+        }
+    }
+
+    private void OrganizeUnassignedBees()
+    {
+        int numberOfUnassignedBees = unassignedBees.Length;
+        if (numberOfUnassignedBees > 0)
+        {
+            foreach (GameObject obj in unassignedBees)
+            {
+                obj.GetComponent<WorkerBee>().ResetBee();
             }
         }
     }
@@ -365,7 +390,7 @@ public class LevelManager : MonoBehaviour
         OrganizeNectarBees();
     }
 
-    public void AssignBee(GameObject b, GameObject f)
+    public void AssignBeeToFlower(GameObject b, GameObject f)
     {
         WorkerBee Bee = b.GetComponent<WorkerBee>();
         Bee.flower = f;
@@ -374,18 +399,101 @@ public class LevelManager : MonoBehaviour
             Bee.target = f.transform;
         }
     }
+
     public void BuyUnit(int i)
-    {
-        float cost = GlobalValues.main.UNITcost[i];
-        if (nectar >= cost)
+    {     
+        if (nectar >= workerBeeCost)
         {
-            nectar -= cost;
+            //Spawn bee
+            nectar -= workerBeeCost;
             GameObject prefabToSpawn = GlobalValues.main.UNITprefab[i];
             Transform start = queenBee.transform;
             Transform nextPoint = gameObject.transform;
             float angle = Mathf.Atan2(nextPoint.position.y - start.position.y, nextPoint.position.x - start.position.x) * Mathf.Rad2Deg - 90f;
             Quaternion unitRotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
             GameObject unit = Instantiate(prefabToSpawn, start.position, unitRotation);
+            //Add bee to array tracking
+            Array.Resize(ref workerBees, workerBees.Length + 1);
+            workerBees[workerBees.Length - 1] = unit;
+            if (autoAssignBees == "unassigned")
+            {
+                unit.GetComponent<WorkerBee>().work = "unassigned";
+                Array.Resize(ref unassignedBees, unassignedBees.Length + 1);
+                unassignedBees[unassignedBees.Length - 1] = unit;
+            }
+            else if (autoAssignBees == "nectar")
+            {
+                unit.GetComponent<WorkerBee>().work = "nectar";
+                Array.Resize(ref nectarBees, nectarBees.Length + 1);
+                nectarBees[nectarBees.Length - 1] = unit;
+            }
+            else if (autoAssignBees == "honey")
+            {
+                unit.GetComponent<WorkerBee>().work = "honey";
+                Array.Resize(ref honeyBees, honeyBees.Length + 1);
+                honeyBees[honeyBees.Length - 1] = unit;
+            }          
         }
+        //Update bee cost
+        workerBeeCost = GlobalValues.main.workerBeeCost * (1 + (GlobalValues.main.workerBeeCostIncrease * workerBees.Length));
+        //Update
+        OrganizeBees();
+    }
+
+    public void AssignBeeToNectar(bool add) 
+    {
+        if (add == true && unassignedBees.Length > 0) 
+        {
+            //Assigned unassigned bee to nectar
+            GameObject Bee = unassignedBees[unassignedBees.Length - 1];
+            Array.Resize(ref unassignedBees, unassignedBees.Length - 1);
+            Array.Resize(ref nectarBees, nectarBees.Length + 1);
+            Bee.GetComponent<WorkerBee>().work = "nectar";
+            nectarBees[nectarBees.Length - 1] = Bee;
+            OrganizeBees();
+        }
+        else if (add == false && nectarBees.Length > 0)
+        {
+            //Assign nectar bee to unassigned
+            GameObject Bee = nectarBees[nectarBees.Length - 1];
+            Array.Resize(ref nectarBees, nectarBees.Length - 1);
+            Array.Resize(ref unassignedBees, unassignedBees.Length + 1);
+            Bee.GetComponent<WorkerBee>().work = "unassigned";
+            unassignedBees[unassignedBees.Length - 1] = Bee;
+            OrganizeBees();
+        }
+    }
+
+    public void AssignBeeToHoney(bool add) 
+    {
+        if (add == true && unassignedBees.Length > 0) 
+        {
+            //Assigned unassigned bee to honey
+            GameObject Bee = unassignedBees[unassignedBees.Length - 1];
+            Array.Resize(ref unassignedBees, unassignedBees.Length - 1);
+            Array.Resize(ref honeyBees, honeyBees.Length + 1);
+            Bee.GetComponent<WorkerBee>().work = "honey";
+            honeyBees[honeyBees.Length - 1] = Bee;
+            OrganizeBees();
+        }
+        else if (add == false && honeyBees.Length > 0)
+        {
+            //Assign honey bee to unassigned
+            GameObject Bee = honeyBees[honeyBees.Length - 1];
+            Array.Resize(ref honeyBees, honeyBees.Length - 1);
+            Array.Resize(ref unassignedBees, unassignedBees.Length + 1);
+            Bee.GetComponent<WorkerBee>().work = "unassigned";
+            unassignedBees[unassignedBees.Length - 1] = Bee;
+            OrganizeBees();
+        }
+    }
+
+    private void UpdateQueensCommand()
+    {
+        //Add text to buttons
+        UIManager.main.buyUnit1.text = "Buy Bee: " + workerBeeCost.ToString() + "n";
+        UIManager.main.unassignedBees.text = unassignedBees.Length.ToString();
+        UIManager.main.nectarBees.text = nectarBees.Length.ToString();
+        UIManager.main.honeyBees.text = honeyBees.Length.ToString();
     }
 }

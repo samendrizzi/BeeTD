@@ -117,10 +117,8 @@ public class Boss : MonoBehaviour
         WaveSpawner.main.EnemySpawned();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
         timeUntilEffect -= Time.deltaTime;
         timeUntilAttack += Time.deltaTime;
         if (effect == "Hummingbird" && timeUntilEffect <= 0f)

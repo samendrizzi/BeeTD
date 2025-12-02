@@ -1994,11 +1994,15 @@ MonoBehaviour:
   speed: Normal
   pause: 0
   timing: 1
+  nectarGenerationRate: 3
   honeyGeneratedRatio: 0
   discoveredFlowers: []
   honeyCombs: []
+  workerBees: []
+  unassignedBees: []
   nectarBees: []
   honeyBees: []
+  workerBeeCost: 0
   nectar: 500
 --- !u!4 &68999845
 Transform:
@@ -5984,12 +5988,24 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 7945665055211121443, guid: c4976b493321a1d4791f05560252eddd, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7945665055211121443, guid: c4976b493321a1d4791f05560252eddd, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7945665055211121443, guid: c4976b493321a1d4791f05560252eddd, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7945665055211121443, guid: c4976b493321a1d4791f05560252eddd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.473005
+      value: -10.26
       objectReference: {fileID: 0}
     - target: {fileID: 7945665055211121443, guid: c4976b493321a1d4791f05560252eddd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.6718495
+      value: 1.88
       objectReference: {fileID: 0}
     - target: {fileID: 7945665055211121443, guid: c4976b493321a1d4791f05560252eddd, type: 3}
       propertyPath: m_LocalPosition.z
@@ -37948,83 +37964,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7945665055211121443, guid: 90230e6d240278a4a98e21ff610e8052, type: 3}
   m_PrefabInstance: {fileID: 2034501287}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &2049231086
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 7423359546902803796, guid: 664992458edb1814586ee3061db27dfd, type: 3}
-      propertyPath: m_SortingLayer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7423359546902803796, guid: 664992458edb1814586ee3061db27dfd, type: 3}
-      propertyPath: m_SortingLayerID
-      value: 557084051
-      objectReference: {fileID: 0}
-    - target: {fileID: 7945665055211121443, guid: 664992458edb1814586ee3061db27dfd, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 7945665055211121443, guid: 664992458edb1814586ee3061db27dfd, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 7945665055211121443, guid: 664992458edb1814586ee3061db27dfd, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 7945665055211121443, guid: 664992458edb1814586ee3061db27dfd, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -10.276765
-      objectReference: {fileID: 0}
-    - target: {fileID: 7945665055211121443, guid: 664992458edb1814586ee3061db27dfd, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2.0464902
-      objectReference: {fileID: 0}
-    - target: {fileID: 7945665055211121443, guid: 664992458edb1814586ee3061db27dfd, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7945665055211121443, guid: 664992458edb1814586ee3061db27dfd, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7945665055211121443, guid: 664992458edb1814586ee3061db27dfd, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7945665055211121443, guid: 664992458edb1814586ee3061db27dfd, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7945665055211121443, guid: 664992458edb1814586ee3061db27dfd, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7945665055211121443, guid: 664992458edb1814586ee3061db27dfd, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7945665055211121443, guid: 664992458edb1814586ee3061db27dfd, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7945665055211121443, guid: 664992458edb1814586ee3061db27dfd, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9156115538744241620, guid: 664992458edb1814586ee3061db27dfd, type: 3}
-      propertyPath: m_Name
-      value: Honey Stash
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 664992458edb1814586ee3061db27dfd, type: 3}
 --- !u!1001 &2050139209
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40172,7 +40111,6 @@ SceneRoots:
   m_Roots:
   - {fileID: 490234948}
   - {fileID: 330874443}
-  - {fileID: 2049231086}
   - {fileID: 392127407}
   - {fileID: 963130572}
   - {fileID: 68999845}

@@ -452,7 +452,7 @@ public class StructureUIHandler : MonoBehaviour, IPointerEnterHandler, IPointerE
 
     private IEnumerator RevealFog()
     {
-        yield return new WaitForSeconds(0.1f);
+        //yield return new WaitForSeconds(0.1f);
         float targetingRange = GlobalValues.main.TOWERtargetingRange[index];
 
         if (targetingRange != 0f)
@@ -507,6 +507,7 @@ public class StructureUIHandler : MonoBehaviour, IPointerEnterHandler, IPointerE
         {
             Debug.Log(gameObject.name + " has no targeting range.");
         }
+        yield return new WaitForSeconds(0.1f);
     }
 
     public void OpenRangeUI()
