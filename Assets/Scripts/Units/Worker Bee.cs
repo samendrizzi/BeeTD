@@ -48,7 +48,8 @@ public class WorkerBee : MonoBehaviour
     private float waypointDistance;
     private float rotationSpeed;
     public string work = "unassigned";
-
+    private float armorPierce = 15f;
+    private LayerMask enemyMask;
 
     public int onPath = 1;
     private Transform[] path;
@@ -78,6 +79,7 @@ public class WorkerBee : MonoBehaviour
         hasHealthBar = GlobalValues.main.UNIThealthBar[index];
         willStealHoney = GlobalValues.main.UNITwillStealHoney[index];
         willStealNectar = GlobalValues.main.UNITwillStealNectar[index];
+        enemyMask = GlobalValues.main.enemyMask;
         if (hasHealthBar == true)
         {
             healthBar.maxValue = hitPoints;
@@ -97,16 +99,52 @@ public class WorkerBee : MonoBehaviour
             return;
         }
         
-        Vector2 direction = (target.position - transform.position).normalized;
-
-        if (frozen == true || timeUntilAttack > 0 || timeUntilEffect > 0 )
+        //check if frozen
+        if (frozen == true)
         {
-            rb.velocity = direction * 0;
-            if (frozen == false)
+            ResetBee();
+            return;
+        }
+
+        //Check if bee has target
+        if (work == "soldier" && target == null)
+        {
+            ResetBee();
+            //prevent constant looping when no enemies are spawned
+            if (timeUntilAttack > 0f)
             {
                 timeUntilAttack -= Time.deltaTime;
                 timeUntilEffect -= Time.deltaTime;
+                return;
             }
+            //find enemy nearest to queen
+            RaycastHit2D[] hits = Physics2D.CircleCastAll(LevelManager.main.queenBee.transform.position, 300f, (Vector2)LevelManager.main.queenBee.transform.position, 0f, enemyMask);
+            if (hits.Length > 0)
+            {
+                target = hits[0].transform;
+                for (int i = 0; i < hits.Length; i++)
+                {
+                    if (Vector2.Distance(target.position, LevelManager.main.queenBee.transform.position) > Vector2.Distance(hits[i].transform.position, LevelManager.main.queenBee.transform.position))
+                    {
+                        target = hits[i].transform;
+                    }
+                }
+            }
+            else
+            {
+                //pause checking for targets
+                timeUntilAttack = 3f;
+                return;
+            }
+        }
+
+        Vector2 direction = (target.position - transform.position).normalized;
+
+        if (timeUntilAttack > 0 || timeUntilEffect > 0 )
+        {
+            ResetBee();
+            timeUntilAttack -= Time.deltaTime;
+            timeUntilEffect -= Time.deltaTime;
             return;
         }
         else
@@ -116,12 +154,8 @@ public class WorkerBee : MonoBehaviour
             Quaternion targetRotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
             transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * moveSpeed * Time.deltaTime);
         }
-        //if (isAttacking == true)
-        //{
-           // rb.velocity = rb.velocity / 5;
-        //}
 
-        if (Vector2.Distance(target.position, transform.position) <= waypointDistance && isAttacking == false && frozen == false)
+        if (Vector2.Distance(target.position, transform.position) <= waypointDistance)
         {
             if (work == "nectar")
             {
@@ -151,6 +185,10 @@ public class WorkerBee : MonoBehaviour
                     timeUntilEffect -= Time.deltaTime;
                 }
             }
+            else if (work == "soldier")
+            {
+                AttackTarget();
+            }
         }
 
         //if (effect != "none")
@@ -160,9 +198,9 @@ public class WorkerBee : MonoBehaviour
         
     }
 
-    public void TakeDamage(float dmg, float armorPierce)
+    public void TakeDamage(float dmg, float AP)
     {
-        float armorBlock = (armor - armorPierce) / 100f;
+        float armorBlock = (armor - AP) / 100f;
         if (armorBlock < 0)
         {
             armorBlock = 0f;
@@ -220,14 +258,12 @@ public class WorkerBee : MonoBehaviour
         }         
     }
 
-    private void AttackQueen()
+    private void AttackTarget()
     {
-        if (Vector2.Distance(target.position, transform.position) <= 0.1f && isAttacking == true)
+        if (timeUntilAttack <= 0)
         {
-            timeUntilAttack = 0f;
-            LevelManager.main.HitQueen(attackDamage);
-            TakeDamage(attackDamage * GlobalValues.main.queenThornRatio, 100f);
-            isAttacking = false;
+            timeUntilAttack = 1 / attackRate;
+            Library.main.TakeDamage(target.gameObject, attackDamage, armorPierce);
         }
     }
 

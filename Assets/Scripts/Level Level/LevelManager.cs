@@ -47,6 +47,7 @@ public class LevelManager : MonoBehaviour
     public GameObject[] unassignedBees = new GameObject[] { };
     public GameObject[] nectarBees = new GameObject[] { };
     public GameObject[] honeyBees = new GameObject[] { };
+    public GameObject[] soldierBees = new GameObject[] { };
     public float workerBeeCost;
     public float nectar;
     public string autoAssignBees = "nectar";
@@ -309,6 +310,7 @@ public class LevelManager : MonoBehaviour
         OrganizeNectarBees();
         OrganizeHoneyBees();
         OrganizeUnassignedBees();
+        OrganizeSoldierBees();
     }
 
     private void OrganizeNectarBees()
@@ -383,6 +385,19 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    private void OrganizeSoldierBees()
+    {
+        int numberOfsoldierBees = soldierBees.Length;
+        if (numberOfsoldierBees > 0)
+        {
+            foreach (GameObject obj in soldierBees)
+            {
+                obj.GetComponent<WorkerBee>().ResetBee();
+                obj.GetComponent<WorkerBee>().target = null;
+            }
+        }
+    }
+
     public void FoundFlower(GameObject flower)
     {
         Array.Resize(ref discoveredFlowers, discoveredFlowers.Length + 1);
@@ -432,7 +447,13 @@ public class LevelManager : MonoBehaviour
                 unit.GetComponent<WorkerBee>().work = "honey";
                 Array.Resize(ref honeyBees, honeyBees.Length + 1);
                 honeyBees[honeyBees.Length - 1] = unit;
-            }          
+            }
+            else if (autoAssignBees == "soldier")
+            {
+                unit.GetComponent<WorkerBee>().work = "soldier";
+                Array.Resize(ref soldierBees, soldierBees.Length + 1);
+                soldierBees[soldierBees.Length - 1] = unit;
+            }
         }
         //Update bee cost
         workerBeeCost = GlobalValues.main.workerBeeCost * (1 + (GlobalValues.main.workerBeeCostIncrease * workerBees.Length));
@@ -488,6 +509,30 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    public void AssignBeeToSoldier(bool add)
+    {
+        if (add == true && unassignedBees.Length > 0)
+        {
+            //Assigned unassigned bee to soldier
+            GameObject Bee = unassignedBees[unassignedBees.Length - 1];
+            Array.Resize(ref unassignedBees, unassignedBees.Length - 1);
+            Array.Resize(ref soldierBees, soldierBees.Length + 1);
+            Bee.GetComponent<WorkerBee>().work = "soldier";
+            soldierBees[soldierBees.Length - 1] = Bee;
+            OrganizeBees();
+        }
+        else if (add == false && soldierBees.Length > 0)
+        {
+            //Assign soldier bee to unassigned
+            GameObject Bee = soldierBees[soldierBees.Length - 1];
+            Array.Resize(ref soldierBees, soldierBees.Length - 1);
+            Array.Resize(ref unassignedBees, unassignedBees.Length + 1);
+            Bee.GetComponent<WorkerBee>().work = "unassigned";
+            unassignedBees[unassignedBees.Length - 1] = Bee;
+            OrganizeBees();
+        }
+    }
+
     private void UpdateQueensCommand()
     {
         //Add text to buttons
@@ -495,5 +540,6 @@ public class LevelManager : MonoBehaviour
         UIManager.main.unassignedBees.text = unassignedBees.Length.ToString();
         UIManager.main.nectarBees.text = nectarBees.Length.ToString();
         UIManager.main.honeyBees.text = honeyBees.Length.ToString();
+        UIManager.main.soldierBees.text = soldierBees.Length.ToString();
     }
 }

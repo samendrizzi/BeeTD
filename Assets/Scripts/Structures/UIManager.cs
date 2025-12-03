@@ -27,8 +27,10 @@ public class UIManager : MonoBehaviour
     [SerializeField] public TextMeshProUGUI unassignedBees;
     [SerializeField] public TextMeshProUGUI nectarBees;
     [SerializeField] public TextMeshProUGUI honeyBees;
+    [SerializeField] public TextMeshProUGUI soldierBees;
     [SerializeField] public Toggle autoAssignHoneyBee;
     [SerializeField] public Toggle autoAssignNectarBee;
+    [SerializeField] public Toggle autoAssignSoldierBee;
 
     public string speed = "Normal";
     public bool pause = false;
@@ -171,6 +173,11 @@ public class UIManager : MonoBehaviour
         LevelManager.main.AssignBeeToHoney(add);
     }
 
+    public void AssignSoldierBee(bool add)
+    {
+        LevelManager.main.AssignBeeToSoldier(add);
+    }
+
     public void ToggleAutoNectarBeeAssign() 
     {
         bool value = autoAssignNectarBee.isOn;
@@ -178,6 +185,8 @@ public class UIManager : MonoBehaviour
         {
             LevelManager.main.autoAssignBees = "nectar";
             autoAssignHoneyBee.SetIsOnWithoutNotify(false);
+            autoAssignSoldierBee.SetIsOnWithoutNotify(false);
+
         }
         else if (value == false)
         {
@@ -192,6 +201,22 @@ public class UIManager : MonoBehaviour
         {
             LevelManager.main.autoAssignBees = "honey";
             autoAssignNectarBee.SetIsOnWithoutNotify(false);
+            autoAssignSoldierBee.SetIsOnWithoutNotify(false);
+        }
+        else if (value == false)
+        {
+            LevelManager.main.autoAssignBees = "unassigned";
+        }
+    }
+
+    public void ToggleAutoSoldierBeeAssign()
+    {
+        bool value = autoAssignSoldierBee.isOn;
+        if (value == true)
+        {
+            LevelManager.main.autoAssignBees = "soldier";
+            autoAssignNectarBee.SetIsOnWithoutNotify(false);
+            autoAssignHoneyBee.SetIsOnWithoutNotify(false);
         }
         else if (value == false)
         {
