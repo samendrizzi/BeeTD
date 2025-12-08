@@ -11,134 +11,26 @@ public class Turret : MonoBehaviour
     [Header("References")]
     [SerializeField] private Transform turretRotationPoint;
     [SerializeField] private Transform firingPoint;
-    private LayerMask enemyMask;
-    private GameObject projectilePrefab;
-    private LayerMask flowerMask;
-    private LayerMask towerMask;
-
 
     [Header("Attribute")]
-    public string tName;
-    public float targetingRange;
-    public float rotationSpeed;
-    public float damage;
-    public float armorPierce;
-    public float aps;
-    public float effectDuration;
-    public float effectRatio;
-    public float efficiency;
-    public int flowerIndex;
-    public float flowerMultiplier;
-    public float apsBase;
-    public float damageBase;
-    public float targetingRangeBase;
-    public string effect;
-    public float effectDurationBase;
-    public float effectRatioBase;
-    public float efficiencyBase;
-    public bool hasTargetSettings;
-    public string targetSetting = "Near";
-    private string[] targetingOptions;
-    public bool ignoreTerrain;
-    public float honeyRate;  //bonus
-    public float generationRate;
-    private float honeyRateBase;
-    private float generationRateBase;
-    private int rampCount = 0;
-    private float cost;
-    public bool isDestroyed = false;
-
-    public Transform target;
-    private float timeUntilFire;
-    public float debuffTargetingRange = 0f;
-    public float debuffaps = 0f;
-    public float debuffDamage = 0f;
-    public float debuffEfficiency = 0f;
-    public float debuffEffectRatio = 0f;
-    public float debuffEffectDuration = 0f;
-    public float debuffFlower = 0f;
-    public float debuffTimer = 0f;
-    public bool debuffed = false;
-    private float timeUntilEffect = 0f;
-    public float investmentRate = 0f;
-    public float investmentRateBase = 0f;
     private StructureUIHandler UI;
-    private string canHit = "None";
-    public bool isSapped = false;
-    public float nectar = 0f;
-    private float maxNectar = 0f;
-    private float nectarRate = 0f;
-    private float maxNectarBase = 0f;
-    private float nectarRateBase = 0f;
+    private Attributes attributes;
 
     private void Start()
     {
-        //import values
-        UI = gameObject.GetComponent<StructureUIHandler>();
-        flowerIndex = -1;
-        targetingOptions = GlobalValues.main.targetingOptions;
-        int index = GetComponent<Identify>().ID;
-        tName = GlobalValues.main.TOWERname[index];
-        enemyMask = GlobalValues.main.TOWERenemyMask[index];
-        towerMask = GlobalValues.main.towerMask;
-        projectilePrefab = GlobalValues.main.TOWERprojectilePrefab[index];
-        cost = GlobalValues.main.TOWERcost[index];
-        targetingRange = GlobalValues.main.TOWERtargetingRange[index];
-        rotationSpeed = GlobalValues.main.TOWERrotationSpeed[index];
-        armorPierce = GlobalValues.main.TOWERarmorPierce[index];
-        hasTargetSettings = GlobalValues.main.TOWERhasTargetSettings[index];
-        effect = GlobalValues.main.TOWEReffect[index];
-        effectDuration = GlobalValues.main.TOWEReffectDuration[index];
-        effectRatio = GlobalValues.main.TOWEReffectRatio[index];
-        efficiency = GlobalValues.main.TOWERefficiency[index];
-        ignoreTerrain = GlobalValues.main.TOWERignoreTerrain[index];
-        canHit = GlobalValues.main.TOWERcanHit[index];
-        targetingRangeBase = targetingRange;
-        effectDurationBase = effectDuration;
-        effectRatioBase = effectRatio;
-        efficiencyBase = efficiency;
-        if (((1 << gameObject.layer) & GlobalValues.main.incomeMask) != 0)
-        {
-            nectar = 0f;
-            maxNectar = GlobalValues.main.TOWERdamage[index];
-            maxNectarBase = maxNectar;
-            nectarRate = GlobalValues.main.TOWERaps[index];
-            nectarRateBase = nectarRate;
-        }
-        else
-        {
-            aps = GlobalValues.main.TOWERaps[index];
-            damage = GlobalValues.main.TOWERdamage[index];
-            apsBase = aps;
-            damageBase = damage;
-        }
-
-        if ((GlobalValues.main.investmentMask & (1 << gameObject.layer)) != 0)
-        {
-            investmentRate = efficiency * GlobalValues.main.investmentMultiplier;
-            investmentRateBase = investmentRate;
-            //LevelManager.main.CalculateInvestment();
-        }
-        else if ((GlobalValues.main.incomeMask & (1 << gameObject.layer)) != 0)
-        {
-            generationRate = efficiency * GlobalValues.main.globalFertility;
-            generationRateBase = generationRate;
-        }
-        //check for flower buffs
-        flowerMask = GlobalValues.main.flowerMask;
-        IdentifyFlower();
+        attributes = gameObject.GetComponent<Attributes>();
         //Set starting rotation
         if (turretRotationPoint != null)
         {
             if (Vector2.Distance(LevelManager.main.path1[0].position, transform.position) < Vector2.Distance(LevelManager.main.path2[0].position, transform.position))
             {
-                target = LevelManager.main.path1[0];
+                attributes.target = LevelManager.main.path1[0];
             }
             else
             {
-                target = LevelManager.main.path2[0];
+                attributes.target = LevelManager.main.path2[0];
             }
-            float angle = Mathf.Atan2(target.position.y - transform.position.y, target.position.x - transform.position.x) * Mathf.Rad2Deg - 90f;
+            float angle = Mathf.Atan2(attributes.target.position.y - transform.position.y, attributes.target.position.x - transform.position.x) * Mathf.Rad2Deg - 90f;
             Quaternion targetRotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
             turretRotationPoint.rotation = targetRotation;
         }
@@ -146,214 +38,185 @@ public class Turret : MonoBehaviour
 
     private void Update()
     {
-        //does tower shoot
-        if (hasTargetSettings == true)
+        if (attributes.frozen == true || attributes.pausing > 0f)
         {
-            if (target != null && !CheckTargetIsInRange())
+            return;
+        }
+        //Actions
+        if (attributes.actions.Length > 0)
+        {
+            //iterate through all actions
+            for (int i = 0; i < attributes.actions.Length; i++)
             {
-                target = null;
-            }
-            else if (target != null)
-            {
-                timeUntilFire += Time.deltaTime;
-
-                if (timeUntilFire >= 1f / aps)
+                if (attributes.timeUntilActions[i] <= 0f)
                 {
-                    Shoot();
-                    timeUntilFire = 0f;
-                }
+                    Actions(i);
+                }  
             }
-
-            if (target == null)
+        }
+        //Effects
+        if (attributes.effects.Length > 0)
+        {
+            //iterate through all effects
+            for (int i = 0; i < attributes.effects.Length; i++)
             {
-                FindTarget();
+                if (attributes.timeUntilEffects[i] <= 0f)
+                {
+                    Effects(i);
+                }     
+            }         
+        }
+        RotateTowardsTarget();
+    }
+
+    private void Actions(int i)
+    {
+        string action = attributes.actions[i];
+        float actionPowerModifier = attributes.actionPowerModifiers[i] * attributes.actionPower;
+        float actionPierce = attributes.actionPierceModifiers[i] * attributes.armorPierce;
+        float actionRange = attributes.actionRangeModifiers[i] * attributes.targetingRange;
+        if (action.Substring(0,5) == "Shoot")
+        {
+            CheckTarget(actionRange);
+            if (attributes.target == null)
+            {
+                attributes.Pause(GlobalValues.main.turretPauseTime);
                 return;
             }
-
-            if (ignoreTerrain == false && isTargetObstructed() == true)
-            {
-                target = null;
-            }
-
-            RotateTowardsTarget();
-        }
-        else if (((1 << gameObject.layer) & GlobalValues.main.incomeMask) != 0 && isSapped == false && nectar < maxNectar && LevelManager.main.levelStarted == true)
-        {
-            //create nectar
-            nectar += Time.deltaTime * nectarRate;
-            if (nectar > maxNectar)
-            {
-                nectar = maxNectar;
-            }
-        }
-
-        if (effect != "none" && timeUntilEffect <= 0f)
-        {
-            if (timeUntilEffect <= 0f)
-            {
-                Effect();
-            }
-            timeUntilEffect -= Time.deltaTime;
+            Shoot(action, actionPowerModifier, actionPierce);
+            attributes.timeUntilActions[i] = attributes.actionRateModifiers[i] * attributes.actionRate;
         }
     }
 
-    private void ApplyFlowerBuff(bool buff)
+    private void Effects(int i)
     {
-        if (buff == true)
+        string effect = attributes.effects[i];
+        float effectPower = attributes.effectPowerModifiers[i] * attributes.effectPower;
+        float effectDuration = attributes.effectDurations[i];
+        float effectPierce = attributes.effectPierceModifiers[i] * attributes.resistancePierce;
+        float effectRange = attributes.effectRangeModifiers[i] * attributes.targetingRange;
+        if (effect.Substring(0, 5) == "Pulse")
         {
-            generationRate = generationRateBase;
-            nectarRate = nectarRateBase;
-            isSapped = false;
+            CheckTarget(effectRange);
+            if (attributes.target == null)
+            {
+                attributes.Pause(GlobalValues.main.turretPauseTime);
+                return;
+            }
+            Pulse(effect, effectPower, effectDuration, effectPierce, effectRange);
+            attributes.timeUntilEffects[i] = 1 / attributes.effectRate;
         }
         else
         {
-            nectarRate = 0f;
-            generationRate = 0f;
-            isSapped = true;
+            CheckTarget(effectRange);
+            if (attributes.target == null)
+            {
+                attributes.Pause(GlobalValues.main.turretPauseTime);
+                return;
+            }
+            OtherEffects(effect, effectPower, effectDuration, effectPierce, effectRange);
+            attributes.timeUntilEffects[i] = 1 / attributes.effectRate;
         }
-        if (flowerIndex == 0) //closed flower
-        {
-            //no current effect
-            if (buff == true)
-            {
-                generationRate = 0f;
-                nectarRate = 0f;
-            }
-            else
-            {
-                generationRate = 0f;
-                nectarRate = 0f;
-
-            }
-        }
-        else if (flowerIndex == 1) //blue flower effect
-        {
-            if (buff == true)
-            {
-                effectRatio = effectRatio * flowerMultiplier;
-                effectDuration = effectDuration * flowerMultiplier;
-            }
-            else
-            {
-                effectRatio = effectRatio / flowerMultiplier;
-                effectDuration = effectDuration / flowerMultiplier;
-            }
-        }
-        else if (flowerIndex == 2) //white flower attack speed
-        {
-            if (buff == true)
-            {
-                aps = aps * flowerMultiplier;
-            }
-            else
-            {
-                aps = aps / flowerMultiplier;
-            }
-            //placeholder
-        }
-        else if (flowerIndex == 3) //pink flower minor income
-        {
-            if (buff == true)
-            {
-                generationRate = generationRate * flowerMultiplier;
-                nectarRate = nectarRate * flowerMultiplier;
-            }
-        }
-        else if (flowerIndex == 4) //purple flower major income
-        {
-            if (buff == true)
-            {
-                generationRate = generationRate * flowerMultiplier;
-                nectarRate = nectarRate * flowerMultiplier;
-            }
-        }
-        else if (flowerIndex == 5) //gold flower bonus stored nectar
-        {
-            if (buff == true)
-            {
-                honeyRate = nectarRate * flowerMultiplier;
-            }
-            else
-            {
-                honeyRate = nectarRate / flowerMultiplier;
-            }
-        }
-        else if (flowerIndex == 6) //red flower damage
-        {
-            if (buff == true)
-            {
-                damage = damage * flowerMultiplier;
-            }
-            else
-            {
-                damage = damage / flowerMultiplier;
-            }
-        }
-        else if (flowerIndex == 7) //yellow flower range
-        {
-            if (buff == true)
-            {
-                targetingRange = targetingRange * flowerMultiplier;
-            }
-            else
-            {
-                targetingRange = targetingRange / flowerMultiplier;
-            }
-        }
-        else
-        {
-            Debug.Log("Flower not found. " + flowerIndex);
-        }
-        LevelManager.main.CalculateIncome();
     }
 
-    private void Shoot()
+    private void Shoot(string action, float actionPower, float actionPierce)
     {
-        float angle = Mathf.Atan2(target.position.y - transform.position.y, target.position.x - transform.position.x) * Mathf.Rad2Deg - 90f;
+
+        GameObject projectilePrefab;
+        if (action == "Shoot Basic")
+        {
+            projectilePrefab = GlobalValues.main.shootBasicPrefab;
+        }
+        else if (action == "Shoot Ramping")
+        {
+            projectilePrefab = GlobalValues.main.shootRampingPrefab;
+        }
+        else if (action == "Shoot Slowing")
+        {
+            projectilePrefab = GlobalValues.main.shootSlowPrefab;
+        }
+        else if (action == "Shoot Freezing")
+        {
+            projectilePrefab = GlobalValues.main.shootFreezingPrefab;
+        }
+        else if (action == "Shoot Ricochet")
+        {
+            projectilePrefab = GlobalValues.main.shootRicochetPrefab;
+        }
+        else if (action == "Shoot AoE Slowing")
+        {
+            projectilePrefab = GlobalValues.main.shootAoESlowingPrefab;
+        }
+        else if (action == "Shoot AoE Freezing")
+        {
+            projectilePrefab = GlobalValues.main.shootAoEFreezingPrefab;
+        }
+        else if (action == "Shoot AoE")
+        {
+            projectilePrefab = GlobalValues.main.shootAoEPrefab;
+        }
+        else
+        {
+            Debug.Log(gameObject.name + " is not properly assigned a projectile on action -> " + action.ToString());
+            return;
+        }
+        float angle = Mathf.Atan2(attributes.target.position.y - transform.position.y, attributes.target.position.x - transform.position.x) * Mathf.Rad2Deg - 90f;
         Quaternion targetRotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
         GameObject projectileObj = Instantiate(projectilePrefab, firingPoint.position, targetRotation);
         Projectile projectileScript = projectileObj.GetComponent<Projectile>();
-        if (effect == "Ramping")
+        if (action == "Shoot Ramping")
         {
-            projectileScript.SetTarget(target, (damage + damage * ((float)rampCount / GlobalValues.main.rampRatio)), armorPierce, canHit, ignoreTerrain, effect, effectRatio, effectDuration);
-            if (rampCount < 10)
+            projectileScript.SetTarget(attributes.target, (attributes.actionPower + attributes.actionPower * (1 + (float)attributes.rampCount * actionPowerModifier)), attributes.armorPierce, attributes.canHit, attributes.ignoreTerrain, action, actionPowerModifier, actionDuration);
+            if (attributes.rampCount < 10)
             {
-                rampCount++;
+                attributes.rampCount++;
             }
         }
         else
         {
-            projectileScript.SetTarget(target, damage, armorPierce, canHit, ignoreTerrain, effect, effectRatio, effectDuration);
+            projectileScript.SetTarget(attributes.target, attributes.actionPower, attributes.armorPierce, attributes.resistancePierce, attributes.canHit, attributes.ignoreTerrain, action, actionPowerModifier, actionDuration);
         }
     }
 
-    private void FindTarget()
+    private void CheckTarget(float range)
     {
-        RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, targetingRange, (Vector2)transform.position, 0f, enemyMask);
-        if (effect == "Ramping")
+        if ((attributes.target != null && !CheckTargetIsInRange(range)) || (attributes.ignoreTerrain == false && isTargetObstructed() == true))
         {
-            rampCount = 0;
+            attributes.target = null;
+        }
+        if (attributes.target == null)
+        {
+            FindTarget(range);
+        }
+    }
+
+    private void FindTarget(float range)
+    {
+        RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, range, (Vector2)transform.position, 0f, GlobalValues.main.enemyMask);
+        if (attributes.effect == "Ramping")
+        {
+            attributes.rampCount = 0;
         }
         //Adjust for allowed targets
-        if (canHit != "All")
+        if (attributes.canHit != "All")
         {
             RaycastHit2D[] hitsNew = new RaycastHit2D[] { };
-            if (canHit == "Ground")
+            if (attributes.canHit == "Ground")
             {
                 for (int i = 0; i < hits.Length; i++)
                 {
-                    if (!Library.main.GetWillFly(hits[i].transform.gameObject))
+                    if (!hits[i].transform.gameObject.getComponent<Attributes>().willFly)
                     {
                         Array.Resize(ref hitsNew, hitsNew.Length + 1);
                         hitsNew[hitsNew.Length - 1] = hits[i];
                     }
                 }
             }
-            else if (canHit == "Flying")
+            else if (attributes.canHit == "Flying")
             {
                 for (int i = 0; i < hits.Length; i++)
                 {
-                    if (Library.main.GetWillFly(hits[i].transform.gameObject))
+                    if (hits[i].transform.gameObject.getComponent<Attributes>().willFly)
                     {
                         Array.Resize(ref hitsNew, hitsNew.Length + 1);
                         hitsNew[hitsNew.Length - 1] = hits[i];
@@ -364,175 +227,148 @@ public class Turret : MonoBehaviour
         }
         if (hits.Length > 0)
         {
-            if (targetSetting == targetingOptions[0])
+            if (attributes.targetSetting == attributes.targetingOptions[0])
             {
                 //Near
-                target = hits[0].transform;
+                attributes.target = hits[0].transform;
                 for (int i = 0; i < hits.Length; i++)
                 {
-                    if (ignoreTerrain == true || !Physics2D.Linecast(transform.position, hits[i].transform.position, GlobalValues.main.obstructionMask))
+                    if (attributes.ignoreTerrain == true || !Physics2D.Linecast(transform.position, hits[i].transform.position, GlobalValues.main.obstructionMask))
                     {
-                        if (Vector2.Distance(target.position, transform.position) > Vector2.Distance(hits[i].transform.position, transform.position))
+                        if (Vector2.Distance(attributes.target.position, transform.position) > Vector2.Distance(hits[i].transform.position, transform.position))
                         {
-                            target = hits[i].transform;
+                            attributes.target = hits[i].transform;
                         }
                     }
                 }
             }
-            else if (targetSetting == targetingOptions[1])
+            else if (attributes.targetSetting == attributes.targetingOptions[1])
             {
                 //Far
-                target = hits[hits.Length - 1].transform;
+                attributes.target = hits[hits.Length - 1].transform;
                 for (int i = 0; i < hits.Length; i++)
                 {
-                    if (ignoreTerrain == true || !Physics2D.Linecast(transform.position, hits[i].transform.position, GlobalValues.main.obstructionMask))
+                    if (attributes.ignoreTerrain == true || !Physics2D.Linecast(transform.position, hits[i].transform.position, GlobalValues.main.obstructionMask))
                     {
-                        if (Vector2.Distance(target.position, transform.position) < Vector2.Distance(hits[i].transform.position, transform.position))
+                        if (Vector2.Distance(attributes.target.position, transform.position) < Vector2.Distance(hits[i].transform.position, transform.position))
                         {
-                            target = hits[i].transform;
+                            attributes.target = hits[i].transform;
                         }
                     }
                 }
             }
-            else if (targetSetting == targetingOptions[2])
+            else if (attributes.targetSetting == attributes.targetingOptions[2])
             {
                 //Weak
-                target = hits[0].transform;
+                attributes.target = hits[0].transform;
                 for (int i = 0; i < hits.Length; i++)
                 {
-                    if (Library.main.GetMaxHP(target.gameObject) > Library.main.GetMaxHP(hits[i].transform.gameObject) && (ignoreTerrain == true || (ignoreTerrain == false && !Physics2D.Linecast(transform.position, hits[i].transform.position, GlobalValues.main.obstructionMask))))
+                    if (attributes.target().getComponent<Attributes>().maxHP > hits[i].transform.gameObject.getComponent<Attributes>().maxHP && (attributes.ignoreTerrain == true || (attributes.ignoreTerrain == false && !Physics2D.Linecast(transform.position, hits[i].transform.position, GlobalValues.main.obstructionMask))))
                     {
-                        target = hits[i].transform;
+                        attributes.target = hits[i].transform;
                     }
                 }
             }
-            else if (targetSetting == targetingOptions[3])
+            else if (attributes.targetSetting == attributes.targetingOptions[3])
             {
                 //Strong
-                target = hits[0].transform;
+                attributes.target = hits[0].transform;
                 for (int i = 0; i < hits.Length; i++)
                 {
-                    if (Library.main.GetMaxHP(target.gameObject) < Library.main.GetMaxHP(hits[i].transform.gameObject) && (ignoreTerrain == true || (ignoreTerrain == false && !Physics2D.Linecast(transform.position, hits[i].transform.position, GlobalValues.main.obstructionMask))))
+                    if (attributes.target().getComponent<Attributes>().maxHP < hits[i].transform.gameObject.getComponent<Attributes>().maxHP && (attributes.ignoreTerrain == true || (attributes.ignoreTerrain == false && !Physics2D.Linecast(transform.position, hits[i].transform.position, GlobalValues.main.obstructionMask))))
                     {
-                        target = hits[i].transform;
+                        attributes.target = hits[i].transform;
                     }
                 }
             }
-            else if (targetSetting == targetingOptions[4])
+            else if (attributes.targetSetting == attributes.targetingOptions[4])
             {
                 //Ground
-                target = hits[0].transform;
+                attributes.target = hits[0].transform;
                 for (int i = 0; i < hits.Length; i++)
                 {
-                    if (Library.main.GetWillFly(hits[i].transform.gameObject) == false && (ignoreTerrain == true || (ignoreTerrain == false && !Physics2D.Linecast(transform.position, hits[i].transform.position, GlobalValues.main.obstructionMask))))
+                    if (hits[i].transform.gameObject.getComponent<Attributes>().willFly == false && (attributes.ignoreTerrain == true || (attributes.ignoreTerrain == false && !Physics2D.Linecast(transform.position, hits[i].transform.position, GlobalValues.main.obstructionMask))))
                     {
-                        target = hits[i].transform;
+                        attributes.target = hits[i].transform;
                         return;
                     }
                 }
             }
-            else if (targetSetting == targetingOptions[5])
+            else if (attributes.targetSetting == attributes.targetingOptions[5])
             {
                 //Flying
-                target = hits[0].transform;
+                attributes.target = hits[0].transform;
                 for (int i = 0; i < hits.Length; i++)
                 {
-                    if (Library.main.GetWillFly(hits[i].transform.gameObject) == true && (ignoreTerrain == true || (ignoreTerrain == false && !Physics2D.Linecast(transform.position, hits[i].transform.position, GlobalValues.main.obstructionMask))))
+                    if (hits[i].transform.gameObject.getComponent<Attributes>().willFly == true && (attributes.ignoreTerrain == true || (attributes.ignoreTerrain == false && !Physics2D.Linecast(transform.position, hits[i].transform.position, GlobalValues.main.obstructionMask))))
                     {
-                        target = hits[i].transform;
+                        attributes.target = hits[i].transform;
                         return;
                     }
                 }
             }
             else
             {
-                target = hits[0].transform;
+                attributes.target = hits[0].transform;
                 Debug.Log("No Targeting Settings Found for " + gameObject.name);
             }
-            
         }
     }
 
     private bool isTargetObstructed()
     {
-        return target != null && (Physics2D.Linecast(transform.position, target.transform.position, GlobalValues.main.obstructionMask));
+        return attributes.target != null && (Physics2D.Linecast(transform.position, attributes.target.transform.position, GlobalValues.main.obstructionMask));
     }
 
     private void RotateTowardsTarget()
     {
-        if (target != null)
+        if (attributes.target != null && turretRotationPoint != null)
         {
-            float angle = Mathf.Atan2(target.position.y - transform.position.y, target.position.x - transform.position.x) * Mathf.Rad2Deg - 90f;
-
+            float angle = Mathf.Atan2(attributes.target.position.y - transform.position.y, attributes.target.position.x - transform.position.x) * Mathf.Rad2Deg - 90f;
             Quaternion targetRotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
-            turretRotationPoint.rotation = Quaternion.RotateTowards(turretRotationPoint.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+            turretRotationPoint.rotation = Quaternion.RotateTowards(turretRotationPoint.rotation, targetRotation, attributes.rotationSpeed * Time.deltaTime);
         }
     }
 
-    private bool CheckTargetIsInRange()
+    private bool CheckTargetIsInRange(float range)
     {
-        return Vector2.Distance(target.position, transform.position) <= targetingRange;
+        return Vector2.Distance(attributes.target.position, transform.position) <= range;
     }
 
-    private void Effect()
+    private void Pulse(string effect, float effectPower, float effectDuration, float effectPierce, float effectRange)
     {
-        if (effect == "Slow Pulse")
+        if (attributes.effect == "Pulse Slow")
         {
-            SendSlowPulse();
-            //Thread debuffThread = new Thread(new ThreadStart(SlowPulse(hits)));
-            //debuffThread.Start();
-            timeUntilEffect = GlobalValues.main.slowTimer;
+            SendSlowPulse(effectPower, effectDuration, effectPierce, effectRange);
         }
-        else if (effect == "Slow Pulse with Freeze")
+        else if (attributes.effect == "Pulse Freeze")
         {
-            SendSlowPulseWithFreeze();
-            //Thread debuffThread = new Thread(SlowPulseWithFreeze());
-            //debuffThread.Start();
-            timeUntilEffect = GlobalValues.main.slowTimer;
+            SendFreezePulse(effectPower, effectDuration, effectPierce, effectRange);
         }
-        else if (effect == "Damage Buff")
+        else if (attributes.effect == "Pulse Damage Buff")
         {
-            SendDamageBuff();
-            //Thread buffThread = new Thread(DamageBuff);
-            //buffThread.Start();
-            timeUntilEffect = GlobalValues.main.buffTimer;
+            SendDamageBuff(effectPower, effectDuration, effectRange);
         }
-        else if (effect == "Damage and Speed Buff")
+        else if (attributes.effect == "Pulse Damage and Speed Buff")
         {
-            SendDamageBuff();
-            SendAPSBuff();
-            //Thread buffThread = new Thread(DamageAndSpeedBuff);
-            //buffThread.Start();
-            timeUntilEffect = GlobalValues.main.buffTimer;
-        }
-        else if (effect == "Heal Queen")
-        {
-            float missingHP = LevelManager.main.queenBeeMaxHP - LevelManager.main.queenBeeHP;
-            if (missingHP > 0)
-            {
-                float heal = efficiency * GlobalValues.main.healRatio;
-                if (heal < missingHP)
-                {
-                    LevelManager.main.queenBeeHP += heal;
-                }
-                else
-                {
-                    LevelManager.main.queenBeeHP = LevelManager.main.queenBeeMaxHP;
-                }
-            }
-            timeUntilEffect = GlobalValues.main.healTimer;
-        }
-        else
-        {
-            timeUntilEffect = 10000;
+            SendDamageBuff(effectPower, effectDuration, effectRange);
+            SendRateBuff(effectPower, effectDuration, effectRange);
         }
     }
 
-    private void SendDamageBuff()
+    private void OtherEffects(string effect, float effectPower, float effectDuration, float effectPierce, float effectRange)
     {
-        RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, targetingRange, (Vector2)transform.position, 0f, towerMask);
-        float buff = 1 + (efficiency * GlobalValues.main.damageBuffRatio);
-        float duration = GlobalValues.main.buffTimer;
+        if (attributes.effect == "Heal Queen")
+        {
+            LevelManager.main.HealQueen(effectPower);
+        }
+    }
+
+    private void SendDamageBuff(float effectPower, float effectDuration, float effectRange)
+    {
+        RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, effectRange, (Vector2)transform.position, 0f, GlobalValues.main.towerMask);
+        float buff = 1 + (GlobalValues.main.effectPowerBuffRatio * effectPower);
+        float duration = GlobalValues.main.buffTimerModifier * effectDuration;
         if (hits.Length > 0)
         {
             for (int i = 0; i < hits.Length; i++)
@@ -544,85 +380,76 @@ public class Turret : MonoBehaviour
         }
     }
 
-    private void SendAPSBuff()
+    private void SendRateBuff(float effectPower, float effectDuration, float effectRange)
     {
-        RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, targetingRange, (Vector2)transform.position, 0f, towerMask);
-        float buff = 1 + (efficiency * GlobalValues.main.apsBuffRatio);
-        float duration = GlobalValues.main.buffTimer;
+        RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, effectRange, (Vector2)transform.position, 0f, GlobalValues.main.towerMask);
+        float buff = 1 + (GlobalValues.main.effectRateBuffRatio * effectPower);
+        float duration = GlobalValues.main.buffTimer * effectDuration;
         if (hits.Length > 0)
         {
             for (int i = 0; i < hits.Length; i++)
             {
                 RaycastHit2D hit = hits[i];
                 Turret tur = hit.transform.GetComponent<Turret>();
-                tur.ReceiveAPSBuff(buff, duration);
+                tur.ReceiveRateBuff(buff, duration);
             }
         }
     }
 
-    private void SendSlowPulse()
+    private void SendSlowPulse(float effectPower, float effectDuration, float effectPierce, float effectRange)
     {
-        RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, targetingRange, (Vector2)transform.position, 0f, enemyMask);
-        float slowRatio = 1f + (effectRatio * GlobalValues.main.slowRatio);
-        float slowDuration = effectDuration * GlobalValues.main.slowDurationRatio;
+        RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, effectRange, (Vector2)transform.position, 0f, GlobalValues.main.enemyMask);
+        float slowPower = 1f + (effectPower * GlobalValues.main.slowPowerModifier);
+        float slowDuration = effectDuration * GlobalValues.main.slowDurationModifier;
+        float slowPierce = effectPierce * GlobalValues.main.slowPiercenModifier;
         if (hits.Length > 0)
         {
             for (int i = 0; i < hits.Length; i++)
             {
                 RaycastHit2D hit = hits[i];
-                Library.main.UpdateSpeed(hits[i].transform.gameObject, slowRatio, slowDuration);
+                hits[i].transform.gameObject.attributes.SlowSpeed(slowPower, slowDuration, slowPierce);
             }
         }
     }
 
-    private void SendSlowPulseWithFreeze()
+    private void SendFreezePulse(float effectPower, float effectDuration, float effectPierce, float effectRange)
     {
-        RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, targetingRange, (Vector2)transform.position, 0f, enemyMask);
-        float slowRatio = 1f + (effectRatio * GlobalValues.main.slowRatio);
-        float slowDuration = effectDuration * GlobalValues.main.slowDurationRatio;
-        float freezeRatio = efficiency * GlobalValues.main.freezeRatio;
-        int freezeChance = GlobalValues.main.freezeChance;
+        RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, effectRange, (Vector2)transform.position, 0f, GlobalValues.main.enemyMask);
+        float freezePower = effectPower * GlobalValues.main.freezePowerModifier;
+        float freezeDuration = effectDuration * GlobalValues.main.freezeDurationModifier;
+        float freezePierce = effectPower * GlobalValues.main.freezePierceModifier;
         if (hits.Length > 0)
         {
             for (int i = 0; i < hits.Length; i++)
             {
-                System.Random RandomGen = new System.Random();
-                int freezeRoll = RandomGen.Next(freezeChance);
                 RaycastHit2D hit = hits[i];
-                if (freezeRoll < freezeRatio)
-                {
-                    Library.main.Freeze(hit.transform.gameObject, slowDuration);
-                }
-                else
-                {
-                    Library.main.UpdateSpeed(hit.transform.gameObject, slowRatio, slowDuration);
-                }
+                hit.transform.gameObject.attributes.Freeze(freezePower, freezeDuration, freezePierce);;
             }
         }
     }
 
-    private IEnumerator RemoveDamageBuff(float buff, float duration)
+    private IEnumerator RemovePowerBuff(float buff, float duration)
     {
         yield return new WaitForSeconds(duration);
-        damage = damage / buff;
+        attributes.effectPower = attributes.effectPower / buff;
     }
 
-    private IEnumerator RemoveAPSBuff(float buff, float duration)
+    private IEnumerator RemoveRateBuff(float buff, float duration)
     {
         yield return new WaitForSeconds(duration);
-        aps = aps / buff;
+        attributes.effectRate = attributes.effectRate / buff;
     }
 
-    public void ReceiveDamageBuff(float buff, float duration)
+    public void ReceivePowerBuff(float buff, float duration)
     {
-        damage = damage * buff;
-        StartCoroutine(RemoveDamageBuff(buff, duration));           
+        attributes.effectPower = attributes.effectPower * buff;
+        StartCoroutine(RemovePowerBuff(buff, duration));           
     }
 
-    public void ReceiveAPSBuff(float buff, float duration)
+    public void ReceiveRateBuff(float buff, float duration)
     {
-        aps = aps * buff;      
-        StartCoroutine(RemoveAPSBuff(buff, duration));
+        attributes.effectRate = attributes.effectRate * buff;      
+        StartCoroutine(RemoveRateBuff(buff, duration));
     }
 
     private void OnMouseDown()
@@ -642,30 +469,5 @@ public class Turret : MonoBehaviour
     private void OnMouseExit()
     {
         UI.CloseRangeUI();
-    }
-
-    public void SapFlower(float duration)
-    {
-        ApplyFlowerBuff(false);
-    }
-
-    public void UnsapFlower(float duration)
-    {
-        ApplyFlowerBuff(true);
-    }
-
-    public void IdentifyFlower()
-    {
-        float range = GlobalValues.main.flowerRange;
-        RaycastHit2D[] flowers = Physics2D.CircleCastAll(transform.position, range, (Vector2)transform.position, 0f, flowerMask);
-        if (flowers.Length > 0)
-        {
-            flowerIndex = flowers[0].transform.GetComponent<Identify>().ID;
-            flowerMultiplier = GlobalValues.main.FLOWERModifier[flowerIndex];
-            if (flowers[0].transform.gameObject.GetComponent<Plot>().isSapped == false)
-            {
-                ApplyFlowerBuff(true);
-            }
-        }
     }
 }

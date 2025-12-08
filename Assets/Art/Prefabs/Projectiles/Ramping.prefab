@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4454988217143010830}
   - component: {fileID: -2118148315000156672}
   m_Layer: 21
-  m_Name: Fast Bullet
+  m_Name: Ramping
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

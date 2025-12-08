@@ -66,6 +66,11 @@ public class UIManager : MonoBehaviour
             frameCounter = 0;
         }
         frameCounter++;
+        //Pause
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            TogglePause();
+        }
     }
 
 

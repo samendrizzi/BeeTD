@@ -118,27 +118,27 @@ public class StructureUIHandler : MonoBehaviour, IPointerEnterHandler, IPointerE
             {
                 button7.gameObject.SetActive(true);
                 unitCost[0] = GlobalValues.main.UNITcost[upgradeIndex[0]];
-                button7.gameObject.GetComponentInChildren<TMP_Text>().text = GlobalValues.main.UNITname[upgradeIndex[0]] + ": " + unitCost[0].ToString() + " Nectar";
+                button7.gameObject.GetComponentInChildren<TMP_Text>().text = GlobalValues.main.UNIsName[upgradeIndex[0]] + ": " + unitCost[0].ToString() + " Nectar";
                 if (upgradeIndex.Length >= 2)
                 {
                     button0.gameObject.SetActive(true);
                     unitCost[1] = GlobalValues.main.UNITcost[upgradeIndex[1]];
-                    button0.gameObject.GetComponentInChildren<TMP_Text>().text = GlobalValues.main.UNITname[upgradeIndex[1]] + ": " + unitCost[1].ToString() + " Nectar";
+                    button0.gameObject.GetComponentInChildren<TMP_Text>().text = GlobalValues.main.UNIsName[upgradeIndex[1]] + ": " + unitCost[1].ToString() + " Nectar";
                     if (upgradeIndex.Length >= 3)
                     {
                         button1.gameObject.SetActive(true);
                         unitCost[2] = GlobalValues.main.UNITcost[upgradeIndex[2]];
-                        button1.gameObject.GetComponentInChildren<TMP_Text>().text = GlobalValues.main.UNITname[upgradeIndex[2]] + ": " + unitCost[2].ToString() + " Nectar";
+                        button1.gameObject.GetComponentInChildren<TMP_Text>().text = GlobalValues.main.UNIsName[upgradeIndex[2]] + ": " + unitCost[2].ToString() + " Nectar";
                         if (upgradeIndex.Length >= 4)
                         {
                             button6.gameObject.SetActive(true);
                             unitCost[3] = GlobalValues.main.UNITcost[upgradeIndex[3]];
-                            button6.gameObject.GetComponentInChildren<TMP_Text>().text = GlobalValues.main.UNITname[upgradeIndex[3]] + ": " + unitCost[3].ToString() + " Nectar";
+                            button6.gameObject.GetComponentInChildren<TMP_Text>().text = GlobalValues.main.UNIsName[upgradeIndex[3]] + ": " + unitCost[3].ToString() + " Nectar";
                             if (upgradeIndex.Length >= 5)
                             {
                                 button5.gameObject.SetActive(true);
                                 unitCost[4] = GlobalValues.main.UNITcost[upgradeIndex[4]];
-                                button5.gameObject.GetComponentInChildren<TMP_Text>().text = GlobalValues.main.UNITname[upgradeIndex[4]] + ": " + unitCost[4].ToString() + " Nectar";
+                                button5.gameObject.GetComponentInChildren<TMP_Text>().text = GlobalValues.main.UNIsName[upgradeIndex[4]] + ": " + unitCost[4].ToString() + " Nectar";
                             }
                         }
                     }
@@ -309,7 +309,7 @@ public class StructureUIHandler : MonoBehaviour, IPointerEnterHandler, IPointerE
         if (gameObject.GetComponent<Turret>() != null)
         {
             damage = gameObject.GetComponent<Turret>().damage.ToString();
-            attSpeed = gameObject.GetComponent<Turret>().aps.ToString();
+            attSpeed = gameObject.GetComponent<Turret>().actionRate.ToString();
             targRange = gameObject.GetComponent<Turret>().targetingRange.ToString();
             eff = gameObject.GetComponent<Turret>().effect;
             effRatio = gameObject.GetComponent<Turret>().effectRatio.ToString();

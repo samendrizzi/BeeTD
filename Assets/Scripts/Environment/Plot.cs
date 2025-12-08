@@ -107,7 +107,7 @@ public class Plot : MonoBehaviour
             targetingIndex = towerObj.GetComponent<StructureUIHandler>().targetingIndex;
             targetSetting = towerObj.GetComponent<StructureUIHandler>().targetSetting;
             //Remove Old Tower
-            towerObj.GetComponent<Turret>().isDestroyed = true;
+            towerObj.GetComponent<Attributes>().isDestroyed = true;
             Destroy(towerObj);
         }
         else
@@ -173,22 +173,6 @@ public class Plot : MonoBehaviour
         {
             isSapped = true;
             sr.sprite = fogSprite;
-            RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, GlobalValues.main.flowerRange, (Vector2)transform.position, 0f, GlobalValues.main.towerMask);
-            if (hits.Length > 0)
-            {
-                for (int i = 0; i < hits.Length; i++)
-                {
-                    hits[i].transform.gameObject.GetComponent<Turret>().SapFlower(duration);
-                }
-            }
-            hits = Physics2D.CircleCastAll(transform.position, GlobalValues.main.flowerRange, (Vector2)transform.position, 0f, GlobalValues.main.incomeMask);
-            if (hits.Length > 0)
-            {
-                for (int i = 0; i < hits.Length; i++)
-                {
-                    hits[i].transform.gameObject.GetComponent<Turret>().SapFlower(duration);
-                }
-            }
             StartCoroutine(UnsapFlower(duration));
         }
         else
@@ -205,22 +189,6 @@ public class Plot : MonoBehaviour
         {
             sr.sprite = originalSprite;
         }
-        RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, GlobalValues.main.flowerRange, (Vector2)transform.position, 0f, GlobalValues.main.towerMask);
-        if (hits.Length > 0)
-        {
-            for (int i = 0; i < hits.Length; i++)
-            {
-                hits[i].transform.gameObject.GetComponent<Turret>().UnsapFlower(duration);
-            }
-        }
-        hits = Physics2D.CircleCastAll(transform.position, GlobalValues.main.flowerRange, (Vector2)transform.position, 0f, GlobalValues.main.incomeMask);
-        if (hits.Length > 0)
-        {
-            for (int i = 0; i < hits.Length; i++)
-            {
-                hits[i].transform.gameObject.GetComponent<Turret>().UnsapFlower(duration);
-            }
-        }
     }
 
     public void Bloom (int index)
@@ -231,14 +199,6 @@ public class Plot : MonoBehaviour
         if (fog == false)
         {
             sr.sprite = originalSprite;
-        }
-        RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, GlobalValues.main.flowerRange, (Vector2)transform.position, 0f, GlobalValues.main.towerMask);
-        if (hits.Length > 0)
-        {
-            for (int i = 0; i < hits.Length; i++)
-            {
-                hits[i].transform.gameObject.GetComponent<Turret>().IdentifyFlower();
-            }
         }
     }
 

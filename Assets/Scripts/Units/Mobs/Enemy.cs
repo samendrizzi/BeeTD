@@ -1,0 +1,342 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEditor;
+using UnityEngine.UI;
+
+public class Enemy : MonoBehaviour
+{
+    public static Enemy main;
+
+    [Header("References")]
+
+    [Header("Attributes")]
+
+    //trackers
+    private Attributes attributes;
+
+    private void Start()
+    {
+        //setup
+        WaveSpawner.main.EnemySpawned();
+        attributes = gameObject.GetComponent<Attributes>();
+        if (attributes.willFly == true)
+        {
+            if (attributes.onPath == 1)
+            {
+                attributes.path = LevelManager.main.flyingPath1;
+            }
+            else
+            {
+                attributes.path = LevelManager.main.flyingPath2;
+            }
+        }
+        else
+        {
+            if (attributes.onPath == 1)
+            {
+                attributes.path = LevelManager.main.path1;
+            }
+            else
+            {
+                attributes.path = LevelManager.main.path2;
+            }
+
+        }
+        if (attributes.path != null)
+        {
+            attributes.target = attributes.path[attributes.pathIndex];
+        }
+    }
+
+    private void Update()
+    {
+        if (attributes.frozen == true || attributes.pausing > 0f)
+        {
+            return;
+        }
+
+        if (attributes.type == "Enemy Unit")
+        {
+            Move();
+        }
+        else
+        {
+            UniqueMove();
+        }
+        
+        //Actions
+        if (attributes.actions.Length > 0)
+        {
+            //iterate through all actions
+            for (int i = 0; i < attributes.actions.Length; i++)
+            {
+                if (attributes.timeUntilActions[i] <= 0f)
+                {
+                    Actions(i);
+                }
+            }
+        }
+        //Effects
+        if (attributes.effects.Length > 0)
+        {
+            //iterate through all effects
+            for (int i = 0; i < attributes.effects.Length; i++)
+            {
+                if (attributes.timeUntilEffects[i] <= 0f)
+                {
+                    Effects(i);
+                }
+            }
+        }
+    }
+
+    private void Move()
+    {   
+        //check pathing
+        if (Vector2.Distance(attributes.target.position, transform.position) <= attributes.wayPointDistance)
+        {
+            if ((attributes.inventoryFull == false) && (attributes.pathIndex != (attributes.path.Length - 1)))
+            {
+                attributes.pathIndex++;
+            }
+            else if (attributes.inventoryFull == true && attributes.pathIndex != 0)
+            {
+                attributes.pathIndex--;
+            }
+            attributes.target = attributes.path[attributes.pathIndex];
+        }
+        //set velocity
+        Vector2 direction = (attributes.target.position - transform.position).normalized;
+        attributes.rb.velocity = direction * attributes.moveSpeed;
+        float angle = Mathf.Atan2(attributes.target.position.y - transform.position.y, attributes.target.position.x - transform.position.x) * Mathf.Rad2Deg - 90f;
+        Quaternion targetRotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, attributes.rotationSpeed * attributes.moveSpeed * Time.deltaTime);
+    }
+
+    private void UniqueMove()
+    {
+        if (attributes.type == "Hummingbird")
+        {
+            Hummingbird();
+        }
+    }
+
+    private void Actions(int i)
+    {
+        string action = attributes.actions[i];
+        //float actionPower = attributes.actionPowerModifiers[i] * attributes.actionPower;
+        float actionRate = attributes.actionRateModifiers[i] * attributes.actionRate;
+        //float actionRange = attributes.actionRangeModifiers[i] * attributes.targetingRange;
+        //float actionPierce = attributes.actionPierceModifiers[i] * attributes.armorPierce;
+        //float actionDuration = attributes.actionDurations[i];
+        //GameObject prefab = attributes.actionPrefabs[i];
+        attributes.timeUntilActions[i] = 1 / (actionRate);
+        if (action == "Steal Honey")
+        {
+            float actionPower = attributes.actionPowerModifiers[i] * attributes.actionPower;
+            float actionPierce = attributes.actionPierceModifiers[i] * attributes.armorPierce;
+            //pause instead of action timer
+            attributes.timeUntilActions[i] = 0f;
+            attributes.Pause(1 / (actionRate));
+            StealHoney(actionPower, actionPierce);
+            return;
+        }
+        else if (action == "Attack Queen")
+        {
+            float actionPower = attributes.actionPowerModifiers[i] * attributes.actionPower;
+            float actionPierce = attributes.actionPierceModifiers[i] * attributes.armorPierce;
+            //pause instead of action timer
+            attributes.timeUntilActions[i] = 0f;
+            attributes.Pause(1 / (actionRate));
+            AttackQueen(actionPower, actionPierce);
+            return;
+        }
+        else if (action == "Sap Flower")
+        {
+            float actionPower = attributes.actionPowerModifiers[i] * attributes.actionPower;
+            float actionDuration = attributes.actionDurations[i];
+            float actionRange = attributes.actionRangeModifiers[i] * attributes.targetingRange;
+            SapFlower(actionPower, actionDuration, actionRange);
+            return;
+        }
+    }
+
+    private void Effects(int i)
+    {
+        string effect = attributes.effects[i];
+        //float effectPower = attributes.effectPowerModifiers[i] * attributes.effectPower;
+        float effectRate = attributes.effectRateModifiers[i] * attributes.effectRate;
+        //float effectRange = attributes.effectRangeModifiers[i] * attributes.targetingRange;
+        //float effectPierce = attributes.effectPierceModifiers[i] * attributes.resistancePierce;
+        //float effectDuration = attributes.effectDurations[i];
+        //GameObject prefab = attributes.effectPrefabs[i];
+        attributes.timeUntilEffects[i] = 1 / (effectRate);
+        if (effect == "Spawn")
+        {
+            float effectPower = attributes.effectPowerModifiers[i] * attributes.effectPower;
+            float effectDuration = attributes.effectDurations[i] * GlobalValues.main.spawnTimerModifier;
+            GameObject prefab = attributes.effectPrefabs[i];
+            Spawn(prefab, effectPower, effectDuration);
+        }
+        else if (effect == "Heal Aura")
+        {
+            float effectPower = attributes.effectPowerModifiers[i] * attributes.effectPower;
+            float effectRange = attributes.effectRangeModifiers[i] * attributes.targetingRange;
+            HealAura(effectPower, effectRange);
+        }
+        else if (effect == "Hatch")
+        {
+            GameObject prefab = attributes.effectPrefabs[i];
+            float effectPower = attributes.effectPowerModifiers[i] * attributes.effectPower;
+            Hatch(prefab, effectPower);
+        }
+        else if (effect == "Skunk Spray")
+        {
+            GameObject prefab = attributes.effectPrefabs[i];
+            float effectPower = attributes.effectPowerModifiers[i] * attributes.effectPower;
+            float effectDuration = attributes.effectDurations[i];
+            SkunkSpray(prefab, effectPower, effectDuration);
+        }
+        else
+        {
+            Debug.Log("Calling invalid effect: " + effect);
+        }
+    }
+
+    private void StealHoney(float power, float pierce)
+    {
+        if (Vector2.Distance(LevelManager.main.queenBee.transform.position, transform.position) <= attributes.wayPointDistance)
+        {
+            if (attributes.inventoryFull == true && attributes.pathIndex == 0)
+            {
+                attributes.Heal(attributes.carryCapacity * GlobalValues.main.honeyhealModifier);
+                attributes.inventoryFull = false;
+                return;
+            }
+            else if (attributes.pathIndex == attributes.path.Length - 1)
+            {
+                if (LevelManager.main.honey < attributes.carryCapacity)
+                {
+                    AttackQueen(power, pierce);
+                    return;
+                }
+                else if (LevelManager.main.honey >= attributes.carryCapacity)
+                {
+                    attributes.inventoryFull = true;
+                    LevelManager.main.honey = LevelManager.main.honey - attributes.carryCapacity;
+                }
+            }
+        }
+    }
+
+    public void ReturnHoney()
+    {
+        if (attributes.inventoryFull == true)
+        {
+            LevelManager.main.honey += attributes.carryCapacity * GlobalValues.main.honeyDropReturnModifier;
+        }         
+    }
+
+    private void AttackQueen(float damage, float armorPierce)
+    {
+        if (Vector2.Distance(LevelManager.main.queenBee.transform.position, transform.position) <= attributes.wayPointDistance)
+        {
+            LevelManager.main.HitQueen(damage, armorPierce);
+            attributes.TakeDamage(damage * GlobalValues.main.queenThornModifier, armorPierce);
+        }
+    }
+
+    private void Spawn(GameObject prefab, float power, float duration)
+    {
+        Transform start = attributes.path[attributes.pathIndex];
+        Transform nextPoint = attributes.target;
+        GameObject spawn = Instantiate(prefab, gameObject.transform.position, Quaternion.identity);
+        Attributes spawnAtt = spawn.GetComponent<Attributes>();
+        spawnAtt.onPath = attributes.onPath;
+        spawnAtt.path = attributes.path;
+        spawnAtt.pathIndex = attributes.pathIndex;
+        spawnAtt.target = attributes.target;
+        if (spawnAtt.effects[0] == "Hatch")
+        {
+            spawnAtt.timeUntilEffects[0] = duration * GlobalValues.main.eggHatchingTimerModifier;
+            spawnAtt.effectPowerModifiers[0] = power;
+        }
+        else
+        {
+            spawnAtt.RollPrestige(power);
+        }
+    }
+
+    public void Hatch(GameObject prefab, float power)
+    {
+        GameObject spawn = Instantiate(prefab, gameObject.transform.position, Quaternion.identity);
+        Attributes spawnAtt = spawn.GetComponent<Attributes>();
+        spawnAtt.onPath = attributes.onPath;
+        spawnAtt.path = attributes.path;
+        spawnAtt.pathIndex = attributes.pathIndex;
+        spawnAtt.target = attributes.target;
+        spawnAtt.RollPrestige(power);
+        attributes.Die();
+    }
+
+    private void HealAura(float power, float range)
+    {
+        //find objects of same type in range
+        float rangeAdjsuted = range * GlobalValues.main.enemyHealRangeModifier;
+        float powerAdjusted = power * GlobalValues.main.enemyHealModifier;
+        RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, rangeAdjusted, (Vector2)transform.position, 0f, (1 << gameObject.layer));
+        if (hits.Length > 0)
+        {
+            for (int i = 0; i < hits.Length; i++)
+            {
+                hits[i].transform.gameObject.GetComponent<Attributes>().Heal(powerAdjusted);
+            }
+        }
+    }
+
+    private IEnumerator SkunkSpray(GameObject prefab, float power, float duration)
+    {
+        GameObject prefabToSpawn = prefab;
+        GameObject spray = Instantiate(prefabToSpawn, gameObject.transform.position, Quaternion.identity);
+        spray.transform.localScale = spray.transform.localScale * power;
+        yield return new WaitForSeconds(duration);
+        Destroy(spray);
+    }
+
+    private void SapFlower(float power, float duration, float range)
+    {
+        if (Vector2.Distance(attributes.target.transform.position, gameObject.transform.position) <= range)
+        {
+            targetFlower.GetComponent<Plot>().SapFlower(duration * GlobalValues.main.HummingbirdSapTimeModifier);
+            attributes.target = null;
+            attributes.Pause(GlobalValues.main.HummingbirdWaitTime / power);
+        }
+    }
+
+    private void Hummingbird()
+    {
+        if (target == null)
+        {
+            //find new flower
+            RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, GlobalValues.main.hummingbirdRange, (Vector2)transform.position, 0f, GlobalValues.main.flowerMask);
+            System.Random RandomGen = new System.Random();
+            int randompick = RandomGen.Next(hits.Length - 1);
+            attributes.target = hits[randompick];
+        }
+        if (target != null)
+        {
+            //move towards flower
+            Vector2 direction = (attributes.target.position - transform.position).normalized;
+            attributes.rb.velocity = direction * attributes.moveSpeed;
+            float angle = Mathf.Atan2(attributes.target.position.y - transform.position.y, attributes.target.position.x - transform.position.x) * Mathf.Rad2Deg - 90f;
+            Quaternion targetRotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 150 * attributes.moveSpeed * Time.deltaTime);
+        }
+        else
+        {
+            attributes.rb.velocity = attributes.rb.velocity * 0;
+            Debug.Log("Hummingbird unable to find flower.");
+        }
+    }
+}

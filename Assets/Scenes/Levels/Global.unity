@@ -3408,7 +3408,7 @@ MonoBehaviour:
   UNIT0willAttack: 1
   UNIT0effect: none
   UNIT0effectModifier: 3
-  UNIT0attackDamage: 0.5
+  UNIT0attackDamage: 0.25
   UNIT0attackRate: 3
   UNIT1prefab: {fileID: 0}
   UNIT1prefab2: {fileID: 0}
@@ -6474,7 +6474,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 15}
-  m_SizeDelta: {x: 400, y: 30}
+  m_SizeDelta: {x: 375, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &742043333
 MonoBehaviour:
@@ -7196,7 +7196,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 15}
-  m_SizeDelta: {x: 400, y: 30}
+  m_SizeDelta: {x: 375, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &868890682
 MonoBehaviour:

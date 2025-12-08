@@ -348,11 +348,11 @@ public class WaveSpawner : MonoBehaviour
         GameObject enemy = Instantiate(prefabToSpawn, start.position, enemyRotation);
         if (path == "Path1")
         {
-            Library.main.SetPath(enemy, 1);
+            enemy.GetComponent<Attributes>().onPath = 1;
         }
         else
         {
-            Library.main.SetPath(enemy, 2);
+            enemy.GetComponent<Attributes>().onPath = 2;
         }
         if (spawnIndexPath1 >= enemySpawnsPath1[currentWave - 1].Length && spawnIndexPath2 >= enemySpawnsPath2[currentWave - 1].Length)
         {
