@@ -3302,7 +3302,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2048
   wayPointDistance: 0.05
-  maxSlowDebuff: 0.25
+  maxSlowDebuff: 0.4
+  freezeImmuneRatio: 0.5
   workerBeePrefab: {fileID: 5400552394083257877, guid: ee18f8343b138334589ffed6834256ab, type: 3}
   unitRotationSpeed: 150
   queenThornModifier: 1
@@ -3347,6 +3348,7 @@ MonoBehaviour:
   - Ground
   - Flying
   sellRatio: 0.75
+  sellNonrefund: 35
   damageBuffRatio: 0.1
   actionRateBuffRatio: 0.1
   slowPowerModifier: 1

@@ -2885,7 +2885,7 @@ MonoBehaviour:
   carryCapacity: 10
   canHit: All
   ignoreTerrain: 0
-  hasTargetSettings: 1
+  hasTargetSettings: 0
   targetSetting: 
   prestige: []
   hitPoints: 1

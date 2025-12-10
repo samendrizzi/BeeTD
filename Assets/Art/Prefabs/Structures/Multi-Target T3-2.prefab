@@ -2841,7 +2841,8 @@ MonoBehaviour:
   - 1
   actionDurations:
   - 5
-  actionExtraModifiers: []
+  actionExtraModifiers:
+  - 0
   effectPower: 1
   effectRate: 1
   resistancePierce: 0
@@ -2866,7 +2867,7 @@ MonoBehaviour:
   pathIndex: 0
   inventoryFull: 0
   frozen: 0
-  frozenCount: 0
+  freezeImmune: 0
   pausing: 0
   timeUntilActions: []
   timeUntilEffects: []

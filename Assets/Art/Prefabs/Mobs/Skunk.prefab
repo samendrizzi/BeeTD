@@ -305,6 +305,8 @@ MonoBehaviour:
   - 1
   actionDurations:
   - 1
+  actionExtraModifiers:
+  - 0
   effectPower: 1
   effectRate: 1
   resistancePierce: 0
@@ -329,6 +331,9 @@ MonoBehaviour:
   effectDurations:
   - 1
   - 5
+  effectExtraModifiers:
+  - 0
+  - 0
   willFly: 0
   carryCapacity: 10
   canHit: All
@@ -342,7 +347,7 @@ MonoBehaviour:
   pathIndex: 0
   inventoryFull: 0
   frozen: 0
-  frozenCount: 0
+  freezeImmune: 0
   pausing: 0
   timeUntilActions: []
   timeUntilEffects: []
@@ -365,6 +370,7 @@ MonoBehaviour:
   actionRangeModifiersBase: []
   actionPierceModifiersBase: []
   actionDurationsBase: []
+  actionExtraModifiersBase: []
   effectPowerBase: 0
   effectRateBase: 0
   resistancePierceBase: 0
@@ -373,6 +379,7 @@ MonoBehaviour:
   effectRateModifiersBase: []
   effectRangeModifiersBase: []
   effectDurationsBase: []
+  effectExtraModifiersBase: []
   work: unassigned
   flower: {fileID: 0}
   nectar: 0

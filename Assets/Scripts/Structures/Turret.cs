@@ -104,11 +104,14 @@ public class Turret : MonoBehaviour
         float effectRange = attributes.effectRangeModifiers[i] * attributes.targetingRange;
         if (effect.Substring(0, 5) == "Pulse")
         {
-            CheckTarget(effectRange);
-            if (attributes.target == null)
+            if (attributes.hasTargetSettings)
             {
-                attributes.Pause(GlobalValues.main.turretPauseTime);
-                return;
+                CheckTarget(effectRange);
+                if (attributes.target == null)
+                {
+                    attributes.Pause(GlobalValues.main.turretPauseTime);
+                    return;
+                }
             }
             Pulse(effect, effectPower, effectDuration, effectPierce, effectRange);
             attributes.timeUntilEffects[i] = 1 / attributes.effectRate;
@@ -407,24 +410,24 @@ public class Turret : MonoBehaviour
     private IEnumerator RemovePowerBuff(float buff, float duration)
     {
         yield return new WaitForSeconds(duration);
-        attributes.effectPower = attributes.effectPower / buff;
+        attributes.actionPower = attributes.actionPower / buff;
     }
 
     private IEnumerator RemoveRateBuff(float buff, float duration)
     {
         yield return new WaitForSeconds(duration);
-        attributes.effectRate = attributes.effectRate / buff;
+        attributes.actionRate = attributes.actionRate / buff;
     }
 
     public void ReceivePowerBuff(float buff, float duration)
     {
-        attributes.effectPower = attributes.effectPower * buff;
+        attributes.actionPower = attributes.actionPower * buff;
         StartCoroutine(RemovePowerBuff(buff, duration));           
     }
 
     public void ReceiveRateBuff(float buff, float duration)
     {
-        attributes.effectRate = attributes.effectRate * buff;      
+        attributes.actionRate = attributes.actionRate * buff;      
         StartCoroutine(RemoveRateBuff(buff, duration));
     }
 

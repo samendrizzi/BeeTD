@@ -57,10 +57,10 @@ public class UIManager : MonoBehaviour
     {
         if (frameCounter >= GlobalValues.main.UIFrameRatio)
         {
-            nectarCounterUI.text = Mathf.Round(LevelManager.main.nectar).ToString();
-            honeyRequiredBar.value = Mathf.Round(LevelManager.main.honey);
-            honeyCounterRequiredUI.text = Mathf.Round(LevelManager.main.honey).ToString() + " / " + LevelManager.main.honeyRequired;
-            waveSpawnCounterUI.text = Mathf.Round(GameObject.Find("LevelManager").GetComponent<WaveSpawner>().waveCountdown).ToString();
+            nectarCounterUI.text = Mathf.FloorToInt(LevelManager.main.nectar).ToString();
+            honeyRequiredBar.value = Mathf.FloorToInt(LevelManager.main.honey);
+            honeyCounterRequiredUI.text = Mathf.FloorToInt(LevelManager.main.honey).ToString() + " / " + LevelManager.main.honeyRequired;
+            waveSpawnCounterUI.text = Mathf.FloorToInt(GameObject.Find("LevelManager").GetComponent<WaveSpawner>().waveCountdown).ToString();
             queenHealthBar.value = LevelManager.main.queenBeeHP;
             queenHealthNumbered.text = Mathf.Round(LevelManager.main.queenBeeHP).ToString() + " / " + Mathf.Round(LevelManager.main.queenBeeMaxHP).ToString();
             frameCounter = 0;

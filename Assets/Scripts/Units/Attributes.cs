@@ -17,7 +17,7 @@ public class Attributes : MonoBehaviour
     [Header("__________________________")]
     [Header("All")]
     [SerializeField] public string sName = "";
-    [SerializeField] public string type = "Tower";
+    [SerializeField] public string type = "";
     [SerializeField] public float cost = 0f;
     //
     [SerializeField] public float moveSpeed = 0f;
@@ -60,7 +60,7 @@ public class Attributes : MonoBehaviour
     [Header("Towers Only")]
     [SerializeField] public string canHit = "All";
     [SerializeField] public bool ignoreTerrain = false;
-    [SerializeField] public bool hasTargetSettings = true;
+    [SerializeField] public bool hasTargetSettings = false;
     [SerializeField] public string targetSetting;
 
     [Header("_____________________")]
@@ -74,7 +74,7 @@ public class Attributes : MonoBehaviour
     public int pathIndex = 0;
     public bool inventoryFull = false;
     public bool frozen = false;
-    public int frozenCount = 0;
+    public float freezeImmune = 0f;
     public float pausing = 0f;
     public float[] timeUntilActions;
     public float[] timeUntilEffects;
@@ -179,6 +179,10 @@ public class Attributes : MonoBehaviour
             return;
         }
         //Update Counters
+        if (freezeImmune > 0)
+        {
+            freezeImmune -= Time.deltaTime;
+        }
         if (timeUntilActions.Length > 0)
         {
             for (int i = 0; i < actions.Length; i++)
@@ -244,6 +248,10 @@ public class Attributes : MonoBehaviour
 
     public void SlowSpeed(float power, float pierce, float duration)
     {
+        if (moveSpeedBase == 0)
+        {
+            return;
+        }
         float resistanceBlock = (resistance - pierce) / 100f;
         if (resistanceBlock < 0)
         {
@@ -270,6 +278,11 @@ public class Attributes : MonoBehaviour
 
     public void Freeze(float power, float pierce, float duration)
     {
+        if (freezeImmune > 0)
+        {
+            SlowSpeed(power, pierce, duration);
+            return;
+        }
         float resistanceBlock = (resistance - pierce) / 100f;
         if (resistanceBlock < 0)
         {
@@ -288,7 +301,7 @@ public class Attributes : MonoBehaviour
         {
             HaltMovement();
             frozen = true;
-            frozenCount++;
+            freezeImmune = (duration * GlobalValues.main.freezeImmuneRatio) * (1f + resistanceBlock);
             StartCoroutine(Unfreeze(duration));
         }
         else
@@ -310,12 +323,7 @@ public class Attributes : MonoBehaviour
     private IEnumerator Unfreeze(float duration)
     {
         yield return new WaitForSeconds(duration);
-        frozenCount--;
-        if (frozenCount <= 0)
-        {
-            frozen = false;
-            frozenCount = 0;
-        }
+        frozen = false;
     }
 
     public void Die()
@@ -323,13 +331,9 @@ public class Attributes : MonoBehaviour
         if (isDestroyed == false)
         {
             isDestroyed = true;
-            if (inventoryFull && type == "Enemy Unit")
+            if (type.Substring(0,5) == "Enemy")
             {
-                gameObject.GetComponent<Enemy>().ReturnHoney();
-                WaveSpawner.main.EnemyDestroyed();
-            }
-            else if (type == "Enemy Boss")
-            {
+                ReturnHoney();
                 WaveSpawner.main.EnemyDestroyed();
             }
             Destroy(gameObject);
@@ -363,5 +367,13 @@ public class Attributes : MonoBehaviour
     {
         HaltMovement();
         pausing = duration;
+    }
+
+    public void ReturnHoney()
+    {
+        if (inventoryFull)
+        {
+            LevelManager.main.honey += carryCapacity * GlobalValues.main.honeyDropReturnModifier;
+        }
     }
 }

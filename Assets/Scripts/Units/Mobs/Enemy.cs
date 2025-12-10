@@ -47,6 +47,10 @@ public class Enemy : MonoBehaviour
         {
             attributes.target = attributes.path[attributes.pathIndex];
         }
+        if (attributes.sName == "Hummingbird")
+        {
+            attributes.target = null;
+        }
     }
 
     private void Update()
@@ -56,13 +60,13 @@ public class Enemy : MonoBehaviour
             return;
         }
 
-        if (attributes.type == "Enemy Unit")
+        if (attributes.sName == "Hummingbird")
         {
-            Move();
+            UniqueMove();
         }
         else
         {
-            UniqueMove();
+            Move();
         }
         
         //Actions
@@ -116,10 +120,7 @@ public class Enemy : MonoBehaviour
 
     private void UniqueMove()
     {
-        if (attributes.type == "Hummingbird")
-        {
-            Hummingbird();
-        }
+        Hummingbird();
     }
 
     private void Actions(int i)
@@ -231,14 +232,6 @@ public class Enemy : MonoBehaviour
                 return;
             }
         }
-    }
-
-    public void ReturnHoney()
-    {
-        if (attributes.inventoryFull == true)
-        {
-            LevelManager.main.honey += attributes.carryCapacity * GlobalValues.main.honeyDropReturnModifier;
-        }         
     }
 
     private void AttackQueen(float damage, float armorPierce)

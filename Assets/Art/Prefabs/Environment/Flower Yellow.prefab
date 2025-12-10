@@ -2945,6 +2945,7 @@ MonoBehaviour:
   fog: 1
   isSapped: 0
   hasBloomed: 0
+  pause: 0
 --- !u!114 &2055099818213455336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2971,8 +2972,7 @@ MonoBehaviour:
   button7: {fileID: 2430373665143050368}
   button8: {fileID: 3304614900345063471}
   rangeIndicator: {fileID: 0}
-  targetSetting: Near
-  targetingIndex: 0
+  upgradeMatrix: []
   influence: 0
 --- !u!58 &-2766490005130576362
 CircleCollider2D:

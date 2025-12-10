@@ -53,7 +53,7 @@ public class Projectile : MonoBehaviour
             slow = 1 + (effectPower * GlobalValues.main.slowPowerModifier);
             slowDuration = actionDuration * GlobalValues.main.slowDurationModifier;
         }
-        else if (action == "Ricochet")
+        else if (action == "Shoot Ricochet")
         {
             numberRicochet = (int)actionDuration;
         }
@@ -100,7 +100,7 @@ public class Projectile : MonoBehaviour
                 return;
             }
         }
-        if (AoE == 0 && isDestroyed == false && other.GetComponent<Attributes>().willFly == false)
+        if (AoE == 0 && isDestroyed == false)
         {
            other.GetComponent<Attributes>().TakeDamage(projectileDamage, armorPierce);
             if (action == "Shoot Slowing")
@@ -111,7 +111,7 @@ public class Projectile : MonoBehaviour
             {
                 other.GetComponent<Attributes>().Freeze(slow, resistancePierce, slowDuration);
             }
-            else if (action == "Ricochet")
+            else if (action == "Shoot Ricochet")
             {
                 Ricochet();
                 return;

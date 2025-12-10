@@ -293,7 +293,8 @@ MonoBehaviour:
   armorPierce: 0
   actions:
   - Steal Honey
-  actionPrefabs: []
+  actionPrefabs:
+  - {fileID: 0}
   actionPowerModifiers:
   - 1
   actionRateModifiers:
@@ -302,7 +303,10 @@ MonoBehaviour:
   - 1
   actionPierceModifiers:
   - 1
-  actionDurations: []
+  actionDurations:
+  - 0
+  actionExtraModifiers:
+  - 0
   effectPower: 1
   effectRate: 1
   resistancePierce: 0
@@ -313,6 +317,7 @@ MonoBehaviour:
   effectRateModifiers: []
   effectRangeModifiers: []
   effectDurations: []
+  effectExtraModifiers: []
   willFly: 0
   carryCapacity: 10
   canHit: None
@@ -326,7 +331,7 @@ MonoBehaviour:
   pathIndex: 0
   inventoryFull: 0
   frozen: 0
-  frozenCount: 0
+  freezeImmune: 0
   pausing: 0
   timeUntilActions: []
   timeUntilEffects: []
@@ -349,6 +354,7 @@ MonoBehaviour:
   actionRangeModifiersBase: []
   actionPierceModifiersBase: []
   actionDurationsBase: []
+  actionExtraModifiersBase: []
   effectPowerBase: 0
   effectRateBase: 0
   resistancePierceBase: 0
@@ -357,6 +363,7 @@ MonoBehaviour:
   effectRateModifiersBase: []
   effectRangeModifiersBase: []
   effectDurationsBase: []
+  effectExtraModifiersBase: []
   work: unassigned
   flower: {fileID: 0}
   nectar: 0

@@ -25,7 +25,6 @@ public class StructureUIHandler : MonoBehaviour, IPointerEnterHandler, IPointerE
     [SerializeField] private GameObject rangeIndicator;
     [SerializeField] public GameObject[] upgradeMatrix;
     private float[] upgradeCost;
-    private float[] unitCost;
     private float sellPrice;
     private float cost;
     private int index;
@@ -63,7 +62,7 @@ public class StructureUIHandler : MonoBehaviour, IPointerEnterHandler, IPointerE
             }
             else
             {
-                sellPrice = Mathf.Round((attributes.cost) * GlobalValues.main.sellRatio);
+                sellPrice = Mathf.Round((attributes.cost - GlobalValues.main.sellNonrefund) * GlobalValues.main.sellRatio);
             }
             //sell button
             button3.gameObject.SetActive(true);
@@ -102,71 +101,42 @@ public class StructureUIHandler : MonoBehaviour, IPointerEnterHandler, IPointerE
         button4.gameObject.GetComponentInChildren<TMP_Text>().text = "Exit";
         //upgrade / Purchase options
         Array.Resize(ref upgradeCost, upgradeMatrix.Length);
-        Array.Resize(ref unitCost, upgradeMatrix.Length);
+        float discount = 0f;
+        if (attributes != null)
+        {
+            discount = attributes.cost;
+        }
         if (upgradeMatrix.Length >= 1)
         {
-            if (!isTower)
+            button7.gameObject.SetActive(true);
+            upgradeCost[0] = upgradeMatrix[0].GetComponent<Attributes>().cost - discount;
+            button7.gameObject.GetComponentInChildren<TMP_Text>().text = upgradeMatrix[0].GetComponent<Attributes>().sName + ": " + upgradeCost[0].ToString() + " Nectar";
+            if (upgradeMatrix.Length >= 2)
             {
-                button7.gameObject.SetActive(true);
-                unitCost[0] = upgradeMatrix[0].GetComponent<Attributes>().cost;
-                button7.gameObject.GetComponentInChildren<TMP_Text>().text = upgradeMatrix[0].GetComponent<Attributes>().sName + ": " + unitCost[0].ToString() + " Nectar";
-                if (upgradeMatrix.Length >= 2)
+                button0.gameObject.SetActive(true);
+                upgradeCost[1] = upgradeMatrix[1].GetComponent<Attributes>().cost - discount;
+                button0.gameObject.GetComponentInChildren<TMP_Text>().text = upgradeMatrix[1].GetComponent<Attributes>().sName + ": " + upgradeCost[1].ToString() + " Nectar";
+                if (upgradeMatrix.Length >= 3)
                 {
-                    button0.gameObject.SetActive(true);
-                    unitCost[1] = upgradeMatrix[1].GetComponent<Attributes>().cost;
-                    button0.gameObject.GetComponentInChildren<TMP_Text>().text = upgradeMatrix[1].GetComponent<Attributes>().sName + ": " + unitCost[1].ToString() + " Nectar";
-                    if (upgradeMatrix.Length >= 3)
+                    button1.gameObject.SetActive(true);
+                    upgradeCost[2] = upgradeMatrix[2].GetComponent<Attributes>().cost - discount;
+                    button1.gameObject.GetComponentInChildren<TMP_Text>().text = upgradeMatrix[2].GetComponent<Attributes>().sName + ": " + upgradeCost[2].ToString() + " Nectar";
+                    if (upgradeMatrix.Length >= 4)
                     {
-                        button1.gameObject.SetActive(true);
-                        unitCost[2] = upgradeMatrix[2].GetComponent<Attributes>().cost;
-                        button1.gameObject.GetComponentInChildren<TMP_Text>().text = upgradeMatrix[2].GetComponent<Attributes>().sName + ": " + unitCost[2].ToString() + " Nectar";
-                        if (upgradeMatrix.Length >= 4)
+                        button6.gameObject.SetActive(true);
+                        upgradeCost[3] = upgradeMatrix[3].GetComponent<Attributes>().cost - discount;
+                        button6.gameObject.GetComponentInChildren<TMP_Text>().text = upgradeMatrix[3].GetComponent<Attributes>().sName + ": " + upgradeCost[3].ToString() + " Nectar";
+                        if (upgradeMatrix.Length >= 5)
                         {
-                            button6.gameObject.SetActive(true);
-                            unitCost[3] = upgradeMatrix[3].GetComponent<Attributes>().cost;
-                            button6.gameObject.GetComponentInChildren<TMP_Text>().text = upgradeMatrix[3].GetComponent<Attributes>().sName + ": " + unitCost[3].ToString() + " Nectar";
-                            if (upgradeMatrix.Length >= 5)
-                            {
-                                button5.gameObject.SetActive(true);
-                                unitCost[4] = upgradeMatrix[4].GetComponent<Attributes>().cost;
-                                button5.gameObject.GetComponentInChildren<TMP_Text>().text = upgradeMatrix[4].GetComponent<Attributes>().sName + ": " + unitCost[4].ToString() + " Nectar";
-                            }
+                            button5.gameObject.SetActive(true);
+                            upgradeCost[4] = upgradeMatrix[4].GetComponent<Attributes>().cost - discount;
+                            button5.gameObject.GetComponentInChildren<TMP_Text>().text = upgradeMatrix[4].GetComponent<Attributes>().sName + ": " + upgradeCost[4].ToString() + " Nectar";
                         }
                     }
                 }
-            }
-            else
-            {
-                button7.gameObject.SetActive(true);
-                upgradeCost[0] = upgradeMatrix[0].GetComponent<Attributes>().cost - attributes.cost;
-                button7.gameObject.GetComponentInChildren<TMP_Text>().text = upgradeMatrix[0].GetComponent<Attributes>().sName + ": " + upgradeCost[0].ToString() + " Nectar";
-                if (upgradeMatrix.Length >= 2)
-                {
-                    button0.gameObject.SetActive(true);
-                    upgradeCost[1] = upgradeMatrix[1].GetComponent<Attributes>().cost - attributes.cost;
-                    button0.gameObject.GetComponentInChildren<TMP_Text>().text = upgradeMatrix[1].GetComponent<Attributes>().sName + ": " + upgradeCost[1].ToString() + " Nectar";
-                    if (upgradeMatrix.Length >= 3)
-                    {
-                        button1.gameObject.SetActive(true);
-                        upgradeCost[2] = upgradeMatrix[2].GetComponent<Attributes>().cost - attributes.cost;
-                        button1.gameObject.GetComponentInChildren<TMP_Text>().text = upgradeMatrix[2].GetComponent<Attributes>().sName + ": " + upgradeCost[2].ToString() + " Nectar";
-                        if (upgradeMatrix.Length >= 4)
-                        {
-                            button6.gameObject.SetActive(true);
-                            upgradeCost[3] = upgradeMatrix[3].GetComponent<Attributes>().cost - attributes.cost;
-                            button6.gameObject.GetComponentInChildren<TMP_Text>().text = upgradeMatrix[3].GetComponent<Attributes>().sName + ": " + upgradeCost[3].ToString() + " Nectar";
-                            if (upgradeMatrix.Length >= 5)
-                            {
-                                button5.gameObject.SetActive(true);
-                                upgradeCost[4] = upgradeMatrix[4].GetComponent<Attributes>().cost - attributes.cost;
-                                button5.gameObject.GetComponentInChildren<TMP_Text>().text = upgradeMatrix[4].GetComponent<Attributes>().sName + ": " + upgradeCost[4].ToString() + " Nectar";
-                            }
-                        }
-                    }
-                }
-            }
+            }      
         }
-        if (isTower == true)
+        if (isTower)
         {
             StartCoroutine(RevealFog());
         } 
@@ -179,12 +149,6 @@ public class StructureUIHandler : MonoBehaviour, IPointerEnterHandler, IPointerE
         {
             var scaleFactor = new Vector3(cameraSize, cameraSize, cameraSize);
             UI.transform.localScale = scaleFactor;
-            if ((GlobalValues.main.investmentMask & (1 << gameObject.layer)) != 0 || (GlobalValues.main.incomeMask & (1 << gameObject.layer)) != 0)
-            {
-                //Depreciated as level progresses
-                sellPrice = Mathf.Round((attributes.cost) * GlobalValues.main.sellRatio * (WaveSpawner.main.numberOfWaves - WaveSpawner.main.currentWave) / WaveSpawner.main.numberOfWaves);
-                button3.gameObject.GetComponentInChildren<TMP_Text>().text = "Sell: " + sellPrice.ToString() + " Nectar";
-            }
         }
         
     }
@@ -239,23 +203,6 @@ public class StructureUIHandler : MonoBehaviour, IPointerEnterHandler, IPointerE
         }
     }
 
-    public void BuyUnit(int i)
-    {
-        if (LevelManager.main.nectar >= unitCost[i])
-        {
-            LevelManager.main.nectar -= unitCost[i];
-            GameObject prefabToSpawn = upgradeMatrix[i]; ;
-            Transform start = gameObject.transform;
-            Transform nextPoint = LevelManager.main.queenBee.transform;
-            float angle = Mathf.Atan2(LevelManager.main.queenBee.transform.position.y - gameObject.transform.position.y, LevelManager.main.queenBee.transform.position.x - gameObject.transform.position.x) * Mathf.Rad2Deg - 90f;
-            Quaternion unitRotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
-            GameObject unit = Instantiate(prefabToSpawn, gameObject.transform.position, unitRotation);
-            CloseUI();
-            //Array.Resize(ref units, units.Length + 1);
-            //units[units.Length - 1] = unit;
-        }
-    }
-
     public void Info()
     {
         string name = attributes.sName;
@@ -304,26 +251,12 @@ public class StructureUIHandler : MonoBehaviour, IPointerEnterHandler, IPointerE
 
     public void Button0()
     {
-        if (((1 << gameObject.layer) & GlobalValues.main.incomeMask) != 0)
-        {
-            BuyUnit(1);
-        }
-        else
-        {
-            Upgrade(1);
-        }
+        Upgrade(1);
     }
 
     public void Button1()
     {
-        if (((1 << gameObject.layer) & GlobalValues.main.incomeMask) != 0)
-        {
-            BuyUnit(2);
-        }
-        else
-        {
-            Upgrade(2);
-        }
+        Upgrade(2);
     }
 
     public void Button2()
@@ -343,45 +276,24 @@ public class StructureUIHandler : MonoBehaviour, IPointerEnterHandler, IPointerE
 
     public void Button5()
     {
-        if (attributes.hasTargetSettings == true)
+        if (upgradeMatrix.Length >= 5)
+        {
+            Upgrade(4);
+        }
+        else
         {
             ChangeTargetSettings();
-        }
-        else if (upgradeMatrix.Length >= 5)
-        {
-            if (((1 << gameObject.layer) & GlobalValues.main.incomeMask) != 0)
-            {
-                BuyUnit(4);
-            }
-            else
-            {
-                Upgrade(4);
-            }
         }
     }
 
     public void Button6()
     {
-        if (((1 << gameObject.layer) & GlobalValues.main.incomeMask) != 0)
-        {
-            BuyUnit(3);
-        }
-        else
-        {
-            Upgrade(3);
-        }
+        Upgrade(3);
     }
 
     public void Button7()
     {
-        if (((1 << gameObject.layer) & GlobalValues.main.incomeMask) != 0)
-        {
-            BuyUnit(0);
-        }
-        else
-        {
-            Upgrade(0);
-        }
+        Upgrade(0);
     }
 
     public void Button8()
@@ -450,7 +362,7 @@ public class StructureUIHandler : MonoBehaviour, IPointerEnterHandler, IPointerE
 
     public void OpenRangeUI()
     {
-        if (isTower == true)
+        if (isTower)
         {
             float scale = attributes.targetingRange * 2f; //Circle scale uses diameter
             rangeIndicator.transform.localScale = new Vector3(scale, scale, 1f);
@@ -460,7 +372,7 @@ public class StructureUIHandler : MonoBehaviour, IPointerEnterHandler, IPointerE
 
     public void CloseRangeUI()
     {
-        if (isTower == true)
+        if (isTower)
         {
             rangeIndicator.SetActive(false);
         }           

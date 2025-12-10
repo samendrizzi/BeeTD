@@ -33,6 +33,7 @@ public class Plot : MonoBehaviour
     private bool isDestroyed = false;
     public bool isSapped = false;
     public bool hasBloomed = false;
+    public float pause = 0f;
 
     private void Start()
     {
@@ -60,6 +61,18 @@ public class Plot : MonoBehaviour
                 sr.sprite = fogSprite;
                 sr.color = fogColor;
                 startColor = fogColor;
+            }
+        }
+    }
+
+    private void Update()
+    {
+        if (pause > 0)
+        {
+            pause -= Time.deltaTime;
+            if (pause <= 0)
+            {
+                UnsapFlower();
             }
         }
     }
@@ -173,7 +186,7 @@ public class Plot : MonoBehaviour
         {
             isSapped = true;
             sr.sprite = fogSprite;
-            StartCoroutine(UnsapFlower(duration));
+            pause += duration;
         }
         else
         {
@@ -181,9 +194,8 @@ public class Plot : MonoBehaviour
         }
     }
 
-    private IEnumerator UnsapFlower(float duration)
+    public void UnsapFlower()
     {
-        yield return new WaitForSeconds(duration);
         isSapped = false;
         if (fog == false)
         {

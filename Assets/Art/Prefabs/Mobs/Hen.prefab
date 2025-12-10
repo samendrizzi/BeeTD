@@ -282,7 +282,7 @@ MonoBehaviour:
   type: Enemy Unit
   cost: 0
   moveSpeed: 1
-  maxHP: 300
+  maxHP: 200
   armor: 35
   resistance: 35
   targetingRange: 0.2
@@ -305,6 +305,8 @@ MonoBehaviour:
   - 1
   actionDurations:
   - 1
+  actionExtraModifiers:
+  - 0
   effectPower: 1
   effectRate: 1
   resistancePierce: 0
@@ -317,11 +319,13 @@ MonoBehaviour:
   effectPierceModifiers:
   - 1
   effectRateModifiers:
-  - 0.15
+  - 0.05
   effectRangeModifiers:
   - 1
   effectDurations:
-  - 10
+  - 15
+  effectExtraModifiers:
+  - 0
   willFly: 0
   carryCapacity: 100
   canHit: All
@@ -335,7 +339,7 @@ MonoBehaviour:
   pathIndex: 0
   inventoryFull: 0
   frozen: 0
-  frozenCount: 0
+  freezeImmune: 0
   pausing: 0
   timeUntilActions: []
   timeUntilEffects: []
@@ -358,6 +362,7 @@ MonoBehaviour:
   actionRangeModifiersBase: []
   actionPierceModifiersBase: []
   actionDurationsBase: []
+  actionExtraModifiersBase: []
   effectPowerBase: 0
   effectRateBase: 0
   resistancePierceBase: 0
@@ -366,6 +371,7 @@ MonoBehaviour:
   effectRateModifiersBase: []
   effectRangeModifiersBase: []
   effectDurationsBase: []
+  effectExtraModifiersBase: []
   work: unassigned
   flower: {fileID: 0}
   nectar: 0

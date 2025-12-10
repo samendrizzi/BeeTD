@@ -100,7 +100,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sr: {fileID: 7423359546902803796}
   fogSprite: {fileID: 21300000, guid: de207d55d7bb3f8468a703224d955bfa, type: 3}
-  originalSprite: {fileID: 21300000, guid: de207d55d7bb3f8468a703224d955bfa, type: 3}
   hoverColor: {r: 0.22116414, g: 0.26248312, b: 0.6603774, a: 0.5882353}
   isHive: 1
   isBuildable: 0
@@ -116,6 +115,7 @@ MonoBehaviour:
   fog: 1
   isSapped: 0
   hasBloomed: 0
+  pause: 0
 --- !u!58 &138888959211745789
 CircleCollider2D:
   m_ObjectHideFlags: 0

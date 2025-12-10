@@ -3004,7 +3004,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sr: {fileID: 7423359546902803796}
   fogSprite: {fileID: 21300000, guid: 4760f9cde8fdf2c45a23870fdb5bf8cf, type: 3}
-  originalSprite: {fileID: 21300000, guid: 4760f9cde8fdf2c45a23870fdb5bf8cf, type: 3}
   hoverColor: {r: 0.22116414, g: 0.26248312, b: 0.6603774, a: 0.5882353}
   isHive: 1
   isBuildable: 1
@@ -3020,6 +3019,7 @@ MonoBehaviour:
   fog: 1
   isSapped: 0
   hasBloomed: 0
+  pause: 0
 --- !u!114 &6257626920307451222
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3046,8 +3046,7 @@ MonoBehaviour:
   button7: {fileID: 4487979828858766656}
   button8: {fileID: 526576923139177644}
   rangeIndicator: {fileID: 0}
-  targetSetting: Near
-  targetingIndex: 0
+  upgradeMatrix: []
   influence: 0
 --- !u!58 &-7963225041900905394
 CircleCollider2D:

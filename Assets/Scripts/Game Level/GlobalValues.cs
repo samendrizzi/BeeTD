@@ -39,6 +39,7 @@ public class GlobalValues : MonoBehaviour
     [Header("All Units")]
     [SerializeField] public float wayPointDistance = 0.2f;
     [SerializeField] public float maxSlowDebuff = 0.2f;
+    [SerializeField] public float freezeImmuneRatio = 0.25f;
 
 
     [Header("_______________________")]
@@ -76,6 +77,7 @@ public class GlobalValues : MonoBehaviour
     [SerializeField] public GameObject[] buildable;
     [SerializeField] public string[] targetingOptions = new string[] { "Near", "Far", "Weak", "Strong", "Ground", "Flying" };
     [SerializeField] public float sellRatio = 0.75f;
+    [SerializeField] public float sellNonrefund = 35f;
     [SerializeField] public float damageBuffRatio = 0.1f;
     [SerializeField] public float actionRateBuffRatio = 0.1f;
     [SerializeField] public float slowPowerModifier = 1f;
