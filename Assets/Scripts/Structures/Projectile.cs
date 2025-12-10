@@ -7,18 +7,18 @@ public class Projectile : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private float projectileSpeed = 5f;
     private LayerMask enemyMask;
     private LayerMask obstructionMask;
 
     [Header("Attributes")]
-    private float projectileSpeed = 5f;
     private float projectileDamage = 1f;
     private float armorPierce = 0f;
     private float resistancePierce = 0f;
+    private float effectPower = 0f;
     private float AoE = 0f;
     private float slow = 0f;
     private float slowDuration = 0f;
-    private float ricochet = 0f;
     private int numberRicochet = 0;
     private bool ignoreTerrain = false;
     //private float freeze = 0f;
@@ -36,7 +36,7 @@ public class Projectile : MonoBehaviour
         obstructionMask = GlobalValues.main.obstructionMask;
     }
 
-    public void SetTarget(Transform _target, float damage, float armor, float resistance, string canHiter, bool igTerrain, string actioner, float actionMod, float actionDur)
+    public void SetTarget(Transform _target, float damage, float effPower, float armor, float resistance, string canHiter, bool igTerrain, string actioner, float actionDur, float actionAoE)
     {
         target = _target;
         projectileDamage = damage;
@@ -45,16 +45,16 @@ public class Projectile : MonoBehaviour
         canHit = canHiter;
         ignoreTerrain = igTerrain;
         action = actioner;
-        actionPowerModifier = actionMod;
         actionDuration = actionDur;
+        AoE = actionAoE;
+        effectPower = effPower;
         if (action == "Shoot Slowing" || action == "Shoot Freezing" || action == "Shoot AoE Freezing" || action == "Shoot AoE Slowing")
         {
-            slow = 1 + (actionPowerModifier * GlobalValues.main.slowPowerModifier);
+            slow = 1 + (effectPower * GlobalValues.main.slowPowerModifier);
             slowDuration = actionDuration * GlobalValues.main.slowDurationModifier;
         }
         else if (action == "Ricochet")
         {
-            ricochet = actionPowerModifier;
             numberRicochet = (int)actionDuration;
         }
     }
@@ -67,7 +67,7 @@ public class Projectile : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-        else if (Vector2.Distance(gameObject.transform.position, target.position) <= 0.1f)
+        else if (Vector2.Distance(gameObject.transform.position, target.position) <= GlobalValues.main.projectileCollisonDistance)
         {
             Hit(target.gameObject);
         }
@@ -85,7 +85,7 @@ public class Projectile : MonoBehaviour
 
     private void Hit(GameObject other)
     {
-        if (((1 << other.layer) & enemyMask) == 0 || (ricochet > 0 && other.transform != target) || (((1 << other.layer) & obstructionMask) != 0 && ignoreTerrain == false))
+        if (((1 << other.layer) & enemyMask) == 0 || other.transform != target || (((1 << other.layer) & obstructionMask) != 0 && ignoreTerrain == false))
         {
             if (((1 << other.layer) & obstructionMask) != 0 && ignoreTerrain == false)
             {
@@ -105,11 +105,11 @@ public class Projectile : MonoBehaviour
            other.GetComponent<Attributes>().TakeDamage(projectileDamage, armorPierce);
             if (action == "Shoot Slowing")
             {
-                other.GetComponent<Attributes>().SlowSpeed(slow, slowDuration, resistancePierce);
+                other.GetComponent<Attributes>().SlowSpeed(slow, resistancePierce, slowDuration);
             }
             else if (action == "Shoot Freezing")
             {
-                other.GetComponent<Attributes>().Freeze(slow, slowDuration, resistancePierce);
+                other.GetComponent<Attributes>().Freeze(slow, resistancePierce, slowDuration);
             }
             else if (action == "Ricochet")
             {
@@ -182,8 +182,6 @@ public class Projectile : MonoBehaviour
             isDestroyed = true;
             Destroy(gameObject);
         }
-        projectileDamage = projectileDamage * ricochet;
-        projectileSpeed = projectileSpeed * 0.8f;
         if (projectileSpeed < 5f)
         {
             projectileSpeed = 5f;
@@ -238,11 +236,11 @@ public class Projectile : MonoBehaviour
                     hit.transform.gameObject.GetComponent<Attributes>().TakeDamage(damageDrop, armorPierce);
                     if (action == "Shoot AoE Slowing")
                     {
-                        hit.transform.gameObject.GetComponent<Attributes>().SlowSpeed(slowDrop, slowDuration, resistancePierce);
+                        hit.transform.gameObject.GetComponent<Attributes>().SlowSpeed(slowDrop, resistancePierce, slowDuration);
                     }
                     else if (action == "Shoot AoE Freezing")
                     {
-                        hit.transform.gameObject.GetComponent<Attributes>().Freeze(slowDrop, slowDuration, resistancePierce);
+                        hit.transform.gameObject.GetComponent<Attributes>().Freeze(slowDrop, resistancePierce, slowDuration);
                     }
                 }
             }

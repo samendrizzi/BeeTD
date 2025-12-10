@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 8404125747036651204}
   - component: {fileID: 4315520442196799600}
   - component: {fileID: 4454988217143010830}
-  - component: {fileID: 6747782088789108147}
   m_Layer: 21
   m_Name: AoE
   m_TagString: Untagged
@@ -75,7 +74,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2141673789
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 1715958735, guid: 6e8da5de325572a4084ef5ccfe505bf4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -163,16 +162,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 4315520442196799600}
---- !u!114 &6747782088789108147
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1163534871318508854}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: acd1c72bb5d79314a802a8fe0e3a96d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ID: 2
+  projectileSpeed: 7

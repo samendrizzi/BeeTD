@@ -36,7 +36,7 @@ public class Influence : MonoBehaviour
 
     public void Update()
     {
-        currentRadius = startRadius * 100 + LevelManager.main.honeyGeneratedRatio * (endRadius - startRadius) / GlobalValues.main.influenceModifier;
+        currentRadius = startRadius * 100 + LevelManager.main.honeyGeneratedRatio * (endRadius - startRadius);
         DrawCircle(currentRadius);
     }
 

@@ -28,15 +28,15 @@ RectTransform:
   m_GameObject: {fileID: 5032389219903461932}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 4}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 3, y: 3, z: 6}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1059653552232980330}
   m_Father: {fileID: 7840354572688201443}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0.07, y: 1.33}
+  m_AnchoredPosition: {x: 0.07, y: 1.82}
   m_SizeDelta: {x: 2, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &6239843795545999514
@@ -114,10 +114,10 @@ GameObject:
   - component: {fileID: 9003350563572383055}
   - component: {fileID: 6464668106598468377}
   - component: {fileID: 6492762394861498065}
-  - component: {fileID: 4664417706638342079}
-  - component: {fileID: -3939584190651024208}
+  - component: {fileID: 1431910639010889589}
+  - component: {fileID: -8774389725279118461}
   m_Layer: 17
-  m_Name: Skunk
+  m_Name: Hummingbird
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -133,7 +133,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 14.35, y: 8.176033, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8013150154429604693}
@@ -180,8 +180,8 @@ SpriteRenderer:
   m_SortingLayerID: 598416563
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: aabcc037689bf534cbb679e9a80c1e8e, type: 3}
-  m_Color: {r: 0.5754717, g: 0.5754717, b: 0.5754717, a: 1}
+  m_Sprite: {fileID: 21300000, guid: f7dd3802df6ae364c833ff5a9d1f830d, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -253,7 +253,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0.21133333}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &4664417706638342079
+--- !u!114 &1431910639010889589
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -262,11 +262,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5400552394083257877}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: acd1c72bb5d79314a802a8fe0e3a96d0, type: 3}
+  m_Script: {fileID: 11500000, guid: 32b7d557db7a5ee4fb9158a8925ab4c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ID: 2
---- !u!114 &-3939584190651024208
+--- !u!114 &-8774389725279118461
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -275,27 +274,95 @@ MonoBehaviour:
   m_GameObject: {fileID: 5400552394083257877}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9378598a73e518469e2f457a81aa975, type: 3}
+  m_Script: {fileID: 11500000, guid: bb147297a6cb57c4da7db2289d53cfc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 6464668106598468377}
-  healthBar: {fileID: 725455593495398898}
-  eName: 
-  moveSpeed: 0
-  willFly: 0
-  carryCapacity: 0
-  willStealHoney: 0
-  willAttack: 0
-  attackDamage: 0
-  attackRate: 0
-  hitPoints: 2
-  maxHP: 0
-  effect: 
-  effectModifier: 0
-  prioritizeStoredHoney: 0
+  sName: Hummingbird
+  type: Enemy Unit
+  cost: 0
+  moveSpeed: 2
+  maxHP: 100
+  armor: 25
+  resistance: 25
+  targetingRange: 0.2
+  rotationSpeed: 150
+  wayPointRangeModifier: 1
+  actionPower: 1
+  actionRate: 1
+  armorPierce: 0
+  actions:
+  - Sap Flower
+  actionPrefabs:
+  - {fileID: 0}
+  actionPowerModifiers:
+  - 1
+  actionRateModifiers:
+  - 1
+  actionRangeModifiers:
+  - 2
+  actionPierceModifiers:
+  - 1
+  actionDurations:
+  - 10
+  effectPower: 1
+  effectRate: 1
+  resistancePierce: 0
+  effects: []
+  effectPrefabs: []
+  effectPowerModifiers: []
+  effectPierceModifiers: []
+  effectRateModifiers: []
+  effectRangeModifiers: []
+  effectDurations: []
+  willFly: 1
+  carryCapacity: 10
+  canHit: All
+  ignoreTerrain: 0
+  hasTargetSettings: 0
+  targetSetting: 
+  prestige: []
+  hitPoints: 1
   isDestroyed: 0
+  target: {fileID: 0}
+  pathIndex: 0
   inventoryFull: 0
-  isAttacking: 0
+  frozen: 0
+  frozenCount: 0
+  pausing: 0
+  timeUntilActions: []
+  timeUntilEffects: []
+  wayPointDistance: 0.2
+  onPath: 1
+  path: []
+  targetingOptions: []
+  rampCount: 0
+  moveSpeedBase: 0
+  moveSpeedUncapped: 0
+  targetingRangeBase: 0
+  maxHPBase: 0
+  armorBase: 0
+  resistanceBase: 0
+  actionPowerBase: 0
+  actionRateBase: 0
+  armorPierceBase: 0
+  actionPowerModifiersBase: []
+  actionRateModifiersBase: []
+  actionRangeModifiersBase: []
+  actionPierceModifiersBase: []
+  actionDurationsBase: []
+  effectPowerBase: 0
+  effectRateBase: 0
+  resistancePierceBase: 0
+  effectPowerModifiersBase: []
+  effectPierceModifiersBase: []
+  effectRateModifiersBase: []
+  effectRangeModifiersBase: []
+  effectDurationsBase: []
+  work: unassigned
+  flower: {fileID: 0}
+  nectar: 0
+  targetingIndex: 0
 --- !u!1 &6479888636573746094
 GameObject:
   m_ObjectHideFlags: 0

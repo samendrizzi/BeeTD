@@ -49,7 +49,7 @@ public class Plot : MonoBehaviour
         }
         if (fog == true)
         {
-            if (Vector2.Distance(transform.position, LevelManager.main.influenceCenter.position) <= Influence.main.currentRadius)
+            if (Vector2.Distance(transform.position, LevelManager.main.influenceCenter.position) <= GlobalValues.main.startingRadius)
             {
                 fog = false;
                 sr.sprite = originalSprite;
@@ -96,16 +96,16 @@ public class Plot : MonoBehaviour
         }
     }
 
-    public void Build(int index)
+    public void Build(GameObject towerPrefab)
     {
         int targetingIndex = 0;
-        string targetSetting = GlobalValues.main.targetingOptions[0];
+        string targetSetting = GlobalValues.main.targetingOptionDefault;
         if (towerObj != null)
         {
             towerUI.CloseUI();
             //Save Tower Info
-            targetingIndex = towerObj.GetComponent<StructureUIHandler>().targetingIndex;
-            targetSetting = towerObj.GetComponent<StructureUIHandler>().targetSetting;
+            targetingIndex = towerObj.GetComponent<Attributes>().targetingIndex;
+            targetSetting = towerObj.GetComponent<Attributes>().targetSetting;
             //Remove Old Tower
             towerObj.GetComponent<Attributes>().isDestroyed = true;
             Destroy(towerObj);
@@ -115,12 +115,12 @@ public class Plot : MonoBehaviour
             plotUI.CloseUI();
         }
 
-        towerObj = Instantiate(GlobalValues.main.TOWERprefab[index], transform.position, Quaternion.identity);
+        towerObj = Instantiate(towerPrefab, transform.position, Quaternion.identity);
         towerUI = towerObj.GetComponent<StructureUIHandler>();
         //pass info to new tower
         //towerUI.OpenUI();
-        towerObj.GetComponent<StructureUIHandler>().targetingIndex = targetingIndex;
-        towerObj.GetComponent<StructureUIHandler>().targetSetting = targetSetting;
+        towerObj.GetComponent<Attributes>().targetingIndex = targetingIndex;
+        towerObj.GetComponent<Attributes>().targetSetting = targetSetting;
     }
 
     public void Found()

@@ -28,7 +28,7 @@ RectTransform:
   m_GameObject: {fileID: 5032389219903461932}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 4}
+  m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1059653552232980330}
@@ -36,7 +36,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0.06, y: 1.06}
+  m_AnchoredPosition: {x: 0.06, y: 3.3}
   m_SizeDelta: {x: 2, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &6239843795545999514
@@ -115,9 +115,9 @@ GameObject:
   - component: {fileID: 6464668106598468377}
   - component: {fileID: 6492762394861498065}
   - component: {fileID: 4047690027497037073}
-  - component: {fileID: 4664417706638342079}
+  - component: {fileID: 6656787299696832730}
   m_Layer: 17
-  m_Name: Blank Space
+  m_Name: Flea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -133,7 +133,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 14.35, y: 8.176033, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8013150154429604693}
@@ -180,15 +180,15 @@ SpriteRenderer:
   m_SortingLayerID: 598416563
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 3b8ed6ebd66e6ba4a982cad710b6dcba, type: 3}
+  m_Color: {r: 0.7686275, g: 0.7686275, b: 0.7686275, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!50 &6464668106598468377
@@ -265,28 +265,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32b7d557db7a5ee4fb9158a8925ab4c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 6464668106598468377}
-  healthBar: {fileID: 725455593495398898}
-  eName: 
-  moveSpeed: 0
-  willFly: 0
-  carryCapacity: 20
-  willStealNectar: 0
-  willAttack: 1
-  attackDamage: 1
-  attackRate: 1
-  hitPoints: 2
-  maxHP: 0
-  armor: 0
-  effect: 
-  effectModifier: 0
-  willStealHoney: 1
-  isDestroyed: 0
-  target: {fileID: 0}
-  pathIndex: 0
-  inventoryFull: 0
-  isAttacking: 0
---- !u!114 &4664417706638342079
+--- !u!114 &6656787299696832730
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -295,10 +274,95 @@ MonoBehaviour:
   m_GameObject: {fileID: 5400552394083257877}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: acd1c72bb5d79314a802a8fe0e3a96d0, type: 3}
+  m_Script: {fileID: 11500000, guid: bb147297a6cb57c4da7db2289d53cfc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ID: -1
+  rb: {fileID: 6464668106598468377}
+  sName: Flea
+  type: Enemy Unit
+  cost: 0
+  moveSpeed: 1.5
+  maxHP: 2
+  armor: 0
+  resistance: 0
+  targetingRange: 0.2
+  rotationSpeed: 150
+  wayPointRangeModifier: 1
+  actionPower: 0.5
+  actionRate: 1
+  armorPierce: 0
+  actions:
+  - Attack Queen
+  actionPrefabs:
+  - {fileID: 0}
+  actionPowerModifiers:
+  - 1
+  actionRateModifiers:
+  - 1
+  actionRangeModifiers:
+  - 1
+  actionPierceModifiers:
+  - 1
+  actionDurations:
+  - 1
+  effectPower: 1
+  effectRate: 1
+  resistancePierce: 0
+  effects: []
+  effectPrefabs: []
+  effectPowerModifiers: []
+  effectPierceModifiers: []
+  effectRateModifiers: []
+  effectRangeModifiers: []
+  effectDurations: []
+  willFly: 0
+  carryCapacity: 10
+  canHit: All
+  ignoreTerrain: 0
+  hasTargetSettings: 0
+  targetSetting: 
+  prestige: []
+  hitPoints: 1
+  isDestroyed: 0
+  target: {fileID: 0}
+  pathIndex: 0
+  inventoryFull: 0
+  frozen: 0
+  frozenCount: 0
+  pausing: 0
+  timeUntilActions: []
+  timeUntilEffects: []
+  wayPointDistance: 0.2
+  onPath: 1
+  path: []
+  targetingOptions: []
+  rampCount: 0
+  moveSpeedBase: 0
+  moveSpeedUncapped: 0
+  targetingRangeBase: 0
+  maxHPBase: 0
+  armorBase: 0
+  resistanceBase: 0
+  actionPowerBase: 0
+  actionRateBase: 0
+  armorPierceBase: 0
+  actionPowerModifiersBase: []
+  actionRateModifiersBase: []
+  actionRangeModifiersBase: []
+  actionPierceModifiersBase: []
+  actionDurationsBase: []
+  effectPowerBase: 0
+  effectRateBase: 0
+  resistancePierceBase: 0
+  effectPowerModifiersBase: []
+  effectPierceModifiersBase: []
+  effectRateModifiersBase: []
+  effectRangeModifiersBase: []
+  effectDurationsBase: []
+  work: unassigned
+  flower: {fileID: 0}
+  nectar: 0
+  targetingIndex: 0
 --- !u!1 &6479888636573746094
 GameObject:
   m_ObjectHideFlags: 0

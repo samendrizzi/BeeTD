@@ -23,23 +23,21 @@ public class StructureUIHandler : MonoBehaviour, IPointerEnterHandler, IPointerE
     [SerializeField] private Button button7;
     [SerializeField] private Button button8;
     [SerializeField] private GameObject rangeIndicator;
+    [SerializeField] public GameObject[] upgradeMatrix;
     private float[] upgradeCost;
     private float[] unitCost;
     private float sellPrice;
     private float cost;
     private int index;
-    private int[] upgradeIndex = new int[] { };
     private bool isHive = false;
     private bool isFlower = false;
     private bool isBuildable = false;
     private float UIscale;
-    private bool hasTargetSettings = false;
-    public string targetSetting = "Near";
     private string[] targetingOptions;
-    public int targetingIndex = 0;
     public bool influence = false;
     private GameObject plot;
     private GameObject[] units;
+    private Attributes attributes;
 
     public void OnPointerEnter(PointerEventData eventData)
     {
@@ -48,30 +46,24 @@ public class StructureUIHandler : MonoBehaviour, IPointerEnterHandler, IPointerE
 
     private void Start()
     {
-        CheckInfluence();
-        index = -1;
+        attributes = gameObject.GetComponent<Attributes>();
         //Build UI
         if (isTower == true) 
         {
             //Scale different between plot and tower prefabs
             UIscale = UI.transform.localScale.x / 2f;
-            index = GetComponent<Identify>().ID;
-            upgradeIndex = GlobalValues.main.TOWERupgradeIndex[index];
-            hasTargetSettings = GlobalValues.main.TOWERhasTargetSettings[index];
-            targetingOptions = GlobalValues.main.targetingOptions;
-            if (hasTargetSettings == true)
+            if (attributes.hasTargetSettings == true)
             {
                 button5.gameObject.SetActive(true);
-                button5.gameObject.GetComponentInChildren<TMP_Text>().text = "Targeting: " + targetSetting;
+                button5.gameObject.GetComponentInChildren<TMP_Text>().text = "Targeting: " + attributes.targetSetting;
             }
-            cost = GlobalValues.main.TOWERcost[index];
-            if (index == 0)
+            if (attributes.sName == "Scout Tower")
             {
                 sellPrice = 0f;
             }
             else
             {
-                sellPrice = Mathf.Round((cost) * GlobalValues.main.sellRatio);
+                sellPrice = Mathf.Round((attributes.cost) * GlobalValues.main.sellRatio);
             }
             //sell button
             button3.gameObject.SetActive(true);
@@ -89,20 +81,19 @@ public class StructureUIHandler : MonoBehaviour, IPointerEnterHandler, IPointerE
             isHive = gameObject.GetComponent<Plot>().isHive;
             isBuildable = gameObject.GetComponent<Plot>().isBuildable;
             isFlower = gameObject.GetComponent<Plot>().isResourceNode;
-            cost = 0f;
             if (isBuildable == true) 
             {
                 if (isHive == true) 
                 {
-                    upgradeIndex = GlobalValues.main.buildableHive;
+                    upgradeMatrix = GlobalValues.main.buildableHive;
                 }
                 else if (isFlower == true)
                 {
-                    upgradeIndex = GlobalValues.main.buildableFlower;
+                    upgradeMatrix = GlobalValues.main.buildableFlower;
                 }
                 else 
                 {
-                    upgradeIndex = GlobalValues.main.buildable;
+                    upgradeMatrix = GlobalValues.main.buildable;
                 }
             }
         }
@@ -110,35 +101,35 @@ public class StructureUIHandler : MonoBehaviour, IPointerEnterHandler, IPointerE
         button4.gameObject.SetActive(true);
         button4.gameObject.GetComponentInChildren<TMP_Text>().text = "Exit";
         //upgrade / Purchase options
-        Array.Resize(ref upgradeCost, upgradeIndex.Length);
-        Array.Resize(ref unitCost, upgradeIndex.Length);
-        if (upgradeIndex.Length >= 1)
+        Array.Resize(ref upgradeCost, upgradeMatrix.Length);
+        Array.Resize(ref unitCost, upgradeMatrix.Length);
+        if (upgradeMatrix.Length >= 1)
         {
-            if (((1 << gameObject.layer) & GlobalValues.main.incomeMask) != 0)
+            if (!isTower)
             {
                 button7.gameObject.SetActive(true);
-                unitCost[0] = GlobalValues.main.UNITcost[upgradeIndex[0]];
-                button7.gameObject.GetComponentInChildren<TMP_Text>().text = GlobalValues.main.UNIsName[upgradeIndex[0]] + ": " + unitCost[0].ToString() + " Nectar";
-                if (upgradeIndex.Length >= 2)
+                unitCost[0] = upgradeMatrix[0].GetComponent<Attributes>().cost;
+                button7.gameObject.GetComponentInChildren<TMP_Text>().text = upgradeMatrix[0].GetComponent<Attributes>().sName + ": " + unitCost[0].ToString() + " Nectar";
+                if (upgradeMatrix.Length >= 2)
                 {
                     button0.gameObject.SetActive(true);
-                    unitCost[1] = GlobalValues.main.UNITcost[upgradeIndex[1]];
-                    button0.gameObject.GetComponentInChildren<TMP_Text>().text = GlobalValues.main.UNIsName[upgradeIndex[1]] + ": " + unitCost[1].ToString() + " Nectar";
-                    if (upgradeIndex.Length >= 3)
+                    unitCost[1] = upgradeMatrix[1].GetComponent<Attributes>().cost;
+                    button0.gameObject.GetComponentInChildren<TMP_Text>().text = upgradeMatrix[1].GetComponent<Attributes>().sName + ": " + unitCost[1].ToString() + " Nectar";
+                    if (upgradeMatrix.Length >= 3)
                     {
                         button1.gameObject.SetActive(true);
-                        unitCost[2] = GlobalValues.main.UNITcost[upgradeIndex[2]];
-                        button1.gameObject.GetComponentInChildren<TMP_Text>().text = GlobalValues.main.UNIsName[upgradeIndex[2]] + ": " + unitCost[2].ToString() + " Nectar";
-                        if (upgradeIndex.Length >= 4)
+                        unitCost[2] = upgradeMatrix[2].GetComponent<Attributes>().cost;
+                        button1.gameObject.GetComponentInChildren<TMP_Text>().text = upgradeMatrix[2].GetComponent<Attributes>().sName + ": " + unitCost[2].ToString() + " Nectar";
+                        if (upgradeMatrix.Length >= 4)
                         {
                             button6.gameObject.SetActive(true);
-                            unitCost[3] = GlobalValues.main.UNITcost[upgradeIndex[3]];
-                            button6.gameObject.GetComponentInChildren<TMP_Text>().text = GlobalValues.main.UNIsName[upgradeIndex[3]] + ": " + unitCost[3].ToString() + " Nectar";
-                            if (upgradeIndex.Length >= 5)
+                            unitCost[3] = upgradeMatrix[3].GetComponent<Attributes>().cost;
+                            button6.gameObject.GetComponentInChildren<TMP_Text>().text = upgradeMatrix[3].GetComponent<Attributes>().sName + ": " + unitCost[3].ToString() + " Nectar";
+                            if (upgradeMatrix.Length >= 5)
                             {
                                 button5.gameObject.SetActive(true);
-                                unitCost[4] = GlobalValues.main.UNITcost[upgradeIndex[4]];
-                                button5.gameObject.GetComponentInChildren<TMP_Text>().text = GlobalValues.main.UNIsName[upgradeIndex[4]] + ": " + unitCost[4].ToString() + " Nectar";
+                                unitCost[4] = upgradeMatrix[4].GetComponent<Attributes>().cost;
+                                button5.gameObject.GetComponentInChildren<TMP_Text>().text = upgradeMatrix[4].GetComponent<Attributes>().sName + ": " + unitCost[4].ToString() + " Nectar";
                             }
                         }
                     }
@@ -147,28 +138,28 @@ public class StructureUIHandler : MonoBehaviour, IPointerEnterHandler, IPointerE
             else
             {
                 button7.gameObject.SetActive(true);
-                upgradeCost[0] = GlobalValues.main.TOWERcost[upgradeIndex[0]] - cost;
-                button7.gameObject.GetComponentInChildren<TMP_Text>().text = GlobalValues.main.TOWERname[upgradeIndex[0]] + ": " + upgradeCost[0].ToString() + " Nectar";
-                if (upgradeIndex.Length >= 2)
+                upgradeCost[0] = upgradeMatrix[0].GetComponent<Attributes>().cost - attributes.cost;
+                button7.gameObject.GetComponentInChildren<TMP_Text>().text = upgradeMatrix[0].GetComponent<Attributes>().sName + ": " + upgradeCost[0].ToString() + " Nectar";
+                if (upgradeMatrix.Length >= 2)
                 {
                     button0.gameObject.SetActive(true);
-                    upgradeCost[1] = GlobalValues.main.TOWERcost[upgradeIndex[1]] - cost;
-                    button0.gameObject.GetComponentInChildren<TMP_Text>().text = GlobalValues.main.TOWERname[upgradeIndex[1]] + ": " + upgradeCost[1].ToString() + " Nectar";
-                    if (upgradeIndex.Length >= 3)
+                    upgradeCost[1] = upgradeMatrix[1].GetComponent<Attributes>().cost - attributes.cost;
+                    button0.gameObject.GetComponentInChildren<TMP_Text>().text = upgradeMatrix[1].GetComponent<Attributes>().sName + ": " + upgradeCost[1].ToString() + " Nectar";
+                    if (upgradeMatrix.Length >= 3)
                     {
                         button1.gameObject.SetActive(true);
-                        upgradeCost[2] = GlobalValues.main.TOWERcost[upgradeIndex[2]] - cost;
-                        button1.gameObject.GetComponentInChildren<TMP_Text>().text = GlobalValues.main.TOWERname[upgradeIndex[2]] + ": " + upgradeCost[2].ToString() + " Nectar";
-                        if (upgradeIndex.Length >= 4)
+                        upgradeCost[2] = upgradeMatrix[2].GetComponent<Attributes>().cost - attributes.cost;
+                        button1.gameObject.GetComponentInChildren<TMP_Text>().text = upgradeMatrix[2].GetComponent<Attributes>().sName + ": " + upgradeCost[2].ToString() + " Nectar";
+                        if (upgradeMatrix.Length >= 4)
                         {
                             button6.gameObject.SetActive(true);
-                            upgradeCost[3] = GlobalValues.main.TOWERcost[upgradeIndex[3]] - cost;
-                            button6.gameObject.GetComponentInChildren<TMP_Text>().text = GlobalValues.main.TOWERname[upgradeIndex[3]] + ": " + upgradeCost[3].ToString() + " Nectar";
-                            if (upgradeIndex.Length >= 5)
+                            upgradeCost[3] = upgradeMatrix[3].GetComponent<Attributes>().cost - attributes.cost;
+                            button6.gameObject.GetComponentInChildren<TMP_Text>().text = upgradeMatrix[3].GetComponent<Attributes>().sName + ": " + upgradeCost[3].ToString() + " Nectar";
+                            if (upgradeMatrix.Length >= 5)
                             {
                                 button5.gameObject.SetActive(true);
-                                upgradeCost[4] = GlobalValues.main.TOWERcost[upgradeIndex[4]] - cost;
-                                button5.gameObject.GetComponentInChildren<TMP_Text>().text = GlobalValues.main.TOWERname[upgradeIndex[4]] + ": " + upgradeCost[4].ToString() + " Nectar";
+                                upgradeCost[4] = upgradeMatrix[4].GetComponent<Attributes>().cost - attributes.cost;
+                                button5.gameObject.GetComponentInChildren<TMP_Text>().text = upgradeMatrix[4].GetComponent<Attributes>().sName + ": " + upgradeCost[4].ToString() + " Nectar";
                             }
                         }
                     }
@@ -191,7 +182,7 @@ public class StructureUIHandler : MonoBehaviour, IPointerEnterHandler, IPointerE
             if ((GlobalValues.main.investmentMask & (1 << gameObject.layer)) != 0 || (GlobalValues.main.incomeMask & (1 << gameObject.layer)) != 0)
             {
                 //Depreciated as level progresses
-                sellPrice = Mathf.Round((cost) * GlobalValues.main.sellRatio * (WaveSpawner.main.numberOfWaves - WaveSpawner.main.currentWave) / WaveSpawner.main.numberOfWaves);
+                sellPrice = Mathf.Round((attributes.cost) * GlobalValues.main.sellRatio * (WaveSpawner.main.numberOfWaves - WaveSpawner.main.currentWave) / WaveSpawner.main.numberOfWaves);
                 button3.gameObject.GetComponentInChildren<TMP_Text>().text = "Sell: " + sellPrice.ToString() + " Nectar";
             }
         }
@@ -206,46 +197,21 @@ public class StructureUIHandler : MonoBehaviour, IPointerEnterHandler, IPointerE
 
     public void OpenUI()
     {
-        //Check influence
-        influence = CheckInfluence();
-        if (upgradeIndex.Length >= 1)
+        if (upgradeMatrix.Length >= 1)
         {
-            if (influence == true)
+            button7.gameObject.SetActive(true);
+            if (upgradeMatrix.Length >= 2)
             {
-                button7.gameObject.SetActive(true);
-                if (upgradeIndex.Length >= 2)
+                button0.gameObject.SetActive(true);
+                if (upgradeMatrix.Length >= 3)
                 {
-                    button0.gameObject.SetActive(true);
-                    if (upgradeIndex.Length >= 3)
+                    button1.gameObject.SetActive(true);
+                    if (upgradeMatrix.Length >= 4)
                     {
-                        button1.gameObject.SetActive(true);
-                        if (upgradeIndex.Length >= 4)
+                        button6.gameObject.SetActive(true);
+                        if (upgradeMatrix.Length >= 5)
                         {
-                            button6.gameObject.SetActive(true);
-                            if (upgradeIndex.Length >= 5)
-                            {
-                                button5.gameObject.SetActive(true);
-                            }
-                        }
-                    }
-                }
-            }
-            else
-            {
-                button7.gameObject.SetActive(false);
-                if (upgradeIndex.Length >= 2)
-                {
-                    button0.gameObject.SetActive(false);
-                    if (upgradeIndex.Length >= 3)
-                    {
-                        button1.gameObject.SetActive(false);
-                        if (upgradeIndex.Length >= 4)
-                        {
-                            button6.gameObject.SetActive(false);
-                            if (upgradeIndex.Length >= 5)
-                            {
-                                button5.gameObject.SetActive(false);
-                            }
+                            button5.gameObject.SetActive(true);
                         }
                     }
                 }
@@ -269,7 +235,7 @@ public class StructureUIHandler : MonoBehaviour, IPointerEnterHandler, IPointerE
             RaycastHit2D[] plots = Physics2D.CircleCastAll(transform.position, 0.1f, (Vector2)transform.position, 0f, GlobalValues.main.plotMask | GlobalValues.main.flowerMask);
             Plot plotScript = plots[0].transform.GetComponent<Plot>();
             LevelManager.main.nectar -= upgradeCost[i];
-            plotScript.Build(upgradeIndex[i]);
+            plotScript.Build(upgradeMatrix[i]);
         }
     }
 
@@ -278,7 +244,7 @@ public class StructureUIHandler : MonoBehaviour, IPointerEnterHandler, IPointerE
         if (LevelManager.main.nectar >= unitCost[i])
         {
             LevelManager.main.nectar -= unitCost[i];
-            GameObject prefabToSpawn = GlobalValues.main.UNITprefab[upgradeIndex[i]]; ;
+            GameObject prefabToSpawn = upgradeMatrix[i]; ;
             Transform start = gameObject.transform;
             Transform nextPoint = LevelManager.main.queenBee.transform;
             float angle = Mathf.Atan2(LevelManager.main.queenBee.transform.position.y - gameObject.transform.position.y, LevelManager.main.queenBee.transform.position.x - gameObject.transform.position.x) * Mathf.Rad2Deg - 90f;
@@ -292,40 +258,19 @@ public class StructureUIHandler : MonoBehaviour, IPointerEnterHandler, IPointerE
 
     public void Info()
     {
-        string name = GlobalValues.main.TOWERname[index];
+        string name = attributes.sName;
         string damage = "N/A";
         string attSpeed = "N/A";
         string targRange = "N/A";
-        string effRatio = "N/A";
-        string eff = "N/A";
-        string effDur = "N/A";
-        string efficiency = "N/A";
         string igTerrain = "N/A";
-        string hGen = "N/A";
-        string hInvest = "N/A";
-        string hBonus = "N/A";
-        string flower = "N/A";
-        int flowerIndex;
-        if (gameObject.GetComponent<Turret>() != null)
+        if (gameObject.GetComponent<Attributes>() != null)
         {
-            damage = gameObject.GetComponent<Turret>().damage.ToString();
-            attSpeed = gameObject.GetComponent<Turret>().actionRate.ToString();
-            targRange = gameObject.GetComponent<Turret>().targetingRange.ToString();
-            eff = gameObject.GetComponent<Turret>().effect;
-            effRatio = gameObject.GetComponent<Turret>().effectRatio.ToString();
-            effDur = gameObject.GetComponent<Turret>().effectDuration.ToString();
-            efficiency = gameObject.GetComponent<Turret>().efficiency.ToString();
-            igTerrain = gameObject.GetComponent<Turret>().ignoreTerrain.ToString();
-            hGen = gameObject.GetComponent<Turret>().generationRate.ToString();
-            hInvest = gameObject.GetComponent<Turret>().investmentRate.ToString();
-            hBonus = gameObject.GetComponent<Turret>().honeyRate.ToString();
-            flowerIndex = gameObject.GetComponent<Turret>().flowerIndex;
-            if (flowerIndex >= 0)
-            {
-                flower = GlobalValues.main.FLOWERText[flowerIndex];
-            }
+            damage = attributes.actionPower.ToString();
+            attSpeed = attributes.actionRate.ToString();
+            targRange = attributes.targetingRange.ToString();
+            igTerrain = attributes.ignoreTerrain.ToString();
         }
-        string info = GlobalValues.main.TOWERname[index] + " Information\n_______________\n\nDamage: " + damage + "\nAttack Speed: " + attSpeed + "\nTargeting Range: " + targRange + "\nEffect Ratio: " + effRatio + "\nEffect Duration: " + effDur + "\nEfficiency: " + efficiency + "\nWill Ignore Terrain: " + igTerrain + "\nnectar Generation: " + hGen  + "\nnectar Investment: " + hInvest + "\nBonus Investment: " + hBonus + "\n\nFlower: " + flower + "\n\nSell Value: " + sellPrice.ToString();
+        string info = name + " Information\n_______________\n\nDamage: " + damage + "\nAttack Speed: " + attSpeed + "\nTargeting Range: " + targRange + "\nEffect Ratio: " + "\nWill Ignore Terrain: " + igTerrain + "\nnectar Generation: " + "\n\nSell Value: " + sellPrice.ToString();
         UIText.text = info;
         UIInfo.SetActive(!UIInfo.activeSelf);
     }
@@ -339,27 +284,21 @@ public class StructureUIHandler : MonoBehaviour, IPointerEnterHandler, IPointerE
     {
         CloseUI();
         LevelManager.main.nectar += sellPrice;
-        gameObject.GetComponent<Turret>().generationRate = 0f;
-        gameObject.GetComponent<Turret>().honeyRate = 0f;
-        gameObject.GetComponent<Turret>().investmentRate = 0f;
-        //LevelManager.main.CalculateInvestment();
-        LevelManager.main.CalculateIncome();
         Destroy(gameObject);
     }
 
     private void ChangeTargetSettings()
     {
-        targetingIndex++;
-        if (targetingIndex >= targetingOptions.Length)
+        attributes.targetingIndex++;
+        if (attributes.targetingIndex >= attributes.targetingOptions.Length)
         {
-            targetingIndex = 0;
+            attributes.targetingIndex = 0;
         }
-        targetSetting = targetingOptions[targetingIndex];
-        button5.gameObject.GetComponentInChildren<TMP_Text>().text = "Targeting: " + targetSetting;
-        if (gameObject.GetComponent<Turret>() != null)
+        attributes.targetSetting = attributes.targetingOptions[attributes.targetingIndex];
+        button5.gameObject.GetComponentInChildren<TMP_Text>().text = "Targeting: " + attributes.targetSetting;
+        if (attributes != null)
         {
-            gameObject.GetComponent<Turret>().targetSetting = targetSetting;
-            gameObject.GetComponent<Turret>().target = null;
+            attributes.target = null;
         }
     }
 
@@ -404,11 +343,11 @@ public class StructureUIHandler : MonoBehaviour, IPointerEnterHandler, IPointerE
 
     public void Button5()
     {
-        if (hasTargetSettings == true)
+        if (attributes.hasTargetSettings == true)
         {
             ChangeTargetSettings();
         }
-        else if (upgradeIndex.Length >= 5)
+        else if (upgradeMatrix.Length >= 5)
         {
             if (((1 << gameObject.layer) & GlobalValues.main.incomeMask) != 0)
             {
@@ -452,13 +391,12 @@ public class StructureUIHandler : MonoBehaviour, IPointerEnterHandler, IPointerE
 
     private IEnumerator RevealFog()
     {
-        //yield return new WaitForSeconds(0.1f);
-        float targetingRange = GlobalValues.main.TOWERtargetingRange[index];
+        float range = attributes.targetingRange;
 
-        if (targetingRange != 0f)
+        if (range != 0f)
         {
             //find resource nodes
-            RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, targetingRange, (Vector2)transform.position, 0f, GlobalValues.main.flowerMask);
+            RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, range, (Vector2)transform.position, 0f, GlobalValues.main.flowerMask);
             if (hits.Length > 0)
             {
                 for (int i = 0; i < hits.Length; i++)
@@ -473,7 +411,7 @@ public class StructureUIHandler : MonoBehaviour, IPointerEnterHandler, IPointerE
                 }
             }
             //find plots
-            hits = Physics2D.CircleCastAll(transform.position, targetingRange, (Vector2)transform.position, 0f, GlobalValues.main.plotMask);
+            hits = Physics2D.CircleCastAll(transform.position, range, (Vector2)transform.position, 0f, GlobalValues.main.plotMask);
             if (hits.Length > 0)
             {
                 for (int i = 0; i < hits.Length; i++)
@@ -488,7 +426,7 @@ public class StructureUIHandler : MonoBehaviour, IPointerEnterHandler, IPointerE
                 }
             }
             //find obstructions
-            hits = Physics2D.CircleCastAll(transform.position, targetingRange, (Vector2)transform.position, 0f, GlobalValues.main.obstructionMask);
+            hits = Physics2D.CircleCastAll(transform.position, range, (Vector2)transform.position, 0f, GlobalValues.main.obstructionMask);
             if (hits.Length > 0)
             {
                 for (int i = 0; i < hits.Length; i++)
@@ -507,14 +445,14 @@ public class StructureUIHandler : MonoBehaviour, IPointerEnterHandler, IPointerE
         {
             Debug.Log(gameObject.name + " has no targeting range.");
         }
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0f);
     }
 
     public void OpenRangeUI()
     {
         if (isTower == true)
         {
-            float scale = gameObject.GetComponent<Turret>().targetingRange * 2f; //Circle scale uses diameter
+            float scale = attributes.targetingRange * 2f; //Circle scale uses diameter
             rangeIndicator.transform.localScale = new Vector3(scale, scale, 1f);
             rangeIndicator.SetActive(true);
         }      
@@ -526,17 +464,5 @@ public class StructureUIHandler : MonoBehaviour, IPointerEnterHandler, IPointerE
         {
             rangeIndicator.SetActive(false);
         }           
-    }
-
-    public bool CheckInfluence()
-    {
-        if (isHive || Vector2.Distance(transform.position, LevelManager.main.influenceCenter.position) <= Influence.main.currentRadius)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
     }
 }

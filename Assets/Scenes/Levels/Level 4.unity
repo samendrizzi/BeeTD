@@ -19513,7 +19513,6 @@ GameObject:
   - component: {fileID: 443684711}
   - component: {fileID: 443684710}
   - component: {fileID: 443684714}
-  - component: {fileID: 443684713}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -20225,22 +20224,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &443684713
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 443684709}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a604d632b3eb6a41bb76964d750d4b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  circleRenderer: {fileID: 443684714}
-  startRadius: 5
-  endRadius: 5
-  currentRadius: 5
 --- !u!120 &443684714
 LineRenderer:
   serializedVersion: 2

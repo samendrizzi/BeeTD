@@ -94,10 +94,6 @@ public class WorkerBee : MonoBehaviour
                 CollectNectar();
                 return;
             }
-            else
-            {
-                Debug.Log("worker Bee done be confused where to go.");
-            }
         }
         else if (action == "Honey" && attributes.work == "Honey")
         {

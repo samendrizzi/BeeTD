@@ -92,7 +92,7 @@ public class Enemy : MonoBehaviour
     }
 
     private void Move()
-    {   
+    {
         //check pathing
         if (Vector2.Distance(attributes.target.position, transform.position) <= attributes.wayPointDistance)
         {
@@ -137,8 +137,8 @@ public class Enemy : MonoBehaviour
             float actionPower = attributes.actionPowerModifiers[i] * attributes.actionPower;
             float actionPierce = attributes.actionPierceModifiers[i] * attributes.armorPierce;
             //pause instead of action timer
-            attributes.timeUntilActions[i] = 0f;
-            attributes.Pause(1 / (actionRate));
+            attributes.timeUntilActions[i] = 0.1f;
+            //attributes.Pause(1 / (actionRate));
             StealHoney(actionPower, actionPierce);
             return;
         }
@@ -147,8 +147,8 @@ public class Enemy : MonoBehaviour
             float actionPower = attributes.actionPowerModifiers[i] * attributes.actionPower;
             float actionPierce = attributes.actionPierceModifiers[i] * attributes.armorPierce;
             //pause instead of action timer
-            attributes.timeUntilActions[i] = 0f;
-            attributes.Pause(1 / (actionRate));
+            //attributes.timeUntilActions[i] = 0f;
+            //attributes.Pause(1 / (actionRate));
             AttackQueen(actionPower, actionPierce);
             return;
         }
@@ -208,13 +208,7 @@ public class Enemy : MonoBehaviour
     {
         if (Vector2.Distance(LevelManager.main.queenBee.transform.position, transform.position) <= attributes.wayPointDistance)
         {
-            if (attributes.inventoryFull == true && attributes.pathIndex == 0)
-            {
-                attributes.Heal(attributes.carryCapacity * GlobalValues.main.honeyhealModifier);
-                attributes.inventoryFull = false;
-                return;
-            }
-            else if (attributes.pathIndex == attributes.path.Length - 1)
+            if (attributes.pathIndex == attributes.path.Length - 1)
             {
                 if (LevelManager.main.honey < attributes.carryCapacity)
                 {
@@ -226,6 +220,15 @@ public class Enemy : MonoBehaviour
                     attributes.inventoryFull = true;
                     LevelManager.main.honey = LevelManager.main.honey - attributes.carryCapacity;
                 }
+            }
+        }
+        else if (Vector2.Distance(attributes.path[0].position, transform.position) <= attributes.wayPointDistance)
+        {
+            if (attributes.inventoryFull == true && attributes.pathIndex == 0)
+            {
+                attributes.Heal(attributes.carryCapacity * GlobalValues.main.honeyhealModifier);
+                attributes.inventoryFull = false;
+                return;
             }
         }
     }
@@ -283,7 +286,7 @@ public class Enemy : MonoBehaviour
     private void HealAura(float power, float range)
     {
         //find objects of same type in range
-        float rangeAdjsuted = range * GlobalValues.main.enemyHealRangeModifier;
+        float rangeAdjusted = range * GlobalValues.main.enemyHealRangeModifier;
         float powerAdjusted = power * GlobalValues.main.enemyHealModifier;
         RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, rangeAdjusted, (Vector2)transform.position, 0f, (1 << gameObject.layer));
         if (hits.Length > 0)
@@ -308,23 +311,23 @@ public class Enemy : MonoBehaviour
     {
         if (Vector2.Distance(attributes.target.transform.position, gameObject.transform.position) <= range)
         {
-            targetFlower.GetComponent<Plot>().SapFlower(duration * GlobalValues.main.HummingbirdSapTimeModifier);
+            attributes.target.gameObject.GetComponent<Plot>().SapFlower(duration * GlobalValues.main.hummingbirdSapTimeModifier);
             attributes.target = null;
-            attributes.Pause(GlobalValues.main.HummingbirdWaitTime / power);
+            attributes.Pause(GlobalValues.main.hummingbirdWaitTime / power);
         }
     }
 
     private void Hummingbird()
     {
-        if (target == null)
+        if (attributes.target == null)
         {
             //find new flower
             RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, GlobalValues.main.hummingbirdRange, (Vector2)transform.position, 0f, GlobalValues.main.flowerMask);
             System.Random RandomGen = new System.Random();
             int randompick = RandomGen.Next(hits.Length - 1);
-            attributes.target = hits[randompick];
+            attributes.target = hits[randompick].transform;
         }
-        if (target != null)
+        if (attributes.target != null)
         {
             //move towards flower
             Vector2 direction = (attributes.target.position - transform.position).normalized;

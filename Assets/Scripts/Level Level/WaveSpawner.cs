@@ -339,7 +339,7 @@ public class WaveSpawner : MonoBehaviour
             start = LevelManager.main.path2[0];
             nextPoint = LevelManager.main.path2[1];
         }
-        if (prefabToSpawn.GetComponent<Identify>().ID == -1)
+        if (prefabToSpawn == null)
         {
             return;
         }

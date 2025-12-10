@@ -25,6 +25,7 @@ public class GlobalValues : MonoBehaviour
     [SerializeField] public float waveLength = 30f;
     [SerializeField] public float startingWaveCountdown = 10f;
     [SerializeField] public float waveSpawnRatio = 0.7f;
+    [SerializeField] public float startingRadius = 50f;
     [SerializeField] public LayerMask plotMask;
     [SerializeField] public LayerMask enemyMask;
     [SerializeField] public LayerMask flowerMask;
@@ -42,11 +43,14 @@ public class GlobalValues : MonoBehaviour
 
     [Header("_______________________")]
     [Header("Friendly Units")]
+    [SerializeField] public GameObject workerBeePrefab;
     [SerializeField] public float unitRotationSpeed = 150f;
     [SerializeField] public float queenThornModifier = 1f;
+    [SerializeField] public float queenThornBase = 0.25f;
     [SerializeField] public float SoldierPauseTime = 1f;
     [SerializeField] public float friendlyHealRangeModifier = 1f;
     [SerializeField] public float friendlyHealModifier = 1f;
+    [SerializeField] public float queenHealModifier = 1f;
     [SerializeField] public float workerBeeCost = 50f;
     [SerializeField] public float workerBeeCostIncrease = 0.1f;
 
@@ -61,29 +65,30 @@ public class GlobalValues : MonoBehaviour
     [SerializeField] public float hummingbirdRange = 100f;
     [SerializeField] public float hummingbirdSapTimeModifier = 1f;
     [SerializeField] public float hummingbirdWaitTime = 3f;
-    [SerializeField] public float chickenTimer = 3f;
-    [SerializeField] public float skunkSprayTimer = 10f;
-    [SerializeField] public float skunkSprayDuration = 3f;
 
     [Header("_______________________")]
     [Header("Boss Mobs")]
 
     [Header("_______________________")]
     [Header("Towers")]
+    [SerializeField] public GameObject[] buildableHive;
+    [SerializeField] public GameObject[] buildableFlower;
+    [SerializeField] public GameObject[] buildable;
     [SerializeField] public string[] targetingOptions = new string[] { "Near", "Far", "Weak", "Strong", "Ground", "Flying" };
     [SerializeField] public float sellRatio = 0.75f;
     [SerializeField] public float damageBuffRatio = 0.1f;
     [SerializeField] public float actionRateBuffRatio = 0.1f;
     [SerializeField] public float slowPowerModifier = 1f;
     [SerializeField] public float slowDurationModifier = 1f;
-    [SerializeField] public float slowPierceModier = 1f;
-    [SerializeField] public float freezePowerModifier = 1f;
+    [SerializeField] public float slowPierceModifier = 1f;
+    [SerializeField] public float freezePowerModifier = 0.5f;
     [SerializeField] public float freezeDurationModifier = 1f;
-    [SerializeField] public float freezePierceModier = 1f;
+    [SerializeField] public float freezePierceModifier = 1f;
     [SerializeField] public float turretPauseTime = 0.25f;
     [SerializeField] public float AoeDropOffFloor = 0.25f;
-    [SerializeField] public float buffTimerModier = 1f;
-    [SerializeField] public float healTimerModier = 1f;
+    [SerializeField] public float buffPowerModifier = 1f;
+    [SerializeField] public float buffTimerModifier = 1f;
+    [SerializeField] public float healTimerModifier = 1f;
     [SerializeField] public float ricochetRange = 2f;
     [SerializeField] public int rampCap = 10;
 
@@ -107,11 +112,13 @@ public class GlobalValues : MonoBehaviour
 
     [Header("_______________________")]
     [Header("Mob Prestige")]
-    [SerializeField] public float prestigeRed = 30f;     //Armor Buff
-    [SerializeField] public float prestigeBlue = 30f;     //Slow Resistance Buff
-    [SerializeField] public float prestigeGreen = .5f;     //Health Buff
+    [SerializeField] public int prestigeMaxNumber = 5;
+    [SerializeField] public float prestigeDuplicateModifier = 1f;
+    [SerializeField] public float prestigeRed = .3f;     //Armor/HP Buff
+    [SerializeField] public float prestigeBlue = .3f;     //Effect Buff
+    [SerializeField] public float prestigeGreen = .5f;     //Reistance/Speed Buff
     [SerializeField] public float prestigeYellow = 1f;      //Invert Flying
-    [SerializeField] public float prestigeWhite = .5f;       //Speed Buff
+    [SerializeField] public float prestigeWhite = .5f;       //Avialable
     [SerializeField] public float prestigePurple = 1f;      //Available
     [SerializeField] public float prestigePink = 1f;        //Available
     [SerializeField] public float prestigeGold = .5f;        //Buff Everything
@@ -195,54 +202,16 @@ public class GlobalValues : MonoBehaviour
     [SerializeField] public string yellowFlowerText = "Pollen source that increases range";
     [SerializeField] public float yellowFlowerModifier = 1.5f; //range multiplier
     [SerializeField] public float yellowFlowerRarity = 2f;
-    
+
     [Header("_______________________")]
     [Header("Projectiles")]
 
-    [Header("Basic")]
-    [Header("Index 0")]
     [Header("References")]
-    [SerializeField] public LayerMask PROJECTILE0enemyMask;
-    [Header("Attributes")]
-    [SerializeField] public float PROJECTILE0projectileSpeed;
-    [SerializeField] public float PROJECTILE0AoE;
-    [SerializeField] public bool PROJECTILE0AoEDropOff = false;
 
-    [Header("Fast Bullet")]
-    [Header("Index 1")]
-    [Header("References")]
-    [SerializeField] public LayerMask PROJECTILE1enemyMask;
     [Header("Attributes")]
-    [SerializeField] public float PROJECTILE1projectileSpeed;
-    [SerializeField] public float PROJECTILE1AoE;
-    [SerializeField] public bool PROJECTILE1AoEDropOff = false;
-
-    [Header("Rocket")]
-    [Header("Index 2")]
-    [Header("References")]
-    [SerializeField] public LayerMask PROJECTILE2enemyMask;
-    [Header("Attributes")]
-    [SerializeField] public float PROJECTILE2projectileSpeed;
-    [SerializeField] public float PROJECTILE2AoE;
-    [SerializeField] public bool PROJECTILE2AoEDropOff = false;
-
-    [Header("Ricochet")]
-    [Header("Index 3")]
-    [Header("References")]
-    [SerializeField] public LayerMask PROJECTILE3enemyMask;
-    [Header("Attributes")]
-    [SerializeField] public float PROJECTILE3projectileSpeed;
-    [SerializeField] public float PROJECTILE3AoE;
-    [SerializeField] public bool PROJECTILE3AoEDropOff = false;
-
-    [Header("AoE Slow")]
-    [Header("Index 4")]
-    [Header("References")]
-    [SerializeField] public LayerMask PROJECTILE4enemyMask;
-    [Header("Attributes")]
-    [SerializeField] public float PROJECTILE4projectileSpeed;
-    [SerializeField] public float PROJECTILE4AoE;
-    [SerializeField] public bool PROJECTILE4AoEDropOff = false;
+    [SerializeField] public float projectileCollisonDistance = 0.1f;
+    [SerializeField] public float rampPowerGain = 0.1f;
+    [SerializeField] public float projectileAoEModifier = 1f;
 
     [Header("_______________________")]
     [Header("Environment")]
@@ -271,6 +240,7 @@ public class GlobalValues : MonoBehaviour
     public int levelIndex = 0;
     public string difficultySetting = "Medium";
     public float difficultyMultiplier = 1f;
+    public string targetingOptionDefault;
 
 
     // Define parameter arrays
@@ -288,6 +258,7 @@ public class GlobalValues : MonoBehaviour
     {
         main = this;
 
+        targetingOptionDefault = targetingOptions[0];
         //Build parameter arrays for other scripts to pull from
         //Flower Arrays
         FLOWERSprite = new Sprite[] { closedFlowerSprite, blueFlowerSprite, whiteFlowerSprite, pinkFlowerSprite, purpleFlowerSprite, goldFlowerSprite, redFlowerSprite, yellowFlowerSprite };

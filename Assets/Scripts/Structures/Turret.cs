@@ -11,6 +11,7 @@ public class Turret : MonoBehaviour
     [Header("References")]
     [SerializeField] private Transform turretRotationPoint;
     [SerializeField] private Transform firingPoint;
+    [SerializeField] public GameObject[] upgradeMatrix;
 
     [Header("Attribute")]
     private StructureUIHandler UI;
@@ -19,6 +20,7 @@ public class Turret : MonoBehaviour
     private void Start()
     {
         attributes = gameObject.GetComponent<Attributes>();
+        UI = gameObject.GetComponent<StructureUIHandler>();
         //Set starting rotation
         if (turretRotationPoint != null)
         {
@@ -72,9 +74,13 @@ public class Turret : MonoBehaviour
     private void Actions(int i)
     {
         string action = attributes.actions[i];
-        float actionPowerModifier = attributes.actionPowerModifiers[i] * attributes.actionPower;
+        float actionPower = attributes.actionPowerModifiers[i] * attributes.actionPower;
+        float actionRate = attributes.actionRateModifiers[i] * attributes.actionRate;
+        float effectPower = attributes.actionPowerModifiers[i] * attributes.effectPower;
         float actionPierce = attributes.actionPierceModifiers[i] * attributes.armorPierce;
+        float effectPierce = attributes.actionPierceModifiers[i] * attributes.resistancePierce;
         float actionRange = attributes.actionRangeModifiers[i] * attributes.targetingRange;
+        float actionDuration = attributes.actionDurations[i];
         if (action.Substring(0,5) == "Shoot")
         {
             CheckTarget(actionRange);
@@ -83,8 +89,9 @@ public class Turret : MonoBehaviour
                 attributes.Pause(GlobalValues.main.turretPauseTime);
                 return;
             }
-            Shoot(action, actionPowerModifier, actionPierce);
-            attributes.timeUntilActions[i] = attributes.actionRateModifiers[i] * attributes.actionRate;
+            float actionAoE = attributes.actionExtraModifiers[i] * GlobalValues.main.projectileAoEModifier;
+            Shoot(action, attributes.actionPrefabs[i], actionPower, effectPower, actionPierce, effectPierce, actionDuration, actionAoE);
+            attributes.timeUntilActions[i] = 1 / (actionRate);
         }
     }
 
@@ -106,6 +113,11 @@ public class Turret : MonoBehaviour
             Pulse(effect, effectPower, effectDuration, effectPierce, effectRange);
             attributes.timeUntilEffects[i] = 1 / attributes.effectRate;
         }
+        else if (effect == "Heal Queen")
+        {
+            LevelManager.main.HealQueen(effectPower);
+            attributes.timeUntilEffects[i] = 1 / attributes.effectRate;
+        }
         else
         {
             CheckTarget(effectRange);
@@ -119,54 +131,16 @@ public class Turret : MonoBehaviour
         }
     }
 
-    private void Shoot(string action, float actionPower, float actionPierce)
+    private void Shoot(string action, GameObject projectilePrefab, float actionPower, float effectPower, float actionPierce, float effectPierce, float actionDuration, float actionAoE)
     {
 
-        GameObject projectilePrefab;
-        if (action == "Shoot Basic")
-        {
-            projectilePrefab = GlobalValues.main.shootBasicPrefab;
-        }
-        else if (action == "Shoot Ramping")
-        {
-            projectilePrefab = GlobalValues.main.shootRampingPrefab;
-        }
-        else if (action == "Shoot Slowing")
-        {
-            projectilePrefab = GlobalValues.main.shootSlowPrefab;
-        }
-        else if (action == "Shoot Freezing")
-        {
-            projectilePrefab = GlobalValues.main.shootFreezingPrefab;
-        }
-        else if (action == "Shoot Ricochet")
-        {
-            projectilePrefab = GlobalValues.main.shootRicochetPrefab;
-        }
-        else if (action == "Shoot AoE Slowing")
-        {
-            projectilePrefab = GlobalValues.main.shootAoESlowingPrefab;
-        }
-        else if (action == "Shoot AoE Freezing")
-        {
-            projectilePrefab = GlobalValues.main.shootAoEFreezingPrefab;
-        }
-        else if (action == "Shoot AoE")
-        {
-            projectilePrefab = GlobalValues.main.shootAoEPrefab;
-        }
-        else
-        {
-            Debug.Log(gameObject.name + " is not properly assigned a projectile on action -> " + action.ToString());
-            return;
-        }
         float angle = Mathf.Atan2(attributes.target.position.y - transform.position.y, attributes.target.position.x - transform.position.x) * Mathf.Rad2Deg - 90f;
         Quaternion targetRotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
         GameObject projectileObj = Instantiate(projectilePrefab, firingPoint.position, targetRotation);
         Projectile projectileScript = projectileObj.GetComponent<Projectile>();
         if (action == "Shoot Ramping")
         {
-            projectileScript.SetTarget(attributes.target, (attributes.actionPower + attributes.actionPower * (1 + (float)attributes.rampCount * actionPowerModifier)), attributes.armorPierce, attributes.canHit, attributes.ignoreTerrain, action, actionPowerModifier, actionDuration);
+            projectileScript.SetTarget(attributes.target, (actionPower * (1 + ((float)attributes.rampCount) * GlobalValues.main.rampPowerGain)), effectPower, actionPierce, effectPierce, attributes.canHit, attributes.ignoreTerrain, action, actionDuration, actionAoE);
             if (attributes.rampCount < 10)
             {
                 attributes.rampCount++;
@@ -174,7 +148,7 @@ public class Turret : MonoBehaviour
         }
         else
         {
-            projectileScript.SetTarget(attributes.target, attributes.actionPower, attributes.armorPierce, attributes.resistancePierce, attributes.canHit, attributes.ignoreTerrain, action, actionPowerModifier, actionDuration);
+            projectileScript.SetTarget(attributes.target, actionPower, effectPower, actionPierce, effectPierce, attributes.canHit, attributes.ignoreTerrain, action, actionDuration, actionAoE);
         }
     }
 
@@ -193,10 +167,7 @@ public class Turret : MonoBehaviour
     private void FindTarget(float range)
     {
         RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, range, (Vector2)transform.position, 0f, GlobalValues.main.enemyMask);
-        if (attributes.effect == "Ramping")
-        {
-            attributes.rampCount = 0;
-        }
+        attributes.rampCount = 0;
         //Adjust for allowed targets
         if (attributes.canHit != "All")
         {
@@ -205,7 +176,7 @@ public class Turret : MonoBehaviour
             {
                 for (int i = 0; i < hits.Length; i++)
                 {
-                    if (!hits[i].transform.gameObject.getComponent<Attributes>().willFly)
+                    if (!hits[i].transform.gameObject.GetComponent<Attributes>().willFly)
                     {
                         Array.Resize(ref hitsNew, hitsNew.Length + 1);
                         hitsNew[hitsNew.Length - 1] = hits[i];
@@ -216,7 +187,7 @@ public class Turret : MonoBehaviour
             {
                 for (int i = 0; i < hits.Length; i++)
                 {
-                    if (hits[i].transform.gameObject.getComponent<Attributes>().willFly)
+                    if (hits[i].transform.gameObject.GetComponent<Attributes>().willFly)
                     {
                         Array.Resize(ref hitsNew, hitsNew.Length + 1);
                         hitsNew[hitsNew.Length - 1] = hits[i];
@@ -263,7 +234,7 @@ public class Turret : MonoBehaviour
                 attributes.target = hits[0].transform;
                 for (int i = 0; i < hits.Length; i++)
                 {
-                    if (attributes.target().getComponent<Attributes>().maxHP > hits[i].transform.gameObject.getComponent<Attributes>().maxHP && (attributes.ignoreTerrain == true || (attributes.ignoreTerrain == false && !Physics2D.Linecast(transform.position, hits[i].transform.position, GlobalValues.main.obstructionMask))))
+                    if (attributes.target.GetComponent<Attributes>().maxHP > hits[i].transform.gameObject.GetComponent<Attributes>().maxHP && (attributes.ignoreTerrain == true || (attributes.ignoreTerrain == false && !Physics2D.Linecast(transform.position, hits[i].transform.position, GlobalValues.main.obstructionMask))))
                     {
                         attributes.target = hits[i].transform;
                     }
@@ -275,7 +246,7 @@ public class Turret : MonoBehaviour
                 attributes.target = hits[0].transform;
                 for (int i = 0; i < hits.Length; i++)
                 {
-                    if (attributes.target().getComponent<Attributes>().maxHP < hits[i].transform.gameObject.getComponent<Attributes>().maxHP && (attributes.ignoreTerrain == true || (attributes.ignoreTerrain == false && !Physics2D.Linecast(transform.position, hits[i].transform.position, GlobalValues.main.obstructionMask))))
+                    if (attributes.target.GetComponent<Attributes>().maxHP < hits[i].transform.gameObject.GetComponent<Attributes>().maxHP && (attributes.ignoreTerrain == true || (attributes.ignoreTerrain == false && !Physics2D.Linecast(transform.position, hits[i].transform.position, GlobalValues.main.obstructionMask))))
                     {
                         attributes.target = hits[i].transform;
                     }
@@ -287,7 +258,7 @@ public class Turret : MonoBehaviour
                 attributes.target = hits[0].transform;
                 for (int i = 0; i < hits.Length; i++)
                 {
-                    if (hits[i].transform.gameObject.getComponent<Attributes>().willFly == false && (attributes.ignoreTerrain == true || (attributes.ignoreTerrain == false && !Physics2D.Linecast(transform.position, hits[i].transform.position, GlobalValues.main.obstructionMask))))
+                    if (hits[i].transform.gameObject.GetComponent<Attributes>().willFly == false && (attributes.ignoreTerrain == true || (attributes.ignoreTerrain == false && !Physics2D.Linecast(transform.position, hits[i].transform.position, GlobalValues.main.obstructionMask))))
                     {
                         attributes.target = hits[i].transform;
                         return;
@@ -300,7 +271,7 @@ public class Turret : MonoBehaviour
                 attributes.target = hits[0].transform;
                 for (int i = 0; i < hits.Length; i++)
                 {
-                    if (hits[i].transform.gameObject.getComponent<Attributes>().willFly == true && (attributes.ignoreTerrain == true || (attributes.ignoreTerrain == false && !Physics2D.Linecast(transform.position, hits[i].transform.position, GlobalValues.main.obstructionMask))))
+                    if (hits[i].transform.gameObject.GetComponent<Attributes>().willFly == true && (attributes.ignoreTerrain == true || (attributes.ignoreTerrain == false && !Physics2D.Linecast(transform.position, hits[i].transform.position, GlobalValues.main.obstructionMask))))
                     {
                         attributes.target = hits[i].transform;
                         return;
@@ -337,37 +308,42 @@ public class Turret : MonoBehaviour
 
     private void Pulse(string effect, float effectPower, float effectDuration, float effectPierce, float effectRange)
     {
-        if (attributes.effect == "Pulse Slow")
+        if (effect == "Pulse Slow")
         {
             SendSlowPulse(effectPower, effectDuration, effectPierce, effectRange);
         }
-        else if (attributes.effect == "Pulse Freeze")
+        else if (effect == "Pulse Freeze")
         {
             SendFreezePulse(effectPower, effectDuration, effectPierce, effectRange);
         }
-        else if (attributes.effect == "Pulse Damage Buff")
+        else if (effect == "Pulse Power Buff")
         {
-            SendDamageBuff(effectPower, effectDuration, effectRange);
+            SendPowerBuff(effectPower, effectDuration, effectRange);
         }
-        else if (attributes.effect == "Pulse Damage and Speed Buff")
+        else if (effect == "Pulse Rate Buff")
         {
-            SendDamageBuff(effectPower, effectDuration, effectRange);
+            SendPowerBuff(effectPower, effectDuration, effectRange);
+            SendRateBuff(effectPower, effectDuration, effectRange);
+        }
+        else if (effect == "Pulse Power and Rate Buff")
+        {
+            SendPowerBuff(effectPower, effectDuration, effectRange);
             SendRateBuff(effectPower, effectDuration, effectRange);
         }
     }
 
     private void OtherEffects(string effect, float effectPower, float effectDuration, float effectPierce, float effectRange)
     {
-        if (attributes.effect == "Heal Queen")
+        if (effect == "Heal Queen")
         {
             LevelManager.main.HealQueen(effectPower);
         }
     }
 
-    private void SendDamageBuff(float effectPower, float effectDuration, float effectRange)
+    private void SendPowerBuff(float effectPower, float effectDuration, float effectRange)
     {
         RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, effectRange, (Vector2)transform.position, 0f, GlobalValues.main.towerMask);
-        float buff = 1 + (GlobalValues.main.effectPowerBuffRatio * effectPower);
+        float buff = 1 + (GlobalValues.main.buffPowerModifier * effectPower);
         float duration = GlobalValues.main.buffTimerModifier * effectDuration;
         if (hits.Length > 0)
         {
@@ -375,7 +351,7 @@ public class Turret : MonoBehaviour
             {
                 RaycastHit2D hit = hits[i];
                 Turret tur = hit.transform.GetComponent<Turret>();
-                tur.ReceiveDamageBuff(buff, duration);
+                tur.ReceivePowerBuff(buff, duration);
             }
         }
     }
@@ -383,8 +359,8 @@ public class Turret : MonoBehaviour
     private void SendRateBuff(float effectPower, float effectDuration, float effectRange)
     {
         RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, effectRange, (Vector2)transform.position, 0f, GlobalValues.main.towerMask);
-        float buff = 1 + (GlobalValues.main.effectRateBuffRatio * effectPower);
-        float duration = GlobalValues.main.buffTimer * effectDuration;
+        float buff = 1 + (GlobalValues.main.buffPowerModifier * effectPower);
+        float duration = GlobalValues.main.buffTimerModifier * effectDuration;
         if (hits.Length > 0)
         {
             for (int i = 0; i < hits.Length; i++)
@@ -401,13 +377,13 @@ public class Turret : MonoBehaviour
         RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, effectRange, (Vector2)transform.position, 0f, GlobalValues.main.enemyMask);
         float slowPower = 1f + (effectPower * GlobalValues.main.slowPowerModifier);
         float slowDuration = effectDuration * GlobalValues.main.slowDurationModifier;
-        float slowPierce = effectPierce * GlobalValues.main.slowPiercenModifier;
+        float slowPierce = effectPierce * GlobalValues.main.slowPierceModifier;
         if (hits.Length > 0)
         {
             for (int i = 0; i < hits.Length; i++)
             {
                 RaycastHit2D hit = hits[i];
-                hits[i].transform.gameObject.attributes.SlowSpeed(slowPower, slowDuration, slowPierce);
+                hits[i].transform.gameObject.GetComponent<Attributes>().SlowSpeed(slowPower, slowPierce, slowDuration);
             }
         }
     }
@@ -423,7 +399,7 @@ public class Turret : MonoBehaviour
             for (int i = 0; i < hits.Length; i++)
             {
                 RaycastHit2D hit = hits[i];
-                hit.transform.gameObject.attributes.Freeze(freezePower, freezeDuration, freezePierce);;
+                hit.transform.gameObject.gameObject.GetComponent<Attributes>().Freeze(freezePower, freezePierce, freezeDuration);;
             }
         }
     }

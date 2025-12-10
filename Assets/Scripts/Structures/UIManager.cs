@@ -188,7 +188,7 @@ public class UIManager : MonoBehaviour
         bool value = autoAssignNectarBee.isOn;
         if (value == true)
         {
-            LevelManager.main.autoAssignBees = "nectar";
+            LevelManager.main.autoAssignBees = "Nectar";
             autoAssignHoneyBee.SetIsOnWithoutNotify(false);
             autoAssignSoldierBee.SetIsOnWithoutNotify(false);
 
@@ -204,7 +204,7 @@ public class UIManager : MonoBehaviour
         bool value = autoAssignHoneyBee.isOn;
         if (value == true)
         {
-            LevelManager.main.autoAssignBees = "honey";
+            LevelManager.main.autoAssignBees = "Honey";
             autoAssignNectarBee.SetIsOnWithoutNotify(false);
             autoAssignSoldierBee.SetIsOnWithoutNotify(false);
         }
@@ -219,7 +219,7 @@ public class UIManager : MonoBehaviour
         bool value = autoAssignSoldierBee.isOn;
         if (value == true)
         {
-            LevelManager.main.autoAssignBees = "soldier";
+            LevelManager.main.autoAssignBees = "Soldier";
             autoAssignNectarBee.SetIsOnWithoutNotify(false);
             autoAssignHoneyBee.SetIsOnWithoutNotify(false);
         }

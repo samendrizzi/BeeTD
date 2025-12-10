@@ -114,8 +114,8 @@ GameObject:
   - component: {fileID: 9003350563572383055}
   - component: {fileID: 6464668106598468377}
   - component: {fileID: 6492762394861498065}
-  - component: {fileID: 4664417706638342079}
   - component: {fileID: 6165578376602024101}
+  - component: {fileID: -7007419455852095940}
   m_Layer: 29
   m_Name: Worker Bee
   m_TagString: Untagged
@@ -253,19 +253,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0.21133333}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &4664417706638342079
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5400552394083257877}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: acd1c72bb5d79314a802a8fe0e3a96d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ID: 0
 --- !u!114 &6165578376602024101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -278,31 +265,125 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7119ca4752552a44791386a8a268cb15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-7007419455852095940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5400552394083257877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb147297a6cb57c4da7db2289d53cfc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   rb: {fileID: 6464668106598468377}
-  healthBar: {fileID: 725455593495398898}
-  uName: 
-  moveSpeed: 0
-  willFly: 0
-  carryCapacity: 0
-  willAttack: 0
-  attackDamage: 0
-  attackRate: 0
-  hitPoints: 2
-  maxHP: 0
-  armor: 0
-  effect: 
-  effectModifier: 0
-  willStealNectar: 0
-  willStealHoney: 0
-  nectar: 0
+  sName: Worker Bee
+  type: Friendly Unit
+  cost: 50
+  moveSpeed: 1
+  maxHP: 10
+  armor: 20
+  resistance: 20
+  targetingRange: 1
+  rotationSpeed: 150
+  wayPointRangeModifier: 1
+  actionPower: 1
+  actionRate: 1
+  armorPierce: 0
+  actions:
+  - Nectar
+  - Honey
+  - Attack
+  actionPrefabs:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  actionPowerModifiers:
+  - 1
+  - 1
+  - 0.1
+  actionRateModifiers:
+  - 1
+  - 1
+  - 1
+  actionRangeModifiers:
+  - 1
+  - 1
+  - 1
+  actionPierceModifiers:
+  - 1
+  - 1
+  - 1
+  actionDurations:
+  - 1
+  - 1
+  - 1
+  actionExtraModifiers:
+  - 1
+  - 1
+  - 1
+  effectPower: 1
+  effectRate: 1
+  resistancePierce: 0
+  effects: []
+  effectPrefabs: []
+  effectPowerModifiers: []
+  effectPierceModifiers: []
+  effectRateModifiers: []
+  effectRangeModifiers: []
+  effectDurations: []
+  effectExtraModifiers: []
+  willFly: 1
+  carryCapacity: 20
+  canHit: All
+  ignoreTerrain: 0
+  hasTargetSettings: 0
+  targetSetting: 
+  prestige: []
+  hitPoints: 1
   isDestroyed: 0
-  flower: {fileID: 0}
   target: {fileID: 0}
-  baseSpeed: 0
+  pathIndex: 0
   inventoryFull: 0
-  isAttacking: 0
-  work: unassigned
+  frozen: 0
+  frozenCount: 0
+  pausing: 0
+  timeUntilActions: []
+  timeUntilEffects: []
+  wayPointDistance: 0.2
   onPath: 1
+  path: []
+  targetingOptions: []
+  rampCount: 0
+  moveSpeedBase: 0
+  moveSpeedUncapped: 0
+  targetingRangeBase: 0
+  maxHPBase: 0
+  armorBase: 0
+  resistanceBase: 0
+  actionPowerBase: 0
+  actionRateBase: 0
+  armorPierceBase: 0
+  actionPowerModifiersBase: []
+  actionRateModifiersBase: []
+  actionRangeModifiersBase: []
+  actionPierceModifiersBase: []
+  actionDurationsBase: []
+  actionExtraModifiersBase: []
+  effectPowerBase: 0
+  effectRateBase: 0
+  resistancePierceBase: 0
+  effectPowerModifiersBase: []
+  effectPierceModifiersBase: []
+  effectRateModifiersBase: []
+  effectRangeModifiersBase: []
+  effectDurationsBase: []
+  effectExtraModifiersBase: []
+  work: unassigned
+  flower: {fileID: 0}
+  nectar: 0
+  targetingIndex: 0
 --- !u!1 &6479888636573746094
 GameObject:
   m_ObjectHideFlags: 0

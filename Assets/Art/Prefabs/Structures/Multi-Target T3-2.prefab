@@ -471,7 +471,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 557084051
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 1806632251, guid: 6e8da5de325572a4084ef5ccfe505bf4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1176,7 +1176,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 557084051
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 1
   m_Sprite: {fileID: 642399611, guid: 6e8da5de325572a4084ef5ccfe505bf4, type: 3}
   m_Color: {r: 0.9716981, g: 0.5729352, b: 0.5729352, a: 1}
@@ -1393,7 +1393,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -76534149
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
   m_Color: {r: 0.50980395, g: 0.64235306, b: 0.9254902, a: 0.19607843}
@@ -2694,9 +2694,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5233765770551618463}
   - component: {fileID: 1197808997387011157}
-  - component: {fileID: 2293128432250112065}
   - component: {fileID: -8053170183550694500}
   - component: {fileID: -350746512363940746}
+  - component: {fileID: 5920922180840898634}
   m_Layer: 13
   m_Name: Multi-Target T3-2
   m_TagString: Untagged
@@ -2737,55 +2737,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turretRotationPoint: {fileID: 185538031670041032}
   firingPoint: {fileID: 678942583152366955}
-  name: 
-  targetingRange: 0
-  rotationSpeed: 0
-  damage: 0
-  aps: 0
-  effectDuration: 0
-  effectRatio: 0
-  efficiency: 0
-  flowerIndex: -1
-  apsBase: 0
-  damageBase: 0
-  targetingRangeBase: 0
-  effect: 
-  effectDurationBase: 0
-  effectRatioBase: 0
-  efficiencyBase: 0
-  hasTargetSettings: 0
-  targetSetting: Near
-  ignoreTerrain: 0
-  storage: 0
-  storedHoneyRate: 0
-  generationRate: 0
-  storageBase: 0
-  isDestroyed: 0
-  target: {fileID: 0}
-  debuffTargetingRange: 0
-  debuffaps: 0
-  debuffDamage: 0
-  debuffEfficiency: 0
-  debuffEffectRatio: 0
-  debuffEffectDuration: 0
-  debuffFlower: 0
-  debuffTimer: 0
-  debuffed: 0
-  investmentRate: 0
-  investmentRateBase: 0
---- !u!114 &2293128432250112065
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7862540307379288715}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: acd1c72bb5d79314a802a8fe0e3a96d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ID: 10
+  upgradeMatrix: []
 --- !u!114 &-8053170183550694500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2812,8 +2764,8 @@ MonoBehaviour:
   button7: {fileID: 2281862046930227444}
   button8: {fileID: 3726443365113710083}
   rangeIndicator: {fileID: 3175992428227626476}
-  targetSetting: Near
-  targetingIndex: 0
+  upgradeMatrix: []
+  influence: 0
 --- !u!58 &-350746512363940746
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2849,6 +2801,108 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &5920922180840898634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7862540307379288715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb147297a6cb57c4da7db2289d53cfc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 0}
+  sName: Ricochet +
+  type: Tower
+  cost: 650
+  moveSpeed: 0
+  maxHP: 100
+  armor: 20
+  resistance: 20
+  targetingRange: 5
+  rotationSpeed: 150
+  wayPointRangeModifier: 1
+  actionPower: 2
+  actionRate: 1.5
+  armorPierce: 25
+  actions:
+  - Shoot Ricochet
+  actionPrefabs:
+  - {fileID: 1163534871318508854, guid: 52ec6df3f143c6d42ab92d999de6a08e, type: 3}
+  actionPowerModifiers:
+  - 1
+  actionRateModifiers:
+  - 1
+  actionRangeModifiers:
+  - 1
+  actionPierceModifiers:
+  - 1
+  actionDurations:
+  - 5
+  actionExtraModifiers: []
+  effectPower: 1
+  effectRate: 1
+  resistancePierce: 0
+  effects: []
+  effectPrefabs: []
+  effectPowerModifiers: []
+  effectPierceModifiers: []
+  effectRateModifiers: []
+  effectRangeModifiers: []
+  effectDurations: []
+  effectExtraModifiers: []
+  willFly: 0
+  carryCapacity: 10
+  canHit: All
+  ignoreTerrain: 0
+  hasTargetSettings: 1
+  targetSetting: 
+  prestige: []
+  hitPoints: 1
+  isDestroyed: 0
+  target: {fileID: 0}
+  pathIndex: 0
+  inventoryFull: 0
+  frozen: 0
+  frozenCount: 0
+  pausing: 0
+  timeUntilActions: []
+  timeUntilEffects: []
+  wayPointDistance: 0.2
+  onPath: 1
+  path: []
+  targetingOptions: []
+  rampCount: 0
+  moveSpeedBase: 0
+  moveSpeedUncapped: 0
+  targetingRangeBase: 0
+  maxHPBase: 0
+  armorBase: 0
+  resistanceBase: 0
+  actionPowerBase: 0
+  actionRateBase: 0
+  armorPierceBase: 0
+  actionPowerModifiersBase: []
+  actionRateModifiersBase: []
+  actionRangeModifiersBase: []
+  actionPierceModifiersBase: []
+  actionDurationsBase: []
+  actionExtraModifiersBase: []
+  effectPowerBase: 0
+  effectRateBase: 0
+  resistancePierceBase: 0
+  effectPowerModifiersBase: []
+  effectPierceModifiersBase: []
+  effectRateModifiersBase: []
+  effectRangeModifiersBase: []
+  effectDurationsBase: []
+  effectExtraModifiersBase: []
+  work: unassigned
+  flower: {fileID: 0}
+  nectar: 0
+  targetingIndex: 0
 --- !u!1 &7966535702334349865
 GameObject:
   m_ObjectHideFlags: 0

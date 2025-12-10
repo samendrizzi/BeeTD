@@ -2724,10 +2724,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5233765770551618463}
-  - component: {fileID: 2293128432250112065}
   - component: {fileID: -8053170183550694500}
   - component: {fileID: -4451124309327843902}
   - component: {fileID: 101128038607759359}
+  - component: {fileID: 4153732709096954017}
   m_Layer: 13
   m_Name: Scout
   m_TagString: Untagged
@@ -2754,19 +2754,6 @@ Transform:
   - {fileID: 4063930960587206051}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2293128432250112065
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7862540307379288715}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: acd1c72bb5d79314a802a8fe0e3a96d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ID: 0
 --- !u!114 &-8053170183550694500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2793,8 +2780,11 @@ MonoBehaviour:
   button7: {fileID: 2281862046930227444}
   button8: {fileID: 3726443365113710083}
   rangeIndicator: {fileID: 4733700691804099897}
-  targetSetting: Near
-  targetingIndex: 0
+  upgradeMatrix:
+  - {fileID: 7862540307379288715, guid: a922a66f1176ad84ab9c8cd959524037, type: 3}
+  - {fileID: 7862540307379288715, guid: 20c75941e13a36546b614039d2fc6b64, type: 3}
+  - {fileID: 7862540307379288715, guid: e57faa3b190430946bb434c2439476f3, type: 3}
+  - {fileID: 7862540307379288715, guid: d028ef3ded3b57a4b8602e7456997b5c, type: 3}
   influence: 0
 --- !u!114 &-4451124309327843902
 MonoBehaviour:
@@ -2810,42 +2800,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turretRotationPoint: {fileID: 8171176754198491281}
   firingPoint: {fileID: 3904511008797793472}
-  tName: 
-  targetingRange: 0
-  rotationSpeed: 0
-  damage: 0
-  armorPierce: 0
-  aps: 0
-  effectDuration: 0
-  effectRatio: 0
-  efficiency: 0
-  flowerIndex: 0
-  flowerMultiplier: 0
-  apsBase: 0
-  damageBase: 0
-  targetingRangeBase: 0
-  effect: 
-  effectDurationBase: 0
-  effectRatioBase: 0
-  efficiencyBase: 0
-  hasTargetSettings: 0
-  targetSetting: Near
-  ignoreTerrain: 0
-  honeyRate: 0
-  generationRate: 0
-  isDestroyed: 0
-  target: {fileID: 0}
-  debuffTargetingRange: 0
-  debuffaps: 0
-  debuffDamage: 0
-  debuffEfficiency: 0
-  debuffEffectRatio: 0
-  debuffEffectDuration: 0
-  debuffFlower: 0
-  debuffTimer: 0
-  debuffed: 0
-  investmentRate: 0
-  investmentRateBase: 0
+  upgradeMatrix: []
 --- !u!58 &101128038607759359
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2881,6 +2836,101 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &4153732709096954017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7862540307379288715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb147297a6cb57c4da7db2289d53cfc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 0}
+  sName: Scout
+  type: Tower
+  cost: 35
+  moveSpeed: 0
+  maxHP: 100
+  armor: 20
+  resistance: 20
+  targetingRange: 5
+  rotationSpeed: 150
+  wayPointRangeModifier: 1
+  actionPower: 1
+  actionRate: 1
+  armorPierce: 0
+  actions: []
+  actionPrefabs: []
+  actionPowerModifiers: []
+  actionRateModifiers: []
+  actionRangeModifiers: []
+  actionPierceModifiers: []
+  actionDurations: []
+  actionExtraModifiers: []
+  effectPower: 1
+  effectRate: 1
+  resistancePierce: 0
+  effects: []
+  effectPrefabs: []
+  effectPowerModifiers: []
+  effectPierceModifiers: []
+  effectRateModifiers: []
+  effectRangeModifiers: []
+  effectDurations: []
+  effectExtraModifiers: []
+  willFly: 0
+  carryCapacity: 10
+  canHit: All
+  ignoreTerrain: 0
+  hasTargetSettings: 1
+  targetSetting: 
+  prestige: []
+  hitPoints: 1
+  isDestroyed: 0
+  target: {fileID: 0}
+  pathIndex: 0
+  inventoryFull: 0
+  frozen: 0
+  frozenCount: 0
+  pausing: 0
+  timeUntilActions: []
+  timeUntilEffects: []
+  wayPointDistance: 0.2
+  onPath: 1
+  path: []
+  targetingOptions: []
+  rampCount: 0
+  moveSpeedBase: 0
+  moveSpeedUncapped: 0
+  targetingRangeBase: 0
+  maxHPBase: 0
+  armorBase: 0
+  resistanceBase: 0
+  actionPowerBase: 0
+  actionRateBase: 0
+  armorPierceBase: 0
+  actionPowerModifiersBase: []
+  actionRateModifiersBase: []
+  actionRangeModifiersBase: []
+  actionPierceModifiersBase: []
+  actionDurationsBase: []
+  actionExtraModifiersBase: []
+  effectPowerBase: 0
+  effectRateBase: 0
+  resistancePierceBase: 0
+  effectPowerModifiersBase: []
+  effectPierceModifiersBase: []
+  effectRateModifiersBase: []
+  effectRangeModifiersBase: []
+  effectDurationsBase: []
+  effectExtraModifiersBase: []
+  work: unassigned
+  flower: {fileID: 0}
+  nectar: 0
+  targetingIndex: 0
 --- !u!1 &7966535702334349865
 GameObject:
   m_ObjectHideFlags: 0

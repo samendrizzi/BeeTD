@@ -115,7 +115,7 @@ GameObject:
   - component: {fileID: 6464668106598468377}
   - component: {fileID: 6492762394861498065}
   - component: {fileID: 4047690027497037073}
-  - component: {fileID: 4664417706638342079}
+  - component: {fileID: 3998833588065408876}
   m_Layer: 17
   m_Name: Ant Egg
   m_TagString: Untagged
@@ -265,21 +265,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32b7d557db7a5ee4fb9158a8925ab4c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 6464668106598468377}
-  healthBar: {fileID: 725455593495398898}
-  moveSpeed: 0
-  willFly: 0
-  carryCapacity: 20
-  willStealHoney: 1
-  willAttack: 1
-  attackDamage: 1
-  attackRate: 1
-  hitPoints: 2
-  maxHP: 0
-  isDestroyed: 0
-  inventoryFull: 0
-  isAttacking: 0
---- !u!114 &4664417706638342079
+--- !u!114 &3998833588065408876
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -288,10 +274,95 @@ MonoBehaviour:
   m_GameObject: {fileID: 5400552394083257877}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: acd1c72bb5d79314a802a8fe0e3a96d0, type: 3}
+  m_Script: {fileID: 11500000, guid: bb147297a6cb57c4da7db2289d53cfc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ID: 1
+  rb: {fileID: 6464668106598468377}
+  sName: Ant Egg
+  type: Enemy Unit
+  cost: 0
+  moveSpeed: 0
+  maxHP: 10
+  armor: 30
+  resistance: 0
+  targetingRange: 0.2
+  rotationSpeed: 150
+  wayPointRangeModifier: 1
+  actionPower: 1
+  actionRate: 1
+  armorPierce: 0
+  actions: []
+  actionPrefabs: []
+  actionPowerModifiers: []
+  actionRateModifiers: []
+  actionRangeModifiers: []
+  actionPierceModifiers: []
+  actionDurations: []
+  effectPower: 1
+  effectRate: 1
+  resistancePierce: 0
+  effects:
+  - Hatch
+  effectPrefabs:
+  - {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
+  effectPowerModifiers:
+  - 1
+  effectPierceModifiers:
+  - 1
+  effectRateModifiers:
+  - 1
+  effectRangeModifiers:
+  - 1
+  effectDurations:
+  - 5
+  willFly: 0
+  carryCapacity: 0
+  canHit: None
+  ignoreTerrain: 0
+  hasTargetSettings: 0
+  targetSetting: 
+  prestige: []
+  hitPoints: 1
+  isDestroyed: 0
+  target: {fileID: 0}
+  pathIndex: 0
+  inventoryFull: 0
+  frozen: 0
+  frozenCount: 0
+  pausing: 0
+  timeUntilActions: []
+  timeUntilEffects: []
+  wayPointDistance: 0.2
+  onPath: 1
+  path: []
+  targetingOptions: []
+  rampCount: 0
+  moveSpeedBase: 0
+  moveSpeedUncapped: 0
+  targetingRangeBase: 0
+  maxHPBase: 0
+  armorBase: 0
+  resistanceBase: 0
+  actionPowerBase: 0
+  actionRateBase: 0
+  armorPierceBase: 0
+  actionPowerModifiersBase: []
+  actionRateModifiersBase: []
+  actionRangeModifiersBase: []
+  actionPierceModifiersBase: []
+  actionDurationsBase: []
+  effectPowerBase: 0
+  effectRateBase: 0
+  resistancePierceBase: 0
+  effectPowerModifiersBase: []
+  effectPierceModifiersBase: []
+  effectRateModifiersBase: []
+  effectRangeModifiersBase: []
+  effectDurationsBase: []
+  work: unassigned
+  flower: {fileID: 0}
+  nectar: 0
+  targetingIndex: 0
 --- !u!1 &6479888636573746094
 GameObject:
   m_ObjectHideFlags: 0

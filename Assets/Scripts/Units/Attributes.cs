@@ -12,28 +12,25 @@ public class Attributes : MonoBehaviour
     [Header("References")]
     [Header("__________________________")]
     [SerializeField] public Rigidbody2D rb;
-    [SerializeField] private Slider healthBar;
 
     [Header("Attributes")]
     [Header("__________________________")]
     [Header("All")]
     [SerializeField] public string sName = "";
-    [SerializeField] public string type = "Enemy Unit";
+    [SerializeField] public string type = "Tower";
     [SerializeField] public float cost = 0f;
     //
-    [SerializeField] public float moveSpeed = 1f;
-    [SerializeField] public float maxHP = 1f;
-    [SerializeField] public float armor = 0f;
-    [SerializeField] public float resistance = 0f;
+    [SerializeField] public float moveSpeed = 0f;
+    [SerializeField] public float maxHP = 100f;
+    [SerializeField] public float armor = 20f;
+    [SerializeField] public float resistance = 20f;
     //Targeting
-    [SerializeField] public float targetingRange = .2f;
-    [SerializeField] public string canHit = "None";
+    [SerializeField] public float targetingRange = 5f;
     [SerializeField] public float rotationSpeed = 150f;
-    [SerializeField] public bool ignoreTerrain = false;
     [SerializeField] public float wayPointRangeModifier = 1f;
     //Actions
-    [SerializeField] public float actionPower = 0f;
-    [SerializeField] public float actionRate = 0f;
+    [SerializeField] public float actionPower = 1f;
+    [SerializeField] public float actionRate = 1f;
     [SerializeField] public float armorPierce = 0f;
     [SerializeField] public string[] actions;
     [SerializeField] public GameObject[] actionPrefabs;
@@ -42,9 +39,10 @@ public class Attributes : MonoBehaviour
     [SerializeField] public float[] actionRangeModifiers;
     [SerializeField] public float[] actionPierceModifiers;
     [SerializeField] public float[] actionDurations;
+    [SerializeField] public float[] actionExtraModifiers;
     //Effects
-    [SerializeField] public float effectPower = 0f;
-    [SerializeField] public float effectRate = 0f;
+    [SerializeField] public float effectPower = 1f;
+    [SerializeField] public float effectRate = 1f;
     [SerializeField] public float resistancePierce = 0f;
     [SerializeField] public string[] effects;
     [SerializeField] public GameObject[] effectPrefabs;
@@ -53,17 +51,23 @@ public class Attributes : MonoBehaviour
     [SerializeField] public float[] effectRateModifiers;
     [SerializeField] public float[] effectRangeModifiers;
     [SerializeField] public float[] effectDurations;
+    [SerializeField] public float[] effectExtraModifiers;
 
     [Header("Units Only")]
     [SerializeField] public bool willFly = false;
     [SerializeField] public int carryCapacity = 10;
-    [SerializeField] public string[] prestige;
 
     [Header("Towers Only")]
+    [SerializeField] public string canHit = "All";
+    [SerializeField] public bool ignoreTerrain = false;
     [SerializeField] public bool hasTargetSettings = true;
-    [SerializeField] public string targetSetting = "Near";
+    [SerializeField] public string targetSetting;
 
+    [Header("_____________________")]
+    [Header("Trackers")]
     //trackers
+    private Slider healthBar;
+    public string[] prestige;
     public float hitPoints = 1f;
     public bool isDestroyed = false;
     public Transform target;
@@ -93,6 +97,7 @@ public class Attributes : MonoBehaviour
     public float[] actionRangeModifiersBase;
     public float[] actionPierceModifiersBase;
     public float[] actionDurationsBase;
+    public float[] actionExtraModifiersBase;
     public float effectPowerBase;
     public float effectRateBase;
     public float resistancePierceBase;
@@ -101,17 +106,20 @@ public class Attributes : MonoBehaviour
     public float[] effectRateModifiersBase;
     public float[] effectRangeModifiersBase;
     public float[] effectDurationsBase;
+    public float[] effectExtraModifiersBase;
     public string work = "unassigned";
     public GameObject flower;
     public float nectar = 0f;
+    public int targetingIndex = 0;
 
 
     private void Awake()
     {
         //initiate default values into trackers
         wayPointDistance = GlobalValues.main.wayPointDistance * wayPointRangeModifier;
-        maxHP = hitPoints * GlobalValues.main.difficultyMultiplier * (1 + (LevelManager.main.difficultyScaling * WaveSpawner.main.currentWave));
+        maxHP = maxHP * GlobalValues.main.difficultyMultiplier * (1 + (LevelManager.main.difficultyScaling * WaveSpawner.main.currentWave));
         hitPoints = maxHP;
+        targetingOptions = GlobalValues.main.targetingOptions;
         //Set Base Stats
         moveSpeedBase = moveSpeed;
         moveSpeedUncapped = moveSpeed;
@@ -127,6 +135,7 @@ public class Attributes : MonoBehaviour
         actionRangeModifiersBase = actionRangeModifiers;
         actionPierceModifiersBase = actionPierceModifiers;
         actionDurationsBase = actionDurations;
+        actionExtraModifiersBase = actionExtraModifiers;
         effectPowerBase = effectPower;
         effectRateBase = effectRate;
         resistancePierceBase = resistancePierce;
@@ -135,6 +144,7 @@ public class Attributes : MonoBehaviour
         effectRateModifiersBase = effectRateModifiers;
         effectRangeModifiersBase = effectRangeModifiers;
         effectDurationsBase = effectDurations;
+        effectExtraModifiersBase = effectExtraModifiers;
         //create action timers
         if (actions.Length > 0)
         {
@@ -258,7 +268,7 @@ public class Attributes : MonoBehaviour
         StartCoroutine(ResetSpeed(powerAdjust, duration));
     }
 
-    public void Freeze(float power, float duration, float pierce)
+    public void Freeze(float power, float pierce, float duration)
     {
         float resistanceBlock = (resistance - pierce) / 100f;
         if (resistanceBlock < 0)
@@ -271,10 +281,10 @@ public class Attributes : MonoBehaviour
             return;
         }
         float resist = (power - 1f) * resistanceBlock;
-        float powerAdjust = power - resist;
+        float freezeChance = ((power - 1f) - resist) * GlobalValues.main.freezePowerModifier;
         System.Random RandomGen = new System.Random();
         int freezeRoll = RandomGen.Next(100);
-        if (powerAdjust * 100 > freezeRoll)
+        if (freezeChance * 100 > freezeRoll)
         {
             HaltMovement();
             frozen = true;
@@ -283,7 +293,7 @@ public class Attributes : MonoBehaviour
         }
         else
         {
-            SlowSpeed(power, duration, pierce);
+            SlowSpeed(power, pierce, duration);
         }
     }
 
@@ -313,7 +323,7 @@ public class Attributes : MonoBehaviour
         if (isDestroyed == false)
         {
             isDestroyed = true;
-            if (inventoryFull = true && type == "Enemy Unit")
+            if (inventoryFull && type == "Enemy Unit")
             {
                 gameObject.GetComponent<Enemy>().ReturnHoney();
                 WaveSpawner.main.EnemyDestroyed();
@@ -343,7 +353,10 @@ public class Attributes : MonoBehaviour
 
     public void HaltMovement()
     {
-        rb.velocity = gameObject.transform.forward * 0;
+        if (type != "Tower")
+        {
+            rb.velocity = gameObject.transform.forward * 0;
+        }
     }
 
     public void Pause(float duration)
