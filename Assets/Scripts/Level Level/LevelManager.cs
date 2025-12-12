@@ -49,9 +49,15 @@ public class LevelManager : MonoBehaviour
     public GameObject[] nectarBees = new GameObject[] { };
     public GameObject[] honeyBees = new GameObject[] { };
     public GameObject[] soldierBees = new GameObject[] { };
+    public Transform[] emptyHoneyCombs = new Transform[] { };
+    public Transform[] queuedTargets = new Transform[] { };
     public float workerBeeCost;
     public float nectar;
     public string autoAssignBees = "Nectar";
+    public int honeyCombTicks;
+    public float honeyPerCombTick;
+    public float honeyCombCreatePause;
+    private float timeElapsed = 0f;
 
     private void Awake()
     {
@@ -75,6 +81,9 @@ public class LevelManager : MonoBehaviour
         nectarGenerationRate = GlobalValues.main.globalFertility;
         CalculateIncome();
         UIManager.main.NormalSpeed();
+        honeyCombTicks = GlobalValues.main.honeyCombTicks;
+        honeyCombCreatePause = GlobalValues.main.honeyCombCreatePause;
+        honeyPerCombTick = GlobalValues.main.honeyPerCombTick;
         GameObject[] root = UnityEngine.Object.FindObjectsOfType<GameObject>();
         foreach (GameObject obj in root)
         {
@@ -90,6 +99,7 @@ public class LevelManager : MonoBehaviour
         //Set Speed
         UIManager.main.NormalSpeed();
         UIManager.main.TogglePause();
+        CheckHoneyCombs();
     }
 
     public void IncreaseNectar(float amount)
@@ -124,6 +134,12 @@ public class LevelManager : MonoBehaviour
 
     private void Update()
     {
+        timeElapsed += Time.deltaTime;
+        if (timeElapsed >= GlobalValues.main.honeyCombCheckTime)
+        {
+            timeElapsed = 0f;
+            CheckHoneyCombs();
+        }
         if (finalWave == false && levelStarted == true)
         {
             honey += (bonusInvestmentRate + investmentRate) * Time.deltaTime;
@@ -133,7 +149,6 @@ public class LevelManager : MonoBehaviour
         {
             nectar += (incomeRate) * Time.deltaTime;
         }
-        honeyGeneratedRatio = honey / honeyRequired;
     }
 
     public void HitQueen(float dmg, float armorPierce)
@@ -343,18 +358,16 @@ public class LevelManager : MonoBehaviour
 
     private void OrganizeHoneyBees()
     {
-        int numberOfHoneyBees = honeyBees.Length;
-        if (numberOfHoneyBees > 0)
+        foreach (GameObject obj in honeyBees)
         {
-            int assignedHoneyBees = 0;
-            foreach (GameObject obj in honeyCombs)
+            Attributes Bee = obj.GetComponent<Attributes>();
+            if (Bee.target == null)
             {
-                AssignBeeToFlower(honeyBees[assignedHoneyBees], obj);
-                assignedHoneyBees++;
-                if (assignedHoneyBees >= numberOfHoneyBees)
-                {
-                    return;
-                }
+                return;
+            }
+            if (Bee.target != queenBee && (GlobalValues.main.honeyCombMask | (1 << Bee.target.gameObject.layer)) == GlobalValues.main.honeyCombMask)
+            {
+                Bee.target = null;
             }
         }
     }
@@ -366,7 +379,8 @@ public class LevelManager : MonoBehaviour
         {
             foreach (GameObject obj in unassignedBees)
             {
-                //obj.GetComponent<Attributes>().ResetBee();
+                obj.GetComponent<Attributes>().target = null;
+                obj.GetComponent<Attributes>().HaltMovement();
             }
         }
     }
@@ -543,5 +557,43 @@ public class LevelManager : MonoBehaviour
                 queenBeeHP = queenBeeMaxHP;
             }
         }
+    }
+
+    public void CheckHoneyCombs()
+    {
+        RaycastHit2D[] hits = Physics2D.CircleCastAll(queenBee.transform.position, 300f, (Vector2)queenBee.transform.position, 0f, GlobalValues.main.honeyCombMask);
+        RaycastHit2D[] hits2 = Physics2D.CircleCastAll(queenBee.transform.position, 300f, (Vector2)queenBee.transform.position, 0f, GlobalValues.main.unitMask);
+        emptyHoneyCombs = new Transform[] { };
+        queuedTargets = new Transform[] { };
+        for (int i = 0; i < hits2.Length; i++)
+        {
+            Attributes Bee = hits2[i].transform.gameObject.GetComponent<Attributes>();
+            if (Bee.target != null)
+            {
+                Array.Resize(ref queuedTargets, queuedTargets.Length + 1);
+                queuedTargets[queuedTargets.Length - 1] = Bee.target;
+            }
+        }
+        for (int i = 0; i < hits.Length; i++)
+        {
+            Plot plot = hits[i].transform.gameObject.GetComponent<Plot>();
+            if (plot.towerObj == null && plot.honeyTicks <= 0)
+            {
+                bool queued = false;
+                for (int i2 = 0; i2 < queuedTargets.Length; i2++)
+                {
+                    if (hits[i].transform == queuedTargets[i2])
+                    {
+                        queued = true;
+                    }
+                }
+                if (queued == false)
+                {
+                    Array.Resize(ref emptyHoneyCombs, emptyHoneyCombs.Length + 1);
+                    emptyHoneyCombs[emptyHoneyCombs.Length - 1] = hits[i].transform;
+                }
+            }
+        }
+        emptyHoneyCombs = emptyHoneyCombs.OrderBy((comb) => (-1) * Vector2.Distance(comb.position, queenBee.position)).ToArray();
     }
 }

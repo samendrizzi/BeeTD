@@ -10,7 +10,9 @@ public class Plot : MonoBehaviour
     [Header("References")]
     [SerializeField] private SpriteRenderer sr;
     [SerializeField] private Sprite fogSprite;
+    [SerializeField] private Sprite honeySprite;
     [SerializeField] private Color hoverColor;
+
 
     [Header("Attributes")]
     [SerializeField] public bool isHive;
@@ -18,7 +20,7 @@ public class Plot : MonoBehaviour
     [SerializeField] public bool isResourceNode;
     [SerializeField] public bool visionObstruction;
     [SerializeField] public bool isDestructible;
-    [SerializeField] public float health;
+    [SerializeField] public float health = 0f;
     [SerializeField] public float armor = 0f;
     [SerializeField] private GameObject noObstructionPrefab;
 
@@ -34,6 +36,8 @@ public class Plot : MonoBehaviour
     public bool isSapped = false;
     public bool hasBloomed = false;
     public float pause = 0f;
+    public int honeyTicks = 0;
+    public float honeyPerTick = 0f;
 
     private void Start()
     {
@@ -70,9 +74,19 @@ public class Plot : MonoBehaviour
         if (pause > 0)
         {
             pause -= Time.deltaTime;
-            if (pause <= 0)
+            if (pause <= 0 && isSapped)
             {
                 UnsapFlower();
+            }
+        }
+        if (honeyTicks > 0 && pause <= 0)
+        {
+            pause = 1f;
+            LevelManager.main.honey += honeyPerTick;
+            honeyTicks--;
+            if (honeyTicks <= 0)
+            {
+                HoneyEmpty();
             }
         }
     }
@@ -214,4 +228,17 @@ public class Plot : MonoBehaviour
         }
     }
 
+    public void HoneyFill(float amount, int duration)
+    {
+        honeyTicks = duration;
+        honeyPerTick = amount;
+        sr.sprite = honeySprite;
+    }
+
+    public void HoneyEmpty()
+    {
+        honeyTicks = 0;
+        honeyPerTick = 0f;
+        sr.sprite = originalSprite;
+    }
 }

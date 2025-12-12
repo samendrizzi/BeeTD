@@ -312,25 +312,25 @@ MonoBehaviour:
   resistancePierce: 0
   effects:
   - Spawn
-  - Skunk Spray
+  - Spawn
   effectPrefabs:
   - {fileID: 5400552394083257877, guid: 7f49ee0a562ecc44fb32eb9cd10d0ee5, type: 3}
   - {fileID: 6089545532913545976, guid: a2832832308239b49a845950483d6488, type: 3}
   effectPowerModifiers:
   - 1
-  - 10
+  - 5
   effectPierceModifiers:
   - 1
   - 1
   effectRateModifiers:
-  - 0.5
-  - 0.15
+  - 0.3
+  - 0.1
   effectRangeModifiers:
   - 1
   - 1
   effectDurations:
   - 1
-  - 5
+  - 10
   effectExtraModifiers:
   - 0
   - 0
@@ -350,7 +350,9 @@ MonoBehaviour:
   freezeImmune: 0
   pausing: 0
   timeUntilActions: []
-  timeUntilEffects: []
+  timeUntilEffects:
+  - 1
+  - 3
   wayPointDistance: 0.2
   onPath: 1
   path: []

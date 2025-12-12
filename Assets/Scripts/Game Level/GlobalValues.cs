@@ -26,8 +26,14 @@ public class GlobalValues : MonoBehaviour
     [SerializeField] public float startingWaveCountdown = 10f;
     [SerializeField] public float waveSpawnRatio = 0.7f;
     [SerializeField] public float startingRadius = 50f;
+    [SerializeField] public int honeyCombTicks = 60;
+    [SerializeField] public float honeyPerCombTick = 0.25f;
+    [SerializeField] public float honeyCombCreatePause = 3f;
+    [SerializeField] public float honeyCombCheckTime = 1f;
     [SerializeField] public LayerMask plotMask;
+    [SerializeField] public LayerMask honeyCombMask;
     [SerializeField] public LayerMask enemyMask;
+    [SerializeField] public LayerMask unitMask;
     [SerializeField] public LayerMask flowerMask;
     [SerializeField] public LayerMask obstructionMask;
     [SerializeField] public LayerMask towerMask;

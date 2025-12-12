@@ -64,7 +64,7 @@ public class Enemy : MonoBehaviour
         {
             UniqueMove();
         }
-        else
+        else if (attributes.sName != "Skunk Spray")
         {
             Move();
         }
@@ -192,12 +192,9 @@ public class Enemy : MonoBehaviour
             float effectPower = attributes.effectPowerModifiers[i] * attributes.effectPower;
             Hatch(prefab, effectPower);
         }
-        else if (effect == "Skunk Spray")
+        else if (effect == "Smoke Screen")
         {
-            GameObject prefab = attributes.effectPrefabs[i];
-            float effectPower = attributes.effectPowerModifiers[i] * attributes.effectPower;
-            float effectDuration = attributes.effectDurations[i];
-            SkunkSpray(prefab, effectPower, effectDuration);
+            attributes.Die();
         }
         else
         {
@@ -253,14 +250,20 @@ public class Enemy : MonoBehaviour
         spawnAtt.path = attributes.path;
         spawnAtt.pathIndex = attributes.pathIndex;
         spawnAtt.target = attributes.target;
-        if (spawnAtt.effects[0] == "Hatch")
+        if (spawnAtt.effects.Length <= 0)
+        {
+            spawnAtt.RollPrestige(power);
+        }
+        else if (spawnAtt.effects[0] == "Hatch")
         {
             spawnAtt.timeUntilEffects[0] = duration * GlobalValues.main.eggHatchingTimerModifier;
             spawnAtt.effectPowerModifiers[0] = power;
         }
-        else
+        else if (spawnAtt.effects[0] == "Smoke Screen")
         {
-            spawnAtt.RollPrestige(power);
+            spawnAtt.transform.localScale = spawnAtt.transform.localScale * power;
+            spawnAtt.timeUntilEffects[0] = duration;
+            spawnAtt.effectPowerModifiers[0] = power;
         }
     }
 
@@ -289,15 +292,6 @@ public class Enemy : MonoBehaviour
                 hits[i].transform.gameObject.GetComponent<Attributes>().Heal(powerAdjusted);
             }
         }
-    }
-
-    private IEnumerator SkunkSpray(GameObject prefab, float power, float duration)
-    {
-        GameObject prefabToSpawn = prefab;
-        GameObject spray = Instantiate(prefabToSpawn, gameObject.transform.position, Quaternion.identity);
-        spray.transform.localScale = spray.transform.localScale * power;
-        yield return new WaitForSeconds(duration);
-        Destroy(spray);
     }
 
     private void SapFlower(float power, float duration, float range)

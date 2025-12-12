@@ -3004,7 +3004,8 @@ MonoBehaviour:
   sr: {fileID: 7423359546902803796}
   fogSprite: {fileID: 21300000, guid: eb39cccff04c06c4aa2d409e2cd71a07, type: 3}
   hoverColor: {r: 0.21960784, g: 0.2627451, b: 0.65882355, a: 0}
-  isHive: 0
+  honeyColor: {r: 0, g: 0, b: 0, a: 0}
+  isHive: 1
   isBuildable: 0
   isResourceNode: 0
   visionObstruction: 0
@@ -3019,6 +3020,8 @@ MonoBehaviour:
   isSapped: 0
   hasBloomed: 0
   pause: 0
+  honeyTicks: 0
+  honeyPerTick: 0
 --- !u!58 &-4487174637083936287
 CircleCollider2D:
   m_ObjectHideFlags: 0

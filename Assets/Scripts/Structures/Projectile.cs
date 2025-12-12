@@ -251,9 +251,12 @@ public class Projectile : MonoBehaviour
     {
         if (isDestroyed == false)
         {
-            if (other.GetComponent<Plot>().isDestructible == true)
+            if (other.GetComponent<Plot>() != null)
             {
-                other.GetComponent<Plot>().Hit(projectileDamage, armorPierce);
+                if (other.GetComponent<Plot>().isDestructible == true)
+                {
+                    other.GetComponent<Plot>().Hit(projectileDamage, armorPierce);
+                }
             }
             if (AoE > 0)
             {

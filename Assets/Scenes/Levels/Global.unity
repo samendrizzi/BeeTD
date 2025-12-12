@@ -3280,9 +3280,16 @@ MonoBehaviour:
   startingWaveCountdown: 10
   waveSpawnRatio: 0.5
   startingRadius: 5
+  honeyCombTicks: 60
+  honeyPerCombTick: 0.25
+  honeyCombCreatePause: 3
+  honeyCombCheckTime: 1
   plotMask:
     serializedVersion: 2
     m_Bits: 256
+  honeyCombMask:
+    serializedVersion: 2
+    m_Bits: 2048
   enemyMask:
     serializedVersion: 2
     m_Bits: 131072
@@ -3297,7 +3304,7 @@ MonoBehaviour:
     m_Bits: 8192
   investmentMask:
     serializedVersion: 2
-    m_Bits: 4096
+    m_Bits: 0
   incomeMask:
     serializedVersion: 2
     m_Bits: 2048

@@ -24,15 +24,15 @@ public class Turret : MonoBehaviour
         //Set starting rotation
         if (turretRotationPoint != null)
         {
+            float angle;
             if (Vector2.Distance(LevelManager.main.path1[0].position, transform.position) < Vector2.Distance(LevelManager.main.path2[0].position, transform.position))
             {
-                attributes.target = LevelManager.main.path1[0];
+                angle = Mathf.Atan2(LevelManager.main.path1[0].position.y - transform.position.y, LevelManager.main.path1[0].position.x - transform.position.x) * Mathf.Rad2Deg - 90f;
             }
             else
             {
-                attributes.target = LevelManager.main.path2[0];
+                angle = Mathf.Atan2(LevelManager.main.path2[0].position.y - transform.position.y, LevelManager.main.path2[0].position.x - transform.position.x) * Mathf.Rad2Deg - 90f;
             }
-            float angle = Mathf.Atan2(attributes.target.position.y - transform.position.y, attributes.target.position.x - transform.position.x) * Mathf.Rad2Deg - 90f;
             Quaternion targetRotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
             turretRotationPoint.rotation = targetRotation;
         }

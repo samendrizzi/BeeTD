@@ -98,7 +98,7 @@ public class WorkerBee : MonoBehaviour
         else if (action == "Honey" && attributes.work == "Honey")
         {
             float actionPower = attributes.actionPowerModifiers[i] * attributes.actionPower;
-            CreateHoney(actionPower);
+            CreateHoneyComb(actionPower);
             return;
         }
         else if (action == "Attack" && attributes.work == "Soldier")
@@ -136,6 +136,25 @@ public class WorkerBee : MonoBehaviour
                 return;
             }
         }
+        else if (attributes.work == "Honey" && attributes.target == null)
+        {
+            //Find Empty Comb
+            if (attributes.inventoryFull)
+            {
+                if (LevelManager.main.emptyHoneyCombs.Length == 0)
+                {
+                    return;
+                }
+                attributes.target = LevelManager.main.emptyHoneyCombs[LevelManager.main.emptyHoneyCombs.Length - 1];
+                Array.Resize(ref LevelManager.main.emptyHoneyCombs, LevelManager.main.emptyHoneyCombs.Length - 1);
+            }
+            //Return to Queen
+            else
+            {
+                attributes.target = LevelManager.main.queenBee.transform;
+            }
+
+        }
     }
 
     private void Effects(int i)
@@ -171,14 +190,34 @@ public class WorkerBee : MonoBehaviour
             attributes.inventoryFull = true;
             attributes.target = LevelManager.main.queenBee.gameObject.transform;
         }
-
     }
 
-    public void CreateHoney(float power)
+    public void CreateHoneyComb(float power)
     {
-        if (LevelManager.main.finalWave == false)
+        if (attributes.target == null)
         {
-            LevelManager.main.IncreaseHoney(power * GlobalValues.main.honeyGenerationRateModifier);
+            return;
+        }
+        if (Vector2.Distance(attributes.target.position, transform.position) <= attributes.wayPointDistance)
+        {
+            if (attributes.inventoryFull)
+            {
+                if (attributes.target.gameObject.GetComponent<Plot>().honeyTicks > 0)
+                {
+                    //another bee filled
+                    attributes.target = null;
+                    return;
+                }
+                attributes.target.gameObject.GetComponent<Plot>().HoneyFill(power * LevelManager.main.honeyPerCombTick, LevelManager.main.honeyCombTicks);
+                attributes.inventoryFull = false;
+                attributes.target = null;
+                attributes.Pause(LevelManager.main.honeyCombCreatePause);
+            }
+            else
+            {
+                attributes.inventoryFull = true;
+                attributes.target = null;
+            }
         }
     }
 }
