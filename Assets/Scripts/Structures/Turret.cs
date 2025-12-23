@@ -50,6 +50,7 @@ public class Turret : MonoBehaviour
             //iterate through all actions
             for (int i = 0; i < attributes.actions.Length; i++)
             {
+                attributes.timeUntilActions[i] -= Time.deltaTime;
                 if (attributes.timeUntilActions[i] <= 0f)
                 {
                     Actions(i);
@@ -62,6 +63,7 @@ public class Turret : MonoBehaviour
             //iterate through all effects
             for (int i = 0; i < attributes.effects.Length; i++)
             {
+                attributes.timeUntilEffects[i] -= Time.deltaTime;
                 if (attributes.timeUntilEffects[i] <= 0f)
                 {
                     Effects(i);

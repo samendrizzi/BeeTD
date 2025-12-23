@@ -70,7 +70,7 @@ public class StructureUIHandler : MonoBehaviour, IPointerEnterHandler, IPointerE
             //info button
             button2.gameObject.SetActive(true);
             button2.gameObject.GetComponentInChildren<TMP_Text>().text = "Info";
-            plot = Physics2D.CircleCastAll(transform.position, 0.1f, (Vector2)transform.position, 0f, GlobalValues.main.plotMask | GlobalValues.main.flowerMask)[0].transform.gameObject;
+            plot = Physics2D.CircleCastAll(transform.position, 0.1f, (Vector2)transform.position, 0f, GlobalValues.main.plotMask | GlobalValues.main.flowerMask | GlobalValues.main.honeyCombMask)[0].transform.gameObject;
             isHive = plot.GetComponent<Plot>().isHive;
         }
         else 
@@ -196,7 +196,7 @@ public class StructureUIHandler : MonoBehaviour, IPointerEnterHandler, IPointerE
     {
         if (LevelManager.main.nectar >= upgradeCost[i])
         {
-            RaycastHit2D[] plots = Physics2D.CircleCastAll(transform.position, 0.1f, (Vector2)transform.position, 0f, GlobalValues.main.plotMask | GlobalValues.main.flowerMask);
+            RaycastHit2D[] plots = Physics2D.CircleCastAll(transform.position, 0.1f, (Vector2)transform.position, 0f, GlobalValues.main.plotMask | GlobalValues.main.flowerMask | GlobalValues.main.honeyCombMask);
             Plot plotScript = plots[0].transform.GetComponent<Plot>();
             LevelManager.main.nectar -= upgradeCost[i];
             plotScript.Build(upgradeMatrix[i]);

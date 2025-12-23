@@ -116,6 +116,10 @@ GameObject:
   - component: {fileID: 6492762394861498065}
   - component: {fileID: 4047690027497037073}
   - component: {fileID: 3998833588065408876}
+  - component: {fileID: -2260863307742823798}
+  - component: {fileID: -6908299536412296613}
+  - component: {fileID: -7935589204116156891}
+  - component: {fileID: 7972111189112238991}
   m_Layer: 17
   m_Name: Chicken Egg
   m_TagString: Untagged
@@ -141,6 +145,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &9003350563572383055
 SpriteRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -156,6 +161,11 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -177,9 +187,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 598416563
   m_SortingLayer: 3
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: 57718613495764b4593404df561f4068, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -189,11 +201,10 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!50 &6464668106598468377
 Rigidbody2D:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -204,8 +215,8 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -226,6 +237,7 @@ CircleCollider2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5400552394083257877}
   m_Enabled: 1
+  serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -249,9 +261,9 @@ CircleCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0.21133333}
-  serializedVersion: 2
   m_Radius: 0.5
 --- !u!114 &4047690027497037073
 MonoBehaviour:
@@ -283,8 +295,10 @@ MonoBehaviour:
   cost: 0
   moveSpeed: 0
   maxHP: 70
+  maxShield: 0
   armor: 50
   resistance: 0
+  dodgeChance: 0
   targetingRange: 0.2
   rotationSpeed: 150
   wayPointRangeModifier: 1
@@ -318,23 +332,38 @@ MonoBehaviour:
   - 10
   effectExtraModifiers:
   - 0
+  passivePower: 1
+  passiveRate: 1
+  passivePierce: 0
+  passives: []
+  passivePrefabs: []
+  passivePowerModifiers: []
+  passivePierceModifiers: []
+  passiveRateModifiers: []
+  passiveRangeModifiers: []
+  passiveDurations: []
+  passiveExtraModifiers: []
   willFly: 0
   carryCapacity: 0
   canHit: None
   ignoreTerrain: 0
   hasTargetSettings: 0
   targetSetting: 
-  prestige: []
+  prestige: 
+  prestigeToRoll: 
   hitPoints: 1
+  shield: 0
   isDestroyed: 0
   target: {fileID: 0}
   pathIndex: 0
   inventoryFull: 0
   frozen: 0
+  invisibility: 0
   freezeImmune: 0
   pausing: 0
   timeUntilActions: []
   timeUntilEffects: []
+  timeUntilPassives: []
   wayPointDistance: 0.2
   onPath: 1
   path: []
@@ -344,8 +373,10 @@ MonoBehaviour:
   moveSpeedUncapped: 0
   targetingRangeBase: 0
   maxHPBase: 0
+  maxShieldBase: 0
   armorBase: 0
   resistanceBase: 0
+  dodgeChanceBase: 0
   actionPowerBase: 0
   actionRateBase: 0
   armorPierceBase: 0
@@ -364,10 +395,67 @@ MonoBehaviour:
   effectRangeModifiersBase: []
   effectDurationsBase: []
   effectExtraModifiersBase: []
+  passivePowerBase: 0
+  passiveRateBase: 0
+  passivePierceBase: 0
+  passivePowerModifiersBase: []
+  passivePierceModifiersBase: []
+  passiveRateModifiersBase: []
+  passiveRangeModifiersBase: []
+  passiveDurationsBase: []
+  passiveExtraModifiersBase: []
   work: unassigned
   flower: {fileID: 0}
   nectar: 0
   targetingIndex: 0
+--- !u!114 &-2260863307742823798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5400552394083257877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a412c0e1e38889c4bb5ce13f91d5c897, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Prestige
+--- !u!114 &-6908299536412296613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5400552394083257877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c1063cf4d4ce954288ab2d27d710071, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Passives
+--- !u!114 &-7935589204116156891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5400552394083257877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d713ff3d75a36d4684fc23dabb1db26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Effects
+--- !u!114 &7972111189112238991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5400552394083257877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaf5e878ef7c9c048b98a51c7da793fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Actions
 --- !u!1 &6479888636573746094
 GameObject:
   m_ObjectHideFlags: 0

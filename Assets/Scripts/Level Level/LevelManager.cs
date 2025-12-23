@@ -25,8 +25,6 @@ public class LevelManager : MonoBehaviour
     [SerializeField] public Transform[] flyingPath1;
     [SerializeField] public Transform[] path2;
     [SerializeField] public Transform[] flyingPath2;
-    public LayerMask incomeMask;
-    public LayerMask investmentMask;
     public float incomeRate;
     public float investmentRate;
     public float bonusInvestmentRate;
@@ -67,27 +65,22 @@ public class LevelManager : MonoBehaviour
     private void Start()
     {
         SceneManager.SetActiveScene(gameObject.scene);
-        incomeMask = GlobalValues.main.incomeMask;
-        investmentMask = GlobalValues.main.investmentMask;
         GlobalValues.main.SetUI(true);
         speed = UIManager.main.speed;
         pause = UIManager.main.pause;
         honeyRequired = honeyRequired * GlobalValues.main.difficultyMultiplier;
-        flowerMask = GlobalValues.main.flowerMask;
         FindAllFlowers();
         BloomFlowers();
-        investmentMask = GlobalValues.main.investmentMask;
-        incomeMask = GlobalValues.main.incomeMask;
         nectarGenerationRate = GlobalValues.main.globalFertility;
         CalculateIncome();
         UIManager.main.NormalSpeed();
         honeyCombTicks = GlobalValues.main.honeyCombTicks;
         honeyCombCreatePause = GlobalValues.main.honeyCombCreatePause;
         honeyPerCombTick = GlobalValues.main.honeyPerCombTick;
-        GameObject[] root = UnityEngine.Object.FindObjectsOfType<GameObject>();
+        GameObject[] root = FindObjectsByType<GameObject>(FindObjectsSortMode.None);
         foreach (GameObject obj in root)
         {
-            if ((investmentMask | (1 << obj.layer)) == investmentMask)
+            if ((GlobalValues.main.investmentMask | (1 << obj.layer)) == GlobalValues.main.investmentMask)
             {
                 Array.Resize(ref honeyCombs, honeyCombs.Length + 1);
                 honeyCombs[honeyCombs.Length - 1] = obj;
@@ -182,7 +175,7 @@ public class LevelManager : MonoBehaviour
         flowers = new GameObject[] { };
         flowersToBloom = new GameObject[] { };
         discoveredFlowers = new GameObject[] { };
-        GameObject[] root = UnityEngine.Object.FindObjectsOfType<GameObject>();
+        GameObject[] root = FindObjectsByType<GameObject>(FindObjectsSortMode.None);
         foreach (GameObject obj in root)
         {
             if ((flowerMask | (1 << obj.layer)) == flowerMask)

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEditor;
 using UnityEngine.UI;
@@ -22,8 +23,10 @@ public class Attributes : MonoBehaviour
     //
     [SerializeField] public float moveSpeed = 0f;
     [SerializeField] public float maxHP = 100f;
+    [SerializeField] public float maxShield = 0f;
     [SerializeField] public float armor = 20f;
     [SerializeField] public float resistance = 20f;
+    [SerializeField] public float dodgeChance = 0f;
     //Targeting
     [SerializeField] public float targetingRange = 5f;
     [SerializeField] public float rotationSpeed = 150f;
@@ -52,6 +55,18 @@ public class Attributes : MonoBehaviour
     [SerializeField] public float[] effectRangeModifiers;
     [SerializeField] public float[] effectDurations;
     [SerializeField] public float[] effectExtraModifiers;
+    //Passives
+    [SerializeField] public float passivePower = 1f;
+    [SerializeField] public float passiveRate = 1f;
+    [SerializeField] public float passivePierce = 0f;
+    [SerializeField] public string[] passives;
+    [SerializeField] public GameObject[] passivePrefabs;
+    [SerializeField] public float[] passivePowerModifiers;
+    [SerializeField] public float[] passivePierceModifiers;
+    [SerializeField] public float[] passiveRateModifiers;
+    [SerializeField] public float[] passiveRangeModifiers;
+    [SerializeField] public float[] passiveDurations;
+    [SerializeField] public float[] passiveExtraModifiers;
 
     [Header("Units Only")]
     [SerializeField] public bool willFly = false;
@@ -67,17 +82,20 @@ public class Attributes : MonoBehaviour
     [Header("Trackers")]
     //trackers
     private Slider healthBar;
-    public string[] prestige;
+    public string prestige;
     public float hitPoints = 1f;
+    public float shield = 0f;
     public bool isDestroyed = false;
     public Transform target;
     public int pathIndex = 0;
     public bool inventoryFull = false;
     public bool frozen = false;
+    public int invisibility = 0;
     public float freezeImmune = 0f;
     public float pausing = 0f;
     public float[] timeUntilActions;
     public float[] timeUntilEffects;
+    public float[] timeUntilPassives;
     public float wayPointDistance = .2f;
     public int onPath = 1;
     public Transform[] path;
@@ -87,8 +105,10 @@ public class Attributes : MonoBehaviour
     public float moveSpeedUncapped;
     public float targetingRangeBase;
     public float maxHPBase;
+    public float maxShieldBase;
     public float armorBase;
     public float resistanceBase;
+    public float dodgeChanceBase;
     public float actionPowerBase;
     public float actionRateBase;
     public float armorPierceBase;
@@ -107,26 +127,38 @@ public class Attributes : MonoBehaviour
     public float[] effectRangeModifiersBase;
     public float[] effectDurationsBase;
     public float[] effectExtraModifiersBase;
+    public float passivePowerBase;
+    public float passiveRateBase;
+    public float passivePierceBase;
+    public float[] passivePowerModifiersBase;
+    public float[] passivePierceModifiersBase;
+    public float[] passiveRateModifiersBase;
+    public float[] passiveRangeModifiersBase;
+    public float[] passiveDurationsBase;
+    public float[] passiveExtraModifiersBase;
     public string work = "unassigned";
     public GameObject flower;
     public float nectar = 0f;
     public int targetingIndex = 0;
-
 
     private void Awake()
     {
         //initiate default values into trackers
         wayPointDistance = GlobalValues.main.wayPointDistance * wayPointRangeModifier;
         maxHP = maxHP * GlobalValues.main.difficultyMultiplier * (1 + (LevelManager.main.difficultyScaling * WaveSpawner.main.currentWave));
+        maxShield = maxShield * (1 + (LevelManager.main.difficultyScaling * WaveSpawner.main.currentWave)) * GlobalValues.main.shieldModifier;
         hitPoints = maxHP;
+        shield = maxShield;
         targetingOptions = GlobalValues.main.targetingOptions;
         //Set Base Stats
         moveSpeedBase = moveSpeed;
         moveSpeedUncapped = moveSpeed;
         targetingRangeBase = targetingRange;
         maxHPBase = maxHP;
+        maxShieldBase = maxShield;
         armorBase = armor;
         resistanceBase = resistance;
+        dodgeChanceBase = dodgeChance;
         actionPowerBase = actionPower;
         actionRateBase = actionRate;
         armorPierceBase = armorPierce;
@@ -145,6 +177,15 @@ public class Attributes : MonoBehaviour
         effectRangeModifiersBase = effectRangeModifiers;
         effectDurationsBase = effectDurations;
         effectExtraModifiersBase = effectExtraModifiers;
+        passivePowerBase = passivePower;
+        passiveRateBase = passiveRate;
+        passivePierceBase = passivePierce;
+        passivePowerModifiersBase = passivePowerModifiers;
+        passivePierceModifiersBase = passivePierceModifiers;
+        passiveRateModifiersBase = passiveRateModifiers;
+        passiveRangeModifiersBase = passiveRangeModifiers;
+        passiveDurationsBase = passiveDurations;
+        passiveExtraModifiersBase = passiveExtraModifiers;
         //create action timers
         if (actions.Length > 0)
         {
@@ -155,11 +196,15 @@ public class Attributes : MonoBehaviour
         {
             Array.Resize(ref timeUntilEffects, effects.Length);
         }
+        //create passive timers
+        if (passives.Length > 0)
+        {
+            Array.Resize(ref timeUntilPassives, passives.Length);
+        }
         if (hasTargetSettings == true)
         {
             targetingOptions = GlobalValues.main.targetingOptions;
         }
-        PrestigeStats();
         if (healthBar != null)
         {
             healthBar.maxValue = hitPoints;
@@ -183,30 +228,21 @@ public class Attributes : MonoBehaviour
         {
             freezeImmune -= Time.deltaTime;
         }
-        if (timeUntilActions.Length > 0)
-        {
-            for (int i = 0; i < actions.Length; i++)
-            {
-                if (timeUntilActions[i] > 0)
-                {
-                    timeUntilActions[i] -= Time.deltaTime;
-                }
-            }        
-        }
-        if (timeUntilEffects.Length > 0)
-        {
-            for (int i = 0; i < effects.Length; i++)
-            {
-                if (timeUntilEffects[i] > 0)
-                {
-                    timeUntilEffects[i] -= Time.deltaTime;
-                }
-            }
-        }
     }
 
     public void TakeDamage(float dmg, float armorPierce)
     {
+        //check dodge
+        if (dodgeChance > 0)
+        {
+            System.Random RandomGen = new System.Random();
+            int dodgeRoll = RandomGen.Next(100);
+            if (dodgeRoll < dodgeChance)
+            {
+                return;
+            }
+        }
+        //check armor reduction
         float armorBlock = (armor - armorPierce) / 100f;
         if (armorBlock < 0)
         {
@@ -217,7 +253,24 @@ public class Attributes : MonoBehaviour
             //no damage
             return;
         }
-        hitPoints -= (1f - armorBlock) * dmg;
+        float dmgAdjust = (1f - armorBlock) * dmg;
+        //check shield
+        if (shield > 0)
+        {
+            if (shield < dmgAdjust)
+            {
+                hitPoints -= dmgAdjust + shield;
+                shield = 0f;
+            }
+            else
+            {
+                shield -= dmgAdjust;
+            }
+        }
+        else
+        {
+            hitPoints -= dmgAdjust;
+        }
         HealthBar();
         if (hitPoints <= 0 && !isDestroyed)
         {
@@ -252,6 +305,13 @@ public class Attributes : MonoBehaviour
         {
             return;
         }
+        if (prestige.Length > 0)
+        {
+            if (gameObject.GetComponent<Prestige>().CheckPassive("Slow & Freeze Immunity") )
+            {
+                return;
+            }
+        }
         float resistanceBlock = (resistance - pierce) / 100f;
         if (resistanceBlock < 0)
         {
@@ -278,6 +338,13 @@ public class Attributes : MonoBehaviour
 
     public void Freeze(float power, float pierce, float duration)
     {
+        if (prestige.Length > 0)
+        {
+            if (gameObject.GetComponent<Prestige>().CheckPassive("Slow & Freeze Immunity"))
+            {
+                return;
+            }
+        }
         if (freezeImmune > 0)
         {
             SlowSpeed(power, pierce, duration);
@@ -331,6 +398,19 @@ public class Attributes : MonoBehaviour
         if (isDestroyed == false)
         {
             isDestroyed = true;
+            if (prestige.Length > 0)
+            {
+                if (gameObject.GetComponent<Prestige>().CheckPassive("Revive") == true && timeUntilPassives[gameObject.GetComponent<Prestige>().FindPassive("Revive")] <= 0f)
+                {
+                    gameObject.GetComponent<Passives>().Revive();
+                    isDestroyed = false;
+                    return;
+                }
+                else if (gameObject.GetComponent<Prestige>().CheckPassive("Death Split") == true)
+                {
+                    gameObject.GetComponent<Passives>().DeathSplit();
+                }
+            }
             if (type.Substring(0,5) == "Enemy")
             {
                 ReturnHoney();
@@ -340,26 +420,21 @@ public class Attributes : MonoBehaviour
         }
     }
 
-    private void PrestigeStats()
-    {
-        if (prestige.Length > 0)
-        {
-
-        }
-    }
-
     public void RollPrestige(float power)
     {
         //Chance to become prestige
         //
-        PrestigeStats();
+        if (type.Substring(0, 5) == "Enemy")
+        {
+            gameObject.GetComponent<Prestige>().SetPrestigeStats();
+        }
     }
 
     public void HaltMovement()
     {
         if (type != "Tower")
         {
-            rb.velocity = gameObject.transform.forward * 0;
+            rb.linearVelocity = gameObject.transform.forward * 0;
         }
     }
 
@@ -374,6 +449,45 @@ public class Attributes : MonoBehaviour
         if (inventoryFull)
         {
             LevelManager.main.honey += carryCapacity * GlobalValues.main.honeyDropReturnModifier;
+        }
+    }
+
+    public void AddInvisibility(float invisDuration)
+    {
+        invisibility++;
+        //add code
+        {
+            ToggleInvisibility(true);
+        }
+        StartCoroutine(RemoveInvisibility(invisDuration));
+    }
+
+    private IEnumerator RemoveInvisibility(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        invisibility--;
+        if (invisibility < 1)
+        {
+            ToggleInvisibility(false);
+        }
+        else
+        {
+            invisibility = 0;
+        }
+    }
+
+    private void ToggleInvisibility(bool state)
+    {
+        Color tempColor = gameObject.GetComponent<SpriteRenderer>().color;
+        if (state == true)
+        {
+            tempColor.a = GlobalValues.main.invisibilityTransparancy;
+            gameObject.GetComponent<SpriteRenderer>().color = tempColor;
+        }
+        else
+        {
+            tempColor.a = 1f;
+            gameObject.GetComponent<SpriteRenderer>().color = tempColor;
         }
     }
 }

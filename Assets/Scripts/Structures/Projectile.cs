@@ -72,7 +72,7 @@ public class Projectile : MonoBehaviour
             Hit(target.gameObject);
         }
         Vector2 direction = (target.position - transform.position).normalized;
-        rb.velocity = direction * projectileSpeed;
+        rb.linearVelocity = direction * projectileSpeed;
         float angle = Mathf.Atan2(target.position.y - transform.position.y, target.position.x - transform.position.x) * Mathf.Rad2Deg - 90f;
         Quaternion targetRotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
         transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 500 * Time.deltaTime);   

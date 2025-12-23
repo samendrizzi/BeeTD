@@ -46,6 +46,11 @@ public class GlobalValues : MonoBehaviour
     [SerializeField] public float wayPointDistance = 0.2f;
     [SerializeField] public float maxSlowDebuff = 0.2f;
     [SerializeField] public float freezeImmuneRatio = 0.25f;
+    [SerializeField] public float shieldModifier = 1f;
+    [SerializeField] public float invisibilityModifier = 1f;
+    [SerializeField] public float invisibilityTransparancy = 0.3f;
+    [SerializeField] public float reviveCooldownModifier = 1f;
+    [SerializeField] public float reviveDurationModifier = 1f;
 
 
     [Header("_______________________")]
@@ -121,15 +126,23 @@ public class GlobalValues : MonoBehaviour
     [Header("_______________________")]
     [Header("Mob Prestige")]
     [SerializeField] public int prestigeMaxNumber = 5;
-    [SerializeField] public float prestigeDuplicateModifier = 1f;
-    [SerializeField] public float prestigeRed = .3f;     //Armor/HP Buff
-    [SerializeField] public float prestigeBlue = .3f;     //Effect Buff
-    [SerializeField] public float prestigeGreen = .5f;     //Reistance/Speed Buff
-    [SerializeField] public float prestigeYellow = 1f;      //Invert Flying
-    [SerializeField] public float prestigeWhite = .5f;       //Avialable
-    [SerializeField] public float prestigePurple = 1f;      //Available
-    [SerializeField] public float prestigePink = 1f;        //Available
+    [SerializeField] public float prestigeDuplicateModifier = 0.5f;
+    [SerializeField] public float prestigeRed = .3f;     //Armor / HP Buff
+    [SerializeField] public float prestigeBlue = .3f;     //Reistance / Speed Buff
+    [SerializeField] public float prestigeGreen = 1f;     //Health Regen
+    [SerializeField] public float prestigeYellow = 1f;      //Carry Capacity
+    [SerializeField] public float prestigeWhite = .5f;       //Invert Flying
+    [SerializeField] public float prestigePurple = 0.25f;      //Blink
+    [SerializeField] public float prestigePurpleRate = 0.2f;      
+    [SerializeField] public float prestigePurpleRange = 5f;      
+    [SerializeField] public float prestigeBlack = 2f;        //Death Split
     [SerializeField] public float prestigeGold = .5f;        //Buff Everything
+    [SerializeField] public float prestigeBrown = .25f;        //Dodge Buff
+    [SerializeField] public float prestigeGrey = 1f;        //Invisibility
+    [SerializeField] public int prestigePrismatic = 2;  //Alternating Buff
+    [SerializeField] public float prestigeSilver = 1f;        //Shield
+    [SerializeField] public float prestigePlatinum = 1f;        //Revive
+    [SerializeField] public float prestigeTeal = 1f;    //Slow & Freeze Immunity / Slower
 
     [Header("_______________________")]
     [Header("Performance Settings")]

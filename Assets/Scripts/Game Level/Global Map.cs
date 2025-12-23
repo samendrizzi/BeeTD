@@ -57,7 +57,7 @@ public class GlobalMap : MonoBehaviour
     public void VerifySaveFile()
     {
         int levelCount = 0;
-        GameObject[] root = UnityEngine.Object.FindObjectsOfType<GameObject>();
+        GameObject[] root = UnityEngine.Object.FindObjectsByType<GameObject>(FindObjectsSortMode.None);
         foreach (GameObject obj in root)
         {
             if (obj.name == "Level")

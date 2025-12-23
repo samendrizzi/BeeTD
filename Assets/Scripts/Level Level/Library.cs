@@ -25,4 +25,10 @@ public class Library : MonoBehaviour
         }
         return layerNumber;
     }
+
+    public Vector3 FindPositionBetweenPoints(Transform x, Transform y, float distance)
+    {
+        Vector3 direction = y.position - x.position;
+        return x.position + direction.normalized * distance;
+    }
 }

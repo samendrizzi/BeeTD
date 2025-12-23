@@ -20,37 +20,7 @@ public class Enemy : MonoBehaviour
         //setup
         WaveSpawner.main.EnemySpawned();
         attributes = gameObject.GetComponent<Attributes>();
-        if (attributes.willFly == true)
-        {
-            if (attributes.onPath == 1)
-            {
-                attributes.path = LevelManager.main.flyingPath1;
-            }
-            else
-            {
-                attributes.path = LevelManager.main.flyingPath2;
-            }
-        }
-        else
-        {
-            if (attributes.onPath == 1)
-            {
-                attributes.path = LevelManager.main.path1;
-            }
-            else
-            {
-                attributes.path = LevelManager.main.path2;
-            }
-
-        }
-        if (attributes.path != null)
-        {
-            attributes.target = attributes.path[attributes.pathIndex];
-        }
-        if (attributes.sName == "Hummingbird")
-        {
-            attributes.target = null;
-        }
+        SetPathSettings();
     }
 
     private void Update()
@@ -69,30 +39,8 @@ public class Enemy : MonoBehaviour
             Move();
         }
         
-        //Actions
-        if (attributes.actions.Length > 0)
-        {
-            //iterate through all actions
-            for (int i = 0; i < attributes.actions.Length; i++)
-            {
-                if (attributes.timeUntilActions[i] <= 0f)
-                {
-                    Actions(i);
-                }
-            }
-        }
-        //Effects
-        if (attributes.effects.Length > 0)
-        {
-            //iterate through all effects
-            for (int i = 0; i < attributes.effects.Length; i++)
-            {
-                if (attributes.timeUntilEffects[i] <= 0f)
-                {
-                    Effects(i);
-                }
-            }
-        }
+
+
     }
 
     private void Move()
@@ -112,7 +60,7 @@ public class Enemy : MonoBehaviour
         }
         //set velocity
         Vector2 direction = (attributes.target.position - transform.position).normalized;
-        attributes.rb.velocity = direction * attributes.moveSpeed;
+        attributes.rb.linearVelocity = direction * attributes.moveSpeed;
         float angle = Mathf.Atan2(attributes.target.position.y - transform.position.y, attributes.target.position.x - transform.position.x) * Mathf.Rad2Deg - 90f;
         Quaternion targetRotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
         transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, attributes.rotationSpeed * attributes.moveSpeed * Time.deltaTime);
@@ -318,15 +266,50 @@ public class Enemy : MonoBehaviour
         {
             //move towards flower
             Vector2 direction = (attributes.target.position - transform.position).normalized;
-            attributes.rb.velocity = direction * attributes.moveSpeed;
+            attributes.rb.linearVelocity = direction * attributes.moveSpeed;
             float angle = Mathf.Atan2(attributes.target.position.y - transform.position.y, attributes.target.position.x - transform.position.x) * Mathf.Rad2Deg - 90f;
             Quaternion targetRotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
             transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 150 * attributes.moveSpeed * Time.deltaTime);
         }
         else
         {
-            attributes.rb.velocity = attributes.rb.velocity * 0;
+            attributes.rb.linearVelocity = attributes.rb.linearVelocity * 0;
             Debug.Log("Hummingbird unable to find flower.");
+        }
+    }
+
+    public void SetPathSettings()
+    {
+        if (attributes.willFly == true)
+        {
+            if (attributes.onPath == 1)
+            {
+                attributes.path = LevelManager.main.flyingPath1;
+            }
+            else
+            {
+                attributes.path = LevelManager.main.flyingPath2;
+            }
+        }
+        else
+        {
+            if (attributes.onPath == 1)
+            {
+                attributes.path = LevelManager.main.path1;
+            }
+            else
+            {
+                attributes.path = LevelManager.main.path2;
+            }
+
+        }
+        if (attributes.path != null)
+        {
+            attributes.target = attributes.path[attributes.pathIndex];
+        }
+        if (attributes.sName == "Hummingbird")
+        {
+            attributes.target = null;
         }
     }
 }
