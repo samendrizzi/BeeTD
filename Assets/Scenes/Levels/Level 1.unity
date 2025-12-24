@@ -1594,11 +1594,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wave1Path1:
   - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
-    prestige: Black
+    prestige: Platinum
   - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
-    prestige: Black,Black
+    prestige: PlatinumPlatinum
   - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
-    prestige: Black,Black,Black
+    prestige: PlatinumPlatinumPlatinum
   wave2Path1:
   - prefab: {fileID: 0}
     prestige: 
@@ -2161,7 +2161,7 @@ MonoBehaviour:
   emptyHoneyCombs: []
   queuedTargets: []
   workerBeeCost: 0
-  nectar: 500
+  nectar: 50000
   autoAssignBees: Nectar
   honeyCombTicks: 0
   honeyPerCombTick: 0

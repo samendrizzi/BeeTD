@@ -78,6 +78,15 @@ public class Effects : MonoBehaviour
             float effectDuration = attributes.effectDurations[i] * GlobalValues.main.invisibilityModifier;
             Invisibility(effectPower, effectDuration);
         }
+        else if (effect == "Prismatic Buff")
+        {
+            //Not effected by base effect power
+            float effectPower = attributes.effectPowerModifiers[i];
+            float effectDuration = attributes.effectDurations[i];
+            //Not effected by base effect rate
+            attributes.timeUntilEffects[i] = 1 / (attributes.effectRateModifiers[i]);
+            PrismaticBuff(effectPower, effectDuration);
+        }
         else if (effect == "Hatch")
         {
             GameObject prefab = attributes.effectPrefabs[i];
@@ -98,7 +107,7 @@ public class Effects : MonoBehaviour
     {
         Transform start = attributes.path[attributes.pathIndex];
         Transform nextPoint = attributes.target;
-        GameObject spawn = Instantiate(prefab, gameObject.transform.position, Quaternion.identity);
+        GameObject spawn = Library.main.Spawn(prefab, gameObject.transform);
         Attributes spawnAtt = spawn.GetComponent<Attributes>();
         spawnAtt.onPath = attributes.onPath;
         spawnAtt.path = attributes.path;
@@ -181,9 +190,10 @@ public class Effects : MonoBehaviour
         float durationAdjusted = duration;
         if ((power * 100) <= (float)randompick)
         {
-            durationAdjusted = duration * (float)randompick / 100f;
+            durationAdjusted = duration * power;
         }
         attributes.AddInvisibility(durationAdjusted);
+        Debug.Log(durationAdjusted);
     }
 
     private void PrismaticBuff(float power, float duration)
@@ -198,34 +208,40 @@ public class Effects : MonoBehaviour
         int randompick = RandomGen.Next(4);
         if (randompick == 0)
         {
+            Debug.Log("Adding Red");
             prestige.SetPrestigeRed(true, (int)(power * GlobalValues.main.prestigePrismatic));
-            RemovePrismaticBuff("Red", (int)(power * GlobalValues.main.prestigePrismatic), duration);
+            StartCoroutine(RemovePrismaticBuff("Red", (int)(power * GlobalValues.main.prestigePrismatic), duration));
         }
         else if (randompick == 1)
         {
+            Debug.Log("Adding Blue");
             prestige.SetPrestigeBlue(true, (int)(power * GlobalValues.main.prestigePrismatic));
-            RemovePrismaticBuff("Blue", (int)(power * GlobalValues.main.prestigePrismatic), duration);
+            StartCoroutine(RemovePrismaticBuff("Blue", (int)(power * GlobalValues.main.prestigePrismatic), duration));
         }
         else if (randompick == 2)
         {
+            Debug.Log("Adding Gold");
             prestige.SetPrestigeGold(true, (int)(power * GlobalValues.main.prestigePrismatic));
-            RemovePrismaticBuff("Gold", (int)(power * GlobalValues.main.prestigePrismatic), duration);
+            StartCoroutine(RemovePrismaticBuff("Gold", (int)(power * GlobalValues.main.prestigePrismatic), duration));
         }
         else if (randompick == 3)
         {
+            Debug.Log("Adding Brown");
             prestige.SetPrestigeBrown(true, (int)(power * GlobalValues.main.prestigePrismatic));
-            RemovePrismaticBuff("Brown", (int)(power * GlobalValues.main.prestigePrismatic), duration);
+            StartCoroutine(RemovePrismaticBuff("Brown", (int)(power * GlobalValues.main.prestigePrismatic), duration));
         }
         else if (randompick == 4)
         {
+            Debug.Log("Adding Silver");
             prestige.SetPrestigeSilver(true, (int)(power * GlobalValues.main.prestigePrismatic));
-            RemovePrismaticBuff("Silver", (int)(power * GlobalValues.main.prestigePrismatic), duration);
+            StartCoroutine(RemovePrismaticBuff("Silver", (int)(power * GlobalValues.main.prestigePrismatic), duration));
         }
     }
 
     private IEnumerator RemovePrismaticBuff(string buff, float power, float duration)
     {
         yield return new WaitForSeconds(duration);
+        Debug.Log("Removing " + buff);
         Prestige prestige = gameObject.GetComponent<Prestige>();
         if (buff == "Red")
         {

@@ -329,7 +329,7 @@ public class Prestige : MonoBehaviour
         {
             if (CheckEffect("Health Regen"))
             {
-                ModifyEffect("Health Regen", 1f + GlobalValues.main.prestigeGreen * (1f + (GlobalValues.main.prestigeDuplicateModifier * (i - 1))), 0f, 0f, 0f, 0f, 0f + GlobalValues.main.prestigeGreen * (1f + (GlobalValues.main.prestigeDuplicateModifier * (i - 1))));
+                ModifyEffect("Health Regen", GlobalValues.main.prestigeGreen * (1f + (GlobalValues.main.prestigeDuplicateModifier * (i - 1))), 0f, 0f, 0f, 0f, 0f + GlobalValues.main.prestigeGreen * (1f + (GlobalValues.main.prestigeDuplicateModifier * (i - 1))));
             }
             else
             {
@@ -372,7 +372,7 @@ public class Prestige : MonoBehaviour
         {
             if (CheckEffect("Blink"))
             {
-                ModifyEffect("Blink", 1f + GlobalValues.main.prestigePurple * (1f + (GlobalValues.main.prestigeDuplicateModifier * (i - 1))), 0f, 0f, 0f, 0f, 0f);
+                ModifyEffect("Blink", GlobalValues.main.prestigePurple * ((1f + GlobalValues.main.prestigeDuplicateModifier * (i - 1))), 0f, 0f, 0f, 0f, 0f);
             }
             else
             {
@@ -391,7 +391,7 @@ public class Prestige : MonoBehaviour
         {
             if (CheckPassive("Death Split"))
             {
-                ModifyPassive("Death Split", 1f + GlobalValues.main.prestigeBlack * (1f + (GlobalValues.main.prestigeDuplicateModifier * (i - 1))), 0f, 0f, 0f, 0f, 0f);
+                ModifyPassive("Death Split", GlobalValues.main.prestigeBlack * ((1f + GlobalValues.main.prestigeDuplicateModifier * (i - 1))), 0f, 0f, 0f, 0f, 0f);
             }
             else
             {
@@ -482,11 +482,11 @@ public class Prestige : MonoBehaviour
         {
             if (CheckEffect("Invisibility"))
             {
-                ModifyEffect("Invisibility", 1f + GlobalValues.main.prestigeGrey * (1f + (GlobalValues.main.prestigeDuplicateModifier * (i - 1))), 0f, 0f, 0f, 0f, 0f);
+                ModifyEffect("Invisibility", GlobalValues.main.prestigeGrey * (1f + (GlobalValues.main.prestigeDuplicateModifier * (i - 1))), 0f, 0f, 0f, 0f, 0f);
             }
             else
             {
-                AddEffect("Invisibility", GlobalValues.main.prestigeGrey * (1f + (GlobalValues.main.prestigeDuplicateModifier * (i - 1))), 1f, 1f, 1f, 1f, 1f);
+                AddEffect("Invisibility", GlobalValues.main.prestigeGrey * (1f + (GlobalValues.main.prestigeDuplicateModifier * (i - 1))), GlobalValues.main.prestigeGreyRate, 1f, 1f, GlobalValues.main.prestigeGreyDuration, 1f);
             }
         }
     }
@@ -501,11 +501,11 @@ public class Prestige : MonoBehaviour
         {
             if (CheckEffect("Prismatic Buff"))
             {
-                ModifyEffect("Prismatic Buff", 1f + GlobalValues.main.prestigePrismatic * (1f + (GlobalValues.main.prestigeDuplicateModifier * (i - 1))), 0f, 0f, 0f, 0f, 0f);
+                ModifyEffect("Prismatic Buff", GlobalValues.main.prestigePrismatic * (1f + (GlobalValues.main.prestigeDuplicateModifier * (i - 1))), 0f, 0f, 0f, 0f, 0f);
             }
             else
             {
-                AddEffect("Prismatic Buff", GlobalValues.main.prestigePrismatic * (1f + (GlobalValues.main.prestigeDuplicateModifier * (i - 1))), 1f, 1f, 1f, 1f, 1f);
+                AddEffect("Prismatic Buff", GlobalValues.main.prestigePrismatic * (1f + (GlobalValues.main.prestigeDuplicateModifier * (i - 1))), 1 / GlobalValues.main.prestigePrismaticDuration, 1f, 1f, GlobalValues.main.prestigePrismaticDuration, 1f);
             }
         }
     }
@@ -545,11 +545,11 @@ public class Prestige : MonoBehaviour
         {
             if (CheckPassive("Revive"))
             {
-                ModifyPassive("Revive", 1f + GlobalValues.main.prestigePlatinum * (1f + (GlobalValues.main.prestigeDuplicateModifier * (i - 1))), 0f, 0f, 0f, 0f, 0f);
+                ModifyPassive("Revive", GlobalValues.main.prestigePlatinum * (1f + (GlobalValues.main.prestigeDuplicateModifier * (i - 1))), 0f, 0f, 0f, 0f, 0f);
             }
             else
             {
-                AddPassive("Revive", GlobalValues.main.prestigePlatinum * (1f + (GlobalValues.main.prestigeDuplicateModifier * (i - 1))), 1f, 1f, 1f, 1f, 1f);
+                AddPassive("Revive", GlobalValues.main.prestigePlatinum * (1f + (GlobalValues.main.prestigeDuplicateModifier * (i - 1))), 1 / GlobalValues.main.prestigePlatinumCooldown, 1f, 1f, 1f, 1f);
             }
         }
 
@@ -565,7 +565,7 @@ public class Prestige : MonoBehaviour
         {
             if (CheckPassive("Slow & Freeze Immunity"))
             {
-                ModifyPassive("Slow & Freeze Immunity", 1f + GlobalValues.main.prestigeTeal * (1f + (GlobalValues.main.prestigeDuplicateModifier * (i - 1))), 0f, 0f, 0f, 0f, 0f);
+                ModifyPassive("Slow & Freeze Immunity", GlobalValues.main.prestigeTeal * (1f + (GlobalValues.main.prestigeDuplicateModifier * (i - 1))), 0f, 0f, 0f, 0f, 0f);
             }
             else
             {

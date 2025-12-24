@@ -47,15 +47,18 @@ public class Passives : MonoBehaviour
             int count = (int)(attributes.passivePowerModifiers[index] * attributes.passivePower);
             float power = (attributes.passiveExtraModifiers[index] * attributes.passivePower);
             RemovePassive("Death Split");
-            GameObject newSpawn = gameObject;
-            Attributes newSpawnAttributes = newSpawn.GetComponent<Attributes>();
-            newSpawnAttributes.prestige = newSpawnAttributes.prestige.Remove(newSpawnAttributes.prestige.IndexOf("Black"), "Black".Length);
-            newSpawnAttributes.hitPoints = newSpawnAttributes.maxHP;
-            newSpawnAttributes.shield = newSpawnAttributes.maxShield;
-            newSpawnAttributes.isDestroyed = false;
+            attributes.prestige = attributes.prestige.Remove(attributes.prestige.IndexOf("Black"), "Black".Length);
+            attributes.hitPoints = attributes.maxHP;
+            attributes.shield = attributes.maxShield;
+            attributes.isDestroyed = false;
+            float size = gameObject.GetComponent<Renderer>().bounds.size.x;
             for (int i = 1; i <= count; i++)
             {
-                gameObject.GetComponent<Effects>().Spawn(newSpawn, power, 0f);
+                GameObject newSpawn = Library.main.Spawn(gameObject, gameObject.transform);
+                newSpawn.transform.position = Library.main.ShiftPosition(gameObject.transform.position, (i * 360 / count), GlobalValues.main.prestigeBlackDistance * size);
+                newSpawn.GetComponent<Attributes>().actionPower = attributes.actionPower * power;
+                newSpawn.GetComponent<Attributes>().effectPower = attributes.effectPower * power;
+                newSpawn.GetComponent<Attributes>().passivePower = attributes.passivePower * power;
             }
         }
     }
@@ -63,9 +66,14 @@ public class Passives : MonoBehaviour
     public void Revive()
     {
         int index = gameObject.GetComponent<Prestige>().FindPassive("Revive");
-        attributes.timeUntilPassives[index] = attributes.passiveRateModifiers[index] * attributes.passiveRate * GlobalValues.main.reviveCooldownModifier;
-        attributes.hitPoints = attributes.maxHP;
-        attributes.shield = attributes.maxShield;
+        attributes.timeUntilPassives[index] = 1 / (attributes.passiveRateModifiers[index] * attributes.passiveRate * GlobalValues.main.reviveCooldownModifier);
+        float power = attributes.passivePowerModifiers[index] * attributes.passivePower;
+        if (power >= 1f)
+        {
+            power = 1f;
+        }
+        attributes.hitPoints = attributes.maxHP * power;
+        attributes.shield = attributes.maxShield * power;
         attributes.Pause(attributes.passiveDurations[index] * GlobalValues.main.reviveDurationModifier);
     }
 

@@ -136,12 +136,17 @@ public class GlobalValues : MonoBehaviour
     [SerializeField] public float prestigePurpleRate = 0.2f;      
     [SerializeField] public float prestigePurpleRange = 5f;      
     [SerializeField] public float prestigeBlack = 2f;        //Death Split
+    [SerializeField] public float prestigeBlackDistance = 0.5f;
     [SerializeField] public float prestigeGold = .5f;        //Buff Everything
     [SerializeField] public float prestigeBrown = .25f;        //Dodge Buff
-    [SerializeField] public float prestigeGrey = 1f;        //Invisibility
-    [SerializeField] public int prestigePrismatic = 2;  //Alternating Buff
+    [SerializeField] public float prestigeGrey = 0.25f;        //Invisibility
+    [SerializeField] public float prestigeGreyRate = 0.125f;
+    [SerializeField] public float prestigeGreyDuration = 5f;
+    [SerializeField] public float prestigePrismatic = 2;  //Alternating Buff
+    [SerializeField] public float prestigePrismaticDuration = 10f;
     [SerializeField] public float prestigeSilver = 1f;        //Shield
     [SerializeField] public float prestigePlatinum = 1f;        //Revive
+    [SerializeField] public float prestigePlatinumCooldown = 45f;
     [SerializeField] public float prestigeTeal = 1f;    //Slow & Freeze Immunity / Slower
 
     [Header("_______________________")]
