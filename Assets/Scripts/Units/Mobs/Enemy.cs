@@ -282,26 +282,11 @@ public class Enemy : MonoBehaviour
     {
         if (attributes.willFly == true)
         {
-            if (attributes.onPath == 1)
-            {
-                attributes.path = LevelManager.main.flyingPath1;
-            }
-            else
-            {
-                attributes.path = LevelManager.main.flyingPath2;
-            }
+            attributes.path = LevelManager.main.flyingPaths[attributes.onPath];
         }
         else
         {
-            if (attributes.onPath == 1)
-            {
-                attributes.path = LevelManager.main.path1;
-            }
-            else
-            {
-                attributes.path = LevelManager.main.path2;
-            }
-
+            attributes.path = LevelManager.main.paths[attributes.onPath];
         }
         if (attributes.path != null)
         {

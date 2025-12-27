@@ -21,10 +21,33 @@ public class LevelManager : MonoBehaviour
     [SerializeField] public float percentageOfFlowersUsed = 1f;
     [SerializeField] public float difficultyScaling = 0.05f;
     [SerializeField] public Transform influenceCenter;
-    [SerializeField] public Transform[] path1;
-    [SerializeField] public Transform[] flyingPath1;
-    [SerializeField] public Transform[] path2;
-    [SerializeField] public Transform[] flyingPath2;
+    [SerializeField] public int numberOfPaths = 0;
+    [SerializeField] private Transform[] path1;
+    [SerializeField] private Transform[] flyingPath1;
+    [SerializeField] private Transform[] path2;
+    [SerializeField] private Transform[] flyingPath2;
+    [SerializeField] private Transform[] path3;
+    [SerializeField] private Transform[] flyingPath3;
+    [SerializeField] private Transform[] path4;
+    [SerializeField] private Transform[] flyingPath4;
+    [SerializeField] private Transform[] path5;
+    [SerializeField] private Transform[] flyingPath5;
+    [SerializeField] private Transform[] path6;
+    [SerializeField] private Transform[] flyingPath6;
+    [SerializeField] private Transform[] path7;
+    [SerializeField] private Transform[] flyingPath7;
+    [SerializeField] private Transform[] path8;
+    [SerializeField] private Transform[] flyingPath8;
+    [SerializeField] private Transform[] path9;
+    [SerializeField] private Transform[] flyingPath9;
+    [SerializeField] private Transform[] path10;
+    [SerializeField] private Transform[] flyingPath10;
+
+    //Trackers
+    public Transform[][] paths;
+    public Transform[][] flyingPaths;
+    public Transform[] pathsStart;
+    public Transform[] pathsNextPoint;
     public float incomeRate;
     public float investmentRate;
     public float bonusInvestmentRate;
@@ -32,7 +55,6 @@ public class LevelManager : MonoBehaviour
     private float numberOfClosedFlowers = 0;
     private GameObject[] flowers = new GameObject[] { };
     private GameObject[] flowersToBloom = new GameObject[] { };
-    private LayerMask flowerMask;
     public bool levelStarted = false;
     public bool finalWave = false;
     public string speed = "Normal";
@@ -93,6 +115,18 @@ public class LevelManager : MonoBehaviour
         UIManager.main.NormalSpeed();
         UIManager.main.TogglePause();
         CheckHoneyCombs();
+        //Build Path Arrays
+        paths = new Transform[][] {path1, path2, path3, path4, path5, path6, path7, path8, path9, path10};
+        flyingPaths = new Transform[][] {flyingPath1, flyingPath2, flyingPath3, flyingPath4, flyingPath5, flyingPath6, flyingPath7, flyingPath8, flyingPath9, flyingPath10};
+        Array.Resize(ref paths, numberOfPaths);
+        Array.Resize(ref flyingPaths, numberOfPaths);
+        Array.Resize(ref pathsStart, numberOfPaths);
+        Array.Resize(ref pathsNextPoint, numberOfPaths);
+        for (int i = 0; i < numberOfPaths; i++)
+        {
+            pathsStart[i] = paths[i][0];
+            pathsNextPoint[i] = paths[i][1];
+        }
     }
 
     public void IncreaseNectar(float amount)
@@ -178,7 +212,7 @@ public class LevelManager : MonoBehaviour
         GameObject[] root = FindObjectsByType<GameObject>(FindObjectsSortMode.None);
         foreach (GameObject obj in root)
         {
-            if ((flowerMask | (1 << obj.layer)) == flowerMask)
+            if ((GlobalValues.main.flowerMask | (1 << obj.layer)) == GlobalValues.main.flowerMask)
             {
                 Array.Resize(ref flowers, flowers.Length + 1);
                 flowers[flowers.Length - 1] = obj;

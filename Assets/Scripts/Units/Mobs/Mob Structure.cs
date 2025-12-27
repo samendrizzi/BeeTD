@@ -8,4 +8,5 @@ public struct MobStruct
 {
     public GameObject prefab;
     public string prestige;
+    public int path;
 }

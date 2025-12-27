@@ -9,227 +9,75 @@ public class WaveSpawner : MonoBehaviour
 
     public static WaveSpawner main;
 
-    [SerializeField] private MobStruct[][] enemySpawnsPath1;
-    [SerializeField] private MobStruct[] wave1Path1;
-    [SerializeField] private MobStruct[] wave2Path1;
-    [SerializeField] private MobStruct[] wave3Path1;
-    [SerializeField] private MobStruct[] wave4Path1;
-    [SerializeField] private MobStruct[] wave5Path1;
-    [SerializeField] private MobStruct[] wave6Path1;
-    [SerializeField] private MobStruct[] wave7Path1;
-    [SerializeField] private MobStruct[] wave8Path1;
-    [SerializeField] private MobStruct[] wave9Path1;
-    [SerializeField] private MobStruct[] wave10Path1;
-    [SerializeField] private MobStruct[] wave11Path1;
-    [SerializeField] private MobStruct[] wave12Path1;
-    [SerializeField] private MobStruct[] wave13Path1;
-    [SerializeField] private MobStruct[] wave14Path1;
-    [SerializeField] private MobStruct[] wave15Path1;
-    [SerializeField] private MobStruct[] wave16Path1;
-    [SerializeField] private MobStruct[] wave17Path1;
-    [SerializeField] private MobStruct[] wave18Path1;
-    [SerializeField] private MobStruct[] wave19Path1;
-    [SerializeField] private MobStruct[] wave20Path1;
-    [SerializeField] private MobStruct[] wave21Path1;
-    [SerializeField] private MobStruct[] wave22Path1;
-    [SerializeField] private MobStruct[] wave23Path1;
-    [SerializeField] private MobStruct[] wave24Path1;
-    [SerializeField] private MobStruct[] wave25Path1;
-    [SerializeField] private MobStruct[] wave26Path1;
-    [SerializeField] private MobStruct[] wave27Path1;
-    [SerializeField] private MobStruct[] wave28Path1;
-    [SerializeField] private MobStruct[] wave29Path1;
-    [SerializeField] private MobStruct[] wave30Path1;
-    //[SerializeField] private MobStruct[] wave31Path1;
-    //[SerializeField] private MobStruct[] wave32Path1;
-    //[SerializeField] private MobStruct[] wave33Path1;
-    //[SerializeField] private MobStruct[] wave34Path1;
-    //[SerializeField] private MobStruct[] wave35Path1;
-    //[SerializeField] private MobStruct[] wave36Path1;
-    //[SerializeField] private MobStruct[] wave37Path1;
-    //[SerializeField] private MobStruct[] wave38Path1;
-    //[SerializeField] private MobStruct[] wave39Path1;
-    //[SerializeField] private MobStruct[] wave40Path1;
-    //[SerializeField] private MobStruct[] wave41Path1;
-    //[SerializeField] private MobStruct[] wave42Path1;
-    //[SerializeField] private MobStruct[] wave43Path1;
-    //[SerializeField] private MobStruct[] wave44Path1;
-    //[SerializeField] private MobStruct[] wave45Path1;
-    //[SerializeField] private MobStruct[] wave46Path1;
-    //[SerializeField] private MobStruct[] wave47Path1;
-    //[SerializeField] private MobStruct[] wave48Path1;
-    //[SerializeField] private MobStruct[] wave49Path1;
-    //[SerializeField] private MobStruct[] wave50Path1;
-    //[SerializeField] private MobStruct[] wave51Path1;
-    //[SerializeField] private MobStruct[] wave52Path1;
-    //[SerializeField] private MobStruct[] wave53Path1;
-    //[SerializeField] private MobStruct[] wave54Path1;
-    //[SerializeField] private MobStruct[] wave55Path1;
-    //[SerializeField] private MobStruct[] wave56Path1;
-    //[SerializeField] private MobStruct[] wave57Path1;
-    //[SerializeField] private MobStruct[] wave58Path1;
-    //[SerializeField] private MobStruct[] wave59Path1;
-    //[SerializeField] private MobStruct[] wave60Path1;
-    //[SerializeField] private MobStruct[] wave61Path1;
-    //[SerializeField] private MobStruct[] wave62Path1;
-    //[SerializeField] private MobStruct[] wave63Path1;
-    //[SerializeField] private MobStruct[] wave64Path1;
-    //[SerializeField] private MobStruct[] wave65Path1;
-    //[SerializeField] private MobStruct[] wave66Path1;
-    //[SerializeField] private MobStruct[] wave67Path1;
-    //[SerializeField] private MobStruct[] wave68Path1;
-    //[SerializeField] private MobStruct[] wave69Path1;
-    //[SerializeField] private MobStruct[] wave70Path1;
-    //[SerializeField] private MobStruct[] wave71Path1;
-    //[SerializeField] private MobStruct[] wave72Path1;
-    //[SerializeField] private MobStruct[] wave73Path1;
-    //[SerializeField] private MobStruct[] wave74Path1;
-    //[SerializeField] private MobStruct[] wave75Path1;
-    //[SerializeField] private MobStruct[] wave76Path1;
-    //[SerializeField] private MobStruct[] wave77Path1;
-    //[SerializeField] private MobStruct[] wave78Path1;
-    //[SerializeField] private MobStruct[] wave79Path1;
-    //[SerializeField] private MobStruct[] wave80Path1;
-    //[SerializeField] private MobStruct[] wave81Path1;
-    //[SerializeField] private MobStruct[] wave82Path1;
-    //[SerializeField] private MobStruct[] wave83Path1;
-    //[SerializeField] private MobStruct[] wave84Path1;
-    //[SerializeField] private MobStruct[] wave85Path1;
-    //[SerializeField] private MobStruct[] wave86Path1;
-    //[SerializeField] private MobStruct[] wave87Path1;
-    //[SerializeField] private MobStruct[] wave88Path1;
-    //[SerializeField] private MobStruct[] wave89Path1;
-    //[SerializeField] private MobStruct[] wave90Path1;
-    //[SerializeField] private MobStruct[] wave91Path1;
-    //[SerializeField] private MobStruct[] wave92Path1;
-    //[SerializeField] private MobStruct[] wave93Path1;
-    //[SerializeField] private MobStruct[] wave94Path1;
-    //[SerializeField] private MobStruct[] wave95Path1;
-    //[SerializeField] private MobStruct[] wave96Path1;
-    //[SerializeField] private MobStruct[] wave97Path1;
-    //[SerializeField] private MobStruct[] wave98Path1;
-    //[SerializeField] private MobStruct[] wave99Path1;
-    //[SerializeField] private MobStruct[] wave100Path1;
-
-    [SerializeField] private MobStruct[][] enemySpawnsPath2;
-    [SerializeField] private MobStruct[] wave1Path2;
-    [SerializeField] private MobStruct[] wave2Path2;
-    [SerializeField] private MobStruct[] wave3Path2;
-    [SerializeField] private MobStruct[] wave4Path2;
-    [SerializeField] private MobStruct[] wave5Path2;
-    [SerializeField] private MobStruct[] wave6Path2;
-    [SerializeField] private MobStruct[] wave7Path2;
-    [SerializeField] private MobStruct[] wave8Path2;
-    [SerializeField] private MobStruct[] wave9Path2;
-    [SerializeField] private MobStruct[] wave10Path2;
-    [SerializeField] private MobStruct[] wave11Path2;
-    [SerializeField] private MobStruct[] wave12Path2;
-    [SerializeField] private MobStruct[] wave13Path2;
-    [SerializeField] private MobStruct[] wave14Path2;
-    [SerializeField] private MobStruct[] wave15Path2;
-    [SerializeField] private MobStruct[] wave16Path2;
-    [SerializeField] private MobStruct[] wave17Path2;
-    [SerializeField] private MobStruct[] wave18Path2;
-    [SerializeField] private MobStruct[] wave19Path2;
-    [SerializeField] private MobStruct[] wave20Path2;
-    [SerializeField] private MobStruct[] wave21Path2;
-    [SerializeField] private MobStruct[] wave22Path2;
-    [SerializeField] private MobStruct[] wave23Path2;
-    [SerializeField] private MobStruct[] wave24Path2;
-    [SerializeField] private MobStruct[] wave25Path2;
-    [SerializeField] private MobStruct[] wave26Path2;
-    [SerializeField] private MobStruct[] wave27Path2;
-    [SerializeField] private MobStruct[] wave28Path2;
-    [SerializeField] private MobStruct[] wave29Path2;
-    [SerializeField] private MobStruct[] wave30Path2;
-    //[SerializeField] private MobStruct[] wave31Path2;
-    //[SerializeField] private MobStruct[] wave32Path2;
-    //[SerializeField] private MobStruct[] wave33Path2;
-    //[SerializeField] private MobStruct[] wave34Path2;
-    //[SerializeField] private MobStruct[] wave35Path2;
-    //[SerializeField] private MobStruct[] wave36Path2;
-    //[SerializeField] private MobStruct[] wave37Path2;
-    //[SerializeField] private MobStruct[] wave38Path2;
-    //[SerializeField] private MobStruct[] wave39Path2;
-    //[SerializeField] private MobStruct[] wave40Path2;
-    //[SerializeField] private MobStruct[] wave41Path2;
-    //[SerializeField] private MobStruct[] wave42Path2;
-    //[SerializeField] private MobStruct[] wave43Path2;
-    //[SerializeField] private MobStruct[] wave44Path2;
-    //[SerializeField] private MobStruct[] wave45Path2;
-    //[SerializeField] private MobStruct[] wave46Path2;
-    //[SerializeField] private MobStruct[] wave47Path2;
-    //[SerializeField] private MobStruct[] wave48Path2;
-    //[SerializeField] private MobStruct[] wave49Path2;
-    //[SerializeField] private MobStruct[] wave50Path2;
-    //[SerializeField] private MobStruct[] wave51Path2;
-    //[SerializeField] private MobStruct[] wave52Path2;
-    //[SerializeField] private MobStruct[] wave53Path2;
-    //[SerializeField] private MobStruct[] wave54Path2;
-    //[SerializeField] private MobStruct[] wave55Path2;
-    //[SerializeField] private MobStruct[] wave56Path2;
-    //[SerializeField] private MobStruct[] wave57Path2;
-    //[SerializeField] private MobStruct[] wave58Path2;
-    //[SerializeField] private MobStruct[] wave59Path2;
-    //[SerializeField] private MobStruct[] wave60Path2;
-    //[SerializeField] private MobStruct[] wave61Path2;
-    //[SerializeField] private MobStruct[] wave62Path2;
-    //[SerializeField] private MobStruct[] wave63Path2;
-    //[SerializeField] private MobStruct[] wave64Path2;
-    //[SerializeField] private MobStruct[] wave65Path2;
-    //[SerializeField] private MobStruct[] wave66Path2;
-    //[SerializeField] private MobStruct[] wave67Path2;
-    //[SerializeField] private MobStruct[] wave68Path2;
-    //[SerializeField] private MobStruct[] wave69Path2;
-    //[SerializeField] private MobStruct[] wave70Path2;
-    //[SerializeField] private MobStruct[] wave71Path2;
-    //[SerializeField] private MobStruct[] wave72Path2;
-    //[SerializeField] private MobStruct[] wave73Path2;
-    //[SerializeField] private MobStruct[] wave74Path2;
-    //[SerializeField] private MobStruct[] wave75Path2;
-    //[SerializeField] private MobStruct[] wave76Path2;
-    //[SerializeField] private MobStruct[] wave77Path2;
-    //[SerializeField] private MobStruct[] wave78Path2;
-    //[SerializeField] private MobStruct[] wave79Path2;
-    //[SerializeField] private MobStruct[] wave80Path2;
-    //[SerializeField] private MobStruct[] wave81Path2;
-    //[SerializeField] private MobStruct[] wave82Path2;
-    //[SerializeField] private MobStruct[] wave83Path2;
-    //[SerializeField] private MobStruct[] wave84Path2;
-    //[SerializeField] private MobStruct[] wave85Path2;
-    //[SerializeField] private MobStruct[] wave86Path2;
-    //[SerializeField] private MobStruct[] wave87Path2;
-    //[SerializeField] private MobStruct[] wave88Path2;
-    //[SerializeField] private MobStruct[] wave89Path2;
-    //[SerializeField] private MobStruct[] wave90Path2;
-    //[SerializeField] private MobStruct[] wave91Path2;
-    //[SerializeField] private MobStruct[] wave92Path2;
-    //[SerializeField] private MobStruct[] wave93Path2;
-    //[SerializeField] private MobStruct[] wave94Path2;
-    //[SerializeField] private MobStruct[] wave95Path2;
-    //[SerializeField] private MobStruct[] wave96Path2;
-    //[SerializeField] private MobStruct[] wave97Path2;
-    //[SerializeField] private MobStruct[] wave98Path2;
-    //[SerializeField] private MobStruct[] wave99Path2;
-    //[SerializeField] private MobStruct[] wave100Path2;
-
     [Header("Attributes")]
     [SerializeField] public int numberOfWaves = 15;
+    [SerializeField] private MobStruct[] wave1;
+    [SerializeField] private MobStruct[] wave2;
+    [SerializeField] private MobStruct[] wave3;
+    [SerializeField] private MobStruct[] wave4;
+    [SerializeField] private MobStruct[] wave5;
+    [SerializeField] private MobStruct[] wave6;
+    [SerializeField] private MobStruct[] wave7;
+    [SerializeField] private MobStruct[] wave8;
+    [SerializeField] private MobStruct[] wave9;
+    [SerializeField] private MobStruct[] wave10;
+    [SerializeField] private MobStruct[] wave11;
+    [SerializeField] private MobStruct[] wave12;
+    [SerializeField] private MobStruct[] wave13;
+    [SerializeField] private MobStruct[] wave14;
+    [SerializeField] private MobStruct[] wave15;
+    [SerializeField] private MobStruct[] wave16;
+    [SerializeField] private MobStruct[] wave17;
+    [SerializeField] private MobStruct[] wave18;
+    [SerializeField] private MobStruct[] wave19;
+    [SerializeField] private MobStruct[] wave20;
+    [SerializeField] private MobStruct[] wave21;
+    [SerializeField] private MobStruct[] wave22;
+    [SerializeField] private MobStruct[] wave23;
+    [SerializeField] private MobStruct[] wave24;
+    [SerializeField] private MobStruct[] wave25;
+    [SerializeField] private MobStruct[] wave26;
+    [SerializeField] private MobStruct[] wave27;
+    [SerializeField] private MobStruct[] wave28;
+    [SerializeField] private MobStruct[] wave29;
+    [SerializeField] private MobStruct[] wave30;
+    [SerializeField] private MobStruct[] wave31;
+    [SerializeField] private MobStruct[] wave32;
+    [SerializeField] private MobStruct[] wave33;
+    [SerializeField] private MobStruct[] wave34;
+    [SerializeField] private MobStruct[] wave35;
+    [SerializeField] private MobStruct[] wave36;
+    [SerializeField] private MobStruct[] wave37;
+    [SerializeField] private MobStruct[] wave38;
+    [SerializeField] private MobStruct[] wave39;
+    [SerializeField] private MobStruct[] wave40;
+    [SerializeField] private MobStruct[] wave41;
+    [SerializeField] private MobStruct[] wave42;
+    [SerializeField] private MobStruct[] wave43;
+    [SerializeField] private MobStruct[] wave44;
+    [SerializeField] private MobStruct[] wave45;
+    [SerializeField] private MobStruct[] wave46;
+    [SerializeField] private MobStruct[] wave47;
+    [SerializeField] private MobStruct[] wave48;
+    [SerializeField] private MobStruct[] wave49;
+    [SerializeField] private MobStruct[] wave50;
+
+    [Header("Trackers")]
+    private MobStruct[][] enemySpawns;
     public int currentWave = 0;
-    private float timeSinceLastSpawnPath1;
-    private float timeSinceLastSpawnPath2;
+    private MobStruct[][] enemiesToSpawnThisWave;
+    private float[] timeSinceLastSpawn;
+    private int[] enemiesLeftToSpawn;
+    private int[] spawnIndex;
+    private float[] enemiesPerSecond;
     public int enemiesAlive;
-    private int enemiesLeftToSpawnPath1;
-    private int enemiesLeftToSpawnPath2;
     private bool isSpawning = false;
+    private bool[] pathIsSpawning;
     private float waveSpawnRatio;
     private float timeBetweenWaves;
-    private int spawnIndexPath1 = 0;
-    private int spawnIndexPath2 = 0;
-    private float enemiesPerSecondPath1;
-    private float enemiesPerSecondPath2;
     public float waveCountdown = 10f;
     private bool finalWave = false;
+
 
     [Header("Events")]
     public static UnityEvent onEnemyDestroy = new UnityEvent();
@@ -244,10 +92,14 @@ public class WaveSpawner : MonoBehaviour
         waveCountdown = GlobalValues.main.startingWaveCountdown;
         waveSpawnRatio = GlobalValues.main.waveSpawnRatio;
         timeBetweenWaves = GlobalValues.main.waveLength;
-        enemySpawnsPath1 = new MobStruct[][] { wave1Path1, wave2Path1, wave3Path1, wave4Path1, wave5Path1, wave6Path1, wave7Path1, wave8Path1, wave9Path1, wave10Path1, wave11Path1, wave12Path1, wave13Path1, wave14Path1, wave15Path1, wave16Path1, wave17Path1, wave18Path1, wave19Path1, wave20Path1, wave21Path1, wave22Path1, wave23Path1, wave24Path1, wave25Path1, wave26Path1, wave27Path1, wave28Path1, wave29Path1, wave30Path1 };//, wave31Path1, wave32Path1, wave33Path1, wave34Path1, wave35Path1, wave36Path1, wave37Path1, wave38Path1, wave39Path1, wave40Path1, wave41Path1, wave42Path1, wave43Path1, wave44Path1, wave45Path1, wave46Path1, wave47Path1, wave48Path1, wave49Path1, wave50Path1, wave51Path1, wave52Path1, wave53Path1, wave54Path1, wave55Path1, wave56Path1, wave57Path1, wave58Path1, wave59Path1, wave60Path1, wave61Path1, wave62Path1, wave63Path1, wave64Path1, wave65Path1, wave66Path1, wave67Path1, wave68Path1, wave69Path1, wave70Path1, wave71Path1, wave72Path1, wave73Path1, wave74Path1, wave75Path1, wave76Path1, wave77Path1, wave78Path1, wave79Path1, wave80Path1, wave81Path1, wave82Path1, wave83Path1, wave84Path1, wave85Path1, wave86Path1, wave87Path1, wave88Path1, wave89Path1, wave90Path1, wave91Path1, wave92Path1, wave93Path1, wave94Path1, wave95Path1, wave96Path1, wave97Path1, wave98Path1, wave99Path1, wave100Path1 };
-        enemySpawnsPath2 = new MobStruct[][] { wave1Path2, wave2Path2, wave3Path2, wave4Path2, wave5Path2, wave6Path2, wave7Path2, wave8Path2, wave9Path2, wave10Path2, wave11Path2, wave12Path2, wave13Path2, wave14Path2, wave15Path2, wave16Path2, wave17Path2, wave18Path2, wave19Path2, wave20Path2, wave21Path2, wave22Path2, wave23Path2, wave24Path2, wave25Path2, wave26Path2, wave27Path2, wave28Path2, wave29Path2, wave30Path2 };//, wave31Path2, wave32Path2, wave33Path2, wave34Path2, wave35Path2, wave36Path2, wave37Path2, wave38Path2, wave39Path2, wave40Path2, wave41Path2, wave42Path2, wave43Path2, wave44Path2, wave45Path2, wave46Path2, wave47Path2, wave48Path2, wave49Path2, wave50Path2, wave51Path2, wave52Path2, wave53Path2, wave54Path2, wave55Path2, wave56Path2, wave57Path2, wave58Path2, wave59Path2, wave60Path2, wave61Path2, wave62Path2, wave63Path2, wave64Path2, wave65Path2, wave66Path2, wave67Path2, wave68Path2, wave69Path2, wave70Path2, wave71Path2, wave72Path2, wave73Path2, wave74Path2, wave75Path2, wave76Path2, wave77Path2, wave78Path2, wave79Path2, wave80Path2, wave81Path2, wave82Path2, wave83Path2, wave84Path2, wave85Path2, wave86Path2, wave87Path2, wave88Path2, wave89Path2, wave90Path2, wave91Path2, wave92Path2, wave93Path2, wave94Path2, wave95Path2, wave96Path2, wave97Path2, wave98Path2, wave99Path2, wave100Path2 };
-        Array.Resize(ref enemySpawnsPath1, numberOfWaves);
-        Array.Resize(ref enemySpawnsPath2, numberOfWaves);
+        enemySpawns = new MobStruct[][] {wave1, wave2, wave3, wave4, wave5, wave6, wave7, wave8, wave9, wave10, wave11, wave12, wave13, wave14, wave15, wave16, wave17, wave18, wave19, wave20, wave21, wave22, wave23, wave24, wave25, wave26, wave27, wave28, wave29, wave30, wave31, wave32, wave33, wave34, wave35, wave36, wave37, wave38, wave39, wave40, wave41, wave42, wave43, wave44, wave45, wave46, wave47, wave48, wave49, wave50};
+        Array.Resize(ref enemySpawns, LevelManager.main.numberOfPaths);
+        Array.Resize(ref timeSinceLastSpawn, LevelManager.main.numberOfPaths);
+        Array.Resize(ref enemiesLeftToSpawn, LevelManager.main.numberOfPaths);
+        Array.Resize(ref spawnIndex, LevelManager.main.numberOfPaths);
+        Array.Resize(ref enemiesPerSecond, LevelManager.main.numberOfPaths);
+        Array.Resize(ref pathIsSpawning, LevelManager.main.numberOfPaths);
+        Array.Resize(ref enemiesToSpawnThisWave, LevelManager.main.numberOfPaths);
     }
 
     private void Update()
@@ -264,25 +116,19 @@ public class WaveSpawner : MonoBehaviour
          {
              LevelManager.main.EndLevel();
          }
-
          if (!isSpawning)
          {
              return;
          }
-         timeSinceLastSpawnPath1 += Time.deltaTime;
-         timeSinceLastSpawnPath2 += Time.deltaTime;
-
-         if (timeSinceLastSpawnPath1 >= (1f / enemiesPerSecondPath1) && enemiesLeftToSpawnPath1 > 0)
+         for (int i = 0; i < LevelManager.main.numberOfPaths; i++)
          {
-             SpawnEnemy("Path1");
-             enemiesLeftToSpawnPath1--;
-             timeSinceLastSpawnPath1 = 0f;
-         }
-         if (timeSinceLastSpawnPath2 >= (1f / enemiesPerSecondPath2) && enemiesLeftToSpawnPath2 > 0)
-         {
-             SpawnEnemy("Path2");
-             enemiesLeftToSpawnPath2--;
-             timeSinceLastSpawnPath2 = 0f;
+            timeSinceLastSpawn[i] += Time.deltaTime;
+            if (timeSinceLastSpawn[i] >= (1f / enemiesPerSecond[i]) && enemiesLeftToSpawn[i] > 0)
+            {
+                enemiesLeftToSpawn[i]--;
+                timeSinceLastSpawn[i] = 0f;
+                SpawnEnemy(enemiesToSpawnThisWave[i][spawnIndex[i]]);
+            }
          }
     }
 
@@ -300,51 +146,42 @@ public class WaveSpawner : MonoBehaviour
             LevelManager.main.levelStarted = true;
             UIManager.main.WaveUpdate();
             isSpawning = true;
-            spawnIndexPath1 = 0;
-            spawnIndexPath2 = 0;
-            enemiesLeftToSpawnPath1 = enemySpawnsPath1[currentWave - 1].Length;
-            enemiesPerSecondPath1 = (enemiesLeftToSpawnPath1) / (timeBetweenWaves * waveSpawnRatio);
-            enemiesLeftToSpawnPath2 = enemySpawnsPath2[currentWave - 1].Length;
-            enemiesPerSecondPath2 = (enemiesLeftToSpawnPath2) / (timeBetweenWaves * waveSpawnRatio);
+            for (int i = 0; i < LevelManager.main.numberOfPaths; i++)
+            {
+                enemiesToSpawnThisWave[i] = new MobStruct[] { };
+                spawnIndex[i] = 0;
+                for (int x = 0; x < enemySpawns[currentWave - 1].Length; x++)
+                {
+                    if (enemySpawns[currentWave - 1][x].path == i + 1)
+                    {
+                        Array.Resize(ref enemiesToSpawnThisWave[i], enemiesToSpawnThisWave[i].Length + 1);
+                        enemiesToSpawnThisWave[i][enemiesToSpawnThisWave[i].Length - 1] = enemySpawns[currentWave - 1][x];
+                    }
+                }
+                enemiesLeftToSpawn[i] = enemiesToSpawnThisWave[i].Length;
+                enemiesPerSecond[i] = (enemiesLeftToSpawn[i]) / (timeBetweenWaves * waveSpawnRatio);
+                pathIsSpawning[i] = true;
+            }
             waveCountdown = timeBetweenWaves;
         }
     }
 
     private void EndWave()
     {
-        timeSinceLastSpawnPath1 = 0f;
-        timeSinceLastSpawnPath2 = 0f;
         if (currentWave <= numberOfWaves)
         {
             StartWave();
         }
     }
 
-    private void SpawnEnemy(string path)
+    private void SpawnEnemy(MobStruct spawn)
     {
-        MobStruct mobStructToSpawn;
-        GameObject prefabToSpawn;
-        string prestige;
-        Transform start;
-        Transform nextPoint;
-        if (path == "Path1")
-        {
-            mobStructToSpawn = enemySpawnsPath1[currentWave - 1][spawnIndexPath1];
-            prefabToSpawn = mobStructToSpawn.prefab;
-            prestige = mobStructToSpawn.prestige;
-            spawnIndexPath1++;
-            start = LevelManager.main.path1[0];
-            nextPoint = LevelManager.main.path1[1];
-        }
-        else
-        {
-            mobStructToSpawn = enemySpawnsPath2[currentWave - 1][spawnIndexPath2];
-            prefabToSpawn = mobStructToSpawn.prefab;
-            prestige = mobStructToSpawn.prestige;
-            spawnIndexPath2++;
-            start = LevelManager.main.path2[0];
-            nextPoint = LevelManager.main.path2[1];
-        }
+        GameObject prefabToSpawn = spawn.prefab;;
+        string prestige = spawn.prestige;
+        int pathIndex = spawn.path - 1;
+        Transform start = LevelManager.main.pathsStart[pathIndex];
+        Transform nextPoint = LevelManager.main.pathsNextPoint[pathIndex];;
+        spawnIndex[pathIndex]++;
         if (prefabToSpawn == null)
         {
             return;
@@ -353,17 +190,14 @@ public class WaveSpawner : MonoBehaviour
         Quaternion enemyRotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
         GameObject enemy = Instantiate(prefabToSpawn, start.position, enemyRotation);
         enemy.GetComponent<Attributes>().prestige = prestige;
-        if (path == "Path1")
+        enemy.GetComponent<Attributes>().onPath = pathIndex;
+        if (enemiesLeftToSpawn[pathIndex] <= 0)
         {
-            enemy.GetComponent<Attributes>().onPath = 1;
-        }
-        else
-        {
-            enemy.GetComponent<Attributes>().onPath = 2;
-        }
-        if (spawnIndexPath1 >= enemySpawnsPath1[currentWave - 1].Length && spawnIndexPath2 >= enemySpawnsPath2[currentWave - 1].Length)
-        {
-            isSpawning = false;
+            pathIsSpawning[pathIndex] = false;
+            if (Array.IndexOf(pathIsSpawning, true) == -1)
+            {
+                isSpawning = false;
+            }
         }
     }
 
