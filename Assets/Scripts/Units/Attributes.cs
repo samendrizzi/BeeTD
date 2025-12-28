@@ -5,6 +5,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEditor;
 using UnityEngine.UI;
+using System.Xml.Linq;
 
 public class Attributes : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class Attributes : MonoBehaviour
     [Header("References")]
     [Header("__________________________")]
     [SerializeField] public Rigidbody2D rb;
+    [SerializeField] private Slider healthBar;
 
     [Header("Attributes")]
     [Header("__________________________")]
@@ -81,7 +83,6 @@ public class Attributes : MonoBehaviour
     [Header("_____________________")]
     [Header("Trackers")]
     //trackers
-    private Slider healthBar;
     public string prestige;
     public float hitPoints = 1f;
     public float shield = 0f;
@@ -189,12 +190,12 @@ public class Attributes : MonoBehaviour
         //create action timers
         if (actions.Length > 0)
         {
-            Array.Resize(ref timeUntilActions, actions.Length);
+            timeUntilActions = (float[])actionRateModifiers.Clone();
         }
         //create effect timers
         if (effects.Length > 0)
         {
-            Array.Resize(ref timeUntilEffects, effects.Length);
+            timeUntilEffects = (float[])effectRateModifiers.Clone();
         }
         //create passive timers
         if (passives.Length > 0)
@@ -207,7 +208,7 @@ public class Attributes : MonoBehaviour
         }
         if (healthBar != null)
         {
-            healthBar.maxValue = hitPoints;
+            healthBar.maxValue = maxHP;
             healthBar.value = hitPoints;
             healthBar.gameObject.SetActive(true);
         }
@@ -307,7 +308,7 @@ public class Attributes : MonoBehaviour
         }
         if (prestige.Length > 0)
         {
-            if (gameObject.GetComponent<Prestige>().CheckPassive("Slow & Freeze Immunity") )
+            if (gameObject.GetComponent<Passives>().CheckPassive("Slow & Freeze Immunity") )
             {
                 return;
             }
@@ -317,14 +318,14 @@ public class Attributes : MonoBehaviour
         {
             resistanceBlock = 0f;
         }
-        else if (resistanceBlock >= 1f || power < 1f)
+        if (resistanceBlock >= 1f || power < 0f)
         {
             //no slow
             return;
         }
-        float resist = (power - 1f) * resistanceBlock;
+        float resist = (power) * resistanceBlock;
         float powerAdjust = power - resist;
-        moveSpeedUncapped = moveSpeedUncapped / powerAdjust;
+        moveSpeedUncapped = moveSpeedUncapped - (moveSpeedUncapped * powerAdjust);
         if (moveSpeedUncapped < GlobalValues.main.maxSlowDebuff * moveSpeedBase)
         {
             moveSpeed = GlobalValues.main.maxSlowDebuff * moveSpeedBase;
@@ -340,7 +341,7 @@ public class Attributes : MonoBehaviour
     {
         if (prestige.Length > 0)
         {
-            if (gameObject.GetComponent<Prestige>().CheckPassive("Slow & Freeze Immunity"))
+            if (gameObject.GetComponent<Passives>().CheckPassive("Slow & Freeze Immunity"))
             {
                 return;
             }
@@ -355,13 +356,13 @@ public class Attributes : MonoBehaviour
         {
             resistanceBlock = 0f;
         }
-        else if (resistanceBlock >= 1f || power < 1f)
+        if (resistanceBlock >= 1f || power < 0f)
         {
             //no slow
             return;
         }
-        float resist = (power - 1f) * resistanceBlock;
-        float freezeChance = ((power - 1f) - resist) * GlobalValues.main.freezePowerModifier;
+        float resist = (power) * resistanceBlock;
+        float freezeChance = (power - resist) * GlobalValues.main.freezePowerModifier;
         System.Random RandomGen = new System.Random();
         int freezeRoll = RandomGen.Next(100);
         if (freezeChance * 100 > freezeRoll)
@@ -400,13 +401,13 @@ public class Attributes : MonoBehaviour
             isDestroyed = true;
             if (prestige.Length > 0)
             {
-                if (gameObject.GetComponent<Prestige>().CheckPassive("Revive") == true && timeUntilPassives[gameObject.GetComponent<Prestige>().FindPassive("Revive")] <= 0f)
+                if (gameObject.GetComponent<Passives>().CheckPassive("Revive") == true && timeUntilPassives[gameObject.GetComponent<Passives>().FindPassive("Revive")] <= 0f)
                 {
                     gameObject.GetComponent<Passives>().Revive();
                     isDestroyed = false;
                     return;
                 }
-                else if (gameObject.GetComponent<Prestige>().CheckPassive("Death Split") == true)
+                else if (gameObject.GetComponent<Passives>().CheckPassive("Death Split") == true)
                 {
                     gameObject.GetComponent<Passives>().DeathSplit();
                 }
@@ -489,5 +490,29 @@ public class Attributes : MonoBehaviour
             tempColor.a = 1f;
             gameObject.GetComponent<SpriteRenderer>().color = tempColor;
         }
+    }
+
+    public IEnumerator RemovePowerBuff(float buff, float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        actionPower = actionPower / buff;
+    }
+
+    public IEnumerator RemoveRateBuff(float buff, float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        actionRate = actionRate / buff;
+    }
+
+    public void ReceivePowerBuff(float buff, float duration)
+    {
+        actionPower = actionPower * buff;
+        StartCoroutine(RemovePowerBuff(buff, duration));
+    }
+
+    public void ReceiveRateBuff(float buff, float duration)
+    {
+        actionRate = actionRate * buff;
+        StartCoroutine(RemoveRateBuff(buff, duration));
     }
 }

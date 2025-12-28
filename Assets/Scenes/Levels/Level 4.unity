@@ -19591,6 +19591,24 @@ MonoBehaviour:
   - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
     prestige: 
     path: 1
+  - prefab: {fileID: 5400552394083257877, guid: 02d8d865807b8d848ae0e94e96a1c847, type: 3}
+    prestige: Grey,Purple
+    path: 2
+  - prefab: {fileID: 5400552394083257877, guid: 4e1c92c627075ce479701c8a7bbcdf23, type: 3}
+    prestige: Green,Brown
+    path: 1
+  - prefab: {fileID: 5400552394083257877, guid: 0156fdb8e5e46194bbac15ea5d7c85e5, type: 3}
+    prestige: Teal
+    path: 2
+  - prefab: {fileID: 5400552394083257877, guid: fd70fc47f1d6cb84b89e9e0975a129ab, type: 3}
+    prestige: Prismatic
+    path: 2
+  - prefab: {fileID: 5400552394083257877, guid: 43128a49fe5a05740b78b7039f89fcc3, type: 3}
+    prestige: Red,Red,Red
+    path: 1
+  - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
+    prestige: Blue,Blue
+    path: 1
   wave5: []
   wave6: []
   wave7: []

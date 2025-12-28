@@ -50,7 +50,7 @@ public class Projectile : MonoBehaviour
         effectPower = effPower;
         if (action == "Shoot Slowing" || action == "Shoot Freezing" || action == "Shoot AoE Freezing" || action == "Shoot AoE Slowing")
         {
-            slow = 1 + (effectPower * GlobalValues.main.slowPowerModifier);
+            slow = effectPower * GlobalValues.main.slowPowerModifier;
             slowDuration = actionDuration * GlobalValues.main.slowDurationModifier;
         }
         else if (action == "Shoot Ricochet")

@@ -2656,7 +2656,7 @@ GameObject:
   - component: {fileID: -7169709409211886353}
   - component: {fileID: -3478640777834510401}
   - component: {fileID: -6338877410037303971}
-  - component: {fileID: 8794101636897466830}
+  - component: {fileID: 3437711152986898848}
   m_Layer: 13
   m_Name: Multi-Target T3-1
   m_TagString: Untagged
@@ -2775,6 +2775,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
+  healthBar: {fileID: 0}
   sName: Explosive ++
   type: Tower
   cost: 750
@@ -2835,7 +2836,6 @@ MonoBehaviour:
   hasTargetSettings: 1
   targetSetting: 
   prestige: 
-  prestigeToRoll: 
   hitPoints: 1
   shield: 0
   isDestroyed: 0
@@ -2917,7 +2917,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d713ff3d75a36d4684fc23dabb1db26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Effects
---- !u!114 &8794101636897466830
+--- !u!114 &3437711152986898848
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2926,9 +2926,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 7862540307379288715}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c1063cf4d4ce954288ab2d27d710071, type: 3}
+  m_Script: {fileID: 11500000, guid: eaf5e878ef7c9c048b98a51c7da793fe, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Passives
+  m_EditorClassIdentifier: Assembly-CSharp::Actions
 --- !u!1 &7966535702334349865
 GameObject:
   m_ObjectHideFlags: 0

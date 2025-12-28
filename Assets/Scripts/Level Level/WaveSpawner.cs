@@ -93,7 +93,6 @@ public class WaveSpawner : MonoBehaviour
         waveSpawnRatio = GlobalValues.main.waveSpawnRatio;
         timeBetweenWaves = GlobalValues.main.waveLength;
         enemySpawns = new MobStruct[][] {wave1, wave2, wave3, wave4, wave5, wave6, wave7, wave8, wave9, wave10, wave11, wave12, wave13, wave14, wave15, wave16, wave17, wave18, wave19, wave20, wave21, wave22, wave23, wave24, wave25, wave26, wave27, wave28, wave29, wave30, wave31, wave32, wave33, wave34, wave35, wave36, wave37, wave38, wave39, wave40, wave41, wave42, wave43, wave44, wave45, wave46, wave47, wave48, wave49, wave50};
-        Array.Resize(ref enemySpawns, LevelManager.main.numberOfPaths);
         Array.Resize(ref timeSinceLastSpawn, LevelManager.main.numberOfPaths);
         Array.Resize(ref enemiesLeftToSpawn, LevelManager.main.numberOfPaths);
         Array.Resize(ref spawnIndex, LevelManager.main.numberOfPaths);
@@ -143,6 +142,7 @@ public class WaveSpawner : MonoBehaviour
         else
         {
             currentWave++;
+            waveCountdown = timeBetweenWaves;
             LevelManager.main.levelStarted = true;
             UIManager.main.WaveUpdate();
             isSpawning = true;
@@ -162,7 +162,6 @@ public class WaveSpawner : MonoBehaviour
                 enemiesPerSecond[i] = (enemiesLeftToSpawn[i]) / (timeBetweenWaves * waveSpawnRatio);
                 pathIsSpawning[i] = true;
             }
-            waveCountdown = timeBetweenWaves;
         }
     }
 

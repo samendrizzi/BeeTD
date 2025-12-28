@@ -31,29 +31,6 @@ public class WorkerBee : MonoBehaviour
         }
         FindTarget();
         Move();
-        if (attributes.actions.Length > 0)
-        {
-            //iterate through all actions
-            for (int i = 0; i < attributes.actions.Length; i++)
-            {
-                if (attributes.timeUntilActions[i] <= 0f)
-                {
-                    Actions(i);
-                }
-            }
-        }
-        //Effects
-        if (attributes.effects.Length > 0)
-        {
-            //iterate through all effects
-            for (int i = 0; i < attributes.effects.Length; i++)
-            {
-                if (attributes.timeUntilEffects[i] <= 0f)
-                {
-                    Effects(i);
-                }
-            }
-        }
     }
 
     private void Move()
@@ -82,32 +59,7 @@ public class WorkerBee : MonoBehaviour
         //float actionDuration = attributes.actionDurations[i];
         //GameObject prefab = attributes.actionPrefabs[i];
         attributes.timeUntilActions[i] = 1 / (actionRate);
-        if (action == "Nectar" && attributes.work == "Nectar")
-        {
-            if (attributes.inventoryFull == true && Vector2.Distance(attributes.target.position, transform.position) <= attributes.wayPointDistance)
-            {
-                DepositNectar();
-                return;
-            }
-            else if (attributes.inventoryFull == false && Vector2.Distance(attributes.target.position, transform.position) <= attributes.wayPointDistance)
-            {
-                CollectNectar();
-                return;
-            }
-        }
-        else if (action == "Honey" && attributes.work == "Honey")
-        {
-            float actionPower = attributes.actionPowerModifiers[i] * attributes.actionPower;
-            CreateHoneyComb(actionPower);
-            return;
-        }
-        else if (action == "Attack" && attributes.work == "Soldier")
-        {
-            float actionPower = attributes.actionPowerModifiers[i] * attributes.actionPower;
-            float actionRange = attributes.actionRangeModifiers[i] * attributes.targetingRange;
-            float actionPierce = attributes.actionPierceModifiers[i] * attributes.armorPierce;
-            AttackTarget(actionPower, actionRange, actionPierce);  
-        }
+
     }      
    
 
@@ -162,62 +114,5 @@ public class WorkerBee : MonoBehaviour
         //currently none
     }
 
-    private void AttackTarget(float power, float range, float pierce)
-    {
-        if (attributes.target != null)
-        {
-            if (Vector2.Distance(attributes.target.position, transform.position) <= range)
-            {
-                attributes.target.gameObject.GetComponent<Attributes>().TakeDamage(power, pierce);
-            }
-        }
-    }
 
-    public void DepositNectar()
-    {
-        attributes.inventoryFull = false;
-        LevelManager.main.IncreaseNectar(attributes.nectar);
-        attributes.nectar = 0f;
-        attributes.target = attributes.flower.transform;
-    }
-
-    public void CollectNectar()
-    {
-        if (attributes.flower.GetComponent<Plot>().isSapped == false)
-        {
-            attributes.nectar = attributes.carryCapacity;
-            attributes.flower.GetComponent<Plot>().SapFlower(attributes.carryCapacity / LevelManager.main.nectarGenerationRate);
-            attributes.inventoryFull = true;
-            attributes.target = LevelManager.main.queenBee.gameObject.transform;
-        }
-    }
-
-    public void CreateHoneyComb(float power)
-    {
-        if (attributes.target == null)
-        {
-            return;
-        }
-        if (Vector2.Distance(attributes.target.position, transform.position) <= attributes.wayPointDistance)
-        {
-            if (attributes.inventoryFull)
-            {
-                if (attributes.target.gameObject.GetComponent<Plot>().honeyTicks > 0)
-                {
-                    //another bee filled
-                    attributes.target = null;
-                    return;
-                }
-                attributes.target.gameObject.GetComponent<Plot>().HoneyFill(power * LevelManager.main.honeyPerCombTick, LevelManager.main.honeyCombTicks);
-                attributes.inventoryFull = false;
-                attributes.target = null;
-                attributes.Pause(LevelManager.main.honeyCombCreatePause);
-            }
-            else
-            {
-                attributes.inventoryFull = true;
-                attributes.target = null;
-            }
-        }
-    }
 }

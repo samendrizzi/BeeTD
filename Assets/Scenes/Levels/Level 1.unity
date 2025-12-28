@@ -1592,415 +1592,114 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7979e7980427d214ebb2291ddc061a1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wave1Path1:
-  - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
-    prestige: Platinum
-  - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
-    prestige: PlatinumPlatinum
-  - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
-    prestige: PlatinumPlatinumPlatinum
-  wave2Path1:
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  wave3Path1:
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  wave4Path1:
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  wave5Path1:
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  wave6Path1:
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  wave7Path1:
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  wave8Path1:
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  wave9Path1:
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  wave10Path1:
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  wave11Path1:
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  wave12Path1:
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  wave13Path1:
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  wave14Path1:
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  - prefab: {fileID: 0}
-    prestige: 
-  wave15Path1:
-  - prefab: {fileID: 0}
-    prestige: 
-  wave16Path1: []
-  wave17Path1: []
-  wave18Path1: []
-  wave19Path1: []
-  wave20Path1: []
-  wave21Path1: []
-  wave22Path1: []
-  wave23Path1: []
-  wave24Path1: []
-  wave25Path1: []
-  wave26Path1: []
-  wave27Path1: []
-  wave28Path1: []
-  wave29Path1: []
-  wave30Path1: []
-  wave1Path2: []
-  wave2Path2: []
-  wave3Path2: []
-  wave4Path2: []
-  wave5Path2: []
-  wave6Path2: []
-  wave7Path2: []
-  wave8Path2: []
-  wave9Path2: []
-  wave10Path2: []
-  wave11Path2: []
-  wave12Path2: []
-  wave13Path2: []
-  wave14Path2: []
-  wave15Path2: []
-  wave16Path2: []
-  wave17Path2: []
-  wave18Path2: []
-  wave19Path2: []
-  wave20Path2: []
-  wave21Path2: []
-  wave22Path2: []
-  wave23Path2: []
-  wave24Path2: []
-  wave25Path2: []
-  wave26Path2: []
-  wave27Path2: []
-  wave28Path2: []
-  wave29Path2: []
-  wave30Path2: []
   numberOfWaves: 15
+  wave1:
+  - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
+    prestige: Red
+    path: 1
+  - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
+    prestige: Green
+    path: 1
+  - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
+    prestige: Blue
+    path: 1
+  wave2:
+  - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
+    prestige: Red,Red
+    path: 1
+  - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
+    prestige: Blue,Red,Green,
+    path: 1
+  - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
+    prestige: Black,Teal,Purple
+    path: 1
+  - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
+    prestige: Pristmatic,Gold
+    path: 1
+  - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
+    prestige: Brown,Grey,Teal,Red,Pink
+    path: 1
+  - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
+    prestige: 
+    path: 1
+  wave3:
+  - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
+    prestige: 
+    path: 1
+  - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
+    prestige: 
+    path: 1
+  - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
+    prestige: 
+    path: 1
+  - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
+    prestige: 
+    path: 1
+  - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
+    prestige: 
+    path: 1
+  - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
+    prestige: 
+    path: 1
+  - prefab: {fileID: 5400552394083257877, guid: 0156fdb8e5e46194bbac15ea5d7c85e5, type: 3}
+    prestige: 
+    path: 1
+  - prefab: {fileID: 5400552394083257877, guid: fd70fc47f1d6cb84b89e9e0975a129ab, type: 3}
+    prestige: 
+    path: 1
+  - prefab: {fileID: 5400552394083257877, guid: 4e1c92c627075ce479701c8a7bbcdf23, type: 3}
+    prestige: 
+    path: 1
+  - prefab: {fileID: 5400552394083257877, guid: 02d8d865807b8d848ae0e94e96a1c847, type: 3}
+    prestige: 
+    path: 1
+  wave4: []
+  wave5: []
+  wave6: []
+  wave7: []
+  wave8: []
+  wave9: []
+  wave10: []
+  wave11: []
+  wave12: []
+  wave13: []
+  wave14: []
+  wave15: []
+  wave16: []
+  wave17: []
+  wave18: []
+  wave19: []
+  wave20: []
+  wave21: []
+  wave22: []
+  wave23: []
+  wave24: []
+  wave25: []
+  wave26: []
+  wave27: []
+  wave28: []
+  wave29: []
+  wave30: []
+  wave31: []
+  wave32: []
+  wave33: []
+  wave34: []
+  wave35: []
+  wave36: []
+  wave37: []
+  wave38: []
+  wave39: []
+  wave40: []
+  wave41: []
+  wave42: []
+  wave43: []
+  wave44: []
+  wave45: []
+  wave46: []
+  wave47: []
+  wave48: []
+  wave49: []
+  wave50: []
   currentWave: 0
   enemiesAlive: 0
   waveCountdown: 30
@@ -2025,6 +1724,7 @@ MonoBehaviour:
   percentageOfFlowersUsed: 1
   difficultyScaling: 0.05
   influenceCenter: {fileID: 963130572}
+  numberOfPaths: 1
   path1:
   - {fileID: 1395565097}
   - {fileID: 1489652848}
@@ -2141,6 +1841,24 @@ MonoBehaviour:
   - {fileID: 997013210}
   - {fileID: 2132858005}
   - {fileID: 1956898013}
+  path3: []
+  flyingPath3: []
+  path4: []
+  flyingPath4: []
+  path5: []
+  flyingPath5: []
+  path6: []
+  flyingPath6: []
+  path7: []
+  flyingPath7: []
+  path8: []
+  flyingPath8: []
+  path9: []
+  flyingPath9: []
+  path10: []
+  flyingPath10: []
+  pathsStart: []
+  pathsNextPoint: []
   incomeRate: 0
   investmentRate: 0
   bonusInvestmentRate: 0
