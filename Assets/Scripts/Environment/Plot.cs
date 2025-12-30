@@ -13,7 +13,6 @@ public class Plot : MonoBehaviour
     [SerializeField] private Sprite honeySprite;
     [SerializeField] private Color hoverColor;
 
-
     [Header("Attributes")]
     [SerializeField] public bool isHive;
     [SerializeField] public bool isBuildable;

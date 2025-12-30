@@ -9,6 +9,12 @@ using System.Text.RegularExpressions;
 
 public class Prestige : MonoBehaviour
 {
+    [SerializeField] private GameObject prestigeStar1;
+    [SerializeField] private GameObject prestigeStar2;
+    [SerializeField] private GameObject prestigeStar3;
+    [SerializeField] private GameObject prestigeStar4;
+    [SerializeField] private GameObject prestigeStar5;
+
     //trackers
     private Attributes attributes;
 
@@ -24,6 +30,11 @@ public class Prestige : MonoBehaviour
 
     public void SetPrestigeStats()
     {
+        prestigeStar1.SetActive(false);
+        prestigeStar2.SetActive(false);
+        prestigeStar3.SetActive(false);
+        prestigeStar4.SetActive(false);
+        prestigeStar5.SetActive(false);
         if (attributes.prestige != null)
         {
             SetPrestigeRed(true, Regex.Matches(attributes.prestige, "Red").Count);
@@ -41,222 +52,6 @@ public class Prestige : MonoBehaviour
             SetPrestigePlatinum(true, Regex.Matches(attributes.prestige, "Platinum").Count);
             SetPrestigeTeal(true, Regex.Matches(attributes.prestige, "Teal").Count);
         }
-    }
-
-    public void AddAction(string action, float powerMod, float rateMod, float rangeMod, float pierceMod, float duration, float extraMod)
-    {
-        int index = attributes.actions.Length;
-        Array.Resize(ref attributes.actions, index + 1);
-        Array.Resize(ref attributes.actionPowerModifiers, index + 1);
-        Array.Resize(ref attributes.actionRateModifiers, index + 1);
-        Array.Resize(ref attributes.actionRangeModifiers, index + 1);
-        Array.Resize(ref attributes.actionPierceModifiers, index + 1);
-        Array.Resize(ref attributes.actionDurations, index + 1);
-        Array.Resize(ref attributes.actionExtraModifiers, index + 1);
-        Array.Resize(ref attributes.actionPowerModifiersBase, index + 1);
-        Array.Resize(ref attributes.actionRateModifiersBase, index + 1);
-        Array.Resize(ref attributes.actionRangeModifiersBase, index + 1);
-        Array.Resize(ref attributes.actionPierceModifiersBase, index + 1);
-        Array.Resize(ref attributes.actionDurationsBase, index + 1);
-        Array.Resize(ref attributes.actionExtraModifiersBase, index + 1);
-        Array.Resize(ref attributes.timeUntilActions, index + 1);
-        attributes.actions[index] = action;
-        attributes.actionPowerModifiers[index] = powerMod;
-        attributes.actionRateModifiers[index] = rateMod;
-        attributes.actionRangeModifiers[index] = rangeMod;
-        attributes.actionPierceModifiers[index] = pierceMod;
-        attributes.actionDurations[index] = duration;
-        attributes.actionExtraModifiers[index] = extraMod;
-        attributes.actionPowerModifiersBase[index] = powerMod;
-        attributes.actionRateModifiersBase[index] = rateMod;
-        attributes.actionRangeModifiersBase[index] = rangeMod;
-        attributes.actionPierceModifiersBase[index] = pierceMod;
-        attributes.actionDurationsBase[index] = duration;
-        attributes.actionExtraModifiersBase[index] = extraMod;
-    }
-
-    public void AddEffect(string effect, float powerMod, float rateMod, float rangeMod, float pierceMod, float duration, float extraMod)
-    {
-        int index = attributes.effects.Length;
-        Array.Resize(ref attributes.effects, index + 1);
-        Array.Resize(ref attributes.effectPowerModifiers, index + 1);
-        Array.Resize(ref attributes.effectRateModifiers, index + 1);
-        Array.Resize(ref attributes.effectRangeModifiers, index + 1);
-        Array.Resize(ref attributes.effectPierceModifiers, index + 1);
-        Array.Resize(ref attributes.effectDurations, index + 1);
-        Array.Resize(ref attributes.effectExtraModifiers, index + 1);
-        Array.Resize(ref attributes.effectPowerModifiersBase, index + 1);
-        Array.Resize(ref attributes.effectRateModifiersBase, index + 1);
-        Array.Resize(ref attributes.effectRangeModifiersBase, index + 1);
-        Array.Resize(ref attributes.effectPierceModifiersBase, index + 1);
-        Array.Resize(ref attributes.effectDurationsBase, index + 1);
-        Array.Resize(ref attributes.effectExtraModifiersBase, index + 1);
-        Array.Resize(ref attributes.timeUntilEffects, index + 1);
-        attributes.effects[index] = effect;
-        attributes.effectPowerModifiers[index] = powerMod;
-        attributes.effectRateModifiers[index] = rateMod;
-        attributes.effectRangeModifiers[index] = rangeMod;
-        attributes.effectPierceModifiers[index] = pierceMod;
-        attributes.effectDurations[index] = duration;
-        attributes.effectExtraModifiers[index] = extraMod;
-        attributes.effectPowerModifiersBase[index] = powerMod;
-        attributes.effectRateModifiersBase[index] = rateMod;
-        attributes.effectRangeModifiersBase[index] = rangeMod;
-        attributes.effectPierceModifiersBase[index] = pierceMod;
-        attributes.effectDurationsBase[index] = duration;
-        attributes.effectExtraModifiersBase[index] = extraMod;
-    }
-
-    public void AddPassive(string passive, float powerMod, float rateMod, float rangeMod, float pierceMod, float duration, float extraMod)
-    {
-        int index = attributes.passives.Length;
-        Array.Resize(ref attributes.passives, index + 1);
-        Array.Resize(ref attributes.passivePowerModifiers, index + 1);
-        Array.Resize(ref attributes.passiveRateModifiers, index + 1);
-        Array.Resize(ref attributes.passiveRangeModifiers, index + 1);
-        Array.Resize(ref attributes.passivePierceModifiers, index + 1);
-        Array.Resize(ref attributes.passiveDurations, index + 1);
-        Array.Resize(ref attributes.passiveExtraModifiers, index + 1);
-        Array.Resize(ref attributes.passivePowerModifiersBase, index + 1);
-        Array.Resize(ref attributes.passiveRateModifiersBase, index + 1);
-        Array.Resize(ref attributes.passiveRangeModifiersBase, index + 1);
-        Array.Resize(ref attributes.passivePierceModifiersBase, index + 1);
-        Array.Resize(ref attributes.passiveDurationsBase, index + 1);
-        Array.Resize(ref attributes.passiveExtraModifiersBase, index + 1);
-        Array.Resize(ref attributes.timeUntilPassives, index + 1);
-        attributes.passives[index] = passive;
-        attributes.passivePowerModifiers[index] = powerMod;
-        attributes.passiveRateModifiers[index] = rateMod;
-        attributes.passiveRangeModifiers[index] = rangeMod;
-        attributes.passivePierceModifiers[index] = pierceMod;
-        attributes.passiveDurations[index] = duration;
-        attributes.passiveExtraModifiers[index] = extraMod;
-        attributes.passivePowerModifiersBase[index] = powerMod;
-        attributes.passiveRateModifiersBase[index] = rateMod;
-        attributes.passiveRangeModifiersBase[index] = rangeMod;
-        attributes.passivePierceModifiersBase[index] = pierceMod;
-        attributes.passiveDurationsBase[index] = duration;
-        attributes.passiveExtraModifiersBase[index] = extraMod;
-    }
-
-    public void ModifyAction(string action, float powerMod, float rateMod, float rangeMod, float pierceMod, float duration, float extraMod)
-    {
-        int i = Array.IndexOf(attributes.actions, action);
-        if (i > -1)
-        {
-            attributes.actionPowerModifiers[i] = attributes.actionPowerModifiers[i] + powerMod;
-            attributes.actionRateModifiers[i] = attributes.actionRateModifiers[i] + rateMod;
-            attributes.actionRangeModifiers[i] = attributes.actionRangeModifiers[i] + rangeMod;
-            attributes.actionPierceModifiers[i] = attributes.actionPierceModifiers[i] + pierceMod;
-            attributes.actionDurations[i] = attributes.actionDurations[i] + duration;
-            attributes.actionExtraModifiers[i] = attributes.actionExtraModifiers[i] + extraMod;
-            attributes.actionPowerModifiersBase[i] = attributes.actionPowerModifiersBase[i] + powerMod;
-            attributes.actionRateModifiersBase[i] = attributes.actionRateModifiersBase[i] + rateMod;
-            attributes.actionRangeModifiersBase[i] = attributes.actionRangeModifiersBase[i] + rangeMod;
-            attributes.actionPierceModifiersBase[i] = attributes.actionPierceModifiersBase[i] + pierceMod;
-            attributes.actionDurationsBase[i] = attributes.actionDurationsBase[i] + duration;
-            attributes.actionExtraModifiersBase[i] = attributes.actionExtraModifiersBase[i] + extraMod;
-        }
-        else
-        {
-            Debug.Log("Modifying Action: Action " + action + " not found for " + attributes.sName);
-        }
-    }
-
-    public void ModifyEffect(string effect, float powerMod, float rateMod, float rangeMod, float pierceMod, float duration, float extraMod)
-    {
-        int i = Array.IndexOf(attributes.effects, effect);
-        if (i > -1)
-        {
-            attributes.effectPowerModifiers[i] = attributes.effectPowerModifiers[i] + powerMod;
-            attributes.effectRateModifiers[i] = attributes.effectRateModifiers[i] + rateMod;
-            attributes.effectRangeModifiers[i] = attributes.effectRangeModifiers[i] + rangeMod;
-            attributes.effectPierceModifiers[i] = attributes.effectPierceModifiers[i] + pierceMod;
-            attributes.effectDurations[i] = attributes.effectDurations[i] + duration;
-            attributes.effectExtraModifiers[i] = attributes.effectExtraModifiers[i] + extraMod;
-            attributes.effectPowerModifiersBase[i] = attributes.effectPowerModifiersBase[i] + powerMod;
-            attributes.effectRateModifiersBase[i] = attributes.effectRateModifiersBase[i] + rateMod;
-            attributes.effectRangeModifiersBase[i] = attributes.effectRangeModifiersBase[i] + rangeMod;
-            attributes.effectPierceModifiersBase[i] = attributes.effectPierceModifiersBase[i] + pierceMod;
-            attributes.effectDurationsBase[i] = attributes.effectDurationsBase[i] + duration;
-            attributes.effectExtraModifiersBase[i] = attributes.effectExtraModifiersBase[i] + extraMod;
-        }
-        else
-        {
-            Debug.Log("Modifying Effect: Effect " + effect + " not found for " + attributes.sName);
-        }
-    }
-
-    public void ModifyPassive(string passive, float powerMod, float rateMod, float rangeMod, float pierceMod, float duration, float extraMod)
-    {
-        int i = Array.IndexOf(attributes.passives, passive);
-        if (i > -1)
-        {
-            attributes.passivePowerModifiers[i] = attributes.passivePowerModifiers[i] + powerMod;
-            attributes.passiveRateModifiers[i] = attributes.passiveRateModifiers[i] + rateMod;
-            attributes.passiveRangeModifiers[i] = attributes.passiveRangeModifiers[i] + rangeMod;
-            attributes.passivePierceModifiers[i] = attributes.passivePierceModifiers[i] + pierceMod;
-            attributes.passiveDurations[i] = attributes.passiveDurations[i] + duration;
-            attributes.passiveExtraModifiers[i] = attributes.passiveExtraModifiers[i] + extraMod;
-            attributes.passivePowerModifiersBase[i] = attributes.passivePowerModifiersBase[i] + powerMod;
-            attributes.passiveRateModifiersBase[i] = attributes.passiveRateModifiersBase[i] + rateMod;
-            attributes.passiveRangeModifiersBase[i] = attributes.passiveRangeModifiersBase[i] + rangeMod;
-            attributes.passivePierceModifiersBase[i] = attributes.passivePierceModifiersBase[i] + pierceMod;
-            attributes.passiveDurationsBase[i] = attributes.passiveDurationsBase[i] + duration;
-            attributes.passiveExtraModifiersBase[i] = attributes.passiveExtraModifiersBase[i] + extraMod;
-        }
-        else
-        {
-            Debug.Log("Modifying Passive: Passive " + passive + " not found for " + attributes.sName);
-        }
-    }
-
-    public bool CheckAction(string action)
-    {
-        int i = Array.IndexOf(attributes.actions, action);
-        if (i > -1)
-        {
-            return true;
-        }
-        return false;
-    }
-
-    public bool CheckEffect(string effect)
-    {
-        int i = Array.IndexOf(attributes.effects, effect);
-        if (i > -1)
-        {
-            return true;
-        }
-        return false;
-
-    }
-
-    public bool CheckPassive(string passive)
-    {
-        int i = Array.IndexOf(attributes.passives, passive);
-        if (i > -1)
-        {
-            return true;
-        }
-        return false;
-    }
-    public int FindAction(string action)
-    {
-        int i = Array.IndexOf(attributes.actions, action);
-        return i;
-    }
-
-    public int FindEffect(string effect)
-    {
-        int i = Array.IndexOf(attributes.effects, effect);
-        return i;
-    }
-
-    public int FindPassive(string passive)
-    {
-        int i = Array.IndexOf(attributes.passives, passive);
-        return i;
     }
 
     public void SetPrestigeRed(bool add, int count)
@@ -288,6 +83,7 @@ public class Prestige : MonoBehaviour
             attributes.armorBase -= armorIncrease * 100f;
             attributes.armor -= armorIncrease * 100f;
         }
+        TurnOnStar(Color.red, count);
     }
 
     public void SetPrestigeBlue(bool add, int count)
@@ -317,6 +113,7 @@ public class Prestige : MonoBehaviour
             attributes.moveSpeedBase = attributes.moveSpeedBase / moveSpeedIncrease;
             attributes.moveSpeed = attributes.moveSpeed / moveSpeedIncrease;
         }
+        TurnOnStar(Color.blue, count);
     }
 
     public void SetPrestigeGreen(bool add, int count)
@@ -327,15 +124,16 @@ public class Prestige : MonoBehaviour
         }
         for (int i = 1; i <= count; i++)
         {
-            if (CheckEffect("Health Regen"))
+            if (gameObject.GetComponent<Effects>().CheckEffect("Health Regen"))
             {
-                ModifyEffect("Health Regen", GlobalValues.main.prestigeGreen * (1f + (GlobalValues.main.prestigeDuplicateModifier * (i - 1))), 0f, 0f, 0f, 0f, 0f + GlobalValues.main.prestigeGreen * (1f + (GlobalValues.main.prestigeDuplicateModifier * (i - 1))));
+                gameObject.GetComponent<Effects>().ModifyEffect("Health Regen", GlobalValues.main.prestigeGreen * (1f + (GlobalValues.main.prestigeDuplicateModifier * (i - 1))), 0f, 0f, 0f, 0f, 0f + GlobalValues.main.prestigeGreen * (1f + (GlobalValues.main.prestigeDuplicateModifier * (i - 1))));
             }
             else
             {
-                AddEffect("Health Regen", GlobalValues.main.prestigeGreen * (1f + (GlobalValues.main.prestigeDuplicateModifier * (i - 1))), 5f, 1f, 1f, 1f, 0.1f);
+                gameObject.GetComponent<Effects>().AddEffect("Health Regen", GlobalValues.main.prestigeGreen * (1f + (GlobalValues.main.prestigeDuplicateModifier * (i - 1))), 5f, 1f, 1f, 1f, 0.1f);
             }
         }
+        TurnOnStar(Color.green, count);
     }
 
     public void SetPrestigeYellow(bool add, int count)
@@ -350,6 +148,7 @@ public class Prestige : MonoBehaviour
             carryCapacityIncrease += GlobalValues.main.prestigeYellow * (1f + (GlobalValues.main.prestigeDuplicateModifier * (i - 1)));
         }
         attributes.carryCapacity += (int)((float)attributes.carryCapacity * carryCapacityIncrease);
+        TurnOnStar(Color.yellow, count);
     }
 
     public void SetPrestigeWhite(bool add, int count)
@@ -360,6 +159,7 @@ public class Prestige : MonoBehaviour
         }
         attributes.willFly = !attributes.willFly;
         gameObject.GetComponent<Enemy>().SetPathSettings();
+        TurnOnStar(Color.white, count);
     }
 
     public void SetPrestigePurple(bool add, int count)
@@ -370,15 +170,16 @@ public class Prestige : MonoBehaviour
         }
         for (int i = 1; i <= count; i++)
         {
-            if (CheckEffect("Blink"))
+            if (gameObject.GetComponent<Effects>().CheckEffect("Blink"))
             {
-                ModifyEffect("Blink", GlobalValues.main.prestigePurple * ((1f + GlobalValues.main.prestigeDuplicateModifier * (i - 1))), 0f, 0f, 0f, 0f, 0f);
+                gameObject.GetComponent<Effects>().ModifyEffect("Blink", GlobalValues.main.prestigePurple * ((1f + GlobalValues.main.prestigeDuplicateModifier * (i - 1))), 0f, 0f, 0f, 0f, 0f);
             }
             else
             {
-                AddEffect("Blink", GlobalValues.main.prestigePurple * (1f + (GlobalValues.main.prestigeDuplicateModifier * (i - 1))), GlobalValues.main.prestigePurpleRate, GlobalValues.main.prestigePurpleRange, 1f, 1f, 1f);
+                gameObject.GetComponent<Effects>().AddEffect("Blink", GlobalValues.main.prestigePurple * (1f + (GlobalValues.main.prestigeDuplicateModifier * (i - 1))), GlobalValues.main.prestigePurpleRate, GlobalValues.main.prestigePurpleRange, 1f, 1f, 1f);
             }
         }
+        TurnOnStar(Color.purple, count);
     }
 
     public void SetPrestigeBlack(bool add, int count)
@@ -389,15 +190,16 @@ public class Prestige : MonoBehaviour
         }
         for (int i = 1; i <= count; i++)
         {
-            if (CheckPassive("Death Split"))
+            if (gameObject.GetComponent<Passives>().CheckPassive("Death Split"))
             {
-                ModifyPassive("Death Split", GlobalValues.main.prestigeBlack * ((1f + GlobalValues.main.prestigeDuplicateModifier * (i - 1))), 0f, 0f, 0f, 0f, 0f);
+                gameObject.GetComponent<Passives>().ModifyPassive("Death Split", GlobalValues.main.prestigeBlack * ((1f + GlobalValues.main.prestigeDuplicateModifier * (i - 1))), 0f, 0f, 0f, 0f, 0f);
             }
             else
             {
-                AddPassive("Death Split", GlobalValues.main.prestigeBlack * (1f + (GlobalValues.main.prestigeDuplicateModifier * (i - 1))), 1f, 1f, 1f, 1f, 1f);
+                gameObject.GetComponent<Passives>().AddPassive("Death Split", GlobalValues.main.prestigeBlack * (1f + (GlobalValues.main.prestigeDuplicateModifier * (i - 1))), 1f, 1f, 1f, 1f, 1f);
             }
         }
+        TurnOnStar(Color.black, count);
     }
 
     public void SetPrestigeGold(bool add, int count)
@@ -447,6 +249,7 @@ public class Prestige : MonoBehaviour
             attributes.dodgeChanceBase -= dodgeIncrease * 100f;
             attributes.dodgeChance -= dodgeIncrease * 100f;
         }
+        TurnOnStar(Color.gold, count);
     }
 
     public void SetPrestigeBrown(bool add, int count)
@@ -470,6 +273,7 @@ public class Prestige : MonoBehaviour
             attributes.dodgeChanceBase -= dodgeIncrease * 100f;
             attributes.dodgeChance -= dodgeIncrease * 100f;
         }
+        TurnOnStar(Color.brown, count);
     }
 
     public void SetPrestigeGrey(bool add, int count)
@@ -480,15 +284,16 @@ public class Prestige : MonoBehaviour
         }
         for (int i = 1; i <= count; i++)
         {
-            if (CheckEffect("Invisibility"))
+            if (gameObject.GetComponent<Effects>().CheckEffect("Invisibility"))
             {
-                ModifyEffect("Invisibility", GlobalValues.main.prestigeGrey * (1f + (GlobalValues.main.prestigeDuplicateModifier * (i - 1))), 0f, 0f, 0f, 0f, 0f);
+                gameObject.GetComponent<Effects>().ModifyEffect("Invisibility", GlobalValues.main.prestigeGrey * (1f + (GlobalValues.main.prestigeDuplicateModifier * (i - 1))), 0f, 0f, 0f, 0f, 0f);
             }
             else
             {
-                AddEffect("Invisibility", GlobalValues.main.prestigeGrey * (1f + (GlobalValues.main.prestigeDuplicateModifier * (i - 1))), GlobalValues.main.prestigeGreyRate, 1f, 1f, GlobalValues.main.prestigeGreyDuration, 1f);
+                gameObject.GetComponent<Effects>().AddEffect("Invisibility", GlobalValues.main.prestigeGrey * (1f + (GlobalValues.main.prestigeDuplicateModifier * (i - 1))), GlobalValues.main.prestigeGreyRate, 1f, 1f, GlobalValues.main.prestigeGreyDuration, 1f);
             }
         }
+        TurnOnStar(Color.gray, count);
     }
 
     public void SetPrestigePrismatic(bool add, int count)
@@ -499,15 +304,16 @@ public class Prestige : MonoBehaviour
         }
         for (int i = 1; i <= count; i++)
         {
-            if (CheckEffect("Prismatic Buff"))
+            if (gameObject.GetComponent<Effects>().CheckEffect("Prismatic Buff"))
             {
-                ModifyEffect("Prismatic Buff", GlobalValues.main.prestigePrismatic * (1f + (GlobalValues.main.prestigeDuplicateModifier * (i - 1))), 0f, 0f, 0f, 0f, 0f);
+                gameObject.GetComponent<Effects>().ModifyEffect("Prismatic Buff", GlobalValues.main.prestigePrismatic * (1f + (GlobalValues.main.prestigeDuplicateModifier * (i - 1))), 0f, 0f, 0f, 0f, 0f);
             }
             else
             {
-                AddEffect("Prismatic Buff", GlobalValues.main.prestigePrismatic * (1f + (GlobalValues.main.prestigeDuplicateModifier * (i - 1))), 1 / GlobalValues.main.prestigePrismaticDuration, 1f, 1f, GlobalValues.main.prestigePrismaticDuration, 1f);
+                gameObject.GetComponent<Effects>().AddEffect("Prismatic Buff", GlobalValues.main.prestigePrismatic * (1f + (GlobalValues.main.prestigeDuplicateModifier * (i - 1))), 1 / GlobalValues.main.prestigePrismaticDuration, 1f, 1f, GlobalValues.main.prestigePrismaticDuration, 1f);
             }
         }
+        TurnOnStar(Color.paleVioletRed, count);
     }
 
     public void SetPrestigeSilver(bool add, int count)
@@ -533,6 +339,7 @@ public class Prestige : MonoBehaviour
             attributes.maxShield -= attributes.maxHP * shieldIncrease;
             attributes.maxShieldBase -= attributes.maxHP * shieldIncrease;
         }
+        TurnOnStar(Color.silver, count);
     }
 
     public void SetPrestigePlatinum(bool add, int count)
@@ -543,16 +350,16 @@ public class Prestige : MonoBehaviour
         }
         for (int i = 1; i <= count; i++)
         {
-            if (CheckPassive("Revive"))
+            if (gameObject.GetComponent<Passives>().CheckPassive("Revive"))
             {
-                ModifyPassive("Revive", GlobalValues.main.prestigePlatinum * (1f + (GlobalValues.main.prestigeDuplicateModifier * (i - 1))), 0f, 0f, 0f, 0f, 0f);
+                gameObject.GetComponent<Passives>().ModifyPassive("Revive", GlobalValues.main.prestigePlatinum * (1f + (GlobalValues.main.prestigeDuplicateModifier * (i - 1))), 0f, 0f, 0f, 0f, 0f);
             }
             else
             {
-                AddPassive("Revive", GlobalValues.main.prestigePlatinum * (1f + (GlobalValues.main.prestigeDuplicateModifier * (i - 1))), 1 / GlobalValues.main.prestigePlatinumCooldown, 1f, 1f, 1f, 1f);
+                gameObject.GetComponent<Passives>().AddPassive("Revive", GlobalValues.main.prestigePlatinum * (1f + (GlobalValues.main.prestigeDuplicateModifier * (i - 1))), 1 / GlobalValues.main.prestigePlatinumCooldown, 1f, 1f, 1f, 1f);
             }
         }
-
+        TurnOnStar(new Color32(229, 228, 226, 255), count);
     }
 
     public void SetPrestigeTeal(bool add, int count)
@@ -563,16 +370,51 @@ public class Prestige : MonoBehaviour
         }
         for (int i = 1; i <= count; i++)
         {
-            if (CheckPassive("Slow & Freeze Immunity"))
+            if (gameObject.GetComponent<Passives>().CheckPassive("Slow & Freeze Immunity"))
             {
-                ModifyPassive("Slow & Freeze Immunity", GlobalValues.main.prestigeTeal * (1f + (GlobalValues.main.prestigeDuplicateModifier * (i - 1))), 0f, 0f, 0f, 0f, 0f);
+                gameObject.GetComponent<Passives>().ModifyPassive("Slow & Freeze Immunity", GlobalValues.main.prestigeTeal * (1f + (GlobalValues.main.prestigeDuplicateModifier * (i - 1))), 0f, 0f, 0f, 0f, 0f);
             }
             else
             {
-                AddPassive("Slow & Freeze Immunity", GlobalValues.main.prestigeTeal * (1f + (GlobalValues.main.prestigeDuplicateModifier * (i - 1))), 1f, 1f, 1f, 1f, 1f);
+                gameObject.GetComponent<Passives>().AddPassive("Slow & Freeze Immunity", GlobalValues.main.prestigeTeal * (1f + (GlobalValues.main.prestigeDuplicateModifier * (i - 1))), 1f, 1f, 1f, 1f, 1f);
+            }
+        }
+        TurnOnStar(Color.teal, count);
+    }
+
+    private void TurnOnStar(Color color, int count)
+    {
+        for (int i = 1; i <= count; i++)
+        {
+            if (prestigeStar1.activeSelf == false)
+            {
+                prestigeStar1.GetComponent<SpriteRenderer>().color = color;
+                prestigeStar1.SetActive(true);
+            }
+            else if (prestigeStar2.activeSelf == false)
+            {
+                prestigeStar2.GetComponent<SpriteRenderer>().color = color;
+                prestigeStar2.SetActive(true);
+            }
+            else if (prestigeStar3.activeSelf == false)
+            {
+                prestigeStar3.GetComponent<SpriteRenderer>().color = color;
+                prestigeStar3.SetActive(true);
+            }
+            else if (prestigeStar4.activeSelf == false)
+            {
+                prestigeStar4.GetComponent<SpriteRenderer>().color = color;
+                prestigeStar4.SetActive(true);
+            }
+            else if (prestigeStar5.activeSelf == false)
+            {
+                prestigeStar5.GetComponent<SpriteRenderer>().color = color;
+                prestigeStar5.SetActive(true);
+            }
+            else
+            {
+                Debug.Log(attributes.sName + " has too many prestiges.");
             }
         }
     }
-
-
 }

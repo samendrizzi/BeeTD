@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using UnityEngine.UI;
+using System;
 
 public class Actions : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class Actions : MonoBehaviour
     //trackers
     private Attributes attributes;
 
-    private void Start()
+    private void Awake()
     {
         //setup
         attributes = gameObject.GetComponent<Attributes>();
@@ -34,11 +35,14 @@ public class Actions : MonoBehaviour
             for (int i = 0; i < attributes.actions.Length; i++)
             {
                 attributes.timeUntilActions[i] -= Time.deltaTime;
-                if (attributes.timeUntilActions[i] <= 0f)
+                if (attributes.target != null)
                 {
-                    Action(i);
+                    if (Vector2.Distance(attributes.target.position, gameObject.transform.position) <= attributes.targetingRange && attributes.timeUntilActions[i] <= 0f)
+                    {
+                        Action(i);
+                    }
                 }
-            }
+            }   
         }
     }
 
@@ -47,31 +51,163 @@ public class Actions : MonoBehaviour
         string action = attributes.actions[i];
         float actionRate = attributes.actionRateModifiers[i] * attributes.actionRate;
         attributes.timeUntilActions[i] = 1 / (actionRate);
-        if (action == "Steal Honey")
-        {
-            float actionPower = attributes.actionPowerModifiers[i] * attributes.actionPower;
-            float actionPierce = attributes.actionPierceModifiers[i] * attributes.armorPierce;
-            //pause instead of action timer
-            attributes.timeUntilActions[i] = 0.1f;
-            StealHoney(actionPower, actionPierce);
-            return;
-        }
-        else if (action == "Attack Queen")
-        {
-            float actionPower = attributes.actionPowerModifiers[i] * attributes.actionPower;
-            float actionPierce = attributes.actionPierceModifiers[i] * attributes.armorPierce;
-            //pause instead of action timer
-            AttackQueen(actionPower, actionPierce);
-            return;
-        }
-        else if (action == "Sap Flower")
+        if (attributes.type == "Tower")
         {
             float actionPower = attributes.actionPowerModifiers[i] * attributes.actionPower;
             float actionDuration = attributes.actionDurations[i];
             float actionRange = attributes.actionRangeModifiers[i] * attributes.targetingRange;
-            SapFlower(actionPower, actionDuration, actionRange);
-            return;
+            float actionPierce = attributes.actionPierceModifiers[i] * attributes.armorPierce;
+            if (action.Substring(0, 5) == "Shoot")
+            {
+                float effectPower = attributes.actionPowerModifiers[i] * attributes.effectPower;
+                float effectPierce = attributes.actionPierceModifiers[i] * attributes.resistancePierce;                
+                gameObject.GetComponent<Turret>().CheckTarget(actionRange);
+                if (attributes.target == null)
+                {
+                    attributes.Pause(GlobalValues.main.turretPauseTime);
+                    return;
+                }
+                float actionAoE = attributes.actionExtraModifiers[i] * GlobalValues.main.projectileAoEModifier;
+                Shoot(action, attributes.actionPrefabs[i], actionPower, effectPower, actionPierce, effectPierce, actionDuration, actionAoE);
+                attributes.timeUntilActions[i] = 1 / (actionRate);
+            }
+            else if (action == "Pulse Slow")
+            {
+                SendSlowPulse(actionPower, actionDuration, actionPierce, actionRange);
+            }
+            else if (action == "Pulse Freeze")
+            {
+                SendFreezePulse(actionPower, actionDuration, actionPierce, actionRange);
+            }
         }
+        else if (attributes.type == "Friendly Unit")
+        {
+            if (action == "Nectar" && attributes.work == "Nectar")
+            {
+                if (attributes.inventoryFull == true && Vector2.Distance(attributes.target.position, transform.position) <= attributes.wayPointDistance)
+                {
+                    DepositNectar();
+                    return;
+                }
+                else if (attributes.inventoryFull == false && Vector2.Distance(attributes.target.position, transform.position) <= attributes.wayPointDistance)
+                {
+                    CollectNectar();
+                    return;
+                }
+            }
+            else if (action == "Honey" && attributes.work == "Honey")
+            {
+                float actionPower = attributes.actionPowerModifiers[i] * attributes.actionPower;
+                CreateHoneyComb(actionPower);
+                return;
+            }
+            else if (action == "Attack" && attributes.work == "Soldier")
+            {
+                float actionPower = attributes.actionPowerModifiers[i] * attributes.actionPower;
+                float actionRange = attributes.actionRangeModifiers[i] * attributes.targetingRange;
+                float actionPierce = attributes.actionPierceModifiers[i] * attributes.armorPierce;
+                AttackTarget(actionPower, actionRange, actionPierce);
+            }
+        }
+        else
+        {
+            if (action == "Steal Honey")
+            {
+                float actionPower = attributes.actionPowerModifiers[i] * attributes.actionPower;
+                float actionPierce = attributes.actionPierceModifiers[i] * attributes.armorPierce;
+                //pause instead of action timer
+                attributes.timeUntilActions[i] = 0.1f;
+                StealHoney(actionPower, actionPierce);
+                return;
+            }
+            else if (action == "Attack Queen")
+            {
+                float actionPower = attributes.actionPowerModifiers[i] * attributes.actionPower;
+                float actionPierce = attributes.actionPierceModifiers[i] * attributes.armorPierce;
+                //pause instead of action timer
+                AttackQueen(actionPower, actionPierce);
+                return;
+            }
+            else if (action == "Sap Flower")
+            {
+                float actionPower = attributes.actionPowerModifiers[i] * attributes.actionPower;
+                float actionDuration = attributes.actionDurations[i];
+                SapFlower(actionPower, actionDuration);
+                return;
+            }
+        }
+    }
+
+    public void AddAction(string action, float powerMod, float rateMod, float rangeMod, float pierceMod, float duration, float extraMod)
+    {
+        int index = attributes.actions.Length;
+        Array.Resize(ref attributes.actions, index + 1);
+        Array.Resize(ref attributes.actionPowerModifiers, index + 1);
+        Array.Resize(ref attributes.actionRateModifiers, index + 1);
+        Array.Resize(ref attributes.actionRangeModifiers, index + 1);
+        Array.Resize(ref attributes.actionPierceModifiers, index + 1);
+        Array.Resize(ref attributes.actionDurations, index + 1);
+        Array.Resize(ref attributes.actionExtraModifiers, index + 1);
+        Array.Resize(ref attributes.actionPowerModifiersBase, index + 1);
+        Array.Resize(ref attributes.actionRateModifiersBase, index + 1);
+        Array.Resize(ref attributes.actionRangeModifiersBase, index + 1);
+        Array.Resize(ref attributes.actionPierceModifiersBase, index + 1);
+        Array.Resize(ref attributes.actionDurationsBase, index + 1);
+        Array.Resize(ref attributes.actionExtraModifiersBase, index + 1);
+        Array.Resize(ref attributes.timeUntilActions, index + 1);
+        attributes.actions[index] = action;
+        attributes.actionPowerModifiers[index] = powerMod;
+        attributes.actionRateModifiers[index] = rateMod;
+        attributes.actionRangeModifiers[index] = rangeMod;
+        attributes.actionPierceModifiers[index] = pierceMod;
+        attributes.actionDurations[index] = duration;
+        attributes.actionExtraModifiers[index] = extraMod;
+        attributes.actionPowerModifiersBase[index] = powerMod;
+        attributes.actionRateModifiersBase[index] = rateMod;
+        attributes.actionRangeModifiersBase[index] = rangeMod;
+        attributes.actionPierceModifiersBase[index] = pierceMod;
+        attributes.actionDurationsBase[index] = duration;
+        attributes.actionExtraModifiersBase[index] = extraMod;
+    }
+
+    public void ModifyAction(string action, float powerMod, float rateMod, float rangeMod, float pierceMod, float duration, float extraMod)
+    {
+        int i = Array.IndexOf(attributes.actions, action);
+        if (i > -1)
+        {
+            attributes.actionPowerModifiers[i] = attributes.actionPowerModifiers[i] + powerMod;
+            attributes.actionRateModifiers[i] = attributes.actionRateModifiers[i] + rateMod;
+            attributes.actionRangeModifiers[i] = attributes.actionRangeModifiers[i] + rangeMod;
+            attributes.actionPierceModifiers[i] = attributes.actionPierceModifiers[i] + pierceMod;
+            attributes.actionDurations[i] = attributes.actionDurations[i] + duration;
+            attributes.actionExtraModifiers[i] = attributes.actionExtraModifiers[i] + extraMod;
+            attributes.actionPowerModifiersBase[i] = attributes.actionPowerModifiersBase[i] + powerMod;
+            attributes.actionRateModifiersBase[i] = attributes.actionRateModifiersBase[i] + rateMod;
+            attributes.actionRangeModifiersBase[i] = attributes.actionRangeModifiersBase[i] + rangeMod;
+            attributes.actionPierceModifiersBase[i] = attributes.actionPierceModifiersBase[i] + pierceMod;
+            attributes.actionDurationsBase[i] = attributes.actionDurationsBase[i] + duration;
+            attributes.actionExtraModifiersBase[i] = attributes.actionExtraModifiersBase[i] + extraMod;
+        }
+        else
+        {
+            Debug.Log("Modifying Action: Action " + action + " not found for " + attributes.sName);
+        }
+    }
+
+    public bool CheckAction(string action)
+    {
+        int i = Array.IndexOf(attributes.actions, action);
+        if (i > -1)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public int FindAction(string action)
+    {
+        int i = Array.IndexOf(attributes.actions, action);
+        return i;
     }
 
     private void StealHoney(float power, float pierce)
@@ -112,13 +248,121 @@ public class Actions : MonoBehaviour
         }
     }
 
-    private void SapFlower(float power, float duration, float range)
+    private void SapFlower(float power, float duration)
     {
-        if (Vector2.Distance(attributes.target.transform.position, gameObject.transform.position) <= range)
+        attributes.target.gameObject.GetComponent<Plot>().SapFlower(duration * GlobalValues.main.hummingbirdSapTimeModifier);
+        attributes.target = null;
+        attributes.Pause(GlobalValues.main.hummingbirdWaitTime / power);      
+    }
+
+    private void Shoot(string action, GameObject projectilePrefab, float actionPower, float effectPower, float actionPierce, float effectPierce, float actionDuration, float actionAoE)
+    {
+        float angle = Mathf.Atan2(attributes.target.position.y - transform.position.y, attributes.target.position.x - transform.position.x) * Mathf.Rad2Deg - 90f;
+        Quaternion targetRotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
+        GameObject projectileObj = Instantiate(projectilePrefab, gameObject.GetComponent<Turret>().firingPoint.position, targetRotation);
+        Projectile projectileScript = projectileObj.GetComponent<Projectile>();
+        if (action == "Shoot Ramping")
         {
-            attributes.target.gameObject.GetComponent<Plot>().SapFlower(duration * GlobalValues.main.hummingbirdSapTimeModifier);
-            attributes.target = null;
-            attributes.Pause(GlobalValues.main.hummingbirdWaitTime / power);
+            projectileScript.SetTarget(attributes.target, (actionPower * (1 + ((float)attributes.rampCount) * GlobalValues.main.rampPowerGain)), effectPower, actionPierce, effectPierce, attributes.canHit, attributes.ignoreTerrain, action, actionDuration, actionAoE);
+            if (attributes.rampCount < 10)
+            {
+                attributes.rampCount++;
+            }
+        }
+        else
+        {
+            projectileScript.SetTarget(attributes.target, actionPower, effectPower, actionPierce, effectPierce, attributes.canHit, attributes.ignoreTerrain, action, actionDuration, actionAoE);
+        }
+    }
+
+    private void SendSlowPulse(float effectPower, float effectDuration, float effectPierce, float effectRange)
+    {
+        RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, effectRange, (Vector2)transform.position, 0f, GlobalValues.main.enemyMask);
+        float slowPower = effectPower * GlobalValues.main.slowPowerModifier;
+        float slowDuration = effectDuration * GlobalValues.main.slowDurationModifier;
+        float slowPierce = effectPierce * GlobalValues.main.slowPierceModifier;
+        if (hits.Length > 0)
+        {
+            for (int i = 0; i < hits.Length; i++)
+            {
+                RaycastHit2D hit = hits[i];
+                hit.transform.gameObject.GetComponent<Attributes>().SlowSpeed(slowPower, slowPierce, slowDuration);
+            }
+        }
+    }
+
+    private void SendFreezePulse(float effectPower, float effectDuration, float effectPierce, float effectRange)
+    {
+        RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, effectRange, (Vector2)transform.position, 0f, GlobalValues.main.enemyMask);
+        float freezePower = effectPower * GlobalValues.main.freezePowerModifier;
+        float freezeDuration = effectDuration * GlobalValues.main.freezeDurationModifier;
+        float freezePierce = effectPower * GlobalValues.main.freezePierceModifier;
+        if (hits.Length > 0)
+        {
+            for (int i = 0; i < hits.Length; i++)
+            {
+                RaycastHit2D hit = hits[i];
+                hit.transform.gameObject.GetComponent<Attributes>().Freeze(freezePower, freezePierce, freezeDuration);
+            }
+        }
+    }
+
+    private void AttackTarget(float power, float range, float pierce)
+    {
+        if (attributes.target != null)
+        {
+            if (Vector2.Distance(attributes.target.position, transform.position) <= range)
+            {
+                attributes.target.gameObject.GetComponent<Attributes>().TakeDamage(power, pierce);
+            }
+        }
+    }
+
+    public void DepositNectar()
+    {
+        attributes.inventoryFull = false;
+        LevelManager.main.IncreaseNectar(attributes.nectar);
+        attributes.nectar = 0f;
+        attributes.target = attributes.flower.transform;
+    }
+
+    public void CollectNectar()
+    {
+        if (attributes.flower.GetComponent<Plot>().isSapped == false)
+        {
+            attributes.nectar = attributes.carryCapacity;
+            attributes.flower.GetComponent<Plot>().SapFlower(attributes.carryCapacity / LevelManager.main.nectarGenerationRate);
+            attributes.inventoryFull = true;
+            attributes.target = LevelManager.main.queenBee.gameObject.transform;
+        }
+    }
+
+    public void CreateHoneyComb(float power)
+    {
+        if (attributes.target == null)
+        {
+            return;
+        }
+        if (Vector2.Distance(attributes.target.position, transform.position) <= attributes.wayPointDistance)
+        {
+            if (attributes.inventoryFull)
+            {
+                if (attributes.target.gameObject.GetComponent<Plot>().honeyTicks > 0)
+                {
+                    //another bee filled
+                    attributes.target = null;
+                    return;
+                }
+                attributes.target.gameObject.GetComponent<Plot>().HoneyFill(power * LevelManager.main.honeyPerCombTick, LevelManager.main.honeyCombTicks);
+                attributes.inventoryFull = false;
+                attributes.target = null;
+                attributes.Pause(LevelManager.main.honeyCombCreatePause);
+            }
+            else
+            {
+                attributes.inventoryFull = true;
+                attributes.target = null;
+            }
         }
     }
 }

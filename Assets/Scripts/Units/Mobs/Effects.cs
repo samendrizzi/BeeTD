@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using UnityEngine.UI;
+using System;
 
 public class Effects : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class Effects : MonoBehaviour
     //trackers
     private Attributes attributes;
 
-    private void Start()
+    private void Awake()
     {
         //setup
         attributes = gameObject.GetComponent<Attributes>();
@@ -37,7 +38,7 @@ public class Effects : MonoBehaviour
                 if (attributes.timeUntilEffects[i] <= 0f)
                 {
                     Effect(i);
-}
+                }
             }
         }
     }
@@ -47,60 +48,167 @@ public class Effects : MonoBehaviour
         string effect = attributes.effects[i];
         float effectRate = attributes.effectRateModifiers[i] * attributes.effectRate;
         attributes.timeUntilEffects[i] = 1 / (effectRate);
-        if (effect == "Spawn")
+        if (attributes.type == "Tower")
         {
+            float effectRange = attributes.effectRangeModifiers[i] * attributes.targetingRange;
             float effectPower = attributes.effectPowerModifiers[i] * attributes.effectPower;
             float effectDuration = attributes.effectDurations[i] * GlobalValues.main.spawnTimerModifier;
-            GameObject prefab = attributes.effectPrefabs[i];
-            Spawn(prefab, effectPower, effectDuration);
+            if (effect == "Pulse Power Buff")
+            {
+                SendPowerBuff(effectPower, effectDuration, effectRange);
+            }
+            else if (effect == "Pulse Rate Buff")
+            {
+                SendPowerBuff(effectPower, effectDuration, effectRange);
+                SendRateBuff(effectPower, effectDuration, effectRange);
+            }
+            else if (effect == "Pulse Power and Rate Buff")
+            {
+                SendPowerBuff(effectPower, effectDuration, effectRange);
+                SendRateBuff(effectPower, effectDuration, effectRange);
+            }
+            else if (effect == "Heal Queen")
+            {
+                LevelManager.main.HealQueen(effectPower);
+            }
+            else
+            {
+                Debug.Log("Calling invalid effect: " + effect);
+            }
         }
-        else if (effect == "Heal Aura")
+        else if (attributes.type == "Friendly Unit")
         {
-            float effectPower = attributes.effectPowerModifiers[i] * attributes.effectPower;
-            float effectRange = attributes.effectRangeModifiers[i] * attributes.targetingRange;
-            HealAura(effectPower, effectRange);
-        }
-        else if (effect == "Health Regen")
-        {
-            float effectPower = attributes.effectPowerModifiers[i] * attributes.effectPower;
-            float effectExtra = attributes.effectExtraModifiers[i] * attributes.effectPower;
-            HealthRegen(effectPower, effectExtra);
-        }
-        else if (effect == "Blink")
-        {
-            float effectPower = attributes.effectPowerModifiers[i] * attributes.effectPower;
-            float effectRange = attributes.effectRangeModifiers[i] * attributes.targetingRange;
-            Blink(effectPower, effectRange);
-        }
-        else if (effect == "Invisibility")
-        {
-            float effectPower = attributes.effectPowerModifiers[i] * attributes.effectPower;
-            float effectDuration = attributes.effectDurations[i] * GlobalValues.main.invisibilityModifier;
-            Invisibility(effectPower, effectDuration);
-        }
-        else if (effect == "Prismatic Buff")
-        {
-            //Not effected by base effect power
-            float effectPower = attributes.effectPowerModifiers[i];
-            float effectDuration = attributes.effectDurations[i];
-            //Not effected by base effect rate
-            attributes.timeUntilEffects[i] = 1 / (attributes.effectRateModifiers[i]);
-            PrismaticBuff(effectPower, effectDuration);
-        }
-        else if (effect == "Hatch")
-        {
-            GameObject prefab = attributes.effectPrefabs[i];
-            float effectPower = attributes.effectPowerModifiers[i] * attributes.effectPower;
-            Hatch(prefab, effectPower);
-        }
-        else if (effect == "Smoke Screen")
-        {
-            attributes.Die();
+
         }
         else
         {
-            Debug.Log("Calling invalid effect: " + effect);
+            if (effect == "Spawn")
+            {
+                float effectPower = attributes.effectPowerModifiers[i] * attributes.effectPower;
+                float effectDuration = attributes.effectDurations[i] * GlobalValues.main.spawnTimerModifier;
+                GameObject prefab = attributes.effectPrefabs[i];
+                Spawn(prefab, effectPower, effectDuration);
+            }
+            else if (effect == "Heal Aura")
+            {
+                float effectPower = attributes.effectPowerModifiers[i] * attributes.effectPower;
+                float effectRange = attributes.effectRangeModifiers[i] * attributes.targetingRange;
+                HealAura(effectPower, effectRange);
+            }
+            else if (effect == "Health Regen")
+            {
+                float effectPower = attributes.effectPowerModifiers[i] * attributes.effectPower;
+                float effectExtra = attributes.effectExtraModifiers[i] * attributes.effectPower;
+                HealthRegen(effectPower, effectExtra);
+            }
+            else if (effect == "Blink")
+            {
+                float effectPower = attributes.effectPowerModifiers[i] * attributes.effectPower;
+                float effectRange = attributes.effectRangeModifiers[i] * attributes.targetingRange;
+                Blink(effectPower, effectRange);
+            }
+            else if (effect == "Invisibility")
+            {
+                float effectPower = attributes.effectPowerModifiers[i] * attributes.effectPower;
+                float effectDuration = attributes.effectDurations[i] * GlobalValues.main.invisibilityModifier;
+                Invisibility(effectPower, effectDuration);
+            }
+            else if (effect == "Prismatic Buff")
+            {
+                //Not effected by base effect power
+                float effectPower = attributes.effectPowerModifiers[i];
+                float effectDuration = attributes.effectDurations[i];
+                //Not effected by base effect rate
+                attributes.timeUntilEffects[i] = 1 / (attributes.effectRateModifiers[i]);
+                PrismaticBuff(effectPower, effectDuration);
+            }
+            else if (effect == "Hatch")
+            {
+                GameObject prefab = attributes.effectPrefabs[i];
+                float effectPower = attributes.effectPowerModifiers[i] * attributes.effectPower;
+                Hatch(prefab, effectPower);
+            }
+            else if (effect == "Smoke Screen")
+            {
+                attributes.Die();
+            }
+            else
+            {
+                Debug.Log("Calling invalid effect: " + effect);
+            }
         }
+    }
+
+    public void AddEffect(string effect, float powerMod, float rateMod, float rangeMod, float pierceMod, float duration, float extraMod)
+    {
+        int index = attributes.effects.Length;
+        Array.Resize(ref attributes.effects, index + 1);
+        Array.Resize(ref attributes.effectPowerModifiers, index + 1);
+        Array.Resize(ref attributes.effectRateModifiers, index + 1);
+        Array.Resize(ref attributes.effectRangeModifiers, index + 1);
+        Array.Resize(ref attributes.effectPierceModifiers, index + 1);
+        Array.Resize(ref attributes.effectDurations, index + 1);
+        Array.Resize(ref attributes.effectExtraModifiers, index + 1);
+        Array.Resize(ref attributes.effectPowerModifiersBase, index + 1);
+        Array.Resize(ref attributes.effectRateModifiersBase, index + 1);
+        Array.Resize(ref attributes.effectRangeModifiersBase, index + 1);
+        Array.Resize(ref attributes.effectPierceModifiersBase, index + 1);
+        Array.Resize(ref attributes.effectDurationsBase, index + 1);
+        Array.Resize(ref attributes.effectExtraModifiersBase, index + 1);
+        Array.Resize(ref attributes.timeUntilEffects, index + 1);
+        attributes.effects[index] = effect;
+        attributes.effectPowerModifiers[index] = powerMod;
+        attributes.effectRateModifiers[index] = rateMod;
+        attributes.effectRangeModifiers[index] = rangeMod;
+        attributes.effectPierceModifiers[index] = pierceMod;
+        attributes.effectDurations[index] = duration;
+        attributes.effectExtraModifiers[index] = extraMod;
+        attributes.effectPowerModifiersBase[index] = powerMod;
+        attributes.effectRateModifiersBase[index] = rateMod;
+        attributes.effectRangeModifiersBase[index] = rangeMod;
+        attributes.effectPierceModifiersBase[index] = pierceMod;
+        attributes.effectDurationsBase[index] = duration;
+        attributes.effectExtraModifiersBase[index] = extraMod;
+    }
+
+    public void ModifyEffect(string effect, float powerMod, float rateMod, float rangeMod, float pierceMod, float duration, float extraMod)
+    {
+        int i = Array.IndexOf(attributes.effects, effect);
+        if (i > -1)
+        {
+            attributes.effectPowerModifiers[i] = attributes.effectPowerModifiers[i] + powerMod;
+            attributes.effectRateModifiers[i] = attributes.effectRateModifiers[i] + rateMod;
+            attributes.effectRangeModifiers[i] = attributes.effectRangeModifiers[i] + rangeMod;
+            attributes.effectPierceModifiers[i] = attributes.effectPierceModifiers[i] + pierceMod;
+            attributes.effectDurations[i] = attributes.effectDurations[i] + duration;
+            attributes.effectExtraModifiers[i] = attributes.effectExtraModifiers[i] + extraMod;
+            attributes.effectPowerModifiersBase[i] = attributes.effectPowerModifiersBase[i] + powerMod;
+            attributes.effectRateModifiersBase[i] = attributes.effectRateModifiersBase[i] + rateMod;
+            attributes.effectRangeModifiersBase[i] = attributes.effectRangeModifiersBase[i] + rangeMod;
+            attributes.effectPierceModifiersBase[i] = attributes.effectPierceModifiersBase[i] + pierceMod;
+            attributes.effectDurationsBase[i] = attributes.effectDurationsBase[i] + duration;
+            attributes.effectExtraModifiersBase[i] = attributes.effectExtraModifiersBase[i] + extraMod;
+        }
+        else
+        {
+            Debug.Log("Modifying Effect: Effect " + effect + " not found for " + attributes.sName);
+        }
+    }
+
+    public bool CheckEffect(string effect)
+    {
+        int i = Array.IndexOf(attributes.effects, effect);
+        if (i > -1)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public int FindEffect(string effect)
+    {
+        int i = Array.IndexOf(attributes.effects, effect);
+        return i;
     }
 
     public void Spawn(GameObject prefab, float power, float duration)
@@ -193,7 +301,6 @@ public class Effects : MonoBehaviour
             durationAdjusted = duration * power;
         }
         attributes.AddInvisibility(durationAdjusted);
-        Debug.Log(durationAdjusted);
     }
 
     private void PrismaticBuff(float power, float duration)
@@ -262,6 +369,37 @@ public class Effects : MonoBehaviour
         else if (buff == "Silver")
         {
             prestige.SetPrestigeSilver(false, (int)(power * GlobalValues.main.prestigePrismatic));
+        }
+    }
+
+    private void SendPowerBuff(float effectPower, float effectDuration, float effectRange)
+    {
+        RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, effectRange, (Vector2)transform.position, 0f, GlobalValues.main.towerMask);
+        float buff = 1 + (GlobalValues.main.buffPowerModifier * effectPower);
+        float duration = GlobalValues.main.buffTimerModifier * effectDuration;
+        if (hits.Length > 0)
+        {
+            for (int i = 0; i < hits.Length; i++)
+            {
+                RaycastHit2D hit = hits[i];
+                Attributes tur = hit.transform.GetComponent<Attributes>();
+                tur.ReceivePowerBuff(buff, duration);
+            }
+        }
+    }
+    private void SendRateBuff(float effectPower, float effectDuration, float effectRange)
+    {
+        RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, effectRange, (Vector2)transform.position, 0f, GlobalValues.main.towerMask);
+        float buff = 1 + (GlobalValues.main.buffPowerModifier * effectPower);
+        float duration = GlobalValues.main.buffTimerModifier * effectDuration;
+        if (hits.Length > 0)
+        {
+            for (int i = 0; i < hits.Length; i++)
+            {
+                RaycastHit2D hit = hits[i];
+                Attributes tur = hit.transform.GetComponent<Attributes>();
+                tur.ReceiveRateBuff(buff, duration);
+            }
         }
     }
 }

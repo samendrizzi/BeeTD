@@ -2745,6 +2745,9 @@ GameObject:
   - component: {fileID: -8053170183550694500}
   - component: {fileID: -4740649893461975886}
   - component: {fileID: 6664632230250407896}
+  - component: {fileID: 2979727987353868717}
+  - component: {fileID: 1047115585138478246}
+  - component: {fileID: 4489771142888303537}
   m_Layer: 13
   m_Name: Multi-Target T2-2
   m_TagString: Untagged
@@ -2864,6 +2867,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
+  healthBar: {fileID: 0}
   sName: Ricochet
   type: Tower
   cost: 350
@@ -2981,6 +2985,42 @@ MonoBehaviour:
   flower: {fileID: 0}
   nectar: 0
   targetingIndex: 0
+--- !u!114 &2979727987353868717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7862540307379288715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaf5e878ef7c9c048b98a51c7da793fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Actions
+--- !u!114 &1047115585138478246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7862540307379288715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d713ff3d75a36d4684fc23dabb1db26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Effects
+--- !u!114 &4489771142888303537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7862540307379288715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c1063cf4d4ce954288ab2d27d710071, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Passives
 --- !u!1 &7966535702334349865
 GameObject:
   m_ObjectHideFlags: 0

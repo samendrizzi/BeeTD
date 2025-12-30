@@ -2741,6 +2741,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
+  healthBar: {fileID: 0}
   sName: Pulse Freeze
   type: Tower
   cost: 500
@@ -2753,36 +2754,36 @@ MonoBehaviour:
   targetingRange: 5
   rotationSpeed: 150
   wayPointRangeModifier: 1
-  actionPower: 0
-  actionRate: 1
+  actionPower: 0.3
+  actionRate: 0.2
   armorPierce: 0
-  actions: []
-  actionPrefabs: []
-  actionPowerModifiers: []
-  actionRateModifiers: []
-  actionRangeModifiers: []
-  actionPierceModifiers: []
-  actionDurations: []
-  actionExtraModifiers: []
-  effectPower: 0.25
+  actions:
+  - Pulse Freeze
+  actionPrefabs:
+  - {fileID: 0}
+  actionPowerModifiers:
+  - 1
+  actionRateModifiers:
+  - 1
+  actionRangeModifiers:
+  - 1
+  actionPierceModifiers:
+  - 1
+  actionDurations:
+  - 5
+  actionExtraModifiers:
+  - 1
+  effectPower: 1
   effectRate: 1
   resistancePierce: 20
-  effects:
-  - Pulse Freeze
-  effectPrefabs:
-  - {fileID: 0}
-  effectPowerModifiers:
-  - 1
-  effectPierceModifiers:
-  - 1
-  effectRateModifiers:
-  - 1
-  effectRangeModifiers:
-  - 1
-  effectDurations:
-  - 5
-  effectExtraModifiers:
-  - 0
+  effects: []
+  effectPrefabs: []
+  effectPowerModifiers: []
+  effectPierceModifiers: []
+  effectRateModifiers: []
+  effectRangeModifiers: []
+  effectDurations: []
+  effectExtraModifiers: []
   passivePower: 1
   passiveRate: 1
   passivePierce: 0
@@ -2801,7 +2802,6 @@ MonoBehaviour:
   hasTargetSettings: 1
   targetSetting: 
   prestige: 
-  prestigeToRoll: 
   hitPoints: 1
   shield: 0
   isDestroyed: 0
