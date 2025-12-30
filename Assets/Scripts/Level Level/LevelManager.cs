@@ -595,7 +595,7 @@ public class LevelManager : MonoBehaviour
         for (int i = 0; i < hits2.Length; i++)
         {
             Attributes Bee = hits2[i].transform.gameObject.GetComponent<Attributes>();
-            if (Bee.target != null)
+            if (Bee != null && Bee.target != null)
             {
                 Array.Resize(ref queuedTargets, queuedTargets.Length + 1);
                 queuedTargets[queuedTargets.Length - 1] = Bee.target;

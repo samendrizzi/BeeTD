@@ -107,10 +107,10 @@ public class Turret : MonoBehaviour
                 }
             }
             hits = hitsNew;
-            attributes.target = hitsNew[0].transform;
         }
         if (hits.Length > 0)
         {
+            attributes.target = hits[0].transform;
             if (attributes.targetSetting == attributes.targetingOptions[0])
             {
                 //Near

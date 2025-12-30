@@ -130,6 +130,7 @@ public class GlobalValues : MonoBehaviour
     [SerializeField] public float prestigeRed = .3f;     //Armor / HP Buff
     [SerializeField] public float prestigeBlue = .3f;     //Reistance / Speed Buff
     [SerializeField] public float prestigeGreen = 1f;     //Health Regen
+    [SerializeField] public float prestigeGreenMaxRatio = 0.05f;
     [SerializeField] public float prestigeYellow = 1f;      //Carry Capacity
     [SerializeField] public float prestigeWhite = .5f;       //Invert Flying
     [SerializeField] public float prestigePurple = 0.25f;      //Blink

@@ -126,7 +126,7 @@ public class Prestige : MonoBehaviour
         {
             if (gameObject.GetComponent<Effects>().CheckEffect("Health Regen"))
             {
-                gameObject.GetComponent<Effects>().ModifyEffect("Health Regen", GlobalValues.main.prestigeGreen * (1f + (GlobalValues.main.prestigeDuplicateModifier * (i - 1))), 0f, 0f, 0f, 0f, 0f + GlobalValues.main.prestigeGreen * (1f + (GlobalValues.main.prestigeDuplicateModifier * (i - 1))));
+                gameObject.GetComponent<Effects>().ModifyEffect("Health Regen", GlobalValues.main.prestigeGreen * (1f + (GlobalValues.main.prestigeDuplicateModifier * (i - 1))), 0f, 0f, 0f, 0f, 0f + GlobalValues.main.prestigeGreen * GlobalValues.main.prestigeGreenMaxRatio * (1f + (GlobalValues.main.prestigeDuplicateModifier * (i - 1))));
             }
             else
             {

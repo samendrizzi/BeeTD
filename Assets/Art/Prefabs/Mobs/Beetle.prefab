@@ -276,7 +276,7 @@ GameObject:
   - component: {fileID: 5305352965303485736}
   - component: {fileID: -6799615212430128260}
   m_Layer: 17
-  m_Name: Beatle
+  m_Name: Beetle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

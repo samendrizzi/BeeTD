@@ -308,7 +308,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 14.35, y: 8.176033, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4747431771838302684}
@@ -501,11 +501,11 @@ MonoBehaviour:
   effectPrefabs:
   - {fileID: 0}
   effectPowerModifiers:
-  - 3
+  - 2
   effectPierceModifiers:
   - 1
   effectRateModifiers:
-  - 0.5
+  - 0.25
   effectRangeModifiers:
   - 1
   effectDurations:
@@ -818,7 +818,7 @@ RectTransform:
   m_GameObject: {fileID: 7507103978230175771}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 4}
+  m_LocalScale: {x: 7, y: 7, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9177606540952127824}
@@ -827,7 +827,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 2.25}
+  m_AnchoredPosition: {x: -0.2, y: 9.37}
   m_SizeDelta: {x: 2, y: 0.809}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &4601295780174861762
