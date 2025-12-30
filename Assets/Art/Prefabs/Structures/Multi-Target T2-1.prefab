@@ -2794,7 +2794,7 @@ MonoBehaviour:
   actions:
   - Shoot AoE
   actionPrefabs:
-  - {fileID: 1163534871318508854, guid: a9b94a1a16bc630479d7c8cb83aaed58, type: 3}
+  - {fileID: 5400552394083257877, guid: 66561c409533e004eb2e7912b67081b1, type: 3}
   actionPowerModifiers:
   - 1
   actionRateModifiers:
@@ -2836,7 +2836,6 @@ MonoBehaviour:
   hasTargetSettings: 1
   targetSetting: 
   prestige: 
-  prestigeToRoll: 
   hitPoints: 1
   shield: 0
   isDestroyed: 0

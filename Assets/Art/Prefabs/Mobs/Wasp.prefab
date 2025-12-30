@@ -192,7 +192,7 @@ SpriteRenderer:
   m_SortingLayer: 3
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: cba49fccffb9f994fbf27430cd74242c, type: 3}
+  m_Sprite: {fileID: 5742915519180568612, guid: 10f72934c937909458c80b599b23af14, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -350,7 +350,6 @@ MonoBehaviour:
   hasTargetSettings: 0
   targetSetting: 
   prestige: 
-  prestigeToRoll: 
   hitPoints: 1
   shield: 0
   isDestroyed: 0

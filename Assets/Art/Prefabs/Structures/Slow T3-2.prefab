@@ -2884,7 +2884,7 @@ MonoBehaviour:
   actions:
   - Shoot AoE Freezing
   actionPrefabs:
-  - {fileID: 1163534871318508854, guid: 65792e35d86c7ed42a35c7eaf766ef94, type: 3}
+  - {fileID: 5400552394083257877, guid: f99b3ddb49dab8f4391fa55c5c324f71, type: 3}
   actionPowerModifiers:
   - 1
   actionRateModifiers:
@@ -2926,7 +2926,6 @@ MonoBehaviour:
   hasTargetSettings: 1
   targetSetting: 
   prestige: 
-  prestigeToRoll: 
   hitPoints: 1
   shield: 0
   isDestroyed: 0

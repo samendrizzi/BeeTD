@@ -87,12 +87,12 @@ SpriteRenderer:
   m_SortingLayer: 5
   m_SortingOrder: 1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: c9fd95bd242ae8b49bc0ba46eae55979, type: 3}
-  m_Color: {r: 0.14998928, g: 0.754717, b: 0.11035956, a: 0.5882353}
+  m_Sprite: {fileID: 6525572153476039015, guid: 8467582fa3c0e1c42b4b00017f9e6b71, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5882353}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 7.9900002, y: 7.192495}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -206,7 +206,6 @@ MonoBehaviour:
   hasTargetSettings: 0
   targetSetting: 
   prestige: 
-  prestigeToRoll: 
   hitPoints: 1
   shield: 0
   isDestroyed: 0

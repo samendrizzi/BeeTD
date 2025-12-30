@@ -2795,7 +2795,7 @@ MonoBehaviour:
   actions:
   - Shoot Basic
   actionPrefabs:
-  - {fileID: 1163534871318508854, guid: 03f3bc3c3f4cec44ca6eb45e13337e2a, type: 3}
+  - {fileID: 5400552394083257877, guid: eabf62ce4c619a941a753ccee2dd4c4f, type: 3}
   actionPowerModifiers:
   - 1
   actionRateModifiers:
@@ -2837,7 +2837,6 @@ MonoBehaviour:
   hasTargetSettings: 1
   targetSetting: 
   prestige: 
-  prestigeToRoll: 
   hitPoints: 1
   shield: 0
   isDestroyed: 0
