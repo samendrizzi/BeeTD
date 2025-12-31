@@ -2083,7 +2083,7 @@ MonoBehaviour:
   emptyHoneyCombs: []
   queuedTargets: []
   workerBeeCost: 0
-  nectar: 50000
+  nectar: 500
   autoAssignBees: Nectar
   honeyCombTicks: 0
   honeyPerCombTick: 0

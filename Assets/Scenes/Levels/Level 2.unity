@@ -41385,94 +41385,61 @@ MonoBehaviour:
     path: 1
   wave10:
   - prefab: {fileID: 5400552394083257877, guid: e7cbfefa92ecb1448959ee094064ac44, type: 3}
-    prestige: Red,Red
+    prestige: Red
     path: 1
   - prefab: {fileID: 5400552394083257877, guid: e7cbfefa92ecb1448959ee094064ac44, type: 3}
-    prestige: Red,Red
+    prestige: Red
     path: 1
   - prefab: {fileID: 5400552394083257877, guid: e7cbfefa92ecb1448959ee094064ac44, type: 3}
-    prestige: Red,Red
+    prestige: Red
     path: 1
   - prefab: {fileID: 5400552394083257877, guid: e7cbfefa92ecb1448959ee094064ac44, type: 3}
-    prestige: Red,Red
+    prestige: Red
     path: 1
   - prefab: {fileID: 5400552394083257877, guid: e7cbfefa92ecb1448959ee094064ac44, type: 3}
-    prestige: Red,Red
+    prestige: Red
     path: 1
   - prefab: {fileID: 5400552394083257877, guid: e7cbfefa92ecb1448959ee094064ac44, type: 3}
-    prestige: Red,Red
+    prestige: Red
     path: 1
   - prefab: {fileID: 5400552394083257877, guid: e7cbfefa92ecb1448959ee094064ac44, type: 3}
-    prestige: Red,Red
+    prestige: Red
     path: 1
   - prefab: {fileID: 5400552394083257877, guid: e7cbfefa92ecb1448959ee094064ac44, type: 3}
-    prestige: Red,Red
+    prestige: Red
     path: 1
   - prefab: {fileID: 5400552394083257877, guid: e7cbfefa92ecb1448959ee094064ac44, type: 3}
-    prestige: Red,Red
+    prestige: Red
     path: 1
   - prefab: {fileID: 5400552394083257877, guid: e7cbfefa92ecb1448959ee094064ac44, type: 3}
-    prestige: Red,Red
+    prestige: Red
     path: 1
   - prefab: {fileID: 5400552394083257877, guid: e7cbfefa92ecb1448959ee094064ac44, type: 3}
-    prestige: Red,Red
+    prestige: Red
     path: 1
   - prefab: {fileID: 5400552394083257877, guid: e7cbfefa92ecb1448959ee094064ac44, type: 3}
-    prestige: Red,Red
+    prestige: Red
     path: 1
   - prefab: {fileID: 5400552394083257877, guid: e7cbfefa92ecb1448959ee094064ac44, type: 3}
-    prestige: Red,Red
+    prestige: Red
     path: 1
   - prefab: {fileID: 5400552394083257877, guid: e7cbfefa92ecb1448959ee094064ac44, type: 3}
-    prestige: Red,Red
+    prestige: Red
     path: 1
   - prefab: {fileID: 5400552394083257877, guid: e7cbfefa92ecb1448959ee094064ac44, type: 3}
-    prestige: Red,Red
+    prestige: Red
     path: 1
   - prefab: {fileID: 5400552394083257877, guid: e7cbfefa92ecb1448959ee094064ac44, type: 3}
-    prestige: Red,Red
+    prestige: Red
     path: 1
   - prefab: {fileID: 5400552394083257877, guid: e7cbfefa92ecb1448959ee094064ac44, type: 3}
-    prestige: Red,Red
+    prestige: Red
     path: 1
   - prefab: {fileID: 5400552394083257877, guid: e7cbfefa92ecb1448959ee094064ac44, type: 3}
-    prestige: Red,Red
+    prestige: Red
     path: 1
   - prefab: {fileID: 5400552394083257877, guid: e7cbfefa92ecb1448959ee094064ac44, type: 3}
-    prestige: Red,Red
-    path: 1
-  - prefab: {fileID: 5400552394083257877, guid: e7cbfefa92ecb1448959ee094064ac44, type: 3}
-    prestige: Red,Red
-    path: 1
-  - prefab: {fileID: 5400552394083257877, guid: e7cbfefa92ecb1448959ee094064ac44, type: 3}
-    prestige: Red,Red
-    path: 1
-  - prefab: {fileID: 5400552394083257877, guid: e7cbfefa92ecb1448959ee094064ac44, type: 3}
-    prestige: Red,Red
-    path: 1
-  - prefab: {fileID: 5400552394083257877, guid: e7cbfefa92ecb1448959ee094064ac44, type: 3}
-    prestige: Red,Red
-    path: 1
-  - prefab: {fileID: 5400552394083257877, guid: e7cbfefa92ecb1448959ee094064ac44, type: 3}
-    prestige: Red,Red
-    path: 1
-  - prefab: {fileID: 5400552394083257877, guid: e7cbfefa92ecb1448959ee094064ac44, type: 3}
-    prestige: Red,Red
-    path: 1
-  - prefab: {fileID: 5400552394083257877, guid: e7cbfefa92ecb1448959ee094064ac44, type: 3}
-    prestige: Red,Red
-    path: 1
-  - prefab: {fileID: 5400552394083257877, guid: e7cbfefa92ecb1448959ee094064ac44, type: 3}
-    prestige: Red,Red
-    path: 1
-  - prefab: {fileID: 5400552394083257877, guid: e7cbfefa92ecb1448959ee094064ac44, type: 3}
-    prestige: Red,Red
-    path: 1
-  - prefab: {fileID: 5400552394083257877, guid: e7cbfefa92ecb1448959ee094064ac44, type: 3}
-    prestige: Red,Red
-    path: 1
-  - prefab: {fileID: 5400552394083257877, guid: e7cbfefa92ecb1448959ee094064ac44, type: 3}
-    prestige: Red,Red
+    prestige: Red
     path: 1
   wave11:
   - prefab: {fileID: 5400552394083257877, guid: 43128a49fe5a05740b78b7039f89fcc3, type: 3}
