@@ -16,11 +16,13 @@ public class LevelManager : MonoBehaviour
     [SerializeField] public float queenBeeHP = 100f;
     [SerializeField] public float queenBeeMaxHP = 100f;
     [SerializeField] public float queenArmor = 0f;
-    [SerializeField] public float honey = 100f;
+    [SerializeField] public float honey = 0f;
+    [SerializeField] public float bonusNectar = 0f;
     [SerializeField] public float honeyRequired = 100f;
     [SerializeField] public float percentageOfFlowersUsed = 1f;
     [SerializeField] public float difficultyScaling = 0.05f;
-    [SerializeField] public Transform influenceCenter;
+    [SerializeField] public GameObject hiveEntrance;
+    [SerializeField] public float startingVision = 5f;
     [SerializeField] public int numberOfPaths = 0;
     [SerializeField] private Transform[] path1;
     [SerializeField] private Transform[] flyingPath1;
@@ -91,8 +93,7 @@ public class LevelManager : MonoBehaviour
         speed = UIManager.main.speed;
         pause = UIManager.main.pause;
         honeyRequired = honeyRequired * GlobalValues.main.difficultyMultiplier;
-        FindAllFlowers();
-        BloomFlowers();
+
         nectarGenerationRate = GlobalValues.main.globalFertility;
         CalculateIncome();
         UIManager.main.NormalSpeed();
@@ -102,7 +103,7 @@ public class LevelManager : MonoBehaviour
         GameObject[] root = FindObjectsByType<GameObject>(FindObjectsSortMode.None);
         foreach (GameObject obj in root)
         {
-            if ((GlobalValues.main.investmentMask | (1 << obj.layer)) == GlobalValues.main.investmentMask)
+            if ((GlobalValues.main.honeyCombMask | (1 << obj.layer)) == GlobalValues.main.honeyCombMask)
             {
                 Array.Resize(ref honeyCombs, honeyCombs.Length + 1);
                 honeyCombs[honeyCombs.Length - 1] = obj;
@@ -127,6 +128,11 @@ public class LevelManager : MonoBehaviour
             pathsStart[i] = paths[i][0];
             pathsNextPoint[i] = paths[i][1];
         }
+        nectar = GlobalValues.main.startingNectar + bonusNectar;
+        StartingReveal();
+        FindAllFlowers();
+        BloomFlowers();
+        SpawnStartingBees();
     }
 
     public void IncreaseNectar(float amount)
@@ -370,6 +376,10 @@ public class LevelManager : MonoBehaviour
                 }
             }
             int y = 0;
+            if (nectarBees.Length == 0 || discoveredFlowers.Length == 0)
+            {
+                return;
+            }
             while (assignedBees < numberOfNectarBees)
             {
                 AssignBeeToFlower(nectarBees[assignedBees], discoveredFlowers[y]);
@@ -447,39 +457,44 @@ public class LevelManager : MonoBehaviour
         {
             //Spawn bee
             nectar -= workerBeeCost;
-            GameObject prefabToSpawn = GlobalValues.main.workerBeePrefab;
-            Transform start = queenBee.transform;
-            Transform nextPoint = gameObject.transform;
-            float angle = Mathf.Atan2(nextPoint.position.y - start.position.y, nextPoint.position.x - start.position.x) * Mathf.Rad2Deg - 90f;
-            Quaternion unitRotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
-            GameObject unit = Instantiate(prefabToSpawn, start.position, unitRotation);
-            //Add bee to array tracking
-            Array.Resize(ref workerBees, workerBees.Length + 1);
-            workerBees[workerBees.Length - 1] = unit;
-            if (autoAssignBees == "unassigned")
-            {
-                unit.GetComponent<Attributes>().work = "unassigned";
-                Array.Resize(ref unassignedBees, unassignedBees.Length + 1);
-                unassignedBees[unassignedBees.Length - 1] = unit;
-            }
-            else if (autoAssignBees == "Nectar")
-            {
-                unit.GetComponent<Attributes>().work = "Nectar";
-                Array.Resize(ref nectarBees, nectarBees.Length + 1);
-                nectarBees[nectarBees.Length - 1] = unit;
-            }
-            else if (autoAssignBees == "Honey")
-            {
-                unit.GetComponent<Attributes>().work = "Honey";
-                Array.Resize(ref honeyBees, honeyBees.Length + 1);
-                honeyBees[honeyBees.Length - 1] = unit;
-            }
-            else if (autoAssignBees == "Soldier")
-            {
-                unit.GetComponent<Attributes>().work = "Soldier";
-                Array.Resize(ref soldierBees, soldierBees.Length + 1);
-                soldierBees[soldierBees.Length - 1] = unit;
-            }
+            SpawnUnit();
+        }
+    }
+
+    private void SpawnUnit()
+    {
+        GameObject prefabToSpawn = GlobalValues.main.workerBeePrefab;
+        Transform start = queenBee.transform;
+        Transform nextPoint = gameObject.transform;
+        float angle = Mathf.Atan2(nextPoint.position.y - start.position.y, nextPoint.position.x - start.position.x) * Mathf.Rad2Deg - 90f;
+        Quaternion unitRotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
+        GameObject unit = Instantiate(prefabToSpawn, start.position, unitRotation);
+        //Add bee to array tracking
+        Array.Resize(ref workerBees, workerBees.Length + 1);
+        workerBees[workerBees.Length - 1] = unit;
+        if (autoAssignBees == "unassigned")
+        {
+            unit.GetComponent<Attributes>().work = "unassigned";
+            Array.Resize(ref unassignedBees, unassignedBees.Length + 1);
+            unassignedBees[unassignedBees.Length - 1] = unit;
+        }
+        else if (autoAssignBees == "Nectar")
+        {
+            unit.GetComponent<Attributes>().work = "Nectar";
+            Array.Resize(ref nectarBees, nectarBees.Length + 1);
+            nectarBees[nectarBees.Length - 1] = unit;
+        }
+        else if (autoAssignBees == "Honey")
+        {
+            unit.GetComponent<Attributes>().work = "Honey";
+            Array.Resize(ref honeyBees, honeyBees.Length + 1);
+            honeyBees[honeyBees.Length - 1] = unit;
+        }
+        else if (autoAssignBees == "Soldier")
+        {
+            unit.GetComponent<Attributes>().work = "Soldier";
+            Array.Resize(ref soldierBees, soldierBees.Length + 1);
+            soldierBees[soldierBees.Length - 1] = unit;
         }
         //Update bee cost
         workerBeeCost = GlobalValues.main.workerBeeCost * (1 + (GlobalValues.main.workerBeeCostIncrease * workerBees.Length));
@@ -622,5 +637,19 @@ public class LevelManager : MonoBehaviour
             }
         }
         emptyHoneyCombs = emptyHoneyCombs.OrderBy((comb) => (-1) * Vector2.Distance(comb.position, queenBee.position)).ToArray();
+    }
+
+    private void SpawnStartingBees()
+    {
+        int startingBees = 2;
+        for (int i = 1; i <= startingBees; i++) 
+        {
+            SpawnUnit();
+        }
+    }
+
+    private void StartingReveal()
+    {
+        StartCoroutine(hiveEntrance.GetComponent<Plot>().RevealFog(startingVision, true));
     }
 }

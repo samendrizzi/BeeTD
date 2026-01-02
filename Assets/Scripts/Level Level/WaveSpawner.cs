@@ -133,6 +133,7 @@ public class WaveSpawner : MonoBehaviour
 
     private void StartWave()
     {
+        LevelManager.main.OrganizeBees();
         if (currentWave >= numberOfWaves)
         {
             LevelManager.main.finalWave = true;

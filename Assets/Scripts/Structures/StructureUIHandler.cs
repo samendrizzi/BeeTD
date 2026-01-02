@@ -28,15 +28,13 @@ public class StructureUIHandler : MonoBehaviour, IPointerEnterHandler, IPointerE
     private float sellPrice;
     private float cost;
     private int index;
-    private bool isHive = false;
-    private bool isFlower = false;
-    private bool isBuildable = false;
     private float UIscale;
     private string[] targetingOptions;
     public bool influence = false;
-    private GameObject plot;
     private GameObject[] units;
     private Attributes attributes;
+    private Plot plot;
+    private Turret turret;
 
     public void OnPointerEnter(PointerEventData eventData)
     {
@@ -46,9 +44,13 @@ public class StructureUIHandler : MonoBehaviour, IPointerEnterHandler, IPointerE
     private void Start()
     {
         attributes = gameObject.GetComponent<Attributes>();
+        plot = gameObject.GetComponent<Plot>();
+        turret = gameObject.GetComponent<Turret>();
         //Build UI
         if (isTower == true) 
         {
+            RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, 0.1f, (Vector2)transform.position, 0f, GlobalValues.main.plotMask | GlobalValues.main.honeyCombMask);
+            plot = hits[0].transform.gameObject.GetComponent<Plot>();
             //Scale different between plot and tower prefabs
             UIscale = UI.transform.localScale.x / 2f;
             if (attributes.hasTargetSettings == true)
@@ -70,23 +72,18 @@ public class StructureUIHandler : MonoBehaviour, IPointerEnterHandler, IPointerE
             //info button
             button2.gameObject.SetActive(true);
             button2.gameObject.GetComponentInChildren<TMP_Text>().text = "Info";
-            plot = Physics2D.CircleCastAll(transform.position, 0.1f, (Vector2)transform.position, 0f, GlobalValues.main.plotMask | GlobalValues.main.flowerMask | GlobalValues.main.honeyCombMask)[0].transform.gameObject;
-            isHive = plot.GetComponent<Plot>().isHive;
         }
         else 
         {
             //Scale different between plot and tower prefabs
             UIscale = UI.transform.localScale.x / 2.28f;
-            isHive = gameObject.GetComponent<Plot>().isHive;
-            isBuildable = gameObject.GetComponent<Plot>().isBuildable;
-            isFlower = gameObject.GetComponent<Plot>().isResourceNode;
-            if (isBuildable == true) 
+            if (plot.isBuildable == true) 
             {
-                if (isHive == true) 
+                if (plot.isHive == true) 
                 {
                     upgradeMatrix = GlobalValues.main.buildableHive;
                 }
-                else if (isFlower == true)
+                else if (plot.isResourceNode == true)
                 {
                     upgradeMatrix = GlobalValues.main.buildableFlower;
                 }
@@ -136,10 +133,6 @@ public class StructureUIHandler : MonoBehaviour, IPointerEnterHandler, IPointerE
                 }
             }      
         }
-        if (isTower)
-        {
-            StartCoroutine(RevealFog());
-        } 
     }
 
     public void Update()
@@ -299,65 +292,6 @@ public class StructureUIHandler : MonoBehaviour, IPointerEnterHandler, IPointerE
     public void Button8()
     {
         ConfirmSell();
-    }
-
-    private IEnumerator RevealFog()
-    {
-        float range = attributes.targetingRange;
-
-        if (range != 0f)
-        {
-            //find resource nodes
-            RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, range, (Vector2)transform.position, 0f, GlobalValues.main.flowerMask);
-            if (hits.Length > 0)
-            {
-                for (int i = 0; i < hits.Length; i++)
-                {
-                    if (hits[i].transform.GetComponent<Plot>().fog == true)
-                    {
-                        if (!Physics2D.Linecast(transform.position, hits[i].transform.position, GlobalValues.main.obstructionMask))
-                        {
-                            hits[i].transform.GetComponent<Plot>().Found();
-                        }
-                    }
-                }
-            }
-            //find plots
-            hits = Physics2D.CircleCastAll(transform.position, range, (Vector2)transform.position, 0f, GlobalValues.main.plotMask);
-            if (hits.Length > 0)
-            {
-                for (int i = 0; i < hits.Length; i++)
-                {
-                    if (hits[i].transform.GetComponent<Plot>().fog == true)
-                    {
-                        if (!Physics2D.Linecast(transform.position, hits[i].transform.position, GlobalValues.main.obstructionMask))
-                        {
-                            hits[i].transform.GetComponent<Plot>().Found();
-                        }
-                    }
-                }
-            }
-            //find obstructions
-            hits = Physics2D.CircleCastAll(transform.position, range, (Vector2)transform.position, 0f, GlobalValues.main.obstructionMask);
-            if (hits.Length > 0)
-            {
-                for (int i = 0; i < hits.Length; i++)
-                {
-                    if (hits[i].transform.GetComponent<Plot>().fog == true)
-                    {
-                        //if (!Physics2D.Linecast(transform.position, hits[i].transform.position, GlobalValues.main.obstructionMask))
-                        //{
-                            hits[i].transform.GetComponent<Plot>().Found();
-                        //}
-                    }
-                }
-            }
-        }
-        else
-        {
-            Debug.Log(gameObject.name + " has no targeting range.");
-        }
-        yield return new WaitForSeconds(0f);
     }
 
     public void OpenRangeUI()

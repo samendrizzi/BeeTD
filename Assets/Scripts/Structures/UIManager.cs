@@ -41,10 +41,6 @@ public class UIManager : MonoBehaviour
     private void Awake()
     {
         main = this;
-        if (!LevelManager.main)
-        {
-            gameObject.SetActive(false);
-        }
     }
 
     private void Start()

@@ -501,11 +501,11 @@ MonoBehaviour:
   effectPrefabs:
   - {fileID: 0}
   effectPowerModifiers:
-  - 2
+  - 1.5
   effectPierceModifiers:
   - 1
   effectRateModifiers:
-  - 0.25
+  - 0.15
   effectRangeModifiers:
   - 1
   effectDurations:

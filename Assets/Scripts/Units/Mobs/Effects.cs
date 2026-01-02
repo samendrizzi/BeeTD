@@ -315,31 +315,26 @@ public class Effects : MonoBehaviour
         int randompick = RandomGen.Next(4);
         if (randompick == 0)
         {
-            Debug.Log("Adding Red");
             prestige.SetPrestigeRed(true, (int)(power * GlobalValues.main.prestigePrismatic));
             StartCoroutine(RemovePrismaticBuff("Red", (int)(power * GlobalValues.main.prestigePrismatic), duration));
         }
         else if (randompick == 1)
         {
-            Debug.Log("Adding Blue");
             prestige.SetPrestigeBlue(true, (int)(power * GlobalValues.main.prestigePrismatic));
             StartCoroutine(RemovePrismaticBuff("Blue", (int)(power * GlobalValues.main.prestigePrismatic), duration));
         }
         else if (randompick == 2)
         {
-            Debug.Log("Adding Gold");
             prestige.SetPrestigeGold(true, (int)(power * GlobalValues.main.prestigePrismatic));
             StartCoroutine(RemovePrismaticBuff("Gold", (int)(power * GlobalValues.main.prestigePrismatic), duration));
         }
         else if (randompick == 3)
         {
-            Debug.Log("Adding Brown");
             prestige.SetPrestigeBrown(true, (int)(power * GlobalValues.main.prestigePrismatic));
             StartCoroutine(RemovePrismaticBuff("Brown", (int)(power * GlobalValues.main.prestigePrismatic), duration));
         }
         else if (randompick == 4)
         {
-            Debug.Log("Adding Silver");
             prestige.SetPrestigeSilver(true, (int)(power * GlobalValues.main.prestigePrismatic));
             StartCoroutine(RemovePrismaticBuff("Silver", (int)(power * GlobalValues.main.prestigePrismatic), duration));
         }
@@ -348,7 +343,6 @@ public class Effects : MonoBehaviour
     private IEnumerator RemovePrismaticBuff(string buff, float power, float duration)
     {
         yield return new WaitForSeconds(duration);
-        Debug.Log("Removing " + buff);
         Prestige prestige = gameObject.GetComponent<Prestige>();
         if (buff == "Red")
         {

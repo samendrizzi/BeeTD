@@ -17000,10 +17000,12 @@ MonoBehaviour:
   queenBeeMaxHP: 100
   queenArmor: 0
   honey: 0
+  bonusNectar: 0
   honeyRequired: 3000
   percentageOfFlowersUsed: 1
   difficultyScaling: 0.05
-  influenceCenter: {fileID: 821847782}
+  hiveEntrance: {fileID: 1669304661}
+  startingVision: 5
   numberOfPaths: 1
   path1:
   - {fileID: 1707410986}
@@ -30754,37 +30756,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7945665055211121443, guid: 90230e6d240278a4a98e21ff610e8052, type: 3}
   m_PrefabInstance: {fileID: 820380679}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &821847781
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 821847782}
-  m_Layer: 0
-  m_Name: Influence Center
-  m_TagString: Untagged
-  m_Icon: {fileID: 4162164826716764455, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &821847782
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 821847781}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 14.5, y: -1.95, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &822752994
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -63762,7 +63733,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9156115538744241620, guid: 7e36c401110622e499067013d8bc9a61, type: 3}
       propertyPath: m_Name
-      value: Hive Path Plot
+      value: Entrance
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -63772,6 +63743,11 @@ PrefabInstance:
 --- !u!4 &1669304660 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7945665055211121443, guid: 7e36c401110622e499067013d8bc9a61, type: 3}
+  m_PrefabInstance: {fileID: 1669304659}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1669304661 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9156115538744241620, guid: 7e36c401110622e499067013d8bc9a61, type: 3}
   m_PrefabInstance: {fileID: 1669304659}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1670869031
@@ -79025,4 +79001,3 @@ SceneRoots:
   - {fileID: 1196440536}
   - {fileID: 517770041}
   - {fileID: 443684712}
-  - {fileID: 821847782}

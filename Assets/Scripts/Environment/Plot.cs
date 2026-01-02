@@ -38,7 +38,7 @@ public class Plot : MonoBehaviour
     public int honeyTicks = 0;
     public float honeyPerTick = 0f;
 
-    private void Start()
+    private void Awake()
     {
         plotUI = gameObject.GetComponent<StructureUIHandler>();
         originalColor = sr.color;
@@ -51,20 +51,12 @@ public class Plot : MonoBehaviour
         {
             fog = false;
         }
-        if (fog == true)
+        else
         {
-            if (Vector2.Distance(transform.position, LevelManager.main.influenceCenter.position) <= GlobalValues.main.startingRadius)
-            {
-                fog = false;
-                sr.sprite = originalSprite;
-                Found();
-            }
-            else
-            {
-                sr.sprite = fogSprite;
-                sr.color = fogColor;
-                startColor = fogColor;
-            }
+            fog = true;
+            sr.sprite = fogSprite;
+            sr.color = fogColor;
+            startColor = fogColor;
         }
     }
 
@@ -120,6 +112,41 @@ public class Plot : MonoBehaviour
         {
             plotUI.OpenUI();
         }
+    }
+
+    public IEnumerator RevealFog(float range, bool ignoreObstructions)
+    {
+        if (range != 0f)
+        {
+            //find plots
+            RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, range, (Vector2)transform.position, 0f, GlobalValues.main.plotMask | GlobalValues.main.flowerMask);
+            if (hits.Length > 0)
+            {
+                for (int i = 0; i < hits.Length; i++)
+                {
+                    if (hits[i].transform.GetComponent<Plot>().fog == true)
+                    {
+                        if (!Physics2D.Linecast(transform.position, hits[i].transform.position, GlobalValues.main.obstructionMask) || ignoreObstructions)
+                        {
+                            hits[i].transform.GetComponent<Plot>().Found();
+                        }
+                    }
+                }
+            }
+            //find obstructions
+            hits = Physics2D.CircleCastAll(transform.position, range, (Vector2)transform.position, 0f, GlobalValues.main.obstructionMask);
+            if (hits.Length > 0)
+            {
+                for (int i = 0; i < hits.Length; i++)
+                {
+                    if (hits[i].transform.GetComponent<Plot>().fog == true)
+                    {
+                        hits[i].transform.GetComponent<Plot>().Found();
+                    }
+                }
+            }
+        }
+        yield return new WaitForSeconds(0f);
     }
 
     public void Build(GameObject towerPrefab)

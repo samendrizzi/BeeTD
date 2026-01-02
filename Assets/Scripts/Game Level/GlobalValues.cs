@@ -7,15 +7,16 @@ using UnityEditor;
 using TMPro;
 using System;
 using static UnityEngine.GraphicsBuffer;
+using UnityEngine.SceneManagement;
 
 public class GlobalValues : MonoBehaviour
 {
 
     public static GlobalValues main;
 
-
     [Header("_______________________")]
     [Header("Global")]
+    [SerializeField] public string gameVersion;
     [SerializeField] public float easyMultiplier = 0.7f;
     [SerializeField] public float mediumMultiplier = 1f;
     [SerializeField] public float hardMultiplier = 1.5f;
@@ -37,7 +38,6 @@ public class GlobalValues : MonoBehaviour
     [SerializeField] public LayerMask flowerMask;
     [SerializeField] public LayerMask obstructionMask;
     [SerializeField] public LayerMask towerMask;
-    [SerializeField] public LayerMask investmentMask;
     [SerializeField] public LayerMask incomeMask;
 
 
@@ -110,6 +110,7 @@ public class GlobalValues : MonoBehaviour
 
     [Header("_______________________")]
     [Header("Resources")]
+    [SerializeField] public float startingNectar = 200f;
     [SerializeField] public float baseNectarGeneration = 0.25f;
     [SerializeField] public float honeyGenerationRateModifier = 1f;
     [SerializeField] public float flowerRange = 1f;
@@ -131,6 +132,7 @@ public class GlobalValues : MonoBehaviour
     [SerializeField] public float prestigeBlue = .3f;     //Reistance / Speed Buff
     [SerializeField] public float prestigeGreen = 1f;     //Health Regen
     [SerializeField] public float prestigeGreenMaxRatio = 0.05f;
+    [SerializeField] public float prestigeGreenRate = 0.2f;
     [SerializeField] public float prestigeYellow = 1f;      //Carry Capacity
     [SerializeField] public float prestigeWhite = .5f;       //Invert Flying
     [SerializeField] public float prestigePurple = 0.25f;      //Blink
@@ -268,6 +270,7 @@ public class GlobalValues : MonoBehaviour
     public string difficultySetting = "Medium";
     public float difficultyMultiplier = 1f;
     public string targetingOptionDefault;
+    public bool gameLoaded = false;
 
 
     // Define parameter arrays
@@ -279,12 +282,17 @@ public class GlobalValues : MonoBehaviour
 
     public void Start()
     {
+        gameLoaded = true;
+        //Setup Scenes
+        UnloadAllBut("Global");
+        SceneManager.LoadScene("Main Menu", LoadSceneMode.Additive);
     }
 
     public void Awake()
     {
         main = this;
-
+        SetUI(false);
+        //
         targetingOptionDefault = targetingOptions[0];
         //Build parameter arrays for other scripts to pull from
         //Flower Arrays
@@ -297,7 +305,10 @@ public class GlobalValues : MonoBehaviour
     public void SetUI(bool state)
     {
         UI.SetActive(state);
-        UIManager.main.Reset();
+        if (state == true)
+        {
+            UIManager.main.Reset();
+        }
     }
 
     public void SetDifficulty(string setting)
@@ -319,6 +330,29 @@ public class GlobalValues : MonoBehaviour
         }
     }
 
+    public void UnloadAllBut(string sceneName)
+    {
+        int sceneCount = SceneManager.sceneCount;
+        // Iterate through all loaded scenes.
+        for (int i = 0; i < sceneCount; i++)
+        {
+            Scene scene = SceneManager.GetSceneAt(i);
+            // Check if the current scene is NOT the one we want to keep.
+            if (scene.name != sceneName)
+            {
+                // Unload the scene asynchronously.
+                // It is important to use the Async version for smooth performance.
+                StartCoroutine(DelayedUnload(scene));
+            }
+        }
+    }
+
+    public IEnumerator DelayedUnload(Scene scene)
+    {
+        yield return new WaitForSecondsRealtime(0.03f);
+        SceneManager.UnloadSceneAsync(scene);
+        SetUI(false);
+    } 
 }
 
 

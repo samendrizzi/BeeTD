@@ -3291,6 +3291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16bdab629e6128948a56daac17e2d747, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameVersion: Alpha Build 10
   easyMultiplier: 0.7
   mediumMultiplier: 1
   hardMultiplier: 1.5
@@ -3326,9 +3327,6 @@ MonoBehaviour:
   towerMask:
     serializedVersion: 2
     m_Bits: 8192
-  investmentMask:
-    serializedVersion: 2
-    m_Bits: 0
   incomeMask:
     serializedVersion: 2
     m_Bits: 2048
@@ -3364,12 +3362,7 @@ MonoBehaviour:
   - {fileID: 7862540307379288715, guid: 20c75941e13a36546b614039d2fc6b64, type: 3}
   - {fileID: 7862540307379288715, guid: e57faa3b190430946bb434c2439476f3, type: 3}
   - {fileID: 7862540307379288715, guid: d028ef3ded3b57a4b8602e7456997b5c, type: 3}
-  buildableFlower:
-  - {fileID: 7862540307379288715, guid: d9fd7239e24496547817566e0fea8547, type: 3}
-  - {fileID: 7862540307379288715, guid: a922a66f1176ad84ab9c8cd959524037, type: 3}
-  - {fileID: 7862540307379288715, guid: 20c75941e13a36546b614039d2fc6b64, type: 3}
-  - {fileID: 7862540307379288715, guid: e57faa3b190430946bb434c2439476f3, type: 3}
-  - {fileID: 7862540307379288715, guid: d028ef3ded3b57a4b8602e7456997b5c, type: 3}
+  buildableFlower: []
   buildable:
   - {fileID: 7862540307379288715, guid: d9fd7239e24496547817566e0fea8547, type: 3}
   - {fileID: 7862540307379288715, guid: a922a66f1176ad84ab9c8cd959524037, type: 3}
@@ -3400,6 +3393,7 @@ MonoBehaviour:
   healTimerModifier: 1
   ricochetRange: 4
   rampCap: 10
+  startingNectar: 200
   baseNectarGeneration: 0.25
   honeyGenerationRateModifier: 1
   flowerRange: 0.8
@@ -3410,6 +3404,8 @@ MonoBehaviour:
   prestigeRed: 0.3
   prestigeBlue: 0.3
   prestigeGreen: 1
+  prestigeGreenMaxRatio: 0.05
+  prestigeGreenRate: 0.2
   prestigeYellow: 1
   prestigeWhite: 0.5
   prestigePurple: 0.25
@@ -3474,6 +3470,7 @@ MonoBehaviour:
   difficultySetting: Medium
   difficultyMultiplier: 1
   targetingOptionDefault: 
+  gameLoaded: 0
   FLOWERSprite: []
   FLOWERText: []
   FLOWERModifier: []

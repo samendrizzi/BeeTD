@@ -16573,37 +16573,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1872516838}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &781096083
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 781096084}
-  m_Layer: 0
-  m_Name: Influence Center
-  m_TagString: Untagged
-  m_Icon: {fileID: 4162164826716764455, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &781096084
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 781096083}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.75, y: -3.25, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &783779359
 GameObject:
   m_ObjectHideFlags: 0
@@ -22934,7 +22903,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9156115538744241620, guid: 7e36c401110622e499067013d8bc9a61, type: 3}
       propertyPath: m_Name
-      value: Hive Path Plot
+      value: Entrance
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -22944,6 +22913,11 @@ PrefabInstance:
 --- !u!4 &1192660505 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7945665055211121443, guid: 7e36c401110622e499067013d8bc9a61, type: 3}
+  m_PrefabInstance: {fileID: 1192660504}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1192660506 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9156115538744241620, guid: 7e36c401110622e499067013d8bc9a61, type: 3}
   m_PrefabInstance: {fileID: 1192660504}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1194207297
@@ -41385,94 +41359,64 @@ MonoBehaviour:
     path: 1
   wave10:
   - prefab: {fileID: 5400552394083257877, guid: e7cbfefa92ecb1448959ee094064ac44, type: 3}
-    prestige: Red,Red
+    prestige: Red
     path: 1
   - prefab: {fileID: 5400552394083257877, guid: e7cbfefa92ecb1448959ee094064ac44, type: 3}
-    prestige: Red,Red
+    prestige: Red
     path: 1
   - prefab: {fileID: 5400552394083257877, guid: e7cbfefa92ecb1448959ee094064ac44, type: 3}
-    prestige: Red,Red
+    prestige: Red
     path: 1
   - prefab: {fileID: 5400552394083257877, guid: e7cbfefa92ecb1448959ee094064ac44, type: 3}
-    prestige: Red,Red
+    prestige: Red
     path: 1
   - prefab: {fileID: 5400552394083257877, guid: e7cbfefa92ecb1448959ee094064ac44, type: 3}
-    prestige: Red,Red
+    prestige: Red
     path: 1
   - prefab: {fileID: 5400552394083257877, guid: e7cbfefa92ecb1448959ee094064ac44, type: 3}
-    prestige: Red,Red
+    prestige: Red
     path: 1
   - prefab: {fileID: 5400552394083257877, guid: e7cbfefa92ecb1448959ee094064ac44, type: 3}
-    prestige: Red,Red
+    prestige: Red
     path: 1
   - prefab: {fileID: 5400552394083257877, guid: e7cbfefa92ecb1448959ee094064ac44, type: 3}
-    prestige: Red,Red
+    prestige: Red
     path: 1
   - prefab: {fileID: 5400552394083257877, guid: e7cbfefa92ecb1448959ee094064ac44, type: 3}
-    prestige: Red,Red
+    prestige: Red
     path: 1
   - prefab: {fileID: 5400552394083257877, guid: e7cbfefa92ecb1448959ee094064ac44, type: 3}
-    prestige: Red,Red
+    prestige: Red
     path: 1
   - prefab: {fileID: 5400552394083257877, guid: e7cbfefa92ecb1448959ee094064ac44, type: 3}
-    prestige: Red,Red
+    prestige: Red
     path: 1
   - prefab: {fileID: 5400552394083257877, guid: e7cbfefa92ecb1448959ee094064ac44, type: 3}
-    prestige: Red,Red
+    prestige: Red
     path: 1
   - prefab: {fileID: 5400552394083257877, guid: e7cbfefa92ecb1448959ee094064ac44, type: 3}
-    prestige: Red,Red
+    prestige: Red
     path: 1
   - prefab: {fileID: 5400552394083257877, guid: e7cbfefa92ecb1448959ee094064ac44, type: 3}
-    prestige: Red,Red
+    prestige: Red
     path: 1
   - prefab: {fileID: 5400552394083257877, guid: e7cbfefa92ecb1448959ee094064ac44, type: 3}
-    prestige: Red,Red
+    prestige: Red
     path: 1
   - prefab: {fileID: 5400552394083257877, guid: e7cbfefa92ecb1448959ee094064ac44, type: 3}
-    prestige: Red,Red
+    prestige: Red
     path: 1
   - prefab: {fileID: 5400552394083257877, guid: e7cbfefa92ecb1448959ee094064ac44, type: 3}
-    prestige: Red,Red
+    prestige: Red
     path: 1
   - prefab: {fileID: 5400552394083257877, guid: e7cbfefa92ecb1448959ee094064ac44, type: 3}
-    prestige: Red,Red
+    prestige: Red
     path: 1
   - prefab: {fileID: 5400552394083257877, guid: e7cbfefa92ecb1448959ee094064ac44, type: 3}
-    prestige: Red,Red
+    prestige: Red
     path: 1
   - prefab: {fileID: 5400552394083257877, guid: e7cbfefa92ecb1448959ee094064ac44, type: 3}
-    prestige: Red,Red
-    path: 1
-  - prefab: {fileID: 5400552394083257877, guid: e7cbfefa92ecb1448959ee094064ac44, type: 3}
-    prestige: Red,Red
-    path: 1
-  - prefab: {fileID: 5400552394083257877, guid: e7cbfefa92ecb1448959ee094064ac44, type: 3}
-    prestige: Red,Red
-    path: 1
-  - prefab: {fileID: 5400552394083257877, guid: e7cbfefa92ecb1448959ee094064ac44, type: 3}
-    prestige: Red,Red
-    path: 1
-  - prefab: {fileID: 5400552394083257877, guid: e7cbfefa92ecb1448959ee094064ac44, type: 3}
-    prestige: Red,Red
-    path: 1
-  - prefab: {fileID: 5400552394083257877, guid: e7cbfefa92ecb1448959ee094064ac44, type: 3}
-    prestige: Red,Red
-    path: 1
-  - prefab: {fileID: 5400552394083257877, guid: e7cbfefa92ecb1448959ee094064ac44, type: 3}
-    prestige: Red,Red
-    path: 1
-  - prefab: {fileID: 5400552394083257877, guid: e7cbfefa92ecb1448959ee094064ac44, type: 3}
-    prestige: Red,Red
-    path: 1
-  - prefab: {fileID: 5400552394083257877, guid: e7cbfefa92ecb1448959ee094064ac44, type: 3}
-    prestige: Red,Red
-    path: 1
-  - prefab: {fileID: 5400552394083257877, guid: e7cbfefa92ecb1448959ee094064ac44, type: 3}
-    prestige: Red,Red
-    path: 1
-  - prefab: {fileID: 5400552394083257877, guid: e7cbfefa92ecb1448959ee094064ac44, type: 3}
-    prestige: Red,Red
+    prestige: Red
     path: 1
   wave11:
   - prefab: {fileID: 5400552394083257877, guid: 43128a49fe5a05740b78b7039f89fcc3, type: 3}
@@ -41513,40 +41457,40 @@ MonoBehaviour:
     path: 1
   wave12:
   - prefab: {fileID: 5400552394083257877, guid: 7a3239f965467034d895b2634983a931, type: 3}
-    prestige: Red,Red
+    prestige: Red
     path: 1
   - prefab: {fileID: 5400552394083257877, guid: 7a3239f965467034d895b2634983a931, type: 3}
-    prestige: Red,Red
+    prestige: Red
     path: 1
   - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
-    prestige: Red,Red
+    prestige: Red
     path: 1
   - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
-    prestige: Red,Red
+    prestige: Red
     path: 1
   - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
-    prestige: Red,Red
+    prestige: Red
     path: 1
   - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
-    prestige: Red,Red
+    prestige: Red
     path: 1
   - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
-    prestige: Red,Red
+    prestige: Red
     path: 1
   - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
-    prestige: Red,Red
+    prestige: Red
     path: 1
   - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
-    prestige: Red,Red
+    prestige: Red
     path: 1
   - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
-    prestige: Red,Red
+    prestige: Red
     path: 1
   - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
-    prestige: Red,Red
+    prestige: Red
     path: 1
   - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
-    prestige: Red,Red
+    prestige: Red
     path: 1
   wave13:
   - prefab: {fileID: 5400552394083257877, guid: 54287e65eba40654f9f4d49b2488be98, type: 3}
@@ -41861,10 +41805,12 @@ MonoBehaviour:
   queenBeeMaxHP: 100
   queenArmor: 0
   honey: 0
+  bonusNectar: 0
   honeyRequired: 1000
   percentageOfFlowersUsed: 1
   difficultyScaling: 0.05
-  influenceCenter: {fileID: 781096084}
+  hiveEntrance: {fileID: 1192660506}
+  startingVision: 5
   numberOfPaths: 1
   path1:
   - {fileID: 1321757966}
@@ -42068,7 +42014,7 @@ MonoBehaviour:
   emptyHoneyCombs: []
   queuedTargets: []
   workerBeeCost: 0
-  nectar: 500
+  nectar: 200
   autoAssignBees: Nectar
   honeyCombTicks: 0
   honeyPerCombTick: 0
@@ -42348,5 +42294,4 @@ SceneRoots:
   - {fileID: 490234948}
   - {fileID: 329405312}
   - {fileID: 1556840767}
-  - {fileID: 781096084}
   - {fileID: 2125054321}

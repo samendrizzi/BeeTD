@@ -65,7 +65,6 @@ public class GlobalMap : MonoBehaviour
                 levelCount++;
             }
         }
-
         if (SaveFile.main.easyScores.Length != levelCount)
         {
             Array.Resize(ref SaveFile.main.easyScores, levelCount);
@@ -79,7 +78,6 @@ public class GlobalMap : MonoBehaviour
         {
             Array.Resize(ref SaveFile.main.hardScores, levelCount);
         }
-
         SaveFile.main.Save();
     }
 
