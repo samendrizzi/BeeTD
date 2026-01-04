@@ -2868,6 +2868,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
+  healthBar: {fileID: 0}
   sName: Explosive
   type: Tower
   cost: 125
@@ -2878,7 +2879,7 @@ MonoBehaviour:
   resistance: 20
   dodgeChance: 0
   targetingRange: 5
-  rotationSpeed: 150
+  rotationSpeed: 500
   wayPointRangeModifier: 1
   actionPower: 1
   actionRate: 0.5
@@ -2887,6 +2888,7 @@ MonoBehaviour:
   - Shoot AoE
   actionPrefabs:
   - {fileID: 5400552394083257877, guid: 66561c409533e004eb2e7912b67081b1, type: 3}
+  actionSounds: 03000000
   actionPowerModifiers:
   - 1
   actionRateModifiers:

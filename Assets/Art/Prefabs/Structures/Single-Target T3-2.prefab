@@ -2866,6 +2866,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
+  healthBar: {fileID: 0}
   sName: Basic Rate +
   type: Tower
   cost: 600
@@ -2876,7 +2877,7 @@ MonoBehaviour:
   resistance: 20
   dodgeChance: 0
   targetingRange: 5
-  rotationSpeed: 150
+  rotationSpeed: 500
   wayPointRangeModifier: 1
   actionPower: 1.5
   actionRate: 3
@@ -2885,6 +2886,7 @@ MonoBehaviour:
   - Shoot Ramping
   actionPrefabs:
   - {fileID: 5400552394083257877, guid: b0ec47437bbac934cb1815131b7480b4, type: 3}
+  actionSounds: 05000000
   actionPowerModifiers:
   - 1
   actionRateModifiers:

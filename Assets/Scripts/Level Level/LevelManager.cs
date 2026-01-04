@@ -167,7 +167,7 @@ public class LevelManager : MonoBehaviour
 
     private void Update()
     {
-        timeElapsed += Time.deltaTime;
+        timeElapsed += GlobalValues.main.deltaTime;
         if (timeElapsed >= GlobalValues.main.honeyCombCheckTime)
         {
             timeElapsed = 0f;
@@ -175,12 +175,12 @@ public class LevelManager : MonoBehaviour
         }
         if (finalWave == false && levelStarted == true)
         {
-            honey += (bonusInvestmentRate + investmentRate) * Time.deltaTime;
-            nectar += (incomeRate) * Time.deltaTime;
+            honey += (bonusInvestmentRate + investmentRate) * GlobalValues.main.deltaTime;
+            nectar += (incomeRate) * GlobalValues.main.deltaTime;
         }
         else if (levelStarted == true)
         {
-            nectar += (incomeRate) * Time.deltaTime;
+            nectar += (incomeRate) * GlobalValues.main.deltaTime;
         }
     }
 

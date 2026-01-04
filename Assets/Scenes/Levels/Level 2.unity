@@ -41271,9 +41271,6 @@ MonoBehaviour:
   - prefab: {fileID: 5400552394083257877, guid: 54287e65eba40654f9f4d49b2488be98, type: 3}
     prestige: 
     path: 1
-  - prefab: {fileID: 5400552394083257877, guid: fd70fc47f1d6cb84b89e9e0975a129ab, type: 3}
-    prestige: 
-    path: 1
   - prefab: {fileID: 5400552394083257877, guid: 54287e65eba40654f9f4d49b2488be98, type: 3}
     prestige: 
     path: 1
@@ -41806,7 +41803,7 @@ MonoBehaviour:
   queenArmor: 0
   honey: 0
   bonusNectar: 0
-  honeyRequired: 1000
+  honeyRequired: 1500
   percentageOfFlowersUsed: 1
   difficultyScaling: 0.05
   hiveEntrance: {fileID: 1192660506}

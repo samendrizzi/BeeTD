@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5afdfd44ea603c14cb7904aaa6ad8c38
+guid: 80b36eeae6c0eee468b25f3cf6fadc19
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -103,10 +103,10 @@ TextureImporter:
       name: projectile3_0
       rect:
         serializedVersion: 2
-        x: 21
-        y: 30
-        width: 1362
-        height: 971
+        x: 340
+        y: 351
+        width: 273
+        height: 95
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

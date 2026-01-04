@@ -73,9 +73,9 @@ public class Projectile : MonoBehaviour
         }
         Vector2 direction = (target.position - transform.position).normalized;
         rb.linearVelocity = direction * projectileSpeed;
-        float angle = Mathf.Atan2(target.position.y - transform.position.y, target.position.x - transform.position.x) * Mathf.Rad2Deg - 90f;
+        float angle = Mathf.Atan2(target.position.y - transform.position.y, target.position.x - transform.position.x) * Mathf.Rad2Deg;
         Quaternion targetRotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 500 * Time.deltaTime);   
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 500 * GlobalValues.main.deltaTime);   
     }
 
     private void OnCollisionEnter2D(Collision2D other)

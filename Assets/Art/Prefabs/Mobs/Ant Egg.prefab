@@ -603,7 +603,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 4423886420735543562}
   m_FillRect: {fileID: 163429647386076481}
   m_HandleRect: {fileID: 0}
@@ -777,7 +777,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0.21133333}
-  m_Radius: 0.5
+  m_Radius: 3
 --- !u!114 &4047690027497037073
 MonoBehaviour:
   m_ObjectHideFlags: 0

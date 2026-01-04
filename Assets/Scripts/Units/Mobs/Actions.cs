@@ -34,7 +34,7 @@ public class Actions : MonoBehaviour
             //iterate through all actions
             for (int i = 0; i < attributes.actions.Length; i++)
             {
-                attributes.timeUntilActions[i] -= Time.deltaTime;
+                attributes.timeUntilActions[i] -= GlobalValues.main.deltaTime;
                 if (attributes.target != null)
                 {
                     if (Vector2.Distance(attributes.target.position, gameObject.transform.position) <= attributes.targetingRange && attributes.timeUntilActions[i] <= 0f)
@@ -68,7 +68,7 @@ public class Actions : MonoBehaviour
                     return;
                 }
                 float actionAoE = attributes.actionExtraModifiers[i] * GlobalValues.main.projectileAoEModifier;
-                Shoot(action, attributes.actionPrefabs[i], actionPower, effectPower, actionPierce, effectPierce, actionDuration, actionAoE);
+                Shoot(action, attributes.actionPrefabs[i], attributes.actionSounds[i], actionPower, effectPower, actionPierce, effectPierce, actionDuration, actionAoE);
                 attributes.timeUntilActions[i] = 1 / (actionRate);
             }
             else if (action == "Pulse Slow")
@@ -255,9 +255,9 @@ public class Actions : MonoBehaviour
         attributes.Pause(GlobalValues.main.hummingbirdWaitTime / power);      
     }
 
-    private void Shoot(string action, GameObject projectilePrefab, float actionPower, float effectPower, float actionPierce, float effectPierce, float actionDuration, float actionAoE)
+    private void Shoot(string action, GameObject projectilePrefab, SoundType sound, float actionPower, float effectPower, float actionPierce, float effectPierce, float actionDuration, float actionAoE)
     {
-        float angle = Mathf.Atan2(attributes.target.position.y - transform.position.y, attributes.target.position.x - transform.position.x) * Mathf.Rad2Deg - 90f;
+        float angle = Mathf.Atan2(attributes.target.position.y - transform.position.y, attributes.target.position.x - transform.position.x) * Mathf.Rad2Deg;
         Quaternion targetRotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
         GameObject projectileObj = Instantiate(projectilePrefab, gameObject.GetComponent<Turret>().firingPoint.position, targetRotation);
         Projectile projectileScript = projectileObj.GetComponent<Projectile>();
@@ -273,6 +273,7 @@ public class Actions : MonoBehaviour
         {
             projectileScript.SetTarget(attributes.target, actionPower, effectPower, actionPierce, effectPierce, attributes.canHit, attributes.ignoreTerrain, action, actionDuration, actionAoE);
         }
+        SoundManager.main.PlaySound(sound);
     }
 
     private void SendSlowPulse(float effectPower, float effectDuration, float effectPierce, float effectRange)

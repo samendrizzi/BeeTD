@@ -116,7 +116,7 @@ GameObject:
   - component: {fileID: 6492762394861498065}
   - component: {fileID: -274295825032240802}
   m_Layer: 29
-  m_Name: Projectile 7
+  m_Name: Medium
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -130,14 +130,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5400552394083257877}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: -0.45399043, w: 0.8910066}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 14.35, y: 8.176033, z: 0}
   m_LocalScale: {x: 0.049999997, y: 0.049999997, z: 0.049999997}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8013150154429604693}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -54}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &9003350563572383055
 SpriteRenderer:
   serializedVersion: 2
@@ -187,7 +187,7 @@ SpriteRenderer:
   m_SortingLayer: 3
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -5217263112813719873, guid: 7ed6fa0be8924794aa299d2612a54ecb, type: 3}
+  m_Sprite: {fileID: 3856960331212403999, guid: 0235ee2c435df294b9e1bcb184785cee, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -258,8 +258,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0.21133333}
-  m_Radius: 0.5
+  m_Offset: {x: 2.5, y: 0}
+  m_Radius: 1.5
 --- !u!114 &-274295825032240802
 MonoBehaviour:
   m_ObjectHideFlags: 0

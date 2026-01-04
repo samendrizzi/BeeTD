@@ -2742,6 +2742,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
+  healthBar: {fileID: 0}
   sName: Power Buff & Healer
   type: Tower
   cost: 250
@@ -2752,7 +2753,7 @@ MonoBehaviour:
   resistance: 20
   dodgeChance: 0
   targetingRange: 6
-  rotationSpeed: 150
+  rotationSpeed: 500
   wayPointRangeModifier: 1
   actionPower: 1
   actionRate: 1
@@ -2810,7 +2811,6 @@ MonoBehaviour:
   hasTargetSettings: 0
   targetSetting: 
   prestige: 
-  prestigeToRoll: 
   hitPoints: 1
   shield: 0
   isDestroyed: 0

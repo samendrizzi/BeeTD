@@ -2786,7 +2786,7 @@ MonoBehaviour:
   resistance: 20
   dodgeChance: 0
   targetingRange: 6
-  rotationSpeed: 150
+  rotationSpeed: 500
   wayPointRangeModifier: 1
   actionPower: 2.5
   actionRate: 1
@@ -2795,6 +2795,7 @@ MonoBehaviour:
   - Shoot AoE
   actionPrefabs:
   - {fileID: 5400552394083257877, guid: 66561c409533e004eb2e7912b67081b1, type: 3}
+  actionSounds: 08000000
   actionPowerModifiers:
   - 1
   actionRateModifiers:

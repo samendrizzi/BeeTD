@@ -540,7 +540,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 5649631225784406985}
   m_FillRect: {fileID: 57980648341402077}
   m_HandleRect: {fileID: 0}
@@ -750,7 +750,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0.21133333}
-  m_Radius: 0.5
+  m_Radius: 3
 --- !u!114 &8237646590780546677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -793,7 +793,7 @@ MonoBehaviour:
   actionRate: 1
   armorPierce: 0
   actions:
-  - Attack Queen
+  - Steal Honey
   actionPrefabs:
   - {fileID: 0}
   actionPowerModifiers:
@@ -819,7 +819,7 @@ MonoBehaviour:
   - {fileID: 6089545532913545976, guid: a2832832308239b49a845950483d6488, type: 3}
   effectPowerModifiers:
   - 1
-  - 5
+  - 1
   effectPierceModifiers:
   - 1
   - 1

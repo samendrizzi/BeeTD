@@ -39,6 +39,7 @@ public class Attributes : MonoBehaviour
     [SerializeField] public float armorPierce = 0f;
     [SerializeField] public string[] actions;
     [SerializeField] public GameObject[] actionPrefabs;
+    [SerializeField] public SoundType[] actionSounds;
     [SerializeField] public float[] actionPowerModifiers;
     [SerializeField] public float[] actionRateModifiers;
     [SerializeField] public float[] actionRangeModifiers;
@@ -218,7 +219,7 @@ public class Attributes : MonoBehaviour
     {
         if (pausing > 0f)
         {
-            pausing -= Time.deltaTime;
+            pausing -= GlobalValues.main.deltaTime;
         }
         if (frozen == true)
         {
@@ -227,7 +228,7 @@ public class Attributes : MonoBehaviour
         //Update Counters
         if (freezeImmune > 0)
         {
-            freezeImmune -= Time.deltaTime;
+            freezeImmune -= GlobalValues.main.deltaTime;
         }
     }
 
@@ -416,6 +417,7 @@ public class Attributes : MonoBehaviour
             {
                 ReturnHoney();
                 WaveSpawner.main.EnemyDestroyed();
+                SoundManager.main.PlaySound(SoundType.INSECTDIE);
             }
             Destroy(gameObject);
         }

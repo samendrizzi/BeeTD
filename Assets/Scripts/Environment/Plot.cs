@@ -64,7 +64,7 @@ public class Plot : MonoBehaviour
     {
         if (pause > 0)
         {
-            pause -= Time.deltaTime;
+            pause -= GlobalValues.main.deltaTime;
             if (pause <= 0 && isSapped)
             {
                 UnsapFlower();

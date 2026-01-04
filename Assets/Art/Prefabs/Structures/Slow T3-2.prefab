@@ -2866,6 +2866,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
+  healthBar: {fileID: 0}
   sName: Freeze AoE
   type: Tower
   cost: 450
@@ -2876,7 +2877,7 @@ MonoBehaviour:
   resistance: 20
   dodgeChance: 0
   targetingRange: 5
-  rotationSpeed: 150
+  rotationSpeed: 500
   wayPointRangeModifier: 1
   actionPower: 0
   actionRate: 1.5
@@ -2885,6 +2886,7 @@ MonoBehaviour:
   - Shoot AoE Freezing
   actionPrefabs:
   - {fileID: 5400552394083257877, guid: f99b3ddb49dab8f4391fa55c5c324f71, type: 3}
+  actionSounds: 0b000000
   actionPowerModifiers:
   - 1
   actionRateModifiers:

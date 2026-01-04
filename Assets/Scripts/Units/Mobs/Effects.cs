@@ -34,7 +34,7 @@ public class Effects : MonoBehaviour
             //iterate through all effects
             for (int i = 0; i<attributes.effects.Length; i++)
             {
-                attributes.timeUntilEffects[i] -= Time.deltaTime;
+                attributes.timeUntilEffects[i] -= GlobalValues.main.deltaTime;
                 if (attributes.timeUntilEffects[i] <= 0f)
                 {
                     Effect(i);

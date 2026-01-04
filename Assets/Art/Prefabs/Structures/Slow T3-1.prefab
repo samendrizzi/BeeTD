@@ -2752,7 +2752,7 @@ MonoBehaviour:
   resistance: 20
   dodgeChance: 0
   targetingRange: 5
-  rotationSpeed: 150
+  rotationSpeed: 500
   wayPointRangeModifier: 1
   actionPower: 0.3
   actionRate: 0.2

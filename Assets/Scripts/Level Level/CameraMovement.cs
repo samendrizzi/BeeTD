@@ -78,7 +78,7 @@ public class CameraMovement : MonoBehaviour
                 keystrokeTimer = 0f;
             }
         }
-        keystrokeTimer += Time.deltaTime; 
+        keystrokeTimer += Time.unscaledDeltaTime; 
     }
 
     private void PanCamera()
