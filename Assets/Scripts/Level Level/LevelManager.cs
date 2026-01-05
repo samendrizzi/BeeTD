@@ -93,7 +93,6 @@ public class LevelManager : MonoBehaviour
         speed = UIManager.main.speed;
         pause = UIManager.main.pause;
         honeyRequired = honeyRequired * GlobalValues.main.difficultyMultiplier;
-
         nectarGenerationRate = GlobalValues.main.globalFertility;
         CalculateIncome();
         UIManager.main.NormalSpeed();
@@ -170,7 +169,8 @@ public class LevelManager : MonoBehaviour
         //maximum deltaTime
         if (Time.deltaTime > GlobalValues.main.maxDeltaTime)
         {
-            float newTimeScale = (Time.deltaTime / GlobalValues.main.maxDeltaTime) * timing;
+            float newTimeScale = (GlobalValues.main.maxDeltaTime / Time.deltaTime) * timing;
+            Debug.Log(newTimeScale);
             Time.timeScale = newTimeScale;
         }
         else
@@ -293,6 +293,7 @@ public class LevelManager : MonoBehaviour
 
     private void Victory()
     {
+        CollectAllHoney();
         if (GlobalValues.main.difficultySetting == "Easy")
         {
             if (SaveFile.gameData.easyScores[GlobalValues.main.levelIndex] < honey)
@@ -737,5 +738,13 @@ public class LevelManager : MonoBehaviour
     private void StartingReveal()
     {
         StartCoroutine(hiveEntrance.GetComponent<Plot>().RevealFog(startingVision, true));
+    }
+
+    public void CollectAllHoney()
+    {
+        foreach (GameObject comb in honeyCombs)
+        {
+            comb.GetComponent<Plot>().GetAllHoney();
+        }
     }
 }

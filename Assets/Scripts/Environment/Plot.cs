@@ -267,4 +267,13 @@ public class Plot : MonoBehaviour
         honeyPerTick = 0f;
         sr.sprite = originalSprite;
     }
+
+    public void GetAllHoney()
+    {
+        if (honeyTicks > 0)
+        {
+            LevelManager.main.honey += honeyPerTick * honeyTicks;
+        }
+        HoneyEmpty();
+    }
 }

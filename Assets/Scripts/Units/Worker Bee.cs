@@ -67,11 +67,6 @@ public class WorkerBee : MonoBehaviour
         //Check if bee has target
         if (attributes.work == "Soldier" && attributes.target == null)
         {
-            if (LevelManager.main.finalWave == true)
-            {
-                LevelManager.main.AssignBeeToSoldier(true);
-                return;
-            }
             //find enemy nearest to queen
             RaycastHit2D[] hits = Physics2D.CircleCastAll(LevelManager.main.queenBee.transform.position, 300f, (Vector2)LevelManager.main.queenBee.transform.position, 0f, GlobalValues.main.enemyMask);
             if (hits.Length > 0)
@@ -94,6 +89,12 @@ public class WorkerBee : MonoBehaviour
         }
         else if (attributes.work == "Honey" && attributes.target == null)
         {
+            if (LevelManager.main.finalWave == true)
+            {
+                LevelManager.main.AssignBeeToHoney(false);
+                LevelManager.main.AssignBeeToSoldier(true);
+                return;
+            }
             //Find Empty Comb
             if (attributes.inventoryFull)
             {

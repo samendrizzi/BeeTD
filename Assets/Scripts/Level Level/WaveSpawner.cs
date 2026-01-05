@@ -136,11 +136,9 @@ public class WaveSpawner : MonoBehaviour
         LevelManager.main.OrganizeBees();
         if (currentWave >= numberOfWaves)
         {
-            LevelManager.main.finalWave = true;
-            finalWave = true;
-            waveCountdown = 0f;
+            return;
         }
-        else
+        else 
         {
             currentWave++;
             waveCountdown = timeBetweenWaves;
@@ -163,6 +161,12 @@ public class WaveSpawner : MonoBehaviour
                 enemiesPerSecond[i] = (enemiesLeftToSpawn[i]) / (timeBetweenWaves * waveSpawnRatio);
                 pathIsSpawning[i] = true;
             }
+        }
+        if (currentWave == numberOfWaves)
+        {
+            LevelManager.main.finalWave = true;
+            finalWave = true;
+            waveCountdown = 0f;
         }
     }
 
