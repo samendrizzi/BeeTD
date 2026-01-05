@@ -34,7 +34,7 @@ public class Actions : MonoBehaviour
             //iterate through all actions
             for (int i = 0; i < attributes.actions.Length; i++)
             {
-                attributes.timeUntilActions[i] -= GlobalValues.main.deltaTime;
+                attributes.timeUntilActions[i] -= Time.deltaTime;
                 if (attributes.target != null)
                 {
                     if (Vector2.Distance(attributes.target.position, gameObject.transform.position) <= attributes.targetingRange && attributes.timeUntilActions[i] <= 0f)

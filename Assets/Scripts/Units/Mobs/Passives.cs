@@ -34,7 +34,7 @@ public class Passives : MonoBehaviour
             //iterate through all passives
             for (int i = 0; i < attributes.passives.Length; i++)
             {
-                attributes.timeUntilPassives[i] -= GlobalValues.main.deltaTime;
+                attributes.timeUntilPassives[i] -= Time.deltaTime;
             }
         }
     }

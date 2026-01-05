@@ -105,7 +105,7 @@ public class WaveSpawner : MonoBehaviour
     {
          if (finalWave == false)
          {
-             waveCountdown -= GlobalValues.main.deltaTime;
+             waveCountdown -= Time.deltaTime;
              if (waveCountdown <= 0)
              {
                  EndWave();
@@ -121,7 +121,7 @@ public class WaveSpawner : MonoBehaviour
          }
          for (int i = 0; i < LevelManager.main.numberOfPaths; i++)
          {
-            timeSinceLastSpawn[i] += GlobalValues.main.deltaTime;
+            timeSinceLastSpawn[i] += Time.deltaTime;
             if (timeSinceLastSpawn[i] >= (1f / enemiesPerSecond[i]) && enemiesLeftToSpawn[i] > 0)
             {
                 enemiesLeftToSpawn[i]--;

@@ -41802,7 +41802,7 @@ MonoBehaviour:
   queenBeeMaxHP: 100
   queenArmor: 0
   honey: 0
-  bonusNectar: 0
+  bonusNectar: 5000
   honeyRequired: 1500
   percentageOfFlowersUsed: 1
   difficultyScaling: 0.05

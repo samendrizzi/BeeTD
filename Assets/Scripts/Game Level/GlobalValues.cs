@@ -276,8 +276,6 @@ public class GlobalValues : MonoBehaviour
     public float difficultyMultiplier = 1f;
     public string targetingOptionDefault;
     public bool gameLoaded = false;
-    public float deltaTime = 0f;
-
 
     // Define parameter arrays
     //Flowers
@@ -306,19 +304,6 @@ public class GlobalValues : MonoBehaviour
         FLOWERText = new string[] { closedFlowerText, blueFlowerText, whiteFlowerText, pinkFlowerText, purpleFlowerText, goldFlowerText, redFlowerText, yellowFlowerText };
         FLOWERModifier = new float[] { closedFlowerModifier, blueFlowerModifier, whiteFlowerModifier, pinkFlowerModifier, purpleFlowerModifier, goldFlowerModifier, redFlowerModifier, yellowFlowerModifier };
         FLOWERRarity = new float[] { closedFlowerRarity, blueFlowerRarity, whiteFlowerRarity, pinkFlowerRarity, purpleFlowerRarity, goldFlowerRarity, redFlowerRarity, yellowFlowerRarity };
-    }
-
-    private void Update()
-    {
-        //maximum deltaTime
-        if (Time.deltaTime > maxDeltaTime)
-        {
-            deltaTime = maxDeltaTime;
-        }
-        else
-        {
-            deltaTime = Time.deltaTime;
-        }
     }
 
     public void SetUI(bool state)

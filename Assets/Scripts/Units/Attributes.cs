@@ -219,7 +219,7 @@ public class Attributes : MonoBehaviour
     {
         if (pausing > 0f)
         {
-            pausing -= GlobalValues.main.deltaTime;
+            pausing -= Time.deltaTime;
         }
         if (frozen == true)
         {
@@ -228,7 +228,7 @@ public class Attributes : MonoBehaviour
         //Update Counters
         if (freezeImmune > 0)
         {
-            freezeImmune -= GlobalValues.main.deltaTime;
+            freezeImmune -= Time.deltaTime;
         }
     }
 

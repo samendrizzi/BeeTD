@@ -41,7 +41,7 @@ public class WorkerBee : MonoBehaviour
             attributes.rb.linearVelocity = direction * attributes.moveSpeed;
             float angle = Mathf.Atan2(attributes.target.position.y - transform.position.y, attributes.target.position.x - transform.position.x) * Mathf.Rad2Deg - 90f;
             Quaternion targetRotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, attributes.rotationSpeed * attributes.moveSpeed * GlobalValues.main.deltaTime);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, attributes.rotationSpeed * attributes.moveSpeed * Time.deltaTime);
         }
         else
         {
@@ -59,7 +59,6 @@ public class WorkerBee : MonoBehaviour
         //float actionDuration = attributes.actionDurations[i];
         //GameObject prefab = attributes.actionPrefabs[i];
         attributes.timeUntilActions[i] = 1 / (actionRate);
-
     }      
    
 
@@ -68,6 +67,11 @@ public class WorkerBee : MonoBehaviour
         //Check if bee has target
         if (attributes.work == "Soldier" && attributes.target == null)
         {
+            if (LevelManager.main.finalWave == true)
+            {
+                LevelManager.main.AssignBeeToSoldier(true);
+                return;
+            }
             //find enemy nearest to queen
             RaycastHit2D[] hits = Physics2D.CircleCastAll(LevelManager.main.queenBee.transform.position, 300f, (Vector2)LevelManager.main.queenBee.transform.position, 0f, GlobalValues.main.enemyMask);
             if (hits.Length > 0)
@@ -108,11 +112,5 @@ public class WorkerBee : MonoBehaviour
 
         }
     }
-
-    private void Effects(int i)
-    {
-        //currently none
-    }
-
 
 }

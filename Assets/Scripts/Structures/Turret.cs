@@ -209,7 +209,7 @@ public class Turret : MonoBehaviour
         {
             float angle = Mathf.Atan2(attributes.target.position.y - transform.position.y, attributes.target.position.x - transform.position.x) * Mathf.Rad2Deg - 90f;
             Quaternion targetRotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
-            turretRotationPoint.rotation = Quaternion.RotateTowards(turretRotationPoint.rotation, targetRotation, attributes.rotationSpeed * GlobalValues.main.deltaTime);
+            turretRotationPoint.rotation = Quaternion.RotateTowards(turretRotationPoint.rotation, targetRotation, attributes.rotationSpeed * Time.deltaTime);
         }
     }
 
