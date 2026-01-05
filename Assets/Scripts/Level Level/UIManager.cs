@@ -154,9 +154,9 @@ public class UIManager : MonoBehaviour
         WaveUpdate();
     }
 
-    public void BuyUnit(int i)
+    public void BuyUnit(string work = "")
     {
-        LevelManager.main.BuyUnit(i);
+        LevelManager.main.BuyUnit(work);
     }
 
     public void AssignNectarBee(bool add)
@@ -186,7 +186,7 @@ public class UIManager : MonoBehaviour
         }
         else if (value == false)
         {
-            LevelManager.main.autoAssignBees = "unassigned";
+            LevelManager.main.autoAssignBees = "Unassigned";
         }
     }
 
@@ -201,7 +201,7 @@ public class UIManager : MonoBehaviour
         }
         else if (value == false)
         {
-            LevelManager.main.autoAssignBees = "unassigned";
+            LevelManager.main.autoAssignBees = "Unassigned";
         }
     }
 
@@ -216,7 +216,7 @@ public class UIManager : MonoBehaviour
         }
         else if (value == false)
         {
-            LevelManager.main.autoAssignBees = "unassigned";
+            LevelManager.main.autoAssignBees = "Unassigned";
         }
     }
 

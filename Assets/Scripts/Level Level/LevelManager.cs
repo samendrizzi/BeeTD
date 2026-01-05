@@ -170,7 +170,6 @@ public class LevelManager : MonoBehaviour
         if (Time.deltaTime > GlobalValues.main.maxDeltaTime)
         {
             float newTimeScale = (GlobalValues.main.maxDeltaTime / Time.deltaTime) * timing;
-            Debug.Log(newTimeScale);
             Time.timeScale = newTimeScale;
         }
         else
@@ -461,17 +460,17 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    public void BuyUnit(int i)
+    public void BuyUnit(string work = "")
     {     
         if (nectar >= workerBeeCost)
         {
             //Spawn bee
             nectar -= workerBeeCost;
-            SpawnUnit();
+            SpawnUnit(work);
         }
     }
 
-    private void SpawnUnit()
+    private void SpawnUnit(string work)
     {
         GameObject prefabToSpawn = GlobalValues.main.workerBeePrefab;
         Transform start = queenBee.transform;
@@ -482,25 +481,29 @@ public class LevelManager : MonoBehaviour
         //Add bee to array tracking
         Array.Resize(ref workerBees, workerBees.Length + 1);
         workerBees[workerBees.Length - 1] = unit;
-        if (autoAssignBees == "unassigned")
+        if (work == "")
         {
-            unit.GetComponent<Attributes>().work = "unassigned";
+            work = autoAssignBees;
+        }
+        if (work == "Unassigned")
+        {
+            unit.GetComponent<Attributes>().work = "Unassigned";
             Array.Resize(ref unassignedBees, unassignedBees.Length + 1);
             unassignedBees[unassignedBees.Length - 1] = unit;
         }
-        else if (autoAssignBees == "Nectar")
+        else if (work == "Nectar")
         {
             unit.GetComponent<Attributes>().work = "Nectar";
             Array.Resize(ref nectarBees, nectarBees.Length + 1);
             nectarBees[nectarBees.Length - 1] = unit;
         }
-        else if (autoAssignBees == "Honey")
+        else if (work == "Honey")
         {
             unit.GetComponent<Attributes>().work = "Honey";
             Array.Resize(ref honeyBees, honeyBees.Length + 1);
             honeyBees[honeyBees.Length - 1] = unit;
         }
-        else if (autoAssignBees == "Soldier")
+        else if (work == "Soldier")
         {
             unit.GetComponent<Attributes>().work = "Soldier";
             Array.Resize(ref soldierBees, soldierBees.Length + 1);
@@ -559,7 +562,7 @@ public class LevelManager : MonoBehaviour
             GameObject Bee = nectarBees[nectarBees.Length - 1];
             Array.Resize(ref nectarBees, nectarBees.Length - 1);
             Array.Resize(ref unassignedBees, unassignedBees.Length + 1);
-            Bee.GetComponent<Attributes>().work = "unassigned";
+            Bee.GetComponent<Attributes>().work = "Unassigned";
             unassignedBees[unassignedBees.Length - 1] = Bee;
             OrganizeBees();
         }
@@ -612,7 +615,7 @@ public class LevelManager : MonoBehaviour
             GameObject Bee = honeyBees[honeyBees.Length - 1];
             Array.Resize(ref honeyBees, honeyBees.Length - 1);
             Array.Resize(ref unassignedBees, unassignedBees.Length + 1);
-            Bee.GetComponent<Attributes>().work = "unassigned";
+            Bee.GetComponent<Attributes>().work = "Unassigned";
             unassignedBees[unassignedBees.Length - 1] = Bee;
             OrganizeBees();
         }
@@ -665,7 +668,7 @@ public class LevelManager : MonoBehaviour
             GameObject Bee = soldierBees[soldierBees.Length - 1];
             Array.Resize(ref soldierBees, soldierBees.Length - 1);
             Array.Resize(ref unassignedBees, unassignedBees.Length + 1);
-            Bee.GetComponent<Attributes>().work = "unassigned";
+            Bee.GetComponent<Attributes>().work = "Unassigned";
             unassignedBees[unassignedBees.Length - 1] = Bee;
             OrganizeBees();
         }
@@ -731,7 +734,7 @@ public class LevelManager : MonoBehaviour
         int startingBees = 2;
         for (int i = 1; i <= startingBees; i++) 
         {
-            SpawnUnit();
+            SpawnUnit("Nectar");
         }
     }
 

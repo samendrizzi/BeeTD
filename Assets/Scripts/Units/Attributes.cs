@@ -138,7 +138,7 @@ public class Attributes : MonoBehaviour
     public float[] passiveRangeModifiersBase;
     public float[] passiveDurationsBase;
     public float[] passiveExtraModifiersBase;
-    public string work = "unassigned";
+    public string work = "Unassigned";
     public GameObject flower;
     public float nectar = 0f;
     public int targetingIndex = 0;

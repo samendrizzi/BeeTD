@@ -23,7 +23,7 @@ public class WorkerBee : MonoBehaviour
 
     private void Update()
     {    
-        if (LevelManager.main.levelStarted == false || attributes.work == "unassigned" || attributes.frozen == true || attributes.pausing > 0f)
+        if (LevelManager.main.levelStarted == false || attributes.work == "Unassigned" || attributes.frozen == true || attributes.pausing > 0f)
         {
             //Bee to do nothing
             attributes.HaltMovement();
