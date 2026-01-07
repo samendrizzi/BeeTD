@@ -103,13 +103,13 @@ TextureImporter:
       name: Medium Rectangular UI 1_0
       rect:
         serializedVersion: 2
-        x: 12
+        x: 6
         y: 0
-        width: 562
+        width: 574
         height: 225
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 11, y: 19, z: 8, w: 20}
       customData: 
       outline: []
       physicsShape: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 53c51b6457d0c82469f4463c5da4b316
     internalID: 0
     vertices: []
     indices: 

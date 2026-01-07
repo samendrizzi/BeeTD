@@ -22,6 +22,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] public GameObject defeatUI;
     [SerializeField] public GameObject controlUI;
     [SerializeField] public GameObject enemyUI;
+    [SerializeField] public GameObject menuUI;
     [SerializeField] public TextMeshProUGUI queenHealthNumbered;
     [SerializeField] public TextMeshProUGUI unitCost;
     [SerializeField] public TextMeshProUGUI unassignedBees;
@@ -45,7 +46,7 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-
+        Reset();
     }
 
     private void Update()
@@ -74,17 +75,24 @@ public class UIManager : MonoBehaviour
 
     public void VictoryUI()
     {
-        victoryUI.SetActive(true);
+        SetVictoryUI(true);
     }
 
     public void DefeatUI()
     {
-        defeatUI.SetActive(true);
+        SetDefeatUI(true);
     }
 
-    public void MainMenu()
+    public void ExitToMainMenu()
     {
         SceneManager.LoadScene("Main Menu", LoadSceneMode.Additive);
+        GlobalValues.main.SetUI(false);
+        SceneManager.UnloadSceneAsync(LevelManager.main.gameObject.scene);
+    }
+
+    public void ExitToCampaignMenu()
+    {
+        SceneManager.LoadScene("Global Map", LoadSceneMode.Additive);
         GlobalValues.main.SetUI(false);
         SceneManager.UnloadSceneAsync(LevelManager.main.gameObject.scene);
     }
@@ -99,6 +107,7 @@ public class UIManager : MonoBehaviour
         }
         else
         {
+            SetMenuUI(false);
             pauseButton.GetComponent<Image>().color = normalColor;
         }
     }
@@ -144,8 +153,11 @@ public class UIManager : MonoBehaviour
 
     public void Reset()
     {
-        victoryUI.SetActive(false);
-        defeatUI.SetActive(false);
+        SetMenuUI(false);
+        SetVictoryUI(false);
+        SetDefeatUI(false);
+        controlUI.transform.position = controlUI.GetComponent<DraggableUI>().startingPosition;
+        enemyUI.transform.position = enemyUI.GetComponent<DraggableUI>().startingPosition;
         //Set button colors
         normalSpeedButton.GetComponent<Image>().color = pressedColor;
         pauseButton.GetComponent<Image>().color = normalColor;
@@ -230,6 +242,36 @@ public class UIManager : MonoBehaviour
         enemyUI.SetActive(!enemyUI.activeSelf);
     }
 
+    public void ToggleMenuUI()
+    {
+        menuUI.SetActive(!menuUI.activeSelf);
+    }
+
+    public void SetControlUI(bool state)
+    {
+        controlUI.SetActive(state);
+    }
+
+    public void SetEnemyUI(bool state)
+    {
+        enemyUI.SetActive(state);
+    }
+
+    public void SetMenuUI(bool state)
+    {
+        menuUI.SetActive(state);
+    }
+
+    public void SetVictoryUI(bool state)
+    {
+        victoryUI.SetActive(state);
+    }
+
+    public void SetDefeatUI(bool state)
+    {
+        defeatUI.SetActive(state);
+    }
+
     public void UpdateQueensCommand()
     {
         //Add text to buttons
@@ -239,5 +281,6 @@ public class UIManager : MonoBehaviour
         honeyBees.text = LevelManager.main.honeyBees.Length.ToString();
         soldierBees.text = LevelManager.main.soldierBees.Length.ToString();
     }
+
 }
 

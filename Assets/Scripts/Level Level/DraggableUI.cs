@@ -7,6 +7,12 @@ public class DraggableUI : MonoBehaviour, IDragHandler
     private RectTransform panelRectTransform;
     private RectTransform parentRectTransform;
     private Canvas canvas;
+    public Vector2 startingPosition;
+
+    void Awake()
+    {
+        startingPosition = gameObject.transform.position;
+    }
 
     void Start()
     {

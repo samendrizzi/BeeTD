@@ -103,12 +103,12 @@ TextureImporter:
       name: Combat Button_0
       rect:
         serializedVersion: 2
-        x: 897
+        x: 841
         y: 349
-        width: 492
-        height: 553
+        width: 616
+        height: 608
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 65491e1e9e7711d48a1f03e23155099b
     internalID: 0
     vertices: []
     indices: 
