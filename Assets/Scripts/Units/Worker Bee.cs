@@ -37,11 +37,16 @@ public class WorkerBee : MonoBehaviour
     {
         if (attributes.target != null)
         {
+            //set veolcity
             Vector2 direction = (attributes.target.position - transform.position).normalized;
             attributes.rb.linearVelocity = direction * attributes.moveSpeed;
-            float angle = Mathf.Atan2(attributes.target.position.y - transform.position.y, attributes.target.position.x - transform.position.x) * Mathf.Rad2Deg - 90f;
-            Quaternion targetRotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, attributes.rotationSpeed * attributes.moveSpeed * Time.deltaTime);
+            //set rotation
+            if (attributes.rotationSpeed > 0)
+            {
+                float angle = Mathf.Atan2(attributes.target.position.y - transform.position.y, attributes.target.position.x - transform.position.x) * Mathf.Rad2Deg - 90f;
+                Quaternion targetRotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, attributes.rotationSpeed * attributes.moveSpeed * Time.deltaTime);
+            }
         }
         else
         {

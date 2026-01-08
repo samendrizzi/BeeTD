@@ -537,6 +537,7 @@ MonoBehaviour:
   sName: Ant Queen
   type: Enemy Unit
   cost: 0
+  deathSound: 92
   moveSpeed: 0.8
   maxHP: 20
   maxShield: 0
@@ -553,6 +554,7 @@ MonoBehaviour:
   - Attack Queen
   actionPrefabs:
   - {fileID: 0}
+  actionSounds: 
   actionPowerModifiers:
   - 1
   actionRateModifiers:
@@ -572,6 +574,7 @@ MonoBehaviour:
   - Spawn
   effectPrefabs:
   - {fileID: 5400552394083257877, guid: 7d006921c5cf87846877d2ca84817994, type: 3}
+  effectSounds: 68000000
   effectPowerModifiers:
   - 1
   effectPierceModifiers:
@@ -589,6 +592,7 @@ MonoBehaviour:
   passivePierce: 0
   passives: []
   passivePrefabs: []
+  passiveSounds: 
   passivePowerModifiers: []
   passivePierceModifiers: []
   passiveRateModifiers: []

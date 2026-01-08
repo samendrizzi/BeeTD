@@ -32,6 +32,10 @@ public class UIManager : MonoBehaviour
     [SerializeField] public Toggle autoAssignHoneyBee;
     [SerializeField] public Toggle autoAssignNectarBee;
     [SerializeField] public Toggle autoAssignSoldierBee;
+    [SerializeField] public SoundType clickPositive;
+    [SerializeField] public SoundType clickNegative;
+    [SerializeField] public SoundType clickToggle;
+    [SerializeField] public SoundType clickInteresting;
 
     public string speed = "Normal";
     public bool pause = false;
@@ -65,6 +69,11 @@ public class UIManager : MonoBehaviour
         {
             TogglePause();
         }
+        //Menu
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            ToggleMenuUI();
+        }
     }
 
 
@@ -85,6 +94,7 @@ public class UIManager : MonoBehaviour
 
     public void ExitToMainMenu()
     {
+        SoundManager.main.PlaySound(clickPositive);
         SceneManager.LoadScene("Main Menu", LoadSceneMode.Additive);
         GlobalValues.main.SetUI(false);
         SceneManager.UnloadSceneAsync(LevelManager.main.gameObject.scene);
@@ -92,13 +102,18 @@ public class UIManager : MonoBehaviour
 
     public void ExitToCampaignMenu()
     {
+        SoundManager.main.PlaySound(clickPositive);
         SceneManager.LoadScene("Global Map", LoadSceneMode.Additive);
         GlobalValues.main.SetUI(false);
         SceneManager.UnloadSceneAsync(LevelManager.main.gameObject.scene);
     }
 
-    public void TogglePause()
+    public void TogglePause(bool sound = true)
     {
+        if (sound == true)
+        {
+            SoundManager.main.PlaySound(clickToggle);
+        }
         pause = !pause;
         LevelManager.main.ChangeTiming(speed, pause);
         if (pause == true)
@@ -112,8 +127,12 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void NormalSpeed()
+    public void NormalSpeed(bool sound = true)
     {
+        if (sound == true)
+        {
+            SoundManager.main.PlaySound(clickToggle);
+        }
         speed = "Normal";
         if (pause == true)
         {
@@ -125,8 +144,12 @@ public class UIManager : MonoBehaviour
         veryFastSpeedButton.GetComponent<Image>().color = normalColor;
     }
 
-    public void FastSpeed()
+    public void FastSpeed(bool sound = true)
     {
+        if (sound == true)
+        {
+            SoundManager.main.PlaySound(clickToggle);
+        }
         speed = "Fast";
         if (pause == true)
         {
@@ -138,8 +161,12 @@ public class UIManager : MonoBehaviour
         veryFastSpeedButton.GetComponent<Image>().color = normalColor;
     }
 
-    public void VeryFastSpeed()
+    public void VeryFastSpeed(bool sound = true)
     {
+        if (sound == true)
+        {
+            SoundManager.main.PlaySound(clickToggle);
+        }
         speed = "Very Fast";
         if (pause == true)
         {
@@ -160,34 +187,39 @@ public class UIManager : MonoBehaviour
         enemyUI.transform.position = enemyUI.GetComponent<DraggableUI>().startingPosition;
         //Set button colors
         normalSpeedButton.GetComponent<Image>().color = pressedColor;
-        pauseButton.GetComponent<Image>().color = normalColor;
+        pauseButton.GetComponent<Image>().color = pressedColor;
         fastSpeedButton.GetComponent<Image>().color = normalColor;
-        veryFastSpeedButton.GetComponent<Image>().color = pressedColor;
+        veryFastSpeedButton.GetComponent<Image>().color = normalColor;
         WaveUpdate();
     }
 
     public void BuyUnit(string work = "")
     {
+        SoundManager.main.PlaySound(clickPositive);
         LevelManager.main.BuyUnit(work);
     }
 
     public void AssignNectarBee(bool add)
     {
+        SoundManager.main.PlaySound(clickPositive);
         LevelManager.main.AssignBeeToNectar(add);
     }
 
     public void AssignHoneyBee(bool add)
     {
+        SoundManager.main.PlaySound(clickPositive);
         LevelManager.main.AssignBeeToHoney(add);
     }
 
     public void AssignSoldierBee(bool add)
     {
+        SoundManager.main.PlaySound(clickPositive);
         LevelManager.main.AssignBeeToSoldier(add);
     }
 
     public void ToggleAutoNectarBeeAssign() 
     {
+        SoundManager.main.PlaySound(clickToggle);
         bool value = autoAssignNectarBee.isOn;
         if (value == true)
         {
@@ -204,6 +236,7 @@ public class UIManager : MonoBehaviour
 
     public void ToggleAutoHoneyBeeAssign() 
     {
+        SoundManager.main.PlaySound(clickToggle);
         bool value = autoAssignHoneyBee.isOn;
         if (value == true)
         {
@@ -219,6 +252,7 @@ public class UIManager : MonoBehaviour
 
     public void ToggleAutoSoldierBeeAssign()
     {
+        SoundManager.main.PlaySound(clickToggle);
         bool value = autoAssignSoldierBee.isOn;
         if (value == true)
         {
@@ -234,16 +268,19 @@ public class UIManager : MonoBehaviour
 
     public void ToggleControlUI()
     {
+        SoundManager.main.PlaySound(clickToggle);
         controlUI.SetActive(!controlUI.activeSelf);
     }
 
     public void ToggleEnemyUI()
     {
+        SoundManager.main.PlaySound(clickToggle);
         enemyUI.SetActive(!enemyUI.activeSelf);
     }
 
     public void ToggleMenuUI()
     {
+        SoundManager.main.PlaySound(clickToggle);
         menuUI.SetActive(!menuUI.activeSelf);
     }
 
@@ -281,6 +318,5 @@ public class UIManager : MonoBehaviour
         honeyBees.text = LevelManager.main.honeyBees.Length.ToString();
         soldierBees.text = LevelManager.main.soldierBees.Length.ToString();
     }
-
 }
 

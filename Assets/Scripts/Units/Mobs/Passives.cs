@@ -136,6 +136,7 @@ public class Passives : MonoBehaviour
                 newSpawn.GetComponent<Attributes>().passivePower = attributes.passivePower * power;
             }
         }
+        PlaySound(index);
     }
 
     public void Revive()
@@ -150,6 +151,15 @@ public class Passives : MonoBehaviour
         attributes.hitPoints = attributes.maxHP * power;
         attributes.shield = attributes.maxShield * power;
         attributes.Pause(attributes.passiveDurations[index] * GlobalValues.main.reviveDurationModifier);
+        PlaySound(index);
+    }
+
+    private void PlaySound(int i)
+    {
+        if (attributes.passiveSounds.Length >= i + 1 && attributes.passiveSounds[i] != SoundType.EMPTY)
+        {
+            SoundManager.main.PlaySound(attributes.passiveSounds[i]);
+        }
     }
 
     public void RemovePassive(string passive)

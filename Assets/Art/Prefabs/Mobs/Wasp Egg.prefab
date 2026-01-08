@@ -784,6 +784,7 @@ MonoBehaviour:
   sName: Wasp Egg
   type: Enemy Unit
   cost: 0
+  deathSound: 105
   moveSpeed: 0
   maxHP: 15
   maxShield: 0
@@ -798,6 +799,7 @@ MonoBehaviour:
   armorPierce: 0
   actions: []
   actionPrefabs: []
+  actionSounds: 
   actionPowerModifiers: []
   actionRateModifiers: []
   actionRangeModifiers: []
@@ -811,6 +813,7 @@ MonoBehaviour:
   - Hatch
   effectPrefabs:
   - {fileID: 5400552394083257877, guid: 015ba09c9372590478d9c1ad83ad10a2, type: 3}
+  effectSounds: 
   effectPowerModifiers:
   - 1
   effectPierceModifiers:
@@ -828,6 +831,7 @@ MonoBehaviour:
   passivePierce: 0
   passives: []
   passivePrefabs: []
+  passiveSounds: 
   passivePowerModifiers: []
   passivePierceModifiers: []
   passiveRateModifiers: []

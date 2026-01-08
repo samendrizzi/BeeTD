@@ -835,6 +835,7 @@ MonoBehaviour:
   sName: Wasp Queen
   type: Enemy Unit
   cost: 0
+  deathSound: 92
   moveSpeed: 0.5
   maxHP: 35
   maxShield: 0
@@ -851,6 +852,7 @@ MonoBehaviour:
   - Attack Queen
   actionPrefabs:
   - {fileID: 0}
+  actionSounds: 
   actionPowerModifiers:
   - 1
   actionRateModifiers:
@@ -869,6 +871,7 @@ MonoBehaviour:
   - Spawn
   effectPrefabs:
   - {fileID: 5400552394083257877, guid: 23662fcbd6d48664781df41339563db3, type: 3}
+  effectSounds: 68000000
   effectPowerModifiers:
   - 1
   effectPierceModifiers:
@@ -886,6 +889,7 @@ MonoBehaviour:
   passivePierce: 0
   passives: []
   passivePrefabs: []
+  passiveSounds: 
   passivePowerModifiers: []
   passivePierceModifiers: []
   passiveRateModifiers: []

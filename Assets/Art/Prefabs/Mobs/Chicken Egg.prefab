@@ -552,6 +552,7 @@ MonoBehaviour:
   sName: Chicken Egg
   type: Enemy Unit
   cost: 0
+  deathSound: 107
   moveSpeed: 0
   maxHP: 70
   maxShield: 0
@@ -566,6 +567,7 @@ MonoBehaviour:
   armorPierce: 0
   actions: []
   actionPrefabs: []
+  actionSounds: 
   actionPowerModifiers: []
   actionRateModifiers: []
   actionRangeModifiers: []
@@ -579,6 +581,7 @@ MonoBehaviour:
   - Hatch
   effectPrefabs:
   - {fileID: 5400552394083257877, guid: 4e1c92c627075ce479701c8a7bbcdf23, type: 3}
+  effectSounds: 
   effectPowerModifiers:
   - 1
   effectPierceModifiers:
@@ -596,6 +599,7 @@ MonoBehaviour:
   passivePierce: 0
   passives: []
   passivePrefabs: []
+  passiveSounds: 
   passivePowerModifiers: []
   passivePierceModifiers: []
   passiveRateModifiers: []

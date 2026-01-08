@@ -621,14 +621,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5400552394083257877}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 14.35, y: 8.176033, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6739258883808856435}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &9003350563572383055
 SpriteRenderer:
   serializedVersion: 2
@@ -679,7 +679,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -745238001684777390, guid: 4f9e7c242d05ceb41815aac96ca315cf, type: 3}
-  m_Color: {r: 0.5754717, g: 0.5754717, b: 0.5754717, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -780,6 +780,7 @@ MonoBehaviour:
   sName: Skunk
   type: Enemy Unit
   cost: 0
+  deathSound: 100
   moveSpeed: 1.5
   maxHP: 700
   maxShield: 0
@@ -787,7 +788,7 @@ MonoBehaviour:
   resistance: 50
   dodgeChance: 0
   targetingRange: 0.2
-  rotationSpeed: 150
+  rotationSpeed: 0
   wayPointRangeModifier: 1
   actionPower: 1
   actionRate: 1
@@ -796,6 +797,7 @@ MonoBehaviour:
   - Steal Honey
   actionPrefabs:
   - {fileID: 0}
+  actionSounds: 
   actionPowerModifiers:
   - 15
   actionRateModifiers:
@@ -817,6 +819,7 @@ MonoBehaviour:
   effectPrefabs:
   - {fileID: 5400552394083257877, guid: 7f49ee0a562ecc44fb32eb9cd10d0ee5, type: 3}
   - {fileID: 6089545532913545976, guid: a2832832308239b49a845950483d6488, type: 3}
+  effectSounds: 3d0000003c000000
   effectPowerModifiers:
   - 1
   - 1
@@ -840,6 +843,7 @@ MonoBehaviour:
   passivePierce: 0
   passives: []
   passivePrefabs: []
+  passiveSounds: 
   passivePowerModifiers: []
   passivePierceModifiers: []
   passiveRateModifiers: []
@@ -1173,7 +1177,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8045096625289229684}
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 8, y: 8, z: 1.25}
   m_ConstrainProportionsScale: 0
@@ -1181,10 +1185,10 @@ RectTransform:
   - {fileID: 3159451294906933683}
   - {fileID: 4235588064101881451}
   m_Father: {fileID: 7840354572688201443}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -0.11, y: -8.78}
+  m_AnchoredPosition: {x: 0.33, y: 10.41}
   m_SizeDelta: {x: 2, y: 0.809}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &7661110101801260647

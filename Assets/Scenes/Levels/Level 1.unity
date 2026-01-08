@@ -1920,11 +1920,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   queenBee: {fileID: 1873209414}
+  victorySound: 5
+  defeatSound: 6
+  waveStartSound: 8
   queenBeeHP: 100
   queenBeeMaxHP: 100
   queenArmor: 0
   honey: 0
-  bonusNectar: 5000
+  bonusNectar: 0
   honeyRequired: 1000
   percentageOfFlowersUsed: 1
   difficultyScaling: 0.05

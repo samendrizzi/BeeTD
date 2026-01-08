@@ -614,6 +614,7 @@ MonoBehaviour:
   sName: Hummingbird
   type: Enemy Unit
   cost: 0
+  deathSound: 99
   moveSpeed: 2
   maxHP: 100
   maxShield: 0
@@ -630,6 +631,7 @@ MonoBehaviour:
   - Sap Flower
   actionPrefabs:
   - {fileID: 0}
+  actionSounds: 
   actionPowerModifiers:
   - 1
   actionRateModifiers:
@@ -647,6 +649,7 @@ MonoBehaviour:
   resistancePierce: 0
   effects: []
   effectPrefabs: []
+  effectSounds: 
   effectPowerModifiers: []
   effectPierceModifiers: []
   effectRateModifiers: []
@@ -658,6 +661,7 @@ MonoBehaviour:
   passivePierce: 0
   passives: []
   passivePrefabs: []
+  passiveSounds: 
   passivePowerModifiers: []
   passivePierceModifiers: []
   passiveRateModifiers: []

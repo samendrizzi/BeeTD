@@ -861,6 +861,7 @@ MonoBehaviour:
   sName: Hen
   type: Enemy Unit
   cost: 0
+  deathSound: 97
   moveSpeed: 1
   maxHP: 200
   maxShield: 0
@@ -868,7 +869,7 @@ MonoBehaviour:
   resistance: 35
   dodgeChance: 0
   targetingRange: 0.2
-  rotationSpeed: 150
+  rotationSpeed: 0
   wayPointRangeModifier: 1
   actionPower: 10
   actionRate: 1
@@ -877,6 +878,7 @@ MonoBehaviour:
   - Steal Honey
   actionPrefabs:
   - {fileID: 0}
+  actionSounds: 
   actionPowerModifiers:
   - 1
   actionRateModifiers:
@@ -896,6 +898,7 @@ MonoBehaviour:
   - Spawn
   effectPrefabs:
   - {fileID: 5400552394083257877, guid: d627779b53373e0438e6be093bb78df9, type: 3}
+  effectSounds: 6a000000
   effectPowerModifiers:
   - 1
   effectPierceModifiers:
@@ -913,6 +916,7 @@ MonoBehaviour:
   passivePierce: 0
   passives: []
   passivePrefabs: []
+  passiveSounds: 
   passivePowerModifiers: []
   passivePierceModifiers: []
   passiveRateModifiers: []

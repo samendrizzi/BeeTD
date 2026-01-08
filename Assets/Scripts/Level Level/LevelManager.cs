@@ -11,6 +11,9 @@ public class LevelManager : MonoBehaviour
 
     [Header("References")]
     [SerializeField] public Transform queenBee;
+    [SerializeField] public SoundType victorySound;
+    [SerializeField] public SoundType defeatSound;
+    [SerializeField] public SoundType waveStartSound;
 
     [Header("Attributes")]
     [SerializeField] public float queenBeeHP = 100f;
@@ -95,7 +98,6 @@ public class LevelManager : MonoBehaviour
         honeyRequired = honeyRequired * GlobalValues.main.difficultyMultiplier;
         nectarGenerationRate = GlobalValues.main.globalFertility;
         CalculateIncome();
-        UIManager.main.NormalSpeed();
         honeyCombTicks = GlobalValues.main.honeyCombTicks;
         honeyCombCreatePause = GlobalValues.main.honeyCombCreatePause;
         honeyPerCombTick = GlobalValues.main.honeyPerCombTick;
@@ -112,8 +114,8 @@ public class LevelManager : MonoBehaviour
         workerBeeCost = GlobalValues.main.workerBeeCost * (1 + (GlobalValues.main.workerBeeCostIncrease * workerBees.Length));
         UIManager.main.UpdateQueensCommand();
         //Set Speed
-        UIManager.main.NormalSpeed();
-        UIManager.main.TogglePause();
+        UIManager.main.NormalSpeed(false);
+        UIManager.main.TogglePause(false);
         CheckHoneyCombs();
         //Build Path Arrays
         paths = new Transform[][] {path1, path2, path3, path4, path5, path6, path7, path8, path9, path10};
@@ -292,6 +294,7 @@ public class LevelManager : MonoBehaviour
 
     private void Victory()
     {
+        SoundManager.main.PlaySound(victorySound, 0f);
         CollectAllHoney();
         if (GlobalValues.main.difficultySetting == "Easy")
         {
@@ -320,6 +323,7 @@ public class LevelManager : MonoBehaviour
 
     private void Defeat()
     {
+        SoundManager.main.PlaySound(defeatSound, 0f);
         UIManager.main.DefeatUI();
     }
 

@@ -133,6 +133,7 @@ public class WaveSpawner : MonoBehaviour
 
     private void StartWave()
     {
+        SoundManager.main.PlaySound(LevelManager.main.waveStartSound);
         LevelManager.main.OrganizeBees();
         if (currentWave >= numberOfWaves)
         {
@@ -190,8 +191,16 @@ public class WaveSpawner : MonoBehaviour
         {
             return;
         }
-        float angle = Mathf.Atan2(nextPoint.position.y - start.position.y, nextPoint.position.x - start.position.x) * Mathf.Rad2Deg - 90f;
-        Quaternion enemyRotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
+        Quaternion enemyRotation;
+        if (prefabToSpawn.GetComponent<Attributes>().rotationSpeed > 0)
+        {
+            float angle = Mathf.Atan2(nextPoint.position.y - start.position.y, nextPoint.position.x - start.position.x) * Mathf.Rad2Deg - 90f;
+            enemyRotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
+        }
+        else
+        {
+            enemyRotation = Quaternion.identity;
+        }
         GameObject enemy = Instantiate(prefabToSpawn, start.position, enemyRotation);
         enemy.GetComponent<Attributes>().prestige = prestige;
         enemy.GetComponent<Attributes>().onPath = pathIndex;

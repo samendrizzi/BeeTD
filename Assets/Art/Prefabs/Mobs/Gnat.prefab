@@ -708,7 +708,7 @@ GameObject:
   - component: {fileID: -5358772198793198904}
   - component: {fileID: -7598451735906619550}
   - component: {fileID: -8288319031991472244}
-  - component: {fileID: 4151024519910009632}
+  - component: {fileID: -117197498215778004}
   m_Layer: 17
   m_Name: Gnat
   m_TagString: Untagged
@@ -883,6 +883,7 @@ MonoBehaviour:
   sName: Gnat
   type: Enemy Unit
   cost: 0
+  deathSound: 91
   moveSpeed: 1
   maxHP: 3
   maxShield: 0
@@ -899,6 +900,7 @@ MonoBehaviour:
   - Steal Honey
   actionPrefabs:
   - {fileID: 0}
+  actionSounds: 
   actionPowerModifiers:
   - 1
   actionRateModifiers:
@@ -916,6 +918,7 @@ MonoBehaviour:
   resistancePierce: 0
   effects: []
   effectPrefabs: []
+  effectSounds: 
   effectPowerModifiers: []
   effectPierceModifiers: []
   effectRateModifiers: []
@@ -927,6 +930,7 @@ MonoBehaviour:
   passivePierce: 0
   passives: []
   passivePrefabs: []
+  passiveSounds: 
   passivePowerModifiers: []
   passivePierceModifiers: []
   passiveRateModifiers: []
@@ -1038,7 +1042,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d713ff3d75a36d4684fc23dabb1db26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Effects
---- !u!114 &4151024519910009632
+--- !u!114 &-117197498215778004
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1047,9 +1051,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 5400552394083257877}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c1063cf4d4ce954288ab2d27d710071, type: 3}
+  m_Script: {fileID: 11500000, guid: eaf5e878ef7c9c048b98a51c7da793fe, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Passives
+  m_EditorClassIdentifier: Assembly-CSharp::Actions
 --- !u!1 &7686425398505922514
 GameObject:
   m_ObjectHideFlags: 0

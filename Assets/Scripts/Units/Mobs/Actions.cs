@@ -51,6 +51,10 @@ public class Actions : MonoBehaviour
         string action = attributes.actions[i];
         float actionRate = attributes.actionRateModifiers[i] * attributes.actionRate;
         attributes.timeUntilActions[i] = 1 / (actionRate);
+        if (attributes.actionSounds.Length >= i + 1 && attributes.actionSounds[i] != SoundType.EMPTY)
+        {
+            SoundManager.main.PlaySound(attributes.actionSounds[i]);
+        }
         if (attributes.type == "Tower")
         {
             float actionPower = attributes.actionPowerModifiers[i] * attributes.actionPower;
@@ -279,15 +283,12 @@ public class Actions : MonoBehaviour
     private void SendSlowPulse(float effectPower, float effectDuration, float effectPierce, float effectRange)
     {
         RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, effectRange, (Vector2)transform.position, 0f, GlobalValues.main.enemyMask);
-        float slowPower = effectPower * GlobalValues.main.slowPowerModifier;
-        float slowDuration = effectDuration * GlobalValues.main.slowDurationModifier;
-        float slowPierce = effectPierce * GlobalValues.main.slowPierceModifier;
         if (hits.Length > 0)
         {
             for (int i = 0; i < hits.Length; i++)
             {
                 RaycastHit2D hit = hits[i];
-                hit.transform.gameObject.GetComponent<Attributes>().SlowSpeed(slowPower, slowPierce, slowDuration);
+                hit.transform.gameObject.GetComponent<Attributes>().SlowSpeed(effectPower, effectPierce, effectDuration);
             }
         }
     }
@@ -295,15 +296,12 @@ public class Actions : MonoBehaviour
     private void SendFreezePulse(float effectPower, float effectDuration, float effectPierce, float effectRange)
     {
         RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, effectRange, (Vector2)transform.position, 0f, GlobalValues.main.enemyMask);
-        float freezePower = effectPower * GlobalValues.main.freezePowerModifier;
-        float freezeDuration = effectDuration * GlobalValues.main.freezeDurationModifier;
-        float freezePierce = effectPower * GlobalValues.main.freezePierceModifier;
         if (hits.Length > 0)
         {
             for (int i = 0; i < hits.Length; i++)
             {
                 RaycastHit2D hit = hits[i];
-                hit.transform.gameObject.GetComponent<Attributes>().Freeze(freezePower, freezePierce, freezeDuration);
+                hit.transform.gameObject.GetComponent<Attributes>().Freeze(effectPower, effectPierce, effectDuration);
             }
         }
     }

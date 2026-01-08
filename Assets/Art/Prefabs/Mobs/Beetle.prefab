@@ -449,6 +449,7 @@ MonoBehaviour:
   sName: Beetle
   type: Enemy Unit
   cost: 0
+  deathSound: 92
   moveSpeed: 0.5
   maxHP: 30
   maxShield: 0
@@ -465,6 +466,7 @@ MonoBehaviour:
   - Steal Honey
   actionPrefabs:
   - {fileID: 0}
+  actionSounds: 
   actionPowerModifiers:
   - 1
   actionRateModifiers:
@@ -482,6 +484,7 @@ MonoBehaviour:
   resistancePierce: 0
   effects: []
   effectPrefabs: []
+  effectSounds: 
   effectPowerModifiers: []
   effectPierceModifiers: []
   effectRateModifiers: []
@@ -493,6 +496,7 @@ MonoBehaviour:
   passivePierce: 0
   passives: []
   passivePrefabs: []
+  passiveSounds: 
   passivePowerModifiers: []
   passivePierceModifiers: []
   passiveRateModifiers: []

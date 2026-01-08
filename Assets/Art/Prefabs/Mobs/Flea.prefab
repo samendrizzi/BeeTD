@@ -350,7 +350,7 @@ GameObject:
   - component: {fileID: -4357686218007313390}
   - component: {fileID: -3375105961612093070}
   - component: {fileID: 3701687615705047407}
-  - component: {fileID: -7041663334508169680}
+  - component: {fileID: -1242890510128775972}
   m_Layer: 17
   m_Name: Flea
   m_TagString: Untagged
@@ -525,13 +525,14 @@ MonoBehaviour:
   sName: Flea
   type: Enemy Unit
   cost: 0
+  deathSound: 91
   moveSpeed: 1.5
   maxHP: 2
   maxShield: 0
   armor: 0
   resistance: 0
   dodgeChance: 0
-  targetingRange: 0.2
+  targetingRange: 0.4
   rotationSpeed: 150
   wayPointRangeModifier: 1
   actionPower: 0.5
@@ -541,6 +542,7 @@ MonoBehaviour:
   - Attack Queen
   actionPrefabs:
   - {fileID: 0}
+  actionSounds: 
   actionPowerModifiers:
   - 1
   actionRateModifiers:
@@ -558,6 +560,7 @@ MonoBehaviour:
   resistancePierce: 0
   effects: []
   effectPrefabs: []
+  effectSounds: 
   effectPowerModifiers: []
   effectPierceModifiers: []
   effectRateModifiers: []
@@ -569,6 +572,7 @@ MonoBehaviour:
   passivePierce: 0
   passives: []
   passivePrefabs: []
+  passiveSounds: 
   passivePowerModifiers: []
   passivePierceModifiers: []
   passiveRateModifiers: []
@@ -680,7 +684,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d713ff3d75a36d4684fc23dabb1db26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Effects
---- !u!114 &-7041663334508169680
+--- !u!114 &-1242890510128775972
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -689,9 +693,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 5400552394083257877}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c1063cf4d4ce954288ab2d27d710071, type: 3}
+  m_Script: {fileID: 11500000, guid: eaf5e878ef7c9c048b98a51c7da793fe, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Passives
+  m_EditorClassIdentifier: Assembly-CSharp::Actions
 --- !u!1 &5844893648138551542
 GameObject:
   m_ObjectHideFlags: 0

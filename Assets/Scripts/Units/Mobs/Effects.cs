@@ -48,6 +48,10 @@ public class Effects : MonoBehaviour
         string effect = attributes.effects[i];
         float effectRate = attributes.effectRateModifiers[i] * attributes.effectRate;
         attributes.timeUntilEffects[i] = 1 / (effectRate);
+        if (attributes.effectSounds.Length >= i + 1 && attributes.effectSounds[i] != SoundType.EMPTY)
+        {
+            SoundManager.main.PlaySound(attributes.effectSounds[i]);
+        }
         if (attributes.type == "Tower")
         {
             float effectRange = attributes.effectRangeModifiers[i] * attributes.targetingRange;

@@ -43,8 +43,8 @@ public class GlobalValues : MonoBehaviour
 
     [Header("_______________________")]
     [Header("Audio")]
-    [SerializeField] public float maxPitch = 1.15f;
-    [SerializeField] public float minPitch = 0.85f;
+    [SerializeField] public float pitchChange = 0.1f;
+
 
     [Header("_______________________")]
     [Header("All Units")]

@@ -465,6 +465,7 @@ MonoBehaviour:
   sName: Ladybug
   type: Enemy Unit
   cost: 0
+  deathSound: 92
   moveSpeed: 0.5
   maxHP: 10
   maxShield: 0
@@ -481,6 +482,7 @@ MonoBehaviour:
   - Steal Honey
   actionPrefabs:
   - {fileID: 0}
+  actionSounds: 
   actionPowerModifiers:
   - 1
   actionRateModifiers:
@@ -500,6 +502,7 @@ MonoBehaviour:
   - Heal Aura
   effectPrefabs:
   - {fileID: 0}
+  effectSounds: 67000000
   effectPowerModifiers:
   - 1.5
   effectPierceModifiers:
@@ -517,6 +520,7 @@ MonoBehaviour:
   passivePierce: 0
   passives: []
   passivePrefabs: []
+  passiveSounds: 
   passivePowerModifiers: []
   passivePierceModifiers: []
   passiveRateModifiers: []

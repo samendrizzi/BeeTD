@@ -52,6 +52,7 @@ public class Prestige : MonoBehaviour
             SetPrestigePlatinum(true, Regex.Matches(attributes.prestige, "Platinum").Count);
             SetPrestigeTeal(true, Regex.Matches(attributes.prestige, "Teal").Count);
         }
+        attributes.SetHealthBar();
     }
 
     public void SetPrestigeRed(bool add, int count)

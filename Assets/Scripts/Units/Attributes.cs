@@ -22,6 +22,7 @@ public class Attributes : MonoBehaviour
     [SerializeField] public string sName = "";
     [SerializeField] public string type = "";
     [SerializeField] public float cost = 0f;
+    [SerializeField] private SoundType deathSound;
     //
     [SerializeField] public float moveSpeed = 0f;
     [SerializeField] public float maxHP = 100f;
@@ -52,6 +53,7 @@ public class Attributes : MonoBehaviour
     [SerializeField] public float resistancePierce = 0f;
     [SerializeField] public string[] effects;
     [SerializeField] public GameObject[] effectPrefabs;
+    [SerializeField] public SoundType[] effectSounds;
     [SerializeField] public float[] effectPowerModifiers;
     [SerializeField] public float[] effectPierceModifiers;
     [SerializeField] public float[] effectRateModifiers;
@@ -64,6 +66,7 @@ public class Attributes : MonoBehaviour
     [SerializeField] public float passivePierce = 0f;
     [SerializeField] public string[] passives;
     [SerializeField] public GameObject[] passivePrefabs;
+    [SerializeField] public SoundType[] passiveSounds;
     [SerializeField] public float[] passivePowerModifiers;
     [SerializeField] public float[] passivePierceModifiers;
     [SerializeField] public float[] passiveRateModifiers;
@@ -207,12 +210,7 @@ public class Attributes : MonoBehaviour
         {
             targetingOptions = GlobalValues.main.targetingOptions;
         }
-        if (healthBar != null)
-        {
-            healthBar.maxValue = maxHP;
-            healthBar.value = hitPoints;
-            healthBar.gameObject.SetActive(true);
-        }
+        SetHealthBar();
     }
 
     private void Update()
@@ -232,6 +230,16 @@ public class Attributes : MonoBehaviour
         }
     }
 
+    public void SetHealthBar()
+    {
+        if (healthBar != null)
+        {
+            healthBar.maxValue = maxHP;
+            healthBar.value = hitPoints;
+            healthBar.gameObject.SetActive(true);
+        }
+    }
+
     public void TakeDamage(float dmg, float armorPierce)
     {
         //check dodge
@@ -244,18 +252,26 @@ public class Attributes : MonoBehaviour
                 return;
             }
         }
-        //check armor reduction
-        float armorBlock = (armor - armorPierce) / 100f;
-        if (armorBlock < 0)
+        else if (dmg <= 0f)
         {
-            armorBlock = 0f;
-        }
-        else if (armorBlock >= 1f)
-        {
-            //no damage
             return;
         }
-        float dmgAdjust = (1f - armorBlock) * dmg;
+        //check armor reduction
+        float armorAdjusted = (armor - armor * (armorPierce / 100f));
+        if (armorAdjusted < 0)
+        {
+            armorAdjusted = 0f;
+        }
+        float dmgBlocked;
+        if (armorAdjusted <= 90)
+        {
+            dmgBlocked = (dmg * (armorAdjusted / 100));
+        }
+        else
+        {
+            dmgBlocked = dmg - (dmg * 10f * (float)Math.Pow(1f + armorAdjusted, -1f));
+        }
+        float dmgAdjust = dmg - dmgBlocked;
         //check shield
         if (shield > 0)
         {
@@ -303,7 +319,7 @@ public class Attributes : MonoBehaviour
 
     public void SlowSpeed(float power, float pierce, float duration)
     {
-        if (moveSpeedBase == 0)
+        if (moveSpeedBase == 0 || power <= 0f)
         {
             return;
         }
@@ -314,19 +330,24 @@ public class Attributes : MonoBehaviour
                 return;
             }
         }
-        float resistanceBlock = (resistance - pierce) / 100f;
-        if (resistanceBlock < 0)
+        float resistanceAdjusted = (resistance - resistance * (pierce / 100));
+        if (resistanceAdjusted < 0)
         {
-            resistanceBlock = 0f;
+            resistanceAdjusted = 0f;
         }
-        if (resistanceBlock >= 1f || power < 0f)
+        float resist;
+        float powerAdjusted = power * GlobalValues.main.slowPowerModifier;
+        if (resistanceAdjusted <= 90)
         {
-            //no slow
-            return;
+            resist = powerAdjusted * (resistanceAdjusted / 100);
         }
-        float resist = (power) * resistanceBlock;
-        float powerAdjust = power - resist;
-        moveSpeedUncapped = moveSpeedUncapped - (moveSpeedUncapped * powerAdjust);
+        else
+        {
+            resist = powerAdjusted - powerAdjusted * 10f * (float)Math.Pow(1f + resistanceAdjusted, -1f);
+        }
+        float slowAdjusted = powerAdjusted - resist;
+        float speedLoss = moveSpeedBase * slowAdjusted;
+        moveSpeedUncapped -= speedLoss;
         if (moveSpeedUncapped < GlobalValues.main.maxSlowDebuff * moveSpeedBase)
         {
             moveSpeed = GlobalValues.main.maxSlowDebuff * moveSpeedBase;
@@ -335,7 +356,7 @@ public class Attributes : MonoBehaviour
         {
             moveSpeed = moveSpeedUncapped;
         }
-        StartCoroutine(ResetSpeed(powerAdjust, duration));
+        StartCoroutine(ResetSpeed(speedLoss, duration * GlobalValues.main.slowDurationModifier));
     }
 
     public void Freeze(float power, float pierce, float duration)
@@ -347,31 +368,39 @@ public class Attributes : MonoBehaviour
                 return;
             }
         }
-        if (freezeImmune > 0)
+        if (power <= 0f)
+        {
+            return;
+        }
+        else if (freezeImmune > 0)
         {
             SlowSpeed(power, pierce, duration);
             return;
         }
-        float resistanceBlock = (resistance - pierce) / 100f;
-        if (resistanceBlock < 0)
+        float resistanceAdjusted = (resistance - resistance * (pierce / 100f));
+        if (resistanceAdjusted < 0)
         {
-            resistanceBlock = 0f;
+            resistanceAdjusted = 0f;
         }
-        if (resistanceBlock >= 1f || power < 0f)
+        float resist;
+        float powerAdjusted = power * GlobalValues.main.freezePowerModifier;
+        if (resistanceAdjusted <= 90)
         {
-            //no slow
-            return;
+            resist = powerAdjusted * (resistanceAdjusted / 100);
         }
-        float resist = (power) * resistanceBlock;
-        float freezeChance = (power - resist) * GlobalValues.main.freezePowerModifier;
+        else
+        {
+            resist = powerAdjusted - powerAdjusted * 10f * (float)Math.Pow(1f + resistanceAdjusted, -1f);
+        }
+        float freezeChance = ((power * GlobalValues.main.freezePowerModifier) - resist);
         System.Random RandomGen = new System.Random();
         int freezeRoll = RandomGen.Next(100);
         if (freezeChance * 100 > freezeRoll)
         {
             HaltMovement();
             frozen = true;
-            freezeImmune = (duration * GlobalValues.main.freezeImmuneRatio) * (1f + resistanceBlock);
-            StartCoroutine(Unfreeze(duration));
+            freezeImmune = (duration * GlobalValues.main.freezeImmuneRatio);
+            StartCoroutine(Unfreeze(duration * GlobalValues.main.freezeDurationModifier));
         }
         else
         {
@@ -379,10 +408,10 @@ public class Attributes : MonoBehaviour
         }
     }
 
-    private IEnumerator ResetSpeed(float power, float duration)
+    private IEnumerator ResetSpeed(float speedLoss, float duration)
     {
         yield return new WaitForSeconds(duration);
-        moveSpeedUncapped = moveSpeedUncapped * power;
+        moveSpeedUncapped += speedLoss;
         if (moveSpeed < moveSpeedUncapped)
         {
             moveSpeed = moveSpeedUncapped;
@@ -417,7 +446,10 @@ public class Attributes : MonoBehaviour
             {
                 ReturnHoney();
                 WaveSpawner.main.EnemyDestroyed();
-                SoundManager.main.PlaySound(SoundType.INSECTDIE);
+            }
+            if (deathSound != SoundType.EMPTY)
+            {
+                SoundManager.main.PlaySound(deathSound);
             }
             Destroy(gameObject);
         }

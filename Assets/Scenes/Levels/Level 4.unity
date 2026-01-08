@@ -20225,6 +20225,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   queenBee: {fileID: 1921505762}
+  victorySound: 5
+  defeatSound: 6
+  waveStartSound: 8
   queenBeeHP: 100
   queenBeeMaxHP: 100
   queenArmor: 0
