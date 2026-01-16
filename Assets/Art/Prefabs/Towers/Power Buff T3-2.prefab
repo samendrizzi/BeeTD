@@ -191,6 +191,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5233765770551618463}
+  - component: {fileID: -8053170183550694500}
   - component: {fileID: -6396548779199300382}
   - component: {fileID: 3856105975829748256}
   - component: {fileID: -4826075005420364690}
@@ -222,6 +223,34 @@ Transform:
   - {fileID: 141394733110322956}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-8053170183550694500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7862540307379288715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea5dd5321dd3e174495145ec7528b7b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTower: 1
+  UI: {fileID: 0}
+  UIInfo: {fileID: 0}
+  UIText: {fileID: 0}
+  button0: {fileID: 0}
+  button1: {fileID: 0}
+  button2: {fileID: 0}
+  button3: {fileID: 0}
+  button4: {fileID: 0}
+  button5: {fileID: 0}
+  button6: {fileID: 0}
+  button7: {fileID: 0}
+  button8: {fileID: 0}
+  rangeIndicator: {fileID: 7928436843451364179}
+  upgradeMatrix: []
+  influence: 0
 --- !u!114 &-6396548779199300382
 MonoBehaviour:
   m_ObjectHideFlags: 0

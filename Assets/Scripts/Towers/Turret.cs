@@ -22,9 +22,9 @@ public class Turret : MonoBehaviour
     private void Start()
     {
         attributes = gameObject.GetComponent<Attributes>();
+        UI = gameObject.GetComponent<StructureUIHandler>();
         RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, 0.1f, (Vector2)transform.position, 0f, GlobalValues.main.plotMask | GlobalValues.main.honeyCombMask | GlobalValues.main.flowerMask);
         plot = hits[0].transform.gameObject.GetComponent<Plot>();
-        UI = plot.UI;
         StartCoroutine(plot.RevealFog(attributes.targetingRange, attributes.ignoreTerrain));
         //Set starting rotation
         if (turretRotationPoint != null)

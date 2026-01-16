@@ -23,11 +23,10 @@ public class Plot : MonoBehaviour
     [SerializeField] public float armor = 0f;
     [SerializeField] private GameObject noObstructionPrefab;
 
-    //trackers
-    public GameObject UIObject;
     private Sprite originalSprite;
     public GameObject towerObj;
-    public StructureUIHandler UI;
+    public StructureUIHandler plotUI;
+    public StructureUIHandler towerUI;
     private Color startColor;
     public bool fog = true;
     private Color originalColor;
@@ -41,11 +40,7 @@ public class Plot : MonoBehaviour
 
     private void Awake()
     {
-        if (isBuildable || isResourceNode)
-        {
-            UIObject = Instantiate(GlobalValues.main.UIPrefab, transform.position, Quaternion.identity);
-            UI = UIObject.GetComponent<StructureUIHandler>();
-        }
+        plotUI = gameObject.GetComponent<StructureUIHandler>();
         originalColor = sr.color;
         startColor = sr.color;
         if (hasBloomed == false)
@@ -103,11 +98,20 @@ public class Plot : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (fog == true || UI == null)
+        if (!(Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject()) || isBuildable == false || fog == true)
         {
             return;
         }
-        UI.OpenUI();
+
+        if (towerObj != null)
+        {
+            towerUI.OpenUI();
+            return;
+        }
+        else 
+        {
+            plotUI.OpenUI();
+        }
     }
 
     public IEnumerator RevealFog(float range, bool ignoreObstructions)
@@ -151,7 +155,7 @@ public class Plot : MonoBehaviour
         string targetSetting = GlobalValues.main.targetingOptionDefault;
         if (towerObj != null)
         {
-            UI.CloseUI();
+            towerUI.CloseUI();
             //Save Tower Info
             targetingIndex = towerObj.GetComponent<Attributes>().targetingIndex;
             targetSetting = towerObj.GetComponent<Attributes>().targetSetting;
@@ -161,10 +165,11 @@ public class Plot : MonoBehaviour
         }
         else
         {
-            UI.CloseUI();
+            plotUI.CloseUI();
         }
 
         towerObj = Instantiate(towerPrefab, transform.position, Quaternion.identity);
+        towerUI = towerObj.GetComponent<StructureUIHandler>();
         //pass info to new tower
         //towerUI.OpenUI();
         towerObj.GetComponent<Attributes>().targetingIndex = targetingIndex;
