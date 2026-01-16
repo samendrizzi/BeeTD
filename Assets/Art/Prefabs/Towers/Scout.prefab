@@ -346,7 +346,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5233765770551618463}
-  - component: {fileID: -8053170183550694500}
   - component: {fileID: -4451124309327843902}
   - component: {fileID: 101128038607759359}
   - component: {fileID: 4153732709096954017}
@@ -378,38 +377,6 @@ Transform:
   - {fileID: 8171176754198491281}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-8053170183550694500
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7862540307379288715}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea5dd5321dd3e174495145ec7528b7b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isTower: 1
-  UI: {fileID: 0}
-  UIInfo: {fileID: 0}
-  UIText: {fileID: 0}
-  button0: {fileID: 0}
-  button1: {fileID: 0}
-  button2: {fileID: 0}
-  button3: {fileID: 0}
-  button4: {fileID: 0}
-  button5: {fileID: 0}
-  button6: {fileID: 0}
-  button7: {fileID: 0}
-  button8: {fileID: 0}
-  rangeIndicator: {fileID: 4733700691804099897}
-  upgradeMatrix:
-  - {fileID: 7862540307379288715, guid: a922a66f1176ad84ab9c8cd959524037, type: 3}
-  - {fileID: 7862540307379288715, guid: 20c75941e13a36546b614039d2fc6b64, type: 3}
-  - {fileID: 7862540307379288715, guid: e57faa3b190430946bb434c2439476f3, type: 3}
-  - {fileID: 7862540307379288715, guid: d028ef3ded3b57a4b8602e7456997b5c, type: 3}
-  influence: 0
 --- !u!114 &-4451124309327843902
 MonoBehaviour:
   m_ObjectHideFlags: 0

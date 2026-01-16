@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 7945665055211121443}
   - component: {fileID: 7423359546902803796}
   - component: {fileID: 8767738084471890597}
-  - component: {fileID: 6257626920307451222}
   - component: {fileID: -7963225041900905394}
   m_Layer: 12
   m_Name: Honey Comb
@@ -118,43 +117,15 @@ MonoBehaviour:
   health: 0
   armor: 0
   noObstructionPrefab: {fileID: 0}
+  UIObject: {fileID: 0}
   towerObj: {fileID: 0}
-  plotUI: {fileID: 0}
-  towerUI: {fileID: 0}
+  UI: {fileID: 0}
   fog: 1
   isSapped: 0
   hasBloomed: 0
   pause: 0
   honeyTicks: 0
   honeyPerTick: 0
---- !u!114 &6257626920307451222
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9156115538744241620}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea5dd5321dd3e174495145ec7528b7b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isTower: 0
-  UI: {fileID: 0}
-  UIInfo: {fileID: 0}
-  UIText: {fileID: 0}
-  button0: {fileID: 0}
-  button1: {fileID: 0}
-  button2: {fileID: 0}
-  button3: {fileID: 0}
-  button4: {fileID: 0}
-  button5: {fileID: 0}
-  button6: {fileID: 0}
-  button7: {fileID: 0}
-  button8: {fileID: 0}
-  rangeIndicator: {fileID: 0}
-  upgradeMatrix: []
-  influence: 0
 --- !u!58 &-7963225041900905394
 CircleCollider2D:
   m_ObjectHideFlags: 0

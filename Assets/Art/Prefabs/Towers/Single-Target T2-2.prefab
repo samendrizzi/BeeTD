@@ -316,7 +316,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5233765770551618463}
   - component: {fileID: 1197808997387011157}
-  - component: {fileID: -8053170183550694500}
   - component: {fileID: -2851312246951254556}
   - component: {fileID: -95848435994801912}
   - component: {fileID: 8302654235328103684}
@@ -362,35 +361,6 @@ MonoBehaviour:
   turretRotationPoint: {fileID: 185538031670041032}
   firingPoint: {fileID: 678942583152366955}
   upgradeMatrix: []
---- !u!114 &-8053170183550694500
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7862540307379288715}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea5dd5321dd3e174495145ec7528b7b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isTower: 1
-  UI: {fileID: 0}
-  UIInfo: {fileID: 0}
-  UIText: {fileID: 0}
-  button0: {fileID: 0}
-  button1: {fileID: 0}
-  button2: {fileID: 0}
-  button3: {fileID: 0}
-  button4: {fileID: 0}
-  button5: {fileID: 0}
-  button6: {fileID: 0}
-  button7: {fileID: 0}
-  button8: {fileID: 0}
-  rangeIndicator: {fileID: 3272335199777576843}
-  upgradeMatrix:
-  - {fileID: 7862540307379288715, guid: bab911554dca56a47b6de472060b2524, type: 3}
-  influence: 0
 --- !u!58 &-2851312246951254556
 CircleCollider2D:
   m_ObjectHideFlags: 0

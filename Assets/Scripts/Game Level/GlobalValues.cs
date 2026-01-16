@@ -112,6 +112,7 @@ public class GlobalValues : MonoBehaviour
 
     [Header("_______________________")]
     [Header("UI")]
+    [SerializeField] public GameObject UIPrefab;
 
     [Header("_______________________")]
     [Header("Resources")]
