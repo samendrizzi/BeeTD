@@ -2665,8 +2665,7 @@ MonoBehaviour:
   incomeMask:
     serializedVersion: 2
     m_Bits: 2048
-  maxPitch: 1.15
-  minPitch: 0.85
+  pitchChange: 0.1
   wayPointDistance: 0.05
   maxSlowDebuff: 0.4
   freezeImmuneRatio: 0.5
@@ -2730,6 +2729,7 @@ MonoBehaviour:
   healTimerModifier: 1
   ricochetRange: 4
   rampCap: 10
+  UIPrefab: {fileID: 9156115538744241620, guid: 99ceaa4b958094947a0412a511b87a55, type: 3}
   startingNectar: 200
   baseNectarGeneration: 0.25
   honeyGenerationRateModifier: 1

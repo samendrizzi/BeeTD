@@ -44,12 +44,13 @@ public class StructureUIHandler : MonoBehaviour, IPointerEnterHandler, IPointerE
     private void Start()
     {
         attributes = gameObject.GetComponent<Attributes>();
-        plot = gameObject.GetComponent<Plot>();
+        RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, 0.1f, (Vector2)transform.position, 0f, GlobalValues.main.plotMask | GlobalValues.main.honeyCombMask | GlobalValues.main.flowerMask);
+        plot = hits[0].transform.gameObject.GetComponent<Plot>();
         turret = gameObject.GetComponent<Turret>();
         //Build UI
         if (isTower == true) 
         {
-            RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, 0.1f, (Vector2)transform.position, 0f, GlobalValues.main.plotMask | GlobalValues.main.honeyCombMask);
+            hits = Physics2D.CircleCastAll(transform.position, 0.1f, (Vector2)transform.position, 0f, GlobalValues.main.plotMask | GlobalValues.main.honeyCombMask);
             plot = hits[0].transform.gameObject.GetComponent<Plot>();
             //Scale different between plot and tower prefabs
             UIscale = UI.transform.localScale.x / 2f;
@@ -76,7 +77,7 @@ public class StructureUIHandler : MonoBehaviour, IPointerEnterHandler, IPointerE
         else 
         {
             //Scale different between plot and tower prefabs
-            UIscale = UI.transform.localScale.x / 2.28f;
+            UIscale = gameObject.transform.localScale.x / 2.28f;
             if (plot.isBuildable == true) 
             {
                 if (plot.isHive == true) 
@@ -138,12 +139,8 @@ public class StructureUIHandler : MonoBehaviour, IPointerEnterHandler, IPointerE
     public void Update()
     {
         float cameraSize = Camera.main.orthographicSize * UIscale;
-        if (UI.activeSelf == true)
-        {
-            var scaleFactor = new Vector3(cameraSize, cameraSize, cameraSize);
-            UI.transform.localScale = scaleFactor;
-        }
-        
+        var scaleFactor = new Vector3(cameraSize, cameraSize, cameraSize);
+        gameObject.transform.localScale = scaleFactor;
     }
 
     public void OnPointerExit(PointerEventData eventData)
@@ -174,7 +171,7 @@ public class StructureUIHandler : MonoBehaviour, IPointerEnterHandler, IPointerE
                 }
             }
         }
-        UI.SetActive(true);
+        gameObject.SetActive(true);
         OpenRangeUI();
     }
 
@@ -182,7 +179,7 @@ public class StructureUIHandler : MonoBehaviour, IPointerEnterHandler, IPointerE
     {     
         button8.gameObject.SetActive(false);
         UIInfo.SetActive(false);
-        UI.SetActive(false);
+        gameObject.SetActive(false);
     }
 
     public void Upgrade(int i)
