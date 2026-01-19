@@ -41,11 +41,6 @@ public class Plot : MonoBehaviour
 
     private void Awake()
     {
-        if (isBuildable || isResourceNode)
-        {
-            UIObject = Instantiate(GlobalValues.main.UIPrefab, transform.position, Quaternion.identity);
-            UI = UIObject.GetComponent<StructureUIHandler>();
-        }
         originalColor = sr.color;
         startColor = sr.color;
         if (hasBloomed == false)
@@ -87,6 +82,12 @@ public class Plot : MonoBehaviour
         }
     }
 
+    private void CreateUI()
+    {
+        UIObject = Instantiate(GlobalValues.main.UIPrefab, gameObject.transform);
+        UI = UIObject.GetComponent<StructureUIHandler>();
+    }
+
     private void OnMouseEnter()
     {
         if (EventSystem.current.IsPointerOverGameObject())
@@ -103,11 +104,39 @@ public class Plot : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (fog == true || UI == null)
+        if (fog == true)
         {
             return;
         }
-        UI.OpenUI();
+        OpenUI();
+    }
+
+    public void OpenUI()
+    {
+        if (UIObject == null && (isBuildable || isResourceNode))
+        {
+            CreateUI();
+        }
+        else if (UIObject != null)
+        {
+            UI.OpenUI();
+        }
+        else
+        {
+            Debug.Log(gameObject.name + " doesn't have UI interaction to open.");
+        }
+    }
+
+    public void CloseUI()
+    {
+        if (UI != null)
+        {
+            UI.CloseUI();
+        }
+        else
+        {
+            Debug.Log(gameObject.name + "doesn't have UI to close");
+        }
     }
 
     public IEnumerator RevealFog(float range, bool ignoreObstructions)
@@ -151,7 +180,7 @@ public class Plot : MonoBehaviour
         string targetSetting = GlobalValues.main.targetingOptionDefault;
         if (towerObj != null)
         {
-            UI.CloseUI();
+            CloseUI();
             //Save Tower Info
             targetingIndex = towerObj.GetComponent<Attributes>().targetingIndex;
             targetSetting = towerObj.GetComponent<Attributes>().targetSetting;
@@ -161,14 +190,14 @@ public class Plot : MonoBehaviour
         }
         else
         {
-            UI.CloseUI();
+            CloseUI();
         }
 
         towerObj = Instantiate(towerPrefab, transform.position, Quaternion.identity);
         //pass info to new tower
-        //towerUI.OpenUI();
         towerObj.GetComponent<Attributes>().targetingIndex = targetingIndex;
         towerObj.GetComponent<Attributes>().targetSetting = targetSetting;
+        UI.isTower = true;
     }
 
     public void Found()

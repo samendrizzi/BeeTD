@@ -68,7 +68,6 @@ public class GlobalMap : MonoBehaviour
         if (SaveFile.main.easyScores.Length != levelCount)
         {
             Array.Resize(ref SaveFile.main.easyScores, levelCount);
-            Debug.Log(SaveFile.main.easyScores.Length);
         }
         if (SaveFile.main.mediumScores.Length != levelCount)
         {

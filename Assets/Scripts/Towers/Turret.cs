@@ -25,6 +25,8 @@ public class Turret : MonoBehaviour
         RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, 0.1f, (Vector2)transform.position, 0f, GlobalValues.main.plotMask | GlobalValues.main.honeyCombMask | GlobalValues.main.flowerMask);
         plot = hits[0].transform.gameObject.GetComponent<Plot>();
         UI = plot.UI;
+        UI.isTower = true;
+        UI.UpdateUI();
         StartCoroutine(plot.RevealFog(attributes.targetingRange, attributes.ignoreTerrain));
         //Set starting rotation
         if (turretRotationPoint != null)
@@ -219,16 +221,36 @@ public class Turret : MonoBehaviour
         {
             return;
         }
+        OpenUI();
+    }
+
+    private void OpenUI()
+    {
         UI.OpenUI();
+    }
+
+    private void CloseUI()
+    {
+        UI.CloseUI();
+    }
+
+    public void OpenRangeUI()
+    {
+        UI.OpenRangeUI();
+    }
+   
+    private void CloseRangeUI()
+    {
+        UI.CloseRangeUI();
     }
 
     private void OnMouseEnter()
     {
-        UI.OpenRangeUI();
+        OpenRangeUI();
     }
 
     private void OnMouseExit()
     {
-        UI.CloseRangeUI();
+        CloseRangeUI();
     }
 }

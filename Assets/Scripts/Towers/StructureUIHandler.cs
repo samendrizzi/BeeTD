@@ -7,9 +7,8 @@ using TMPro;
 using Unity.VisualScripting;
 using System;
 
-public class StructureUIHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class StructureUIHandler : MonoBehaviour, IPointerExitHandler
 {
-    [SerializeField] private bool isTower = false;
     [SerializeField] private GameObject UI;
     [SerializeField] private GameObject UIInfo;
     [SerializeField] private TMP_Text UIText;
@@ -24,6 +23,7 @@ public class StructureUIHandler : MonoBehaviour, IPointerEnterHandler, IPointerE
     [SerializeField] private Button button8;
     [SerializeField] private GameObject rangeIndicator;
     [SerializeField] public GameObject[] upgradeMatrix;
+    public bool isTower = false;
     private float[] upgradeCost;
     private float sellPrice;
     private float cost;
@@ -34,24 +34,43 @@ public class StructureUIHandler : MonoBehaviour, IPointerEnterHandler, IPointerE
     private GameObject[] units;
     private Attributes attributes;
     private Plot plot;
-    private Turret turret;
-
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-
-    }
+    private Turret tower;
 
     private void Start()
     {
-        attributes = gameObject.GetComponent<Attributes>();
         RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, 0.1f, (Vector2)transform.position, 0f, GlobalValues.main.plotMask | GlobalValues.main.honeyCombMask | GlobalValues.main.flowerMask);
         plot = hits[0].transform.gameObject.GetComponent<Plot>();
-        turret = gameObject.GetComponent<Turret>();
+        rangeIndicator = Instantiate(rangeIndicator, plot.gameObject.transform);
+        UpdateUI();
+    }
+
+    public void Update()
+    {
+        float cameraSize = Camera.main.orthographicSize * UIscale;
+        var scaleFactor = new Vector3(cameraSize, cameraSize, cameraSize);
+        gameObject.transform.localScale = scaleFactor;
+    }
+
+    public void UpdateUI()
+    {
+        tower = null;
+        attributes = null;
+        //Reset State
+        button0.gameObject.SetActive(false);
+        button1.gameObject.SetActive(false);
+        button2.gameObject.SetActive(false);
+        button3.gameObject.SetActive(false);
+        button4.gameObject.SetActive(false);
+        button5.gameObject.SetActive(false);
+        button6.gameObject.SetActive(false);
+        button7.gameObject.SetActive(false);
+        button8.gameObject.SetActive(false);
+        UIInfo.gameObject.SetActive(false);
         //Build UI
-        if (isTower == true) 
+        if (isTower == true)
         {
-            hits = Physics2D.CircleCastAll(transform.position, 0.1f, (Vector2)transform.position, 0f, GlobalValues.main.plotMask | GlobalValues.main.honeyCombMask);
-            plot = hits[0].transform.gameObject.GetComponent<Plot>();
+            tower = plot.towerObj.GetComponent<Turret>();
+            attributes = tower.GetComponent<Attributes>();
             //Scale different between plot and tower prefabs
             UIscale = UI.transform.localScale.x / 2f;
             if (attributes.hasTargetSettings == true)
@@ -74,13 +93,13 @@ public class StructureUIHandler : MonoBehaviour, IPointerEnterHandler, IPointerE
             button2.gameObject.SetActive(true);
             button2.gameObject.GetComponentInChildren<TMP_Text>().text = "Info";
         }
-        else 
+        else
         {
             //Scale different between plot and tower prefabs
             UIscale = gameObject.transform.localScale.x / 2.28f;
-            if (plot.isBuildable == true) 
+            if (plot.isBuildable == true)
             {
-                if (plot.isHive == true) 
+                if (plot.isHive == true)
                 {
                     upgradeMatrix = GlobalValues.main.buildableHive;
                 }
@@ -88,7 +107,7 @@ public class StructureUIHandler : MonoBehaviour, IPointerEnterHandler, IPointerE
                 {
                     upgradeMatrix = GlobalValues.main.buildableFlower;
                 }
-                else 
+                else
                 {
                     upgradeMatrix = GlobalValues.main.buildable;
                 }
@@ -132,15 +151,8 @@ public class StructureUIHandler : MonoBehaviour, IPointerEnterHandler, IPointerE
                         }
                     }
                 }
-            }      
+            }
         }
-    }
-
-    public void Update()
-    {
-        float cameraSize = Camera.main.orthographicSize * UIscale;
-        var scaleFactor = new Vector3(cameraSize, cameraSize, cameraSize);
-        gameObject.transform.localScale = scaleFactor;
     }
 
     public void OnPointerExit(PointerEventData eventData)
@@ -222,6 +234,8 @@ public class StructureUIHandler : MonoBehaviour, IPointerEnterHandler, IPointerE
         CloseUI();
         LevelManager.main.nectar += sellPrice;
         Destroy(gameObject);
+        isTower = false;
+        UpdateUI();
     }
 
     private void ChangeTargetSettings()
