@@ -104,7 +104,7 @@ public class Plot : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (fog == true)
+        if (fog == true || EventSystem.current.IsPointerOverGameObject())
         {
             return;
         }
@@ -197,7 +197,6 @@ public class Plot : MonoBehaviour
         //pass info to new tower
         towerObj.GetComponent<Attributes>().targetingIndex = targetingIndex;
         towerObj.GetComponent<Attributes>().targetSetting = targetSetting;
-        UI.isTower = true;
     }
 
     public void Found()

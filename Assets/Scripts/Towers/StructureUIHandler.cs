@@ -27,11 +27,8 @@ public class StructureUIHandler : MonoBehaviour, IPointerExitHandler
     private float[] upgradeCost;
     private float sellPrice;
     private float cost;
-    private int index;
     private float UIscale;
     private string[] targetingOptions;
-    public bool influence = false;
-    private GameObject[] units;
     private Attributes attributes;
     private Plot plot;
     private Turret tower;
@@ -41,6 +38,7 @@ public class StructureUIHandler : MonoBehaviour, IPointerExitHandler
         RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, 0.1f, (Vector2)transform.position, 0f, GlobalValues.main.plotMask | GlobalValues.main.honeyCombMask | GlobalValues.main.flowerMask);
         plot = hits[0].transform.gameObject.GetComponent<Plot>();
         rangeIndicator = Instantiate(rangeIndicator, plot.gameObject.transform);
+        rangeIndicator.SetActive(false);
         UpdateUI();
     }
 
@@ -71,8 +69,9 @@ public class StructureUIHandler : MonoBehaviour, IPointerExitHandler
         {
             tower = plot.towerObj.GetComponent<Turret>();
             attributes = tower.GetComponent<Attributes>();
+            upgradeMatrix = tower.upgradeMatrix;
             //Scale different between plot and tower prefabs
-            UIscale = UI.transform.localScale.x / 2f;
+            //UIscale = UI.transform.localScale.x / 2f;
             if (attributes.hasTargetSettings == true)
             {
                 button5.gameObject.SetActive(true);
@@ -309,7 +308,7 @@ public class StructureUIHandler : MonoBehaviour, IPointerExitHandler
     {
         if (isTower)
         {
-            float scale = attributes.targetingRange * 2f; //Circle scale uses diameter
+            float scale = attributes.targetingRange * 2f / plot.gameObject.transform.localScale.x; //Circle scale uses diameter
             rangeIndicator.transform.localScale = new Vector3(scale, scale, 1f);
             rangeIndicator.SetActive(true);
         }      

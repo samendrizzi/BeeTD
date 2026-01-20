@@ -78,7 +78,6 @@ public class WaveSpawner : MonoBehaviour
     public float waveCountdown = 10f;
     private bool finalWave = false;
 
-
     [Header("Events")]
     public static UnityEvent onEnemyDestroy = new UnityEvent();
 

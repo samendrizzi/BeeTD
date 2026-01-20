@@ -360,7 +360,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turretRotationPoint: {fileID: 185538031670041032}
   firingPoint: {fileID: 678942583152366955}
-  upgradeMatrix: []
+  upgradeMatrix:
+  - {fileID: 7862540307379288715, guid: f12116f0b510ca84f903217500468c4b, type: 3}
 --- !u!58 &-4740649893461975886
 CircleCollider2D:
   m_ObjectHideFlags: 0
