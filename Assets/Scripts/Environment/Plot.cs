@@ -96,7 +96,7 @@ public class Plot : MonoBehaviour
         }
         sr.color = hoverColor;
     }
-
+    
     private void OnMouseExit()
     {
         sr.color = startColor;

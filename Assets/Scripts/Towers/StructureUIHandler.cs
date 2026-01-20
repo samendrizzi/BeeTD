@@ -35,6 +35,8 @@ public class StructureUIHandler : MonoBehaviour, IPointerExitHandler
 
     private void Start()
     {
+        //Scale different between plot and tower prefabs
+        UIscale = gameObject.transform.localScale.x;
         RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, 0.1f, (Vector2)transform.position, 0f, GlobalValues.main.plotMask | GlobalValues.main.honeyCombMask | GlobalValues.main.flowerMask);
         plot = hits[0].transform.gameObject.GetComponent<Plot>();
         rangeIndicator = Instantiate(rangeIndicator, plot.gameObject.transform);
@@ -70,8 +72,6 @@ public class StructureUIHandler : MonoBehaviour, IPointerExitHandler
             tower = plot.towerObj.GetComponent<Turret>();
             attributes = tower.GetComponent<Attributes>();
             upgradeMatrix = tower.upgradeMatrix;
-            //Scale different between plot and tower prefabs
-            //UIscale = UI.transform.localScale.x / 2f;
             if (attributes.hasTargetSettings == true)
             {
                 button5.gameObject.SetActive(true);
@@ -94,8 +94,6 @@ public class StructureUIHandler : MonoBehaviour, IPointerExitHandler
         }
         else
         {
-            //Scale different between plot and tower prefabs
-            UIscale = gameObject.transform.localScale.x / 2.28f;
             if (plot.isBuildable == true)
             {
                 if (plot.isHive == true)
@@ -230,11 +228,11 @@ public class StructureUIHandler : MonoBehaviour, IPointerExitHandler
 
     public void ConfirmSell()
     {
-        CloseUI();
         LevelManager.main.nectar += sellPrice;
-        Destroy(gameObject);
+        Destroy(tower.gameObject);
         isTower = false;
         UpdateUI();
+        CloseUI();
     }
 
     private void ChangeTargetSettings()
