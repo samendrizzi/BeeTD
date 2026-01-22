@@ -95,7 +95,7 @@ public class Attributes : MonoBehaviour
     public int pathIndex = 0;
     public bool inventoryFull = false;
     public bool frozen = false;
-    public int invisibility = 0;
+    public int Stealth = 0;
     public float freezeImmune = 0f;
     public float pausing = 0f;
     public float[] timeUntilActions;
@@ -487,36 +487,36 @@ public class Attributes : MonoBehaviour
         }
     }
 
-    public void AddInvisibility(float invisDuration)
+    public void AddStealth(float invisDuration)
     {
-        invisibility++;
+        Stealth++;
         //add code
         {
-            ToggleInvisibility(true);
+            ToggleStealth(true);
         }
-        StartCoroutine(RemoveInvisibility(invisDuration));
+        StartCoroutine(RemoveStealth(invisDuration));
     }
 
-    private IEnumerator RemoveInvisibility(float duration)
+    private IEnumerator RemoveStealth(float duration)
     {
         yield return new WaitForSeconds(duration);
-        invisibility--;
-        if (invisibility < 1)
+        Stealth--;
+        if (Stealth < 1)
         {
-            ToggleInvisibility(false);
+            ToggleStealth(false);
         }
         else
         {
-            invisibility = 0;
+            Stealth = 0;
         }
     }
 
-    private void ToggleInvisibility(bool state)
+    private void ToggleStealth(bool state)
     {
         Color tempColor = gameObject.GetComponent<SpriteRenderer>().color;
         if (state == true)
         {
-            tempColor.a = GlobalValues.main.invisibilityTransparancy;
+            tempColor.a = GlobalValues.main.StealthTransparancy;
             gameObject.GetComponent<SpriteRenderer>().color = tempColor;
         }
         else

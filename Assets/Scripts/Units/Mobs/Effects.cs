@@ -111,11 +111,11 @@ public class Effects : MonoBehaviour
                 float effectRange = attributes.effectRangeModifiers[i] * attributes.targetingRange;
                 Blink(effectPower, effectRange);
             }
-            else if (effect == "Invisibility")
+            else if (effect == "Stealth")
             {
                 float effectPower = attributes.effectPowerModifiers[i] * attributes.effectPower;
-                float effectDuration = attributes.effectDurations[i] * GlobalValues.main.invisibilityModifier;
-                Invisibility(effectPower, effectDuration);
+                float effectDuration = attributes.effectDurations[i] * GlobalValues.main.StealthModifier;
+                Stealth(effectPower, effectDuration);
             }
             else if (effect == "Prismatic Buff")
             {
@@ -295,7 +295,7 @@ public class Effects : MonoBehaviour
         }
     }
 
-    private void Invisibility(float power, float duration)
+    private void Stealth(float power, float duration)
     {
         System.Random RandomGen = new System.Random();
         int randompick = RandomGen.Next(100);
@@ -304,7 +304,7 @@ public class Effects : MonoBehaviour
         {
             durationAdjusted = duration * power;
         }
-        attributes.AddInvisibility(durationAdjusted);
+        attributes.AddStealth(durationAdjusted);
     }
 
     private void PrismaticBuff(float power, float duration)

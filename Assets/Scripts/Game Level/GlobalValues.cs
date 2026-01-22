@@ -52,8 +52,8 @@ public class GlobalValues : MonoBehaviour
     [SerializeField] public float maxSlowDebuff = 0.2f;
     [SerializeField] public float freezeImmuneRatio = 0.25f;
     [SerializeField] public float shieldModifier = 1f;
-    [SerializeField] public float invisibilityModifier = 1f;
-    [SerializeField] public float invisibilityTransparancy = 0.3f;
+    [SerializeField] public float StealthModifier = 1f;
+    [SerializeField] public float StealthTransparancy = 0.3f;
     [SerializeField] public float reviveCooldownModifier = 1f;
     [SerializeField] public float reviveDurationModifier = 1f;
 
@@ -148,7 +148,7 @@ public class GlobalValues : MonoBehaviour
     [SerializeField] public float prestigeBlackDistance = 0.5f;
     [SerializeField] public float prestigeGold = .5f;        //Buff Everything
     [SerializeField] public float prestigeBrown = .25f;        //Dodge Buff
-    [SerializeField] public float prestigeGrey = 0.25f;        //Invisibility
+    [SerializeField] public float prestigeGrey = 0.25f;        //Stealth
     [SerializeField] public float prestigeGreyRate = 0.125f;
     [SerializeField] public float prestigeGreyDuration = 5f;
     [SerializeField] public float prestigePrismatic = 2;  //Alternating Buff

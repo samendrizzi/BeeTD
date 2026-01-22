@@ -285,13 +285,13 @@ public class Prestige : MonoBehaviour
         }
         for (int i = 1; i <= count; i++)
         {
-            if (gameObject.GetComponent<Effects>().CheckEffect("Invisibility"))
+            if (gameObject.GetComponent<Effects>().CheckEffect("Stealth"))
             {
-                gameObject.GetComponent<Effects>().ModifyEffect("Invisibility", GlobalValues.main.prestigeGrey * (1f + (GlobalValues.main.prestigeDuplicateModifier * (i - 1))), 0f, 0f, 0f, 0f, 0f);
+                gameObject.GetComponent<Effects>().ModifyEffect("Stealth", GlobalValues.main.prestigeGrey * (1f + (GlobalValues.main.prestigeDuplicateModifier * (i - 1))), 0f, 0f, 0f, 0f, 0f);
             }
             else
             {
-                gameObject.GetComponent<Effects>().AddEffect("Invisibility", GlobalValues.main.prestigeGrey * (1f + (GlobalValues.main.prestigeDuplicateModifier * (i - 1))), GlobalValues.main.prestigeGreyRate, 1f, 1f, GlobalValues.main.prestigeGreyDuration, 1f);
+                gameObject.GetComponent<Effects>().AddEffect("Stealth", GlobalValues.main.prestigeGrey * (1f + (GlobalValues.main.prestigeDuplicateModifier * (i - 1))), GlobalValues.main.prestigeGreyRate, 1f, 1f, GlobalValues.main.prestigeGreyDuration, 1f);
             }
         }
         TurnOnStar(Color.gray, count);

@@ -1,0 +1,403 @@
+fileFormatVersion: 2
+guid: a1b2dbde027c90d40af6190fea6db10a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -533327726395239103
+    second: Pincer Ants_0
+  - first:
+      213: 5439395598005429562
+    second: Pincer Ants_1
+  - first:
+      213: -4487424623816338456
+    second: Pincer Ants_2
+  - first:
+      213: 5465173956635678857
+    second: Pincer Ants_3
+  - first:
+      213: -6750222476922606736
+    second: Pincer Ants_4
+  - first:
+      213: 8874621984715075104
+    second: Pincer Ants_5
+  - first:
+      213: -5941790400279323497
+    second: Pincer Ants_6
+  - first:
+      213: -4036863302091877907
+    second: Pincer Ants_7
+  - first:
+      213: 1719785409903304724
+    second: Pincer Ants_8
+  - first:
+      213: 544471054321821751
+    second: Pincer Ants_9
+  - first:
+      213: 1754120934745775987
+    second: Pincer Ants_10
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Pincer Ants_0
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 466
+        width: 326
+        height: 554
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 145585f224d3998f0800000000000000
+      internalID: -533327726395239103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pincer Ants_1
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 481
+        width: 283
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a35efeb2a7d9c7b40800000000000000
+      internalID: 5439395598005429562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pincer Ants_2
+      rect:
+        serializedVersion: 2
+        x: 639
+        y: 597
+        width: 258
+        height: 387
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e3161d741779b1c0800000000000000
+      internalID: -4487424623816338456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pincer Ants_3
+      rect:
+        serializedVersion: 2
+        x: 906
+        y: 481
+        width: 311
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9885cf002c238db40800000000000000
+      internalID: 5465173956635678857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pincer Ants_4
+      rect:
+        serializedVersion: 2
+        x: 1183
+        y: 625
+        width: 258
+        height: 292
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07bab24eb646252a0800000000000000
+      internalID: -6750222476922606736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pincer Ants_5
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 3
+        width: 336
+        height: 464
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02e60d2ecadf82b70800000000000000
+      internalID: 8874621984715075104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pincer Ants_6
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 184
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79c5685ac158a8da0800000000000000
+      internalID: -5941790400279323497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pincer Ants_7
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 1
+        width: 261
+        height: 475
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de1d008073e2af7c0800000000000000
+      internalID: -4036863302091877907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pincer Ants_8
+      rect:
+        serializedVersion: 2
+        x: 631
+        y: 13
+        width: 273
+        height: 499
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 410af2fe7b7edd710800000000000000
+      internalID: 1719785409903304724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pincer Ants_9
+      rect:
+        serializedVersion: 2
+        x: 911
+        y: 1
+        width: 282
+        height: 476
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 738a5570a895e8700800000000000000
+      internalID: 544471054321821751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pincer Ants_10
+      rect:
+        serializedVersion: 2
+        x: 1183
+        y: 67
+        width: 265
+        height: 402
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37f199842b3e75810800000000000000
+      internalID: 1754120934745775987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Pincer Ants_0: -533327726395239103
+      Pincer Ants_1: 5439395598005429562
+      Pincer Ants_10: 1754120934745775987
+      Pincer Ants_2: -4487424623816338456
+      Pincer Ants_3: 5465173956635678857
+      Pincer Ants_4: -6750222476922606736
+      Pincer Ants_5: 8874621984715075104
+      Pincer Ants_6: -5941790400279323497
+      Pincer Ants_7: -4036863302091877907
+      Pincer Ants_8: 1719785409903304724
+      Pincer Ants_9: 544471054321821751
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
