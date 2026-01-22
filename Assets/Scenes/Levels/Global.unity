@@ -2670,8 +2670,8 @@ MonoBehaviour:
   maxSlowDebuff: 0.4
   freezeImmuneRatio: 0.5
   shieldModifier: 1
-  invisibilityModifier: 1
-  invisibilityTransparancy: 0.3
+  StealthModifier: 1
+  StealthTransparancy: 0.3
   reviveCooldownModifier: 1
   reviveDurationModifier: 1
   workerBeePrefab: {fileID: 5400552394083257877, guid: ee18f8343b138334589ffed6834256ab, type: 3}

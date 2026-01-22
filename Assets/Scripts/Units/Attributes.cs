@@ -87,6 +87,8 @@ public class Attributes : MonoBehaviour
     [Header("_____________________")]
     [Header("Trackers")]
     //trackers
+    public VariantType variant;
+    public string variantName;
     public string prestige;
     public float hitPoints = 1f;
     public float shield = 0f;
@@ -149,13 +151,40 @@ public class Attributes : MonoBehaviour
     private void Awake()
     {
         //initiate default values into trackers
-        wayPointDistance = GlobalValues.main.wayPointDistance * wayPointRangeModifier;
         maxHP = maxHP * GlobalValues.main.difficultyMultiplier * (1 + (LevelManager.main.difficultyScaling * WaveSpawner.main.currentWave));
         maxShield = maxShield * (1 + (LevelManager.main.difficultyScaling * WaveSpawner.main.currentWave)) * GlobalValues.main.shieldModifier;
+        wayPointDistance = GlobalValues.main.wayPointDistance * wayPointRangeModifier;
+        targetingOptions = GlobalValues.main.targetingOptions;
+        if (hasTargetSettings == true)
+        {
+            targetingOptions = GlobalValues.main.targetingOptions;
+        }
+        SetBaseAttributes();
+        SetHealthBar();
+    }
+
+    private void Update()
+    {
+        if (pausing > 0f)
+        {
+            pausing -= Time.deltaTime;
+        }
+        if (frozen == true)
+        {
+            return;
+        }
+        //Update Counters
+        if (freezeImmune > 0)
+        {
+            freezeImmune -= Time.deltaTime;
+        }
+    }
+
+    public void SetBaseAttributes()
+    {
+        //Set Base Stats
         hitPoints = maxHP;
         shield = maxShield;
-        targetingOptions = GlobalValues.main.targetingOptions;
-        //Set Base Stats
         moveSpeedBase = moveSpeed;
         moveSpeedUncapped = moveSpeed;
         targetingRangeBase = targetingRange;
@@ -205,28 +234,6 @@ public class Attributes : MonoBehaviour
         if (passives.Length > 0)
         {
             Array.Resize(ref timeUntilPassives, passives.Length);
-        }
-        if (hasTargetSettings == true)
-        {
-            targetingOptions = GlobalValues.main.targetingOptions;
-        }
-        SetHealthBar();
-    }
-
-    private void Update()
-    {
-        if (pausing > 0f)
-        {
-            pausing -= Time.deltaTime;
-        }
-        if (frozen == true)
-        {
-            return;
-        }
-        //Update Counters
-        if (freezeImmune > 0)
-        {
-            freezeImmune -= Time.deltaTime;
         }
     }
 
@@ -315,6 +322,15 @@ public class Attributes : MonoBehaviour
             hitPoints += heal;
         }
         HealthBar();
+    }
+
+    public void Shield(float shieldAmount)
+    {
+        shield += shieldAmount;
+        if (shield > maxShield)
+        {
+            shield = maxShield;
+        }
     }
 
     public void SlowSpeed(float power, float pierce, float duration)

@@ -131,7 +131,7 @@ public class Prestige : MonoBehaviour
             }
             else
             {
-                gameObject.GetComponent<Effects>().AddEffect("Health Regen", GlobalValues.main.prestigeGreen * (1f + (GlobalValues.main.prestigeDuplicateModifier * (i - 1))), GlobalValues.main.prestigeGreenRate, 1f, 1f, 1f, 0.1f);
+                gameObject.GetComponent<Effects>().AddEffect("Health Regen", null, SoundType.EMPTY, GlobalValues.main.prestigeGreen * (1f + (GlobalValues.main.prestigeDuplicateModifier * (i - 1))), GlobalValues.main.prestigeGreenRate, 1f, 1f, 1f, 0.1f);
             }
         }
         TurnOnStar(Color.green, count);
@@ -177,7 +177,7 @@ public class Prestige : MonoBehaviour
             }
             else
             {
-                gameObject.GetComponent<Effects>().AddEffect("Blink", GlobalValues.main.prestigePurple * (1f + (GlobalValues.main.prestigeDuplicateModifier * (i - 1))), GlobalValues.main.prestigePurpleRate, GlobalValues.main.prestigePurpleRange, 1f, 1f, 1f);
+                gameObject.GetComponent<Effects>().AddEffect("Blink", null, SoundType.EMPTY, GlobalValues.main.prestigePurple * (1f + (GlobalValues.main.prestigeDuplicateModifier * (i - 1))), GlobalValues.main.prestigePurpleRate, GlobalValues.main.prestigePurpleRange, 1f, 1f, 1f);
             }
         }
         TurnOnStar(Color.purple, count);
@@ -197,7 +197,7 @@ public class Prestige : MonoBehaviour
             }
             else
             {
-                gameObject.GetComponent<Passives>().AddPassive("Death Split", GlobalValues.main.prestigeBlack * (1f + (GlobalValues.main.prestigeDuplicateModifier * (i - 1))), 1f, 1f, 1f, 1f, 1f);
+                gameObject.GetComponent<Passives>().AddPassive("Death Split", null, SoundType.EMPTY, GlobalValues.main.prestigeBlack * (1f + (GlobalValues.main.prestigeDuplicateModifier * (i - 1))), 1f, 1f, 1f, 1f, 1f);
             }
         }
         TurnOnStar(Color.black, count);
@@ -291,7 +291,7 @@ public class Prestige : MonoBehaviour
             }
             else
             {
-                gameObject.GetComponent<Effects>().AddEffect("Stealth", GlobalValues.main.prestigeGrey * (1f + (GlobalValues.main.prestigeDuplicateModifier * (i - 1))), GlobalValues.main.prestigeGreyRate, 1f, 1f, GlobalValues.main.prestigeGreyDuration, 1f);
+                gameObject.GetComponent<Effects>().AddEffect("Stealth", null, SoundType.EMPTY, GlobalValues.main.prestigeGrey * (1f + (GlobalValues.main.prestigeDuplicateModifier * (i - 1))), GlobalValues.main.prestigeGreyRate, 1f, 1f, GlobalValues.main.prestigeGreyDuration, 1f);
             }
         }
         TurnOnStar(Color.gray, count);
@@ -311,7 +311,7 @@ public class Prestige : MonoBehaviour
             }
             else
             {
-                gameObject.GetComponent<Effects>().AddEffect("Prismatic Buff", GlobalValues.main.prestigePrismatic * (1f + (GlobalValues.main.prestigeDuplicateModifier * (i - 1))), 1 / GlobalValues.main.prestigePrismaticDuration, 1f, 1f, GlobalValues.main.prestigePrismaticDuration, 1f);
+                gameObject.GetComponent<Effects>().AddEffect("Prismatic Buff", null, SoundType.EMPTY, GlobalValues.main.prestigePrismatic * (1f + (GlobalValues.main.prestigeDuplicateModifier * (i - 1))), 1 / GlobalValues.main.prestigePrismaticDuration, 1f, 1f, GlobalValues.main.prestigePrismaticDuration, 1f);
             }
         }
         TurnOnStar(Color.paleVioletRed, count);
@@ -357,7 +357,7 @@ public class Prestige : MonoBehaviour
             }
             else
             {
-                gameObject.GetComponent<Passives>().AddPassive("Revive", GlobalValues.main.prestigePlatinum * (1f + (GlobalValues.main.prestigeDuplicateModifier * (i - 1))), 1 / GlobalValues.main.prestigePlatinumCooldown, 1f, 1f, 1f, 1f);
+                gameObject.GetComponent<Passives>().AddPassive("Revive", null, SoundType.EMPTY, GlobalValues.main.prestigePlatinum * (1f + (GlobalValues.main.prestigeDuplicateModifier * (i - 1))), 1 / GlobalValues.main.prestigePlatinumCooldown, 1f, 1f, 1f, 1f);
             }
         }
         TurnOnStar(new Color32(229, 228, 226, 255), count);
@@ -377,7 +377,7 @@ public class Prestige : MonoBehaviour
             }
             else
             {
-                gameObject.GetComponent<Passives>().AddPassive("Slow & Freeze Immunity", GlobalValues.main.prestigeTeal * (1f + (GlobalValues.main.prestigeDuplicateModifier * (i - 1))), 1f, 1f, 1f, 1f, 1f);
+                gameObject.GetComponent<Passives>().AddPassive("Slow & Freeze Immunity", null, SoundType.EMPTY, GlobalValues.main.prestigeTeal * (1f + (GlobalValues.main.prestigeDuplicateModifier * (i - 1))), 1f, 1f, 1f, 1f, 1f);
             }
         }
         TurnOnStar(Color.teal, count);

@@ -39,10 +39,12 @@ public class Passives : MonoBehaviour
         }
     }
 
-    public void AddPassive(string passive, float powerMod, float rateMod, float rangeMod, float pierceMod, float duration, float extraMod)
+    public void AddPassive(string passive, GameObject prefab, SoundType sound, float powerMod, float rateMod, float rangeMod, float pierceMod, float duration, float extraMod)
     {
         int index = attributes.passives.Length;
         Array.Resize(ref attributes.passives, index + 1);
+        Array.Resize(ref attributes.passivePrefabs, index + 1);
+        Array.Resize(ref attributes.passiveSounds, index + 1);
         Array.Resize(ref attributes.passivePowerModifiers, index + 1);
         Array.Resize(ref attributes.passiveRateModifiers, index + 1);
         Array.Resize(ref attributes.passiveRangeModifiers, index + 1);
@@ -57,6 +59,8 @@ public class Passives : MonoBehaviour
         Array.Resize(ref attributes.passiveExtraModifiersBase, index + 1);
         Array.Resize(ref attributes.timeUntilPassives, index + 1);
         attributes.passives[index] = passive;
+        attributes.passivePrefabs[index] = prefab;
+        attributes.passiveSounds[index] = sound;
         attributes.passivePowerModifiers[index] = powerMod;
         attributes.passiveRateModifiers[index] = rateMod;
         attributes.passiveRangeModifiers[index] = rangeMod;
@@ -94,6 +98,54 @@ public class Passives : MonoBehaviour
             Debug.Log("Modifying Passive: Passive " + passive + " not found for " + attributes.sName);
         }
     }
+    public void RemovePassive(string passive)
+    {
+        int index = FindPassive(passive);
+        if (index < 0)
+        {
+            Debug.Log(attributes.sName + " does not have passive " + passive + " to remove.");
+            return;
+        }
+        if (attributes.passives.Length > index + 1)
+        {
+            for (int i = index; i < attributes.passives.Length - 1; i++)
+            {
+                attributes.passives[i] = attributes.passives[i + 1];
+                attributes.passivePrefabs[i] = attributes.passivePrefabs[i + 1];
+                attributes.passiveSounds[i] = attributes.passiveSounds[i + 1];
+                attributes.passivePowerModifiers[i] = attributes.passivePowerModifiers[i + 1];
+                attributes.passiveRateModifiers[i] = attributes.passiveRateModifiers[i + 1];
+                attributes.passiveRangeModifiers[i] = attributes.passiveRangeModifiers[i + 1];
+                attributes.passivePierceModifiers[i] = attributes.passivePierceModifiers[i + 1];
+                attributes.passiveDurations[i] = attributes.passiveDurations[i + 1];
+                attributes.passiveExtraModifiers[i] = attributes.passiveExtraModifiers[i + 1];
+                attributes.passivePowerModifiersBase[i] = attributes.passivePowerModifiersBase[i + 1];
+                attributes.passiveRateModifiersBase[i] = attributes.passiveRateModifiersBase[i + 1];
+                attributes.passiveRangeModifiersBase[i] = attributes.passiveRangeModifiersBase[i + 1];
+                attributes.passivePierceModifiersBase[i] = attributes.passivePierceModifiersBase[i + 1];
+                attributes.passiveDurationsBase[i] = attributes.passiveDurationsBase[i + 1];
+                attributes.passiveExtraModifiersBase[i] = attributes.passiveExtraModifiersBase[i + 1];
+                attributes.timeUntilPassives[i] = attributes.timeUntilPassives[i + 1];
+            }
+        }
+        Array.Resize(ref attributes.passivePrefabs, attributes.passives.Length - 1);
+        Array.Resize(ref attributes.passiveSounds, attributes.passives.Length - 1);
+        Array.Resize(ref attributes.passivePowerModifiers, attributes.passives.Length - 1);
+        Array.Resize(ref attributes.passiveRateModifiers, attributes.passives.Length - 1);
+        Array.Resize(ref attributes.passiveRangeModifiers, attributes.passives.Length - 1);
+        Array.Resize(ref attributes.passivePierceModifiers, attributes.passives.Length - 1);
+        Array.Resize(ref attributes.passiveDurations, attributes.passives.Length - 1);
+        Array.Resize(ref attributes.passiveExtraModifiers, attributes.passives.Length - 1);
+        Array.Resize(ref attributes.passivePowerModifiersBase, attributes.passives.Length - 1);
+        Array.Resize(ref attributes.passiveRateModifiersBase, attributes.passives.Length - 1);
+        Array.Resize(ref attributes.passiveRangeModifiersBase, attributes.passives.Length - 1);
+        Array.Resize(ref attributes.passivePierceModifiersBase, attributes.passives.Length - 1);
+        Array.Resize(ref attributes.passiveDurationsBase, attributes.passives.Length - 1);
+        Array.Resize(ref attributes.passiveExtraModifiersBase, attributes.passives.Length - 1);
+        Array.Resize(ref attributes.timeUntilPassives, attributes.passives.Length - 1);
+        Array.Resize(ref attributes.passives, attributes.passives.Length - 1);
+    }
+
 
     public bool CheckPassive(string passive)
     {
@@ -160,49 +212,5 @@ public class Passives : MonoBehaviour
         {
             SoundManager.main.PlaySound(attributes.passiveSounds[i]);
         }
-    }
-
-    public void RemovePassive(string passive)
-    {
-        int index = FindPassive(passive);
-        if (index < 0)
-        {
-            Debug.Log(attributes.sName + " does not have passive " + passive + " to remove.");
-            return;
-        }
-        if (attributes.passives.Length > index + 1)
-        {
-            for (int i = index; i < attributes.passives.Length - 1; i++)
-            {
-                attributes.passives[i] =  attributes.passives[i + 1];
-                attributes.passivePowerModifiers[i] = attributes.passivePowerModifiers[i + 1];
-                attributes.passiveRateModifiers[i] = attributes.passiveRateModifiers[i + 1];
-                attributes.passiveRangeModifiers[i] =  attributes.passiveRangeModifiers[i + 1];
-                attributes.passivePierceModifiers[i] = attributes.passivePierceModifiers[i + 1];
-                attributes.passiveDurations[i] =  attributes.passiveDurations[i + 1];
-                attributes.passiveExtraModifiers[i] = attributes.passiveExtraModifiers[i + 1];
-                attributes.passivePowerModifiersBase[i] = attributes.passivePowerModifiersBase[i + 1];
-                attributes.passiveRateModifiersBase[i] =  attributes.passiveRateModifiersBase[i + 1];
-                attributes.passiveRangeModifiersBase[i] = attributes.passiveRangeModifiersBase[i + 1] ;
-                attributes.passivePierceModifiersBase[i] = attributes.passivePierceModifiersBase[i + 1];
-                attributes.passiveDurationsBase[i] =  attributes.passiveDurationsBase[i + 1];
-                attributes.passiveExtraModifiersBase[i] = attributes.passiveExtraModifiersBase[i + 1];
-                attributes.timeUntilPassives[i] = attributes.timeUntilPassives[i + 1];
-            }
-        }
-        Array.Resize(ref attributes.passivePowerModifiers, attributes.passives.Length - 1);
-        Array.Resize(ref attributes.passiveRateModifiers, attributes.passives.Length - 1);
-        Array.Resize(ref attributes.passiveRangeModifiers, attributes.passives.Length - 1);
-        Array.Resize(ref attributes.passivePierceModifiers, attributes.passives.Length - 1);
-        Array.Resize(ref attributes.passiveDurations, attributes.passives.Length - 1);
-        Array.Resize(ref attributes.passiveExtraModifiers, attributes.passives.Length - 1);
-        Array.Resize(ref attributes.passivePowerModifiersBase, attributes.passives.Length - 1);
-        Array.Resize(ref attributes.passiveRateModifiersBase, attributes.passives.Length - 1);
-        Array.Resize(ref attributes.passiveRangeModifiersBase, attributes.passives.Length - 1);
-        Array.Resize(ref attributes.passivePierceModifiersBase, attributes.passives.Length - 1);
-        Array.Resize(ref attributes.passiveDurationsBase, attributes.passives.Length - 1);
-        Array.Resize(ref attributes.passiveExtraModifiersBase, attributes.passives.Length - 1);
-        Array.Resize(ref attributes.timeUntilPassives, attributes.passives.Length - 1);
-        Array.Resize(ref attributes.passives, attributes.passives.Length - 1);
     }
 }

@@ -142,10 +142,12 @@ public class Actions : MonoBehaviour
         }
     }
 
-    public void AddAction(string action, float powerMod, float rateMod, float rangeMod, float pierceMod, float duration, float extraMod)
+    public void AddAction(string action, GameObject prefab, SoundType sound, float powerMod, float rateMod, float rangeMod, float pierceMod, float duration, float extraMod)
     {
         int index = attributes.actions.Length;
         Array.Resize(ref attributes.actions, index + 1);
+        Array.Resize(ref attributes.actionPrefabs, index + 1);
+        Array.Resize(ref attributes.actionSounds, index + 1);
         Array.Resize(ref attributes.actionPowerModifiers, index + 1);
         Array.Resize(ref attributes.actionRateModifiers, index + 1);
         Array.Resize(ref attributes.actionRangeModifiers, index + 1);
@@ -160,6 +162,8 @@ public class Actions : MonoBehaviour
         Array.Resize(ref attributes.actionExtraModifiersBase, index + 1);
         Array.Resize(ref attributes.timeUntilActions, index + 1);
         attributes.actions[index] = action;
+        attributes.actionPrefabs[index] = prefab;
+        attributes.actionSounds[index] = sound;
         attributes.actionPowerModifiers[index] = powerMod;
         attributes.actionRateModifiers[index] = rateMod;
         attributes.actionRangeModifiers[index] = rangeMod;
@@ -196,6 +200,54 @@ public class Actions : MonoBehaviour
         {
             Debug.Log("Modifying Action: Action " + action + " not found for " + attributes.sName);
         }
+    }
+
+    public void RemoveAction(string action)
+    {
+        int index = FindAction(action);
+        if (index < 0)
+        {
+            Debug.Log(attributes.sName + " does not have action " + action + " to remove.");
+            return;
+        }
+        if (attributes.actions.Length > index + 1)
+        {
+            for (int i = index; i < attributes.actions.Length - 1; i++)
+            {
+                attributes.actions[i] = attributes.actions[i + 1];
+                attributes.actionPrefabs[i] = attributes.actionPrefabs[i + 1];
+                attributes.actionSounds[i] = attributes.actionSounds[i + 1];
+                attributes.actionPowerModifiers[i] = attributes.actionPowerModifiers[i + 1];
+                attributes.actionRateModifiers[i] = attributes.actionRateModifiers[i + 1];
+                attributes.actionRangeModifiers[i] = attributes.actionRangeModifiers[i + 1];
+                attributes.actionPierceModifiers[i] = attributes.actionPierceModifiers[i + 1];
+                attributes.actionDurations[i] = attributes.actionDurations[i + 1];
+                attributes.actionExtraModifiers[i] = attributes.actionExtraModifiers[i + 1];
+                attributes.actionPowerModifiersBase[i] = attributes.actionPowerModifiersBase[i + 1];
+                attributes.actionRateModifiersBase[i] = attributes.actionRateModifiersBase[i + 1];
+                attributes.actionRangeModifiersBase[i] = attributes.actionRangeModifiersBase[i + 1];
+                attributes.actionPierceModifiersBase[i] = attributes.actionPierceModifiersBase[i + 1];
+                attributes.actionDurationsBase[i] = attributes.actionDurationsBase[i + 1];
+                attributes.actionExtraModifiersBase[i] = attributes.actionExtraModifiersBase[i + 1];
+                attributes.timeUntilActions[i] = attributes.timeUntilActions[i + 1];
+            }
+        }
+        Array.Resize(ref attributes.actionPrefabs, attributes.actions.Length - 1);
+        Array.Resize(ref attributes.actionSounds, attributes.actions.Length - 1);
+        Array.Resize(ref attributes.actionPowerModifiers, attributes.actions.Length - 1);
+        Array.Resize(ref attributes.actionRateModifiers, attributes.actions.Length - 1);
+        Array.Resize(ref attributes.actionRangeModifiers, attributes.actions.Length - 1);
+        Array.Resize(ref attributes.actionPierceModifiers, attributes.actions.Length - 1);
+        Array.Resize(ref attributes.actionDurations, attributes.actions.Length - 1);
+        Array.Resize(ref attributes.actionExtraModifiers, attributes.actions.Length - 1);
+        Array.Resize(ref attributes.actionPowerModifiersBase, attributes.actions.Length - 1);
+        Array.Resize(ref attributes.actionRateModifiersBase, attributes.actions.Length - 1);
+        Array.Resize(ref attributes.actionRangeModifiersBase, attributes.actions.Length - 1);
+        Array.Resize(ref attributes.actionPierceModifiersBase, attributes.actions.Length - 1);
+        Array.Resize(ref attributes.actionDurationsBase, attributes.actions.Length - 1);
+        Array.Resize(ref attributes.actionExtraModifiersBase, attributes.actions.Length - 1);
+        Array.Resize(ref attributes.timeUntilActions, attributes.actions.Length - 1);
+        Array.Resize(ref attributes.actions, attributes.actions.Length - 1);
     }
 
     public bool CheckAction(string action)

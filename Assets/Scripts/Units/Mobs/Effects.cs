@@ -105,6 +105,12 @@ public class Effects : MonoBehaviour
                 float effectExtra = attributes.effectExtraModifiers[i] * attributes.effectPower;
                 HealthRegen(effectPower, effectExtra);
             }
+            else if (effect == "Shield Regen")
+            {
+                float effectPower = attributes.effectPowerModifiers[i] * attributes.effectPower;
+                float effectExtra = attributes.effectExtraModifiers[i] * attributes.effectPower;
+                ShieldRegen(effectPower, effectExtra);
+            }
             else if (effect == "Blink")
             {
                 float effectPower = attributes.effectPowerModifiers[i] * attributes.effectPower;
@@ -143,10 +149,12 @@ public class Effects : MonoBehaviour
         }
     }
 
-    public void AddEffect(string effect, float powerMod, float rateMod, float rangeMod, float pierceMod, float duration, float extraMod)
+    public void AddEffect(string effect, GameObject prefab, SoundType sound, float powerMod, float rateMod, float rangeMod, float pierceMod, float duration, float extraMod)
     {
         int index = attributes.effects.Length;
         Array.Resize(ref attributes.effects, index + 1);
+        Array.Resize(ref attributes.effectPrefabs, index + 1);
+        Array.Resize(ref attributes.effectSounds, index + 1);
         Array.Resize(ref attributes.effectPowerModifiers, index + 1);
         Array.Resize(ref attributes.effectRateModifiers, index + 1);
         Array.Resize(ref attributes.effectRangeModifiers, index + 1);
@@ -161,6 +169,8 @@ public class Effects : MonoBehaviour
         Array.Resize(ref attributes.effectExtraModifiersBase, index + 1);
         Array.Resize(ref attributes.timeUntilEffects, index + 1);
         attributes.effects[index] = effect;
+        attributes.effectPrefabs[index] = prefab;
+        attributes.effectSounds[index] = sound;
         attributes.effectPowerModifiers[index] = powerMod;
         attributes.effectRateModifiers[index] = rateMod;
         attributes.effectRangeModifiers[index] = rangeMod;
@@ -197,6 +207,53 @@ public class Effects : MonoBehaviour
         {
             Debug.Log("Modifying Effect: Effect " + effect + " not found for " + attributes.sName);
         }
+    }
+    public void RemoveEffect(string effect)
+    {
+        int index = FindEffect(effect);
+        if (index < 0)
+        {
+            Debug.Log(attributes.sName + " does not have effect " + effect + " to remove.");
+            return;
+        }
+        if (attributes.effects.Length > index + 1)
+        {
+            for (int i = index; i < attributes.effects.Length - 1; i++)
+            {
+                attributes.effects[i] = attributes.effects[i + 1];
+                attributes.effectPrefabs[i] = attributes.effectPrefabs[i + 1];
+                attributes.effectSounds[i] = attributes.effectSounds[i + 1];
+                attributes.effectPowerModifiers[i] = attributes.effectPowerModifiers[i + 1];
+                attributes.effectRateModifiers[i] = attributes.effectRateModifiers[i + 1];
+                attributes.effectRangeModifiers[i] = attributes.effectRangeModifiers[i + 1];
+                attributes.effectPierceModifiers[i] = attributes.effectPierceModifiers[i + 1];
+                attributes.effectDurations[i] = attributes.effectDurations[i + 1];
+                attributes.effectExtraModifiers[i] = attributes.effectExtraModifiers[i + 1];
+                attributes.effectPowerModifiersBase[i] = attributes.effectPowerModifiersBase[i + 1];
+                attributes.effectRateModifiersBase[i] = attributes.effectRateModifiersBase[i + 1];
+                attributes.effectRangeModifiersBase[i] = attributes.effectRangeModifiersBase[i + 1];
+                attributes.effectPierceModifiersBase[i] = attributes.effectPierceModifiersBase[i + 1];
+                attributes.effectDurationsBase[i] = attributes.effectDurationsBase[i + 1];
+                attributes.effectExtraModifiersBase[i] = attributes.effectExtraModifiersBase[i + 1];
+                attributes.timeUntilEffects[i] = attributes.timeUntilEffects[i + 1];
+            }
+        }
+        Array.Resize(ref attributes.effectPrefabs, attributes.effects.Length - 1);
+        Array.Resize(ref attributes.effectSounds, attributes.effects.Length - 1);
+        Array.Resize(ref attributes.effectPowerModifiers, attributes.effects.Length - 1);
+        Array.Resize(ref attributes.effectRateModifiers, attributes.effects.Length - 1);
+        Array.Resize(ref attributes.effectRangeModifiers, attributes.effects.Length - 1);
+        Array.Resize(ref attributes.effectPierceModifiers, attributes.effects.Length - 1);
+        Array.Resize(ref attributes.effectDurations, attributes.effects.Length - 1);
+        Array.Resize(ref attributes.effectExtraModifiers, attributes.effects.Length - 1);
+        Array.Resize(ref attributes.effectPowerModifiersBase, attributes.effects.Length - 1);
+        Array.Resize(ref attributes.effectRateModifiersBase, attributes.effects.Length - 1);
+        Array.Resize(ref attributes.effectRangeModifiersBase, attributes.effects.Length - 1);
+        Array.Resize(ref attributes.effectPierceModifiersBase, attributes.effects.Length - 1);
+        Array.Resize(ref attributes.effectDurationsBase, attributes.effects.Length - 1);
+        Array.Resize(ref attributes.effectExtraModifiersBase, attributes.effects.Length - 1);
+        Array.Resize(ref attributes.timeUntilEffects, attributes.effects.Length - 1);
+        Array.Resize(ref attributes.effects, attributes.effects.Length - 1);
     }
 
     public bool CheckEffect(string effect)
@@ -271,8 +328,14 @@ public class Effects : MonoBehaviour
 
     private void HealthRegen(float power, float extraMod)
     {
+        float shieldAmount = power + extraMod * attributes.maxHP;
+        attributes.Shield(shieldAmount);
+    }
+
+    private void ShieldRegen(float power, float extraMod)
+    {
         float healAmount = power + extraMod * attributes.maxHP;
-        attributes.Heal(healAmount);
+        attributes.Shield(healAmount);
     }
 
     private void Blink(float power, float range)
