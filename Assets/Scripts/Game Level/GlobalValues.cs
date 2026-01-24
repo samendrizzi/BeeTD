@@ -14,13 +14,18 @@ public class GlobalValues : MonoBehaviour
 
     public static GlobalValues main;
 
+    public enum Difficulty 
+    { 
+        EASY,
+        MEDIUM,
+        HARD
+    }
+
+
     [Header("_______________________")]
     [Header("Global")]
     [SerializeField] public string gameVersion;
     [SerializeField] public float maxDeltaTime = 0.1f;
-    [SerializeField] public float easyMultiplier = 0.7f;
-    [SerializeField] public float mediumMultiplier = 1f;
-    [SerializeField] public float hardMultiplier = 1.5f;
     [SerializeField] public float normalTiming = 1f;
     [SerializeField] public float fastTiming = 2f;
     [SerializeField] public float veryFastTiming = 3f;
@@ -28,10 +33,6 @@ public class GlobalValues : MonoBehaviour
     [SerializeField] public float startingWaveCountdown = 10f;
     [SerializeField] public float waveSpawnRatio = 0.7f;
     [SerializeField] public float startingRadius = 50f;
-    [SerializeField] public int honeyCombTicks = 60;
-    [SerializeField] public float honeyPerCombTick = 0.25f;
-    [SerializeField] public float honeyCombCreatePause = 3f;
-    [SerializeField] public float honeyCombCheckTime = 1f;
     [SerializeField] public LayerMask plotMask;
     [SerializeField] public LayerMask honeyCombMask;
     [SerializeField] public LayerMask enemyMask;
@@ -45,40 +46,80 @@ public class GlobalValues : MonoBehaviour
     [Header("Audio")]
     [SerializeField] public float pitchChange = 0.1f;
 
-
     [Header("_______________________")]
     [Header("All Units")]
     [SerializeField] public float wayPointDistance = 0.2f;
     [SerializeField] public float maxSlowDebuff = 0.2f;
     [SerializeField] public float freezeImmuneRatio = 0.25f;
-    [SerializeField] public float shieldModifier = 1f;
     [SerializeField] public float StealthModifier = 1f;
     [SerializeField] public float StealthTransparancy = 0.3f;
     [SerializeField] public float reviveCooldownModifier = 1f;
     [SerializeField] public float reviveDurationModifier = 1f;
 
-
     [Header("_______________________")]
     [Header("Friendly Units")]
     [SerializeField] public GameObject workerBeePrefab;
     [SerializeField] public float unitRotationSpeed = 150f;
-    [SerializeField] public float queenThornModifier = 1f;
-    [SerializeField] public float queenThornBase = 0.25f;
+    [SerializeField] public float queenBeeHitPoints = 100f;
+    [SerializeField] public float queenBeeReturnDamage = 0.25f;
+    [SerializeField] public float queenBeeArmor = 0f;
     [SerializeField] public float SoldierPauseTime = 1f;
-    [SerializeField] public float friendlyHealRangeModifier = 1f;
-    [SerializeField] public float friendlyHealModifier = 1f;
-    [SerializeField] public float queenHealModifier = 1f;
-    [SerializeField] public float workerBeeCost = 50f;
-    [SerializeField] public float workerBeeCostIncrease = 0.1f;
+    [SerializeField] public int[] startingBees = { 3, 2, 1 };
+    [SerializeField] public float beeCost = 50f;
+    [SerializeField] public float beeCostScaling = 0.1f;
+    [SerializeField] public float beeHitPoints = 1f;
+    [SerializeField] public float beeHeal = 1f;
+    [SerializeField] public float beeShield = 1f;
+    [SerializeField] public float beeShieldGeneration = 1f;
+    [SerializeField] public float beeTargetingRange = 1f;
+    [SerializeField] public float beeDamage = 1f;
+    [SerializeField] public float beeAttackRate = 1f;
+    [SerializeField] public float beeActionPower = 1f;
+    [SerializeField] public float beeActionRate = 1f;
+    [SerializeField] public float beeEffectPower = 1f;
+    [SerializeField] public float beeEffectRate = 1f;
+    [SerializeField] public float beeCarryCapacity = 1f;
+    [SerializeField] public float beeMoveSpeed = 1f;
+    [SerializeField] public float beeArmor = 0f;
+    [SerializeField] public float beeResistance = 0f;
+    [SerializeField] public float beeDodge = 0f;
+    [SerializeField] public float beeArmorPierce = 0f;
+    [SerializeField] public float beeResistancePierce = 0f;
+    [SerializeField] public float beeDodgePierce = 0f;
+    [SerializeField] public float beeStealthDetection = 0f;
 
     [Header("_______________________")]
     [Header("Mobs")]
     [SerializeField] public float enemyRotationSpeed = 150f;
+    [SerializeField] public float[] enemyHitPoints = { 0.75f, 1f, 1.25f };
+    [SerializeField] public float enemyHeal = 1f;
+    [SerializeField] public float enemyShield = 1f;
+    [SerializeField] public float enemyShieldGeneration = 1f;
+    [SerializeField] public float enemyTargetingRange = 1f;
+    [SerializeField] public float enemyDamage = 1f;
+    [SerializeField] public float enemyAttackRate = 1f;
+    [SerializeField] public float enemyActionPower = 1f;
+    [SerializeField] public float enemyActionRate = 1f;
+    [SerializeField] public float enemySlowPower = 0f;
+    [SerializeField] public float enemySlowPierce = 0f;
+    [SerializeField] public float enemyFreezePower = 0f;
+    [SerializeField] public float enemyFreezePierce = 0f;
+    [SerializeField] public float enemyEffectPower = 1f;
+    [SerializeField] public float enemyEffectRate = 1f;
+    [SerializeField] public float enemyCarryCapacity = 1f;
+    [SerializeField] public float[] enemyMoveSpeed = { 0.9f, 1f, 1.1f };
+    [SerializeField] public float enemyArmor = 0f;
+    [SerializeField] public float enemyResistance = 0f;
+    [SerializeField] public float enemyDodge = 0f;
+    [SerializeField] public float enemyArmorPierce = 0f;
+    [SerializeField] public float enemyResistancePierce = 0f;
+    [SerializeField] public float enemyDodgePierce = 0f;
+    [SerializeField] public float enemyStealthDetection = 0f;
+    [SerializeField] public float[] enemyWaveScaling = { 0f, 1f, 2f };
+    [SerializeField] public float enemyHatchTime = 1f;
+    [SerializeField] public float enemySpawnTime = 1f;
+    [SerializeField] public float enemyStealthTime = 1f;
     [SerializeField] public float honeyhealModifier = 0.5f;
-    [SerializeField] public float enemyHealRangeModifier = 1f;
-    [SerializeField] public float enemyHealModifier = 1f;
-    [SerializeField] public float spawnTimerModifier = 1f;
-    [SerializeField] public float eggHatchingTimerModifier = 1f;
     [SerializeField] public float hummingbirdRange = 100f;
     [SerializeField] public float hummingbirdSapTimeModifier = 1f;
     [SerializeField] public float hummingbirdWaitTime = 3f;
@@ -92,23 +133,41 @@ public class GlobalValues : MonoBehaviour
     [SerializeField] public GameObject[] buildableFlower;
     [SerializeField] public GameObject[] buildable;
     [SerializeField] public string[] targetingOptions = new string[] { "Near", "Far", "Weak", "Strong", "Ground", "Flying" };
-    [SerializeField] public float sellRatio = 0.75f;
     [SerializeField] public float sellNonrefund = 35f;
-    [SerializeField] public float damageBuffRatio = 0.1f;
-    [SerializeField] public float actionRateBuffRatio = 0.1f;
-    [SerializeField] public float slowPowerModifier = 1f;
-    [SerializeField] public float slowDurationModifier = 1f;
-    [SerializeField] public float slowPierceModifier = 1f;
-    [SerializeField] public float freezePowerModifier = 0.5f;
-    [SerializeField] public float freezeDurationModifier = 1f;
-    [SerializeField] public float freezePierceModifier = 1f;
     [SerializeField] public float turretPauseTime = 0.25f;
-    [SerializeField] public float AoeDropOffFloor = 0.25f;
-    [SerializeField] public float buffPowerModifier = 1f;
-    [SerializeField] public float buffTimerModifier = 1f;
-    [SerializeField] public float healTimerModifier = 1f;
+    [SerializeField] public float buffPower = 1f;
+    [SerializeField] public float buffTimer = 1f;
+    [SerializeField] public float healTimer = 1f;
+    [SerializeField] public float SlowPower = 1f;
+    [SerializeField] public float SlowPierce = 0f;
+    [SerializeField] public float FreezePower = 1f;
+    [SerializeField] public float towerFreezePierce = 0f;
+    [SerializeField] public float towerAoEArea = 1f;
+    [SerializeField] public float towerAoEDamageDropOff = 0.25f;
+    [SerializeField] public int towerExtraRampCount = 0;
+    [SerializeField] public int towerExtraRicochetCount = 0;
     [SerializeField] public float ricochetRange = 2f;
-    [SerializeField] public int rampCap = 10;
+    [SerializeField] public float towerSell = 0.5f;
+    [SerializeField] public float towerHitPoints = 1f;
+    [SerializeField] public float towerHeal = 1f;
+    [SerializeField] public float towerShield = 1f;
+    [SerializeField] public float towerShieldGeneration = 1f;
+    [SerializeField] public float towerTargetingRange = 1f;
+    [SerializeField] public float towerDamage = 1f;
+    [SerializeField] public float towerAttackRate = 1f;
+    [SerializeField] public float towerActionPower = 1f;
+    [SerializeField] public float towerActionRate = 1f;
+    [SerializeField] public float towerEffectPower = 1f;
+    [SerializeField] public float towerEffectRate = 1f;
+    [SerializeField] public float towerCarryCapacity = 1f;
+    [SerializeField] public float towerMoveSpeed = 1f;
+    [SerializeField] public float towerArmor = 0f;
+    [SerializeField] public float towerResistance = 0f;
+    [SerializeField] public float towerDodge = 0f;
+    [SerializeField] public float towerArmorPierce = 0f;
+    [SerializeField] public float towerResistancePierce = 0f;
+    [SerializeField] public float towerDodgePierce = 0f;
+    [SerializeField] public float towerStealthDetection = 0f;
 
     [Header("_______________________")]
     [Header("UI")]
@@ -116,19 +175,24 @@ public class GlobalValues : MonoBehaviour
 
     [Header("_______________________")]
     [Header("Resources")]
-    [SerializeField] public float startingNectar = 200f;
-    [SerializeField] public float baseNectarGeneration = 0.25f;
-    [SerializeField] public float honeyGenerationRateModifier = 1f;
+    [SerializeField] public float[] startingNectar = { 300f, 200f, 100f };
+    [SerializeField] public float[] startingHoney = { 50f, 0f, 0f };
+    [SerializeField] public float[] honeyDropRate = { 0.5f, 0.25f, 0f };
+    [SerializeField] public float honeyinterest = 0f;
+    [SerializeField] public float pollenBuff = 0f;
+    [SerializeField] public float nectarGenerationRate = 3f;
+    [SerializeField] public float pollenGenerationRate = 1f;
+    [SerializeField] public int honeycombTicks = 60;
+    [SerializeField] public float honeycombGeneration = 1f;
+    [SerializeField] public float honeycombCheckTime = 1f;
+    [SerializeField] public float honeycombFillTime = 3f;
     [SerializeField] public float flowerRange = 1f;
-    [SerializeField] public float globalFertility = 3f;
-    [SerializeField] public float honeyDropReturnModifier = 0.5f;
 
     [Header("_______________________")]
     [Header("")]
 
     [Header("_______________________")]
     [Header("")]
-
 
     [Header("_______________________")]
     [Header("Mob Prestige")]
@@ -273,10 +337,9 @@ public class GlobalValues : MonoBehaviour
     //Trackers
     [Header("Trackers")]
     public int levelIndex = 0;
-    public string difficultySetting = "Medium";
-    public float difficultyMultiplier = 1f;
     public string targetingOptionDefault;
     public bool gameLoaded = false;
+    public Difficulty difficulty;
 
     // Define parameter arrays
     //Flowers
@@ -296,6 +359,7 @@ public class GlobalValues : MonoBehaviour
     public void Awake()
     {
         main = this;
+        difficulty = Difficulty.EASY;
         SetUI(false);
         //
         targetingOptionDefault = targetingOptions[0];
@@ -313,25 +377,6 @@ public class GlobalValues : MonoBehaviour
         if (state == true)
         {
             UIManager.main.Reset();
-        }
-    }
-
-    public void SetDifficulty(string setting)
-    {
-        if (setting == "Easy")
-        {
-            difficultyMultiplier = easyMultiplier;
-            difficultySetting = setting;
-        }
-        else if (setting == "Medium")
-        {
-            difficultyMultiplier = mediumMultiplier;
-            difficultySetting = setting;
-        }
-        else if (setting == "Hard")
-        {
-            difficultyMultiplier = hardMultiplier;
-            difficultySetting = setting;
         }
     }
 

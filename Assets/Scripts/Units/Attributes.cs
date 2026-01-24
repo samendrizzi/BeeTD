@@ -32,12 +32,14 @@ public class Attributes : MonoBehaviour
     [SerializeField] public float dodgeChance = 0f;
     //Targeting
     [SerializeField] public float targetingRange = 5f;
+    [SerializeField] public float stealthDetection = 0f;
     [SerializeField] public float rotationSpeed = 150f;
     [SerializeField] public float wayPointRangeModifier = 1f;
     //Actions
     [SerializeField] public float actionPower = 1f;
     [SerializeField] public float actionRate = 1f;
     [SerializeField] public float armorPierce = 0f;
+    [SerializeField] public float dodgePierce = 0f;
     [SerializeField] public string[] actions;
     [SerializeField] public GameObject[] actionPrefabs;
     [SerializeField] public SoundType[] actionSounds;
@@ -108,9 +110,11 @@ public class Attributes : MonoBehaviour
     public Transform[] path;
     public string[] targetingOptions;
     public int rampCount = 0;
+    public float carryCapacityBase;
     public float moveSpeedBase;
     public float moveSpeedUncapped;
     public float targetingRangeBase;
+    public float stealthDetectionBase;
     public float maxHPBase;
     public float maxShieldBase;
     public float armorBase;
@@ -119,6 +123,7 @@ public class Attributes : MonoBehaviour
     public float actionPowerBase;
     public float actionRateBase;
     public float armorPierceBase;
+    public float dodgePierceBase;
     public float[] actionPowerModifiersBase;
     public float[] actionRateModifiersBase;
     public float[] actionRangeModifiersBase;
@@ -150,9 +155,47 @@ public class Attributes : MonoBehaviour
 
     private void Awake()
     {
+        //Set Base Attributes
+        hitPoints = maxHP;
+        shield = maxShield;
+        carryCapacityBase = carryCapacity;
+        moveSpeedBase = moveSpeed;
+        targetingRangeBase = targetingRange;
+        stealthDetectionBase = stealthDetection;
+        maxHPBase = maxHP;
+        maxShieldBase = maxShield;
+        armorBase = armor;
+        resistanceBase = resistance;
+        dodgeChanceBase = dodgeChance;
+        actionPowerBase = actionPower;
+        actionRateBase = actionRate;
+        armorPierceBase = armorPierce;
+        dodgePierceBase = dodgePierce;
+        actionPowerModifiersBase = actionPowerModifiers;
+        actionRateModifiersBase = actionRateModifiers;
+        actionRangeModifiersBase = actionRangeModifiers;
+        actionPierceModifiersBase = actionPierceModifiers;
+        actionDurationsBase = actionDurations;
+        actionExtraModifiersBase = actionExtraModifiers;
+        effectPowerBase = effectPower;
+        effectRateBase = effectRate;
+        resistancePierceBase = resistancePierce;
+        effectPowerModifiersBase = effectPowerModifiers;
+        effectPierceModifiersBase = effectPierceModifiers;
+        effectRateModifiersBase = effectRateModifiers;
+        effectRangeModifiersBase = effectRangeModifiers;
+        effectDurationsBase = effectDurations;
+        effectExtraModifiersBase = effectExtraModifiers;
+        passivePowerBase = passivePower;
+        passiveRateBase = passiveRate;
+        passivePierceBase = passivePierce;
+        passivePowerModifiersBase = passivePowerModifiers;
+        passivePierceModifiersBase = passivePierceModifiers;
+        passiveRateModifiersBase = passiveRateModifiers;
+        passiveRangeModifiersBase = passiveRangeModifiers;
+        passiveDurationsBase = passiveDurations;
+        passiveExtraModifiersBase = passiveExtraModifiers;
         //initiate default values into trackers
-        maxHP = maxHP * GlobalValues.main.difficultyMultiplier * (1 + (LevelManager.main.difficultyScaling * WaveSpawner.main.currentWave));
-        maxShield = maxShield * (1 + (LevelManager.main.difficultyScaling * WaveSpawner.main.currentWave)) * GlobalValues.main.shieldModifier;
         wayPointDistance = GlobalValues.main.wayPointDistance * wayPointRangeModifier;
         targetingOptions = GlobalValues.main.targetingOptions;
         if (hasTargetSettings == true)
@@ -182,44 +225,104 @@ public class Attributes : MonoBehaviour
 
     public void SetBaseAttributes()
     {
-        //Set Base Stats
-        hitPoints = maxHP;
-        shield = maxShield;
-        moveSpeedBase = moveSpeed;
-        moveSpeedUncapped = moveSpeed;
-        targetingRangeBase = targetingRange;
-        maxHPBase = maxHP;
-        maxShieldBase = maxShield;
-        armorBase = armor;
-        resistanceBase = resistance;
-        dodgeChanceBase = dodgeChance;
-        actionPowerBase = actionPower;
-        actionRateBase = actionRate;
-        armorPierceBase = armorPierce;
-        actionPowerModifiersBase = actionPowerModifiers;
-        actionRateModifiersBase = actionRateModifiers;
-        actionRangeModifiersBase = actionRangeModifiers;
-        actionPierceModifiersBase = actionPierceModifiers;
-        actionDurationsBase = actionDurations;
-        actionExtraModifiersBase = actionExtraModifiers;
-        effectPowerBase = effectPower;
-        effectRateBase = effectRate;
-        resistancePierceBase = resistancePierce;
-        effectPowerModifiersBase = effectPowerModifiers;
-        effectPierceModifiersBase = effectPierceModifiers;
-        effectRateModifiersBase = effectRateModifiers;
-        effectRangeModifiersBase = effectRangeModifiers;
-        effectDurationsBase = effectDurations;
-        effectExtraModifiersBase = effectExtraModifiers;
-        passivePowerBase = passivePower;
-        passiveRateBase = passiveRate;
-        passivePierceBase = passivePierce;
-        passivePowerModifiersBase = passivePowerModifiers;
-        passivePierceModifiersBase = passivePierceModifiers;
-        passiveRateModifiersBase = passiveRateModifiers;
-        passiveRangeModifiersBase = passiveRangeModifiers;
-        passiveDurationsBase = passiveDurations;
-        passiveExtraModifiersBase = passiveExtraModifiers;
+        //Set Stats
+        if (type == "Tower")
+        {
+            maxHP = maxHP * BuffManager.main.towerHitPoints;
+            hitPoints = maxHP;
+            //moveSpeed = moveSpeed * BuffManager.main.towerMoveSpeed;
+            //shield = maxShield * BuffManager.main.towerShield;
+            //carryCapacity = carryCapacityBase * BuffManager.main.towerCarryCapacity;
+            moveSpeedUncapped = moveSpeed;
+            targetingRange = targetingRange * BuffManager.main.towerTargetingRange;
+            stealthDetection = stealthDetectionBase + BuffManager.main.towerStealthDetection;
+            armor = armor + BuffManager.main.towerArmor;
+            resistance = resistance + BuffManager.main.towerResistance;
+            dodgeChance = dodgeChance + BuffManager.main.towerDodge;
+            armorPierce = armorPierce * BuffManager.main.towerArmorPierce;
+            resistancePierce = resistancePierce + BuffManager.main.towerResistancePierce;
+            dodgePierce = dodgePierceBase + BuffManager.main.towerDodgePierce;
+            //Tower + Bees / Action + Effect Powers
+            actionPower = actionPower + BuffManager.main.towerActionPower;
+            actionRate = actionRate + BuffManager.main.towerActionRate;
+            effectPower = effectPower + BuffManager.main.towerEffectPower;
+            effectRate = effectRate + BuffManager.main.towerEffectRate;
+
+
+            //damage + slow + freeze
+
+
+
+
+
+
+                towerSlowPower;
+                towerSlowPierce;
+                towerFreezePower;
+                towerFreezePierce;
+                towerAoEArea;
+                towerAoEDamageDropOff;
+                towerExtraRampCount;
+                towerExtraRicochetCount;
+
+
+        }
+        else if (type == "Friendly Unit")
+        {
+            maxHP = maxHP * BuffManager.main.beeHitPoints;
+            hitPoints = maxHP;
+            moveSpeed = moveSpeed * ;
+            shield = maxShield;
+            moveSpeedUncapped = moveSpeed;
+            //targetingRange = targetingRange;
+            armor = armor + BuffManager.main.beeArmor;
+            resistance = resistance + BuffManager.main.beeResistance;
+            dodgeChance = dodgeChance + BuffManager.main.beeDodge;
+            armorPierce = armorPierce * BuffManager.main.beeArmorPierce;
+            resistancePierce = resistancePierce + BuffManager.main.beeResistancePierce;
+            //Action + Effect Powers
+        }
+        else
+        {
+            hitPoints = maxHP * BuffManager.main.towerHitPoints;
+            shield = maxShield * BuffManager.main.towerShield;
+            moveSpeedBase = moveSpeed;
+            moveSpeedUncapped = moveSpeed;
+            targetingRangeBase = targetingRange;
+            maxHPBase = maxHP;
+            maxShieldBase = maxShield;
+            armorBase = armor;
+            resistanceBase = resistance;
+            dodgeChanceBase = dodgeChance;
+            actionPowerBase = actionPower;
+            actionRateBase = actionRate;
+            armorPierceBase = armorPierce;
+            actionPowerModifiersBase = actionPowerModifiers;
+            actionRateModifiersBase = actionRateModifiers;
+            actionRangeModifiersBase = actionRangeModifiers;
+            actionPierceModifiersBase = actionPierceModifiers;
+            actionDurationsBase = actionDurations;
+            actionExtraModifiersBase = actionExtraModifiers;
+            effectPowerBase = effectPower;
+            effectRateBase = effectRate;
+            resistancePierceBase = resistancePierce;
+            effectPowerModifiersBase = effectPowerModifiers;
+            effectPierceModifiersBase = effectPierceModifiers;
+            effectRateModifiersBase = effectRateModifiers;
+            effectRangeModifiersBase = effectRangeModifiers;
+            effectDurationsBase = effectDurations;
+            effectExtraModifiersBase = effectExtraModifiers;
+            passivePowerBase = passivePower;
+            passiveRateBase = passiveRate;
+            passivePierceBase = passivePierce;
+            passivePowerModifiersBase = passivePowerModifiers;
+            passivePierceModifiersBase = passivePierceModifiers;
+            passiveRateModifiersBase = passiveRateModifiers;
+            passiveRangeModifiersBase = passiveRangeModifiers;
+            passiveDurationsBase = passiveDurations;
+            passiveExtraModifiersBase = passiveExtraModifiers;
+        }
+
         //create action timers
         if (actions.Length > 0)
         {
