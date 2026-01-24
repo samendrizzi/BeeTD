@@ -130,10 +130,10 @@ TextureImporter:
       name: Ant Eggs_0
       rect:
         serializedVersion: 2
-        x: 79
-        y: 478
-        width: 284
-        height: 542
+        x: 76
+        y: 612
+        width: 277
+        height: 257
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,10 +152,10 @@ TextureImporter:
       name: Ant Eggs_1
       rect:
         serializedVersion: 2
-        x: 363
-        y: 465
-        width: 367
-        height: 555
+        x: 367
+        y: 612
+        width: 256
+        height: 255
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,10 +174,10 @@ TextureImporter:
       name: Ant Eggs_2
       rect:
         serializedVersion: 2
-        x: 631
-        y: 617
-        width: 273
-        height: 264
+        x: 638
+        y: 612
+        width: 260
+        height: 255
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -196,10 +196,10 @@ TextureImporter:
       name: Ant Eggs_3
       rect:
         serializedVersion: 2
-        x: 830
-        y: 461
-        width: 387
-        height: 563
+        x: 912
+        y: 612
+        width: 260
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -218,10 +218,10 @@ TextureImporter:
       name: Ant Eggs_4
       rect:
         serializedVersion: 2
-        x: 1183
-        y: 631
-        width: 282
-        height: 250
+        x: 1187
+        y: 612
+        width: 273
+        height: 255
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -241,9 +241,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 76
-        y: 6
-        width: 289
-        height: 451
+        y: 228
+        width: 277
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -262,10 +262,10 @@ TextureImporter:
       name: Ant Eggs_6
       rect:
         serializedVersion: 2
-        x: 358
-        y: 1
-        width: 372
-        height: 459
+        x: 367
+        y: 228
+        width: 258
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -284,10 +284,10 @@ TextureImporter:
       name: Ant Eggs_7
       rect:
         serializedVersion: 2
-        x: 631
-        y: 216
-        width: 270
-        height: 241
+        x: 639
+        y: 228
+        width: 259
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -306,10 +306,10 @@ TextureImporter:
       name: Ant Eggs_8
       rect:
         serializedVersion: 2
-        x: 904
-        y: 1
-        width: 313
-        height: 460
+        x: 912
+        y: 228
+        width: 260
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -328,10 +328,10 @@ TextureImporter:
       name: Ant Eggs_9
       rect:
         serializedVersion: 2
-        x: 1183
-        y: 217
-        width: 280
-        height: 241
+        x: 1187
+        y: 228
+        width: 274
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

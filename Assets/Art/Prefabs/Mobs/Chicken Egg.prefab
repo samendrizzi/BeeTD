@@ -285,7 +285,7 @@ RectTransform:
   m_GameObject: {fileID: 4979766145620786847}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 10}
+  m_LocalScale: {x: 2, y: 2, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1797586252972228110}
@@ -294,7 +294,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -0.03, y: 4.2}
+  m_AnchoredPosition: {x: 0, y: 2.31}
   m_SizeDelta: {x: 2, y: 0.809}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &8857223733664693514
@@ -378,6 +378,7 @@ GameObject:
   - component: {fileID: -6908299536412296613}
   - component: {fileID: -7935589204116156891}
   - component: {fileID: 7972111189112238991}
+  - component: {fileID: -6898524165067670263}
   m_Layer: 17
   m_Name: Chicken Egg
   m_TagString: Untagged
@@ -395,7 +396,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 14.35, y: 8.176033, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7799160034899759231}
@@ -450,12 +451,12 @@ SpriteRenderer:
   m_SortingLayer: 3
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 6957699201317741758, guid: 35a9a13278dbd2949ada4590992b26be, type: 3}
+  m_Sprite: {fileID: -2983662805174009882, guid: 989afd91422cb99498d0e611c9cbcce8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 6.0199995, y: 5.932058}
+  m_Size: {x: 2.21, y: 2.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -612,6 +613,8 @@ MonoBehaviour:
   ignoreTerrain: 0
   hasTargetSettings: 0
   targetSetting: 
+  variant: 0
+  variantName: 
   prestige: 
   hitPoints: 1
   shield: 0
@@ -620,7 +623,7 @@ MonoBehaviour:
   pathIndex: 0
   inventoryFull: 0
   frozen: 0
-  invisibility: 0
+  Stealth: 0
   freezeImmune: 0
   pausing: 0
   timeUntilActions: []
@@ -723,6 +726,488 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaf5e878ef7c9c048b98a51c7da793fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Actions
+--- !u!114 &-6898524165067670263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5400552394083257877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d70c71ca4013dca48b5cf2899608ad3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Variants
+  spriteBlack: {fileID: -2983662805174009882, guid: 989afd91422cb99498d0e611c9cbcce8, type: 3}
+  spriteWhite: {fileID: -5225646387286114600, guid: 989afd91422cb99498d0e611c9cbcce8, type: 3}
+  spriteBrown: {fileID: -1577769387111140716, guid: 989afd91422cb99498d0e611c9cbcce8, type: 3}
+  spriteOrange: {fileID: -3242449828051113504, guid: 989afd91422cb99498d0e611c9cbcce8, type: 3}
+  spriteYellow: {fileID: -3936717347387769252, guid: 989afd91422cb99498d0e611c9cbcce8, type: 3}
+  spriteRed: {fileID: 4153657413531290731, guid: 989afd91422cb99498d0e611c9cbcce8, type: 3}
+  spriteGreen: {fileID: -67281590986006319, guid: 989afd91422cb99498d0e611c9cbcce8, type: 3}
+  spriteBlue: {fileID: 867779295675408483, guid: 989afd91422cb99498d0e611c9cbcce8, type: 3}
+  spritePurple: {fileID: 741371433387653516, guid: 989afd91422cb99498d0e611c9cbcce8, type: 3}
+  spritePink: {fileID: 1150005814495082132, guid: 989afd91422cb99498d0e611c9cbcce8, type: 3}
+  roleNameOrange: Carrier
+  flatHPOrange: 0
+  percentageHPOrange: 0.3
+  flatArmorOrange: -15
+  percentageArmorOrange: 0
+  flatMoveSpeedOrange: 0
+  percentageMoveSpeedOrange: 0.05
+  flatResistanceOrange: -10
+  percentageResistanceOrange: 0
+  flatDodgeOrange: -10
+  percentageDodgeOrange: 0
+  flatCarryCapacityOrange: 0
+  percentageCarryCapacityOrange: 0.5
+  flatShieldOrange: 0
+  percentageShieldOrange: 0
+  stealHoneyOrange: 1
+  percentageActionPowerOrange: 0
+  percentageEffectPowerOrange: 0
+  percentagePassivePowerOrange: 0
+  extraActionOrange: 
+  actionPrefabOrange: {fileID: 0}
+  actionSoundOrange: 0
+  actionPowerModifierOrange: 0
+  actionRateModifierOrange: 0
+  actionRangeModifierOrange: 0
+  actionPierceModifierOrange: 0
+  actionDurationOrange: 0
+  actionExtraModifierOrange: 0
+  extraEffectOrange: 
+  effectPrefabOrange: {fileID: 0}
+  effectSoundOrange: 0
+  effectPowerModifierOrange: 0
+  effectRateModifierOrange: 0
+  effectRangeModifierOrange: 0
+  effectPierceModifierOrange: 0
+  effectDurationOrange: 0
+  effectExtraModifierOrange: 0
+  extraPassiveOrange: 
+  passivePrefabOrange: {fileID: 0}
+  passiveSoundOrange: 0
+  passivePowerModifierOrange: 0
+  passiveRateModifierOrange: 0
+  passiveRangeModifierOrange: 0
+  passivePierceModifierOrange: 0
+  passiveDurationOrange: 0
+  passiveExtraModifierOrange: 0
+  roleNameBrown: Hauler
+  flatHPBrown: 0
+  percentageHPBrown: 0.6
+  flatArmorBrown: 20
+  percentageArmorBrown: 0
+  flatMoveSpeedBrown: 0
+  percentageMoveSpeedBrown: -0.25
+  flatResistanceBrown: 10
+  percentageResistanceBrown: 0
+  flatDodgeBrown: -20
+  percentageDodgeBrown: 0
+  flatCarryCapacityBrown: 0
+  percentageCarryCapacityBrown: 1
+  flatShieldBrown: 0
+  percentageShieldBrown: 0
+  stealHoneyBrown: 1
+  percentageActionPowerBrown: 0
+  percentageEffectPowerBrown: 0
+  percentagePassivePowerBrown: 0
+  extraActionBrown: 
+  actionPrefabBrown: {fileID: 0}
+  actionSoundBrown: 0
+  actionPowerModifierBrown: 0
+  actionRateModifierBrown: 0
+  actionRangeModifierBrown: 0
+  actionPierceModifierBrown: 0
+  actionDurationBrown: 0
+  actionExtraModifierBrown: 0
+  extraEffectBrown: 
+  effectPrefabBrown: {fileID: 0}
+  effectSoundBrown: 0
+  effectPowerModifierBrown: 0
+  effectRateModifierBrown: 0
+  effectRangeModifierBrown: 0
+  effectPierceModifierBrown: 0
+  effectDurationBrown: 0
+  effectExtraModifierBrown: 0
+  extraPassiveBrown: 
+  passivePrefabBrown: {fileID: 0}
+  passiveSoundBrown: 0
+  passivePowerModifierBrown: 0
+  passiveRateModifierBrown: 0
+  passiveRangeModifierBrown: 0
+  passivePierceModifierBrown: 0
+  passiveDurationBrown: 0
+  passiveExtraModifierBrown: 0
+  roleNameGreen: Regenerator
+  flatHPGreen: 0
+  percentageHPGreen: 0.35
+  flatArmorGreen: 0
+  percentageArmorGreen: 0
+  flatMoveSpeedGreen: 0
+  percentageMoveSpeedGreen: -0.15
+  flatResistanceGreen: 25
+  percentageResistanceGreen: 0
+  flatDodgeGreen: -10
+  percentageDodgeGreen: 0
+  flatCarryCapacityGreen: 0
+  percentageCarryCapacityGreen: 0.2
+  flatShieldGreen: 0
+  percentageShieldGreen: 0
+  stealHoneyGreen: 1
+  percentageActionPowerGreen: 0
+  percentageEffectPowerGreen: 0
+  percentagePassivePowerGreen: 0
+  extraActionGreen: 
+  actionPrefabGreen: {fileID: 0}
+  actionSoundGreen: 0
+  actionPowerModifierGreen: 0
+  actionRateModifierGreen: 0
+  actionRangeModifierGreen: 0
+  actionPierceModifierGreen: 0
+  actionDurationGreen: 0
+  actionExtraModifierGreen: 0
+  extraEffectGreen: Health Regen
+  effectPrefabGreen: {fileID: 0}
+  effectSoundGreen: 0
+  effectPowerModifierGreen: 0
+  effectRateModifierGreen: 1
+  effectRangeModifierGreen: 1
+  effectPierceModifierGreen: 1
+  effectDurationGreen: 1
+  effectExtraModifierGreen: 0.02
+  extraPassiveGreen: 
+  passivePrefabGreen: {fileID: 0}
+  passiveSoundGreen: 0
+  passivePowerModifierGreen: 0
+  passiveRateModifierGreen: 0
+  passiveRangeModifierGreen: 0
+  passivePierceModifierGreen: 0
+  passiveDurationGreen: 0
+  passiveExtraModifierGreen: 0
+  roleNameBlue: Sentinel
+  flatHPBlue: 0
+  percentageHPBlue: 0.25
+  flatArmorBlue: 40
+  percentageArmorBlue: 0
+  flatMoveSpeedBlue: 0
+  percentageMoveSpeedBlue: -0.2
+  flatResistanceBlue: 30
+  percentageResistanceBlue: 0
+  flatDodgeBlue: -20
+  percentageDodgeBlue: 0
+  flatCarryCapacityBlue: 0
+  percentageCarryCapacityBlue: 0
+  flatShieldBlue: 0
+  percentageShieldBlue: 0
+  stealHoneyBlue: 0
+  percentageActionPowerBlue: 0
+  percentageEffectPowerBlue: 0
+  percentagePassivePowerBlue: 0
+  extraActionBlue: 
+  actionPrefabBlue: {fileID: 0}
+  actionSoundBlue: 0
+  actionPowerModifierBlue: 0
+  actionRateModifierBlue: 0
+  actionRangeModifierBlue: 0
+  actionPierceModifierBlue: 0
+  actionDurationBlue: 0
+  actionExtraModifierBlue: 0
+  extraEffectBlue: 
+  effectPrefabBlue: {fileID: 0}
+  effectSoundBlue: 0
+  effectPowerModifierBlue: 0
+  effectRateModifierBlue: 0
+  effectRangeModifierBlue: 0
+  effectPierceModifierBlue: 0
+  effectDurationBlue: 0
+  effectExtraModifierBlue: 0
+  extraPassiveBlue: 
+  passivePrefabBlue: {fileID: 0}
+  passiveSoundBlue: 0
+  passivePowerModifierBlue: 0
+  passiveRateModifierBlue: 0
+  passiveRangeModifierBlue: 0
+  passivePierceModifierBlue: 0
+  passiveDurationBlue: 0
+  passiveExtraModifierBlue: 0
+  roleNameYellow: Scout
+  flatHPYellow: 0
+  percentageHPYellow: -0.15
+  flatArmorYellow: -20
+  percentageArmorYellow: 0
+  flatMoveSpeedYellow: 0
+  percentageMoveSpeedYellow: 0.5
+  flatResistanceYellow: -10
+  percentageResistanceYellow: 0
+  flatDodgeYellow: 30
+  percentageDodgeYellow: 0
+  flatCarryCapacityYellow: 0
+  percentageCarryCapacityYellow: -0.25
+  flatShieldYellow: 0
+  percentageShieldYellow: 0
+  stealHoneyYellow: 1
+  percentageActionPowerYellow: 0
+  percentageEffectPowerYellow: 0
+  percentagePassivePowerYellow: 0
+  extraActionYellow: 
+  actionPrefabYellow: {fileID: 0}
+  actionSoundYellow: 0
+  actionPowerModifierYellow: 0
+  actionRateModifierYellow: 0
+  actionRangeModifierYellow: 0
+  actionPierceModifierYellow: 0
+  actionDurationYellow: 0
+  actionExtraModifierYellow: 0
+  extraEffectYellow: 
+  effectPrefabYellow: {fileID: 0}
+  effectSoundYellow: 0
+  effectPowerModifierYellow: 0
+  effectRateModifierYellow: 0
+  effectRangeModifierYellow: 0
+  effectPierceModifierYellow: 0
+  effectDurationYellow: 0
+  effectExtraModifierYellow: 0
+  extraPassiveYellow: 
+  passivePrefabYellow: {fileID: 0}
+  passiveSoundYellow: 0
+  passivePowerModifierYellow: 0
+  passiveRateModifierYellow: 0
+  passiveRangeModifierYellow: 0
+  passivePierceModifierYellow: 0
+  passiveDurationYellow: 0
+  passiveExtraModifierYellow: 0
+  roleNameRed: Brawler
+  flatHPRed: 0
+  percentageHPRed: 0.2
+  flatArmorRed: 0
+  percentageArmorRed: 0
+  flatMoveSpeedRed: 0
+  percentageMoveSpeedRed: 0.3
+  flatResistanceRed: -15
+  percentageResistanceRed: 0
+  flatDodgeRed: 5
+  percentageDodgeRed: 0
+  flatCarryCapacityRed: 0
+  percentageCarryCapacityRed: 0
+  flatShieldRed: 0
+  percentageShieldRed: 0
+  stealHoneyRed: 0
+  percentageActionPowerRed: 0
+  percentageEffectPowerRed: 0
+  percentagePassivePowerRed: 0
+  extraActionRed: 
+  actionPrefabRed: {fileID: 0}
+  actionSoundRed: 0
+  actionPowerModifierRed: 0
+  actionRateModifierRed: 0
+  actionRangeModifierRed: 0
+  actionPierceModifierRed: 0
+  actionDurationRed: 0
+  actionExtraModifierRed: 0
+  extraEffectRed: 
+  effectPrefabRed: {fileID: 0}
+  effectSoundRed: 0
+  effectPowerModifierRed: 0
+  effectRateModifierRed: 0
+  effectRangeModifierRed: 0
+  effectPierceModifierRed: 0
+  effectDurationRed: 0
+  effectExtraModifierRed: 0
+  extraPassiveRed: 
+  passivePrefabRed: {fileID: 0}
+  passiveSoundRed: 0
+  passivePowerModifierRed: 0
+  passiveRateModifierRed: 0
+  passiveRangeModifierRed: 0
+  passivePierceModifierRed: 0
+  passiveDurationRed: 0
+  passiveExtraModifierRed: 0
+  roleNameBlack: Predator
+  flatHPBlack: 0
+  percentageHPBlack: -0.2
+  flatArmorBlack: -10
+  percentageArmorBlack: 0
+  flatMoveSpeedBlack: 0
+  percentageMoveSpeedBlack: 0.5
+  flatResistanceBlack: 0
+  percentageResistanceBlack: 0
+  flatDodgeBlack: 20
+  percentageDodgeBlack: 0
+  flatCarryCapacityBlack: 0
+  percentageCarryCapacityBlack: 0
+  flatShieldBlack: 0
+  percentageShieldBlack: 0
+  stealHoneyBlack: 0
+  percentageActionPowerBlack: 0
+  percentageEffectPowerBlack: 0
+  percentagePassivePowerBlack: 0
+  extraActionBlack: 
+  actionPrefabBlack: {fileID: 0}
+  actionSoundBlack: 0
+  actionPowerModifierBlack: 0
+  actionRateModifierBlack: 0
+  actionRangeModifierBlack: 0
+  actionPierceModifierBlack: 0
+  actionDurationBlack: 0
+  actionExtraModifierBlack: 0
+  extraEffectBlack: 
+  effectPrefabBlack: {fileID: 0}
+  effectSoundBlack: 0
+  effectPowerModifierBlack: 0
+  effectRateModifierBlack: 0
+  effectRangeModifierBlack: 0
+  effectPierceModifierBlack: 0
+  effectDurationBlack: 0
+  effectExtraModifierBlack: 0
+  extraPassiveBlack: 
+  passivePrefabBlack: {fileID: 0}
+  passiveSoundBlack: 0
+  passivePowerModifierBlack: 0
+  passiveRateModifierBlack: 0
+  passiveRangeModifierBlack: 0
+  passivePierceModifierBlack: 0
+  passiveDurationBlack: 0
+  passiveExtraModifierBlack: 0
+  roleNameWhite: Shielder
+  flatHPWhite: 0
+  percentageHPWhite: 0.2
+  flatArmorWhite: 20
+  percentageArmorWhite: 0
+  flatMoveSpeedWhite: 0
+  percentageMoveSpeedWhite: -0.1
+  flatResistanceWhite: 20
+  percentageResistanceWhite: 0
+  flatDodgeWhite: 0
+  percentageDodgeWhite: 0
+  flatCarryCapacityWhite: 0
+  percentageCarryCapacityWhite: 0
+  flatShieldWhite: 0
+  percentageShieldWhite: 0.25
+  stealHoneyWhite: 1
+  percentageActionPowerWhite: 0
+  percentageEffectPowerWhite: 0
+  percentagePassivePowerWhite: 0
+  extraActionWhite: 
+  actionPrefabWhite: {fileID: 0}
+  actionSoundWhite: 0
+  actionPowerModifierWhite: 0
+  actionRateModifierWhite: 0
+  actionRangeModifierWhite: 0
+  actionPierceModifierWhite: 0
+  actionDurationWhite: 0
+  actionExtraModifierWhite: 0
+  extraEffectWhite: Shield Regen
+  effectPrefabWhite: {fileID: 0}
+  effectSoundWhite: 0
+  effectPowerModifierWhite: 0
+  effectRateModifierWhite: 1
+  effectRangeModifierWhite: 1
+  effectPierceModifierWhite: 1
+  effectDurationWhite: 0
+  effectExtraModifierWhite: 0.025
+  extraPassiveWhite: 
+  passivePrefabWhite: {fileID: 0}
+  passiveSoundWhite: 0
+  passivePowerModifierWhite: 0
+  passiveRateModifierWhite: 0
+  passiveRangeModifierWhite: 0
+  passivePierceModifierWhite: 0
+  passiveDurationWhite: 0
+  passiveExtraModifierWhite: 0
+  roleNamePurple: Trickster
+  flatHPPurple: 0
+  percentageHPPurple: -0.2
+  flatArmorPurple: 0
+  percentageArmorPurple: 0
+  flatMoveSpeedPurple: 0
+  percentageMoveSpeedPurple: 0.1
+  flatResistancePurple: 10
+  percentageResistancePurple: 0
+  flatDodgePurple: 25
+  percentageDodgePurple: 0
+  flatCarryCapacityPurple: 0
+  percentageCarryCapacityPurple: 0
+  flatShieldPurple: 0
+  percentageShieldPurple: 0
+  stealHoneyPurple: 1
+  percentageActionPowerPurple: 0
+  percentageEffectPowerPurple: 0
+  percentagePassivePowerPurple: 0
+  extraActionPurple: 
+  actionPrefabPurple: {fileID: 0}
+  actionSoundPurple: 0
+  actionPowerModifierPurple: 0
+  actionRateModifierPurple: 0
+  actionRangeModifierPurple: 0
+  actionPierceModifierPurple: 0
+  actionDurationPurple: 0
+  actionExtraModifierPurple: 0
+  extraEffectPurple: Stealth
+  effectPrefabPurple: {fileID: 0}
+  effectSoundPurple: 0
+  effectPowerModifierPurple: 0.25
+  effectRateModifierPurple: 0.125
+  effectRangeModifierPurple: 0
+  effectPierceModifierPurple: 0
+  effectDurationPurple: 5
+  effectExtraModifierPurple: 0
+  extraPassivePurple: 
+  passivePrefabPurple: {fileID: 0}
+  passiveSoundPurple: 0
+  passivePowerModifierPurple: 0
+  passiveRateModifierPurple: 0
+  passiveRangeModifierPurple: 0
+  passivePierceModifierPurple: 0
+  passiveDurationPurple: 0
+  passiveExtraModifierPurple: 0
+  roleNamePink: Debilitator
+  flatHPPink: 0
+  percentageHPPink: -0.2
+  flatArmorPink: -10
+  percentageArmorPink: 0
+  flatMoveSpeedPink: 0
+  percentageMoveSpeedPink: -0.05
+  flatResistancePink: 15
+  percentageResistancePink: 0
+  flatDodgePink: 0
+  percentageDodgePink: 0
+  flatCarryCapacityPink: 0
+  percentageCarryCapacityPink: 0.25
+  flatShieldPink: 0
+  percentageShieldPink: 0
+  stealHoneyPink: 1
+  percentageActionPowerPink: 0
+  percentageEffectPowerPink: 0
+  percentagePassivePowerPink: 0
+  extraActionPink: 
+  actionPrefabPink: {fileID: 0}
+  actionSoundPink: 0
+  actionPowerModifierPink: 0
+  actionRateModifierPink: 0
+  actionRangeModifierPink: 0
+  actionPierceModifierPink: 0
+  actionDurationPink: 0
+  actionExtraModifierPink: 0
+  extraEffectPink: Debilitate
+  effectPrefabPink: {fileID: 0}
+  effectSoundPink: 0
+  effectPowerModifierPink: 1
+  effectRateModifierPink: 1
+  effectRangeModifierPink: 5
+  effectPierceModifierPink: 0
+  effectDurationPink: 1
+  effectExtraModifierPink: 0
+  extraPassivePink: 
+  passivePrefabPink: {fileID: 0}
+  passiveSoundPink: 0
+  passivePowerModifierPink: 0
+  passiveRateModifierPink: 0
+  passiveRangeModifierPink: 0
+  passivePierceModifierPink: 0
+  passiveDurationPink: 0
+  passiveExtraModifierPink: 0
 --- !u!1 &5618751545019355073
 GameObject:
   m_ObjectHideFlags: 0

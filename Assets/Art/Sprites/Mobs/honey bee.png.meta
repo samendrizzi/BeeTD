@@ -3,8 +3,8 @@ guid: 11d512521c4de8946b607bc88127b095
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -643168471367069303
-    second: honey bee_0
+      213: 2053699210746947431
+    second: Honey Bee_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: honey bee_0
+      name: Honey Bee_0
       rect:
         serializedVersion: 2
-        x: 695
-        y: 296
-        width: 913
-        height: 701
+        x: 285
+        y: 149
+        width: 962
+        height: 730
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9815f65dea10317f0800000000000000
-      internalID: -643168471367069303
+      spriteID: 767621c1d84308c10800000000000000
+      internalID: 2053699210746947431
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 4e82e74b10cbe9d4d88471173fb295e1
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      honey bee_0: -643168471367069303
+      Honey Bee_0: 2053699210746947431
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

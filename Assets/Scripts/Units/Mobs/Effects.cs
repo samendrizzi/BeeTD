@@ -277,11 +277,13 @@ public class Effects : MonoBehaviour
         Transform start = attributes.path[attributes.pathIndex];
         Transform nextPoint = attributes.target;
         GameObject spawn = Library.main.Spawn(prefab, gameObject.transform);
+        //spawn.SetActive(false);
         Attributes spawnAtt = spawn.GetComponent<Attributes>();
         spawnAtt.onPath = attributes.onPath;
         spawnAtt.path = attributes.path;
         spawnAtt.pathIndex = attributes.pathIndex;
         spawnAtt.target = attributes.target;
+        spawnAtt.variant = attributes.variant;
         if (spawnAtt.effects.Length <= 0)
         {
             spawnAtt.RollPrestige(power);
@@ -297,17 +299,21 @@ public class Effects : MonoBehaviour
             spawnAtt.timeUntilEffects[0] = duration;
             spawnAtt.effectPowerModifiers[0] = power;
         }
+        //spawn.SetActive(true);
     }
 
     public void Hatch(GameObject prefab, float power)
     {
         GameObject spawn = Instantiate(prefab, gameObject.transform.position, Quaternion.identity);
+        //spawn.SetActive(false);
         Attributes spawnAtt = spawn.GetComponent<Attributes>();
         spawnAtt.onPath = attributes.onPath;
         spawnAtt.path = attributes.path;
         spawnAtt.pathIndex = attributes.pathIndex;
         spawnAtt.target = attributes.target;
-        spawnAtt.RollPrestige(power);
+        spawnAtt.prestige = attributes.prestige;
+        spawnAtt.variant = attributes.variant;
+        //spawn.SetActive(true);
         attributes.Die();
     }
 

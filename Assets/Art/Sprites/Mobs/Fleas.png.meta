@@ -109,12 +109,12 @@ TextureImporter:
       name: Fleas_0
       rect:
         serializedVersion: 2
-        x: 11
-        y: 360
-        width: 1494
-        height: 664
+        x: 127
+        y: 631
+        width: 256
+        height: 283
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -131,12 +131,12 @@ TextureImporter:
       name: Fleas_1
       rect:
         serializedVersion: 2
-        x: 11
-        y: 0
-        width: 1398
-        height: 484
+        x: 383
+        y: 631
+        width: 256
+        height: 283
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -153,12 +153,12 @@ TextureImporter:
       name: Fleas_2
       rect:
         serializedVersion: 2
-        x: 1268
-        y: 611
-        width: 8
-        height: 7
+        x: 639
+        y: 631
+        width: 256
+        height: 283
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -171,11 +171,165 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Fleas_3
+      rect:
+        serializedVersion: 2
+        x: 895
+        y: 631
+        width: 256
+        height: 283
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1881916bfd999e54b9f8594c4cbb1616
+      internalID: -2048870599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fleas_4
+      rect:
+        serializedVersion: 2
+        x: 1151
+        y: 631
+        width: 256
+        height: 283
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa25247737d46124b8e4cd5e4ed97c67
+      internalID: 1600238458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fleas_5
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 198
+        width: 256
+        height: 283
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29f5fab87f40aea43bf51f071af04189
+      internalID: -1121938461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fleas_6
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 198
+        width: 256
+        height: 283
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52b1a0adc4a17094b946fc9cb24000f0
+      internalID: 1337260545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fleas_7
+      rect:
+        serializedVersion: 2
+        x: 639
+        y: 198
+        width: 256
+        height: 283
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db832b7b8bf312e4084d742bdd5f7f5b
+      internalID: -1378167532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fleas_8
+      rect:
+        serializedVersion: 2
+        x: 895
+        y: 198
+        width: 256
+        height: 283
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 407f85299604f7c4f87df6870f5af1d6
+      internalID: 409364942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fleas_9
+      rect:
+        serializedVersion: 2
+        x: 1151
+        y: 198
+        width: 256
+        height: 283
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 675f9f61dca6d86498e63177f933099e
+      internalID: 1204510873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 113cf81f5cd83db4f83f0a0d9c10c4ff
     internalID: 0
     vertices: []
     indices: 
@@ -183,11 +337,20 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":256.0,"y":283.0},"gridSpriteOffset":{"x":127.0,"y":110.0},"gridSpritePadding":{"x":0.0,"y":150.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Fleas_0: 6314957340707268019
       Fleas_1: 7145063564949789115
       Fleas_2: -1839784399878308176
+      Fleas_3: -2048870599
+      Fleas_4: 1600238458
+      Fleas_5: -1121938461
+      Fleas_6: 1337260545
+      Fleas_7: -1378167532
+      Fleas_8: 409364942
+      Fleas_9: 1204510873
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -191,12 +191,12 @@ SpriteRenderer:
   m_SortingLayer: 3
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -643168471367069303, guid: 11d512521c4de8946b607bc88127b095, type: 3}
+  m_Sprite: {fileID: 2053699210746947431, guid: 11d512521c4de8946b607bc88127b095, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 9.62, y: 7.3}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -293,6 +293,7 @@ MonoBehaviour:
   sName: Worker Bee
   type: Friendly Unit
   cost: 50
+  deathSound: 0
   moveSpeed: 1
   maxHP: 10
   maxShield: 0
@@ -313,6 +314,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  actionSounds: 
   actionPowerModifiers:
   - 1
   - 1
@@ -342,6 +344,7 @@ MonoBehaviour:
   resistancePierce: 0
   effects: []
   effectPrefabs: []
+  effectSounds: 
   effectPowerModifiers: []
   effectPierceModifiers: []
   effectRateModifiers: []
@@ -353,6 +356,7 @@ MonoBehaviour:
   passivePierce: 0
   passives: []
   passivePrefabs: []
+  passiveSounds: 
   passivePowerModifiers: []
   passivePierceModifiers: []
   passiveRateModifiers: []
@@ -365,6 +369,8 @@ MonoBehaviour:
   ignoreTerrain: 0
   hasTargetSettings: 0
   targetSetting: 
+  variant: 0
+  variantName: 
   prestige: 
   hitPoints: 1
   shield: 0
@@ -373,7 +379,7 @@ MonoBehaviour:
   pathIndex: 0
   inventoryFull: 0
   frozen: 0
-  invisibility: 0
+  Stealth: 0
   freezeImmune: 0
   pausing: 0
   timeUntilActions: []

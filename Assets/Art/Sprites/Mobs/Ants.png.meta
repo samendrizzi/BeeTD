@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 811b9631ff4c1af45982559e885ed43e
+guid: 5ceb1c5081375f341833ce12e1764614
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -130,19 +130,19 @@ TextureImporter:
       name: Ants_0
       rect:
         serializedVersion: 2
-        x: 110
-        y: 609
-        width: 250
-        height: 300
+        x: 85
+        y: 568
+        width: 235
+        height: 266
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: f59b3484b900acc4e9ec7adaa878150a
+      spriteID: b1aa4f2fa011dcd90800000000000000
       internalID: -7075980700805715429
       vertices: []
       indices: 
@@ -152,19 +152,19 @@ TextureImporter:
       name: Ants_1
       rect:
         serializedVersion: 2
-        x: 377
-        y: 609
-        width: 250
-        height: 300
+        x: 337
+        y: 569
+        width: 232
+        height: 264
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 0c7f240323cd0a24485b7b32665a3c97
+      spriteID: 7ea0ed55fcc5d1dd0800000000000000
       internalID: -2513750971434267929
       vertices: []
       indices: 
@@ -174,19 +174,19 @@ TextureImporter:
       name: Ants_2
       rect:
         serializedVersion: 2
-        x: 644
-        y: 609
-        width: 250
-        height: 300
+        x: 587
+        y: 568
+        width: 234
+        height: 266
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 2e90ef4529aa78148b95f878f9feec48
+      spriteID: 29d48697fc5e55560800000000000000
       internalID: 7301995050108997010
       vertices: []
       indices: 
@@ -196,19 +196,19 @@ TextureImporter:
       name: Ants_3
       rect:
         serializedVersion: 2
-        x: 911
-        y: 609
-        width: 250
-        height: 300
+        x: 839
+        y: 568
+        width: 235
+        height: 265
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 9b252fc5fce70d94787e3c55ff1fddfa
+      spriteID: aa34df90ddb94a8f0800000000000000
       internalID: -530127482465205334
       vertices: []
       indices: 
@@ -218,19 +218,19 @@ TextureImporter:
       name: Ants_4
       rect:
         serializedVersion: 2
-        x: 1178
-        y: 609
-        width: 250
-        height: 300
+        x: 1096
+        y: 569
+        width: 238
+        height: 263
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 05cc54340e6263540b502d6eaf656541
+      spriteID: 24e47a19c3b2e9db0800000000000000
       internalID: -4783338215079195070
       vertices: []
       indices: 
@@ -240,19 +240,19 @@ TextureImporter:
       name: Ants_5
       rect:
         serializedVersion: 2
-        x: 110
-        y: 189
-        width: 250
-        height: 300
+        x: 85
+        y: 209
+        width: 235
+        height: 268
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 2baa79d3c8d1a5d4388f24ada4d36a28
+      spriteID: a21b34cd54fdea270800000000000000
       internalID: 8263787857412600106
       vertices: []
       indices: 
@@ -262,19 +262,19 @@ TextureImporter:
       name: Ants_6
       rect:
         serializedVersion: 2
-        x: 377
-        y: 189
-        width: 250
-        height: 300
+        x: 337
+        y: 209
+        width: 233
+        height: 268
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 6a3b6c6c62114394aa2c52bfd90418db
+      spriteID: db2a8a841a68fd880800000000000000
       internalID: -8583994337478008131
       vertices: []
       indices: 
@@ -284,19 +284,19 @@ TextureImporter:
       name: Ants_7
       rect:
         serializedVersion: 2
-        x: 644
-        y: 189
-        width: 250
-        height: 300
+        x: 587
+        y: 209
+        width: 234
+        height: 268
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 90f622c3f8b3f4d4fa454332b7c45ba3
+      spriteID: dade9bb36ed3c2500800000000000000
       internalID: 372740928218721709
       vertices: []
       indices: 
@@ -306,19 +306,19 @@ TextureImporter:
       name: Ants_8
       rect:
         serializedVersion: 2
-        x: 911
-        y: 189
-        width: 250
-        height: 300
+        x: 839
+        y: 209
+        width: 234
+        height: 268
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: bf43b813946fd6c4181e5bd0809a8c57
+      spriteID: 666a25710c7330350800000000000000
       internalID: 5981686028242691686
       vertices: []
       indices: 
@@ -328,19 +328,19 @@ TextureImporter:
       name: Ants_9
       rect:
         serializedVersion: 2
-        x: 1178
-        y: 189
-        width: 250
-        height: 300
+        x: 1096
+        y: 209
+        width: 238
+        height: 268
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: b8d5774527e174d4baa75e43cf0d9a31
+      spriteID: 78d5792fb5ca03b00800000000000000
       internalID: 806333844211326343
       vertices: []
       indices: 
@@ -350,7 +350,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 06870d7baf59b1f40a6fda4c4ec40f7d
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -358,11 +358,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceOnImport
-        value: True
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":true,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":250.0,"y":300.0},"gridSpriteOffset":{"x":110.0,"y":115.0},"gridSpritePadding":{"x":17.0,"y":120.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
       Ants_0: -7075980700805715429
       Ants_1: -2513750971434267929

@@ -130,10 +130,10 @@ TextureImporter:
       name: Ant Queens_0
       rect:
         serializedVersion: 2
-        x: 11
-        y: 478
-        width: 293
-        height: 542
+        x: 98
+        y: 626
+        width: 220
+        height: 286
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,10 +152,10 @@ TextureImporter:
       name: Ant Queens_1
       rect:
         serializedVersion: 2
-        x: 350
-        y: 465
-        width: 287
-        height: 559
+        x: 348
+        y: 626
+        width: 223
+        height: 286
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,10 +174,10 @@ TextureImporter:
       name: Ant Queens_2
       rect:
         serializedVersion: 2
-        x: 584
-        y: 13
-        width: 249
-        height: 499
+        x: 603
+        y: 626
+        width: 222
+        height: 286
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -196,10 +196,10 @@ TextureImporter:
       name: Ant Queens_3
       rect:
         serializedVersion: 2
-        x: 609
-        y: 595
-        width: 224
-        height: 326
+        x: 849
+        y: 626
+        width: 223
+        height: 286
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -218,10 +218,10 @@ TextureImporter:
       name: Ant Queens_4
       rect:
         serializedVersion: 2
-        x: 863
-        y: 259
-        width: 358
-        height: 763
+        x: 1104
+        y: 625
+        width: 223
+        height: 287
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -240,10 +240,10 @@ TextureImporter:
       name: Ant Queens_5
       rect:
         serializedVersion: 2
-        x: 1151
-        y: 641
-        width: 203
-        height: 277
+        x: 102
+        y: 209
+        width: 213
+        height: 287
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -262,10 +262,10 @@ TextureImporter:
       name: Ant Queens_6
       rect:
         serializedVersion: 2
-        x: 11
-        y: 3
-        width: 291
-        height: 456
+        x: 356
+        y: 209
+        width: 212
+        height: 287
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -284,10 +284,10 @@ TextureImporter:
       name: Ant Queens_7
       rect:
         serializedVersion: 2
-        x: 350
-        y: 1
-        width: 212
-        height: 459
+        x: 608
+        y: 210
+        width: 216
+        height: 286
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -306,10 +306,10 @@ TextureImporter:
       name: Ant Queens_8
       rect:
         serializedVersion: 2
-        x: 863
-        y: 1
-        width: 251
-        height: 456
+        x: 854
+        y: 210
+        width: 216
+        height: 286
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -328,10 +328,10 @@ TextureImporter:
       name: Ant Queens_9
       rect:
         serializedVersion: 2
-        x: 1140
-        y: 1
-        width: 365
-        height: 457
+        x: 1109
+        y: 210
+        width: 214
+        height: 286
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

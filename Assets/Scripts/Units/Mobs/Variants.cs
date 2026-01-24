@@ -505,7 +505,7 @@ public class Variants : MonoBehaviour
     private Attributes attributes;
     private VariantType variant;
 
-    private void Awake()
+    private void Start()
     {
         attributes = gameObject.GetComponent<Attributes>();
         SetVariantStats();
@@ -532,7 +532,7 @@ public class Variants : MonoBehaviour
             attributes.effectPower += attributes.effectPower * percentageEffectPowerOrange;
             attributes.passivePower += attributes.passivePower * percentagePassivePowerOrange;
             //Update Actions
-            if (stealHoneyOrange == false && gameObject.GetComponent<Actions>().CheckAction("Attack Queen") == false)
+            if (stealHoneyOrange == false && gameObject.GetComponent<Actions>().CheckAction("Steal Honey") == true)
             {
                 gameObject.GetComponent<Actions>().RemoveAction("Steal Honey");
                 gameObject.GetComponent<Actions>().AddAction("Attack Queen",null,SoundType.EMPTY,1,1,1,1,1,1);
@@ -570,7 +570,7 @@ public class Variants : MonoBehaviour
             attributes.effectPower += attributes.effectPower * percentageEffectPowerBrown;
             attributes.passivePower += attributes.passivePower * percentagePassivePowerBrown;
             //Update Actions
-            if (stealHoneyBrown == false && gameObject.GetComponent<Actions>().CheckAction("Attack Queen") == false)
+            if (stealHoneyBrown == false && gameObject.GetComponent<Actions>().CheckAction("Steal Honey") == true)
             {
                 gameObject.GetComponent<Actions>().RemoveAction("Steal Honey");
                 gameObject.GetComponent<Actions>().AddAction("Attack Queen", null, SoundType.EMPTY, 1, 1, 1, 1, 1, 1);
@@ -608,7 +608,7 @@ public class Variants : MonoBehaviour
             attributes.effectPower += attributes.effectPower * percentageEffectPowerGreen;
             attributes.passivePower += attributes.passivePower * percentagePassivePowerGreen;
             //Update Actions
-            if (stealHoneyGreen == false && gameObject.GetComponent<Actions>().CheckAction("Attack Queen") == false)
+            if (stealHoneyGreen == false && gameObject.GetComponent<Actions>().CheckAction("Steal Honey") == true)
             {
                 gameObject.GetComponent<Actions>().RemoveAction("Steal Honey");
                 gameObject.GetComponent<Actions>().AddAction("Attack Queen", null, SoundType.EMPTY, 1, 1, 1, 1, 1, 1);
@@ -646,7 +646,7 @@ public class Variants : MonoBehaviour
             attributes.effectPower += attributes.effectPower * percentageEffectPowerBlue;
             attributes.passivePower += attributes.passivePower * percentagePassivePowerBlue;
             //Update Actions
-            if (stealHoneyBlue == false && gameObject.GetComponent<Actions>().CheckAction("Attack Queen") == false)
+            if (stealHoneyBlue == false && gameObject.GetComponent<Actions>().CheckAction("Steal Honey") == true)
             {
                 gameObject.GetComponent<Actions>().RemoveAction("Steal Honey");
                 gameObject.GetComponent<Actions>().AddAction("Attack Queen", null, SoundType.EMPTY, 1, 1, 1, 1, 1, 1);
@@ -684,7 +684,7 @@ public class Variants : MonoBehaviour
             attributes.effectPower += attributes.effectPower * percentageEffectPowerYellow;
             attributes.passivePower += attributes.passivePower * percentagePassivePowerYellow;
             //Update Actions
-            if (stealHoneyYellow == false && gameObject.GetComponent<Actions>().CheckAction("Attack Queen") == false)
+            if (stealHoneyYellow == false && gameObject.GetComponent<Actions>().CheckAction("Steal Honey") == true)
             {
                 gameObject.GetComponent<Actions>().RemoveAction("Steal Honey");
                 gameObject.GetComponent<Actions>().AddAction("Attack Queen", null, SoundType.EMPTY, 1, 1, 1, 1, 1, 1);
@@ -722,7 +722,7 @@ public class Variants : MonoBehaviour
             attributes.effectPower += attributes.effectPower * percentageEffectPowerRed;
             attributes.passivePower += attributes.passivePower * percentagePassivePowerRed;
             //Update Actions
-            if (stealHoneyRed == false && gameObject.GetComponent<Actions>().CheckAction("Attack Queen") == false)
+            if (stealHoneyRed == false && gameObject.GetComponent<Actions>().CheckAction("Steal Honey") == true)
             {
                 gameObject.GetComponent<Actions>().RemoveAction("Steal Honey");
                 gameObject.GetComponent<Actions>().AddAction("Attack Queen", null, SoundType.EMPTY, 1, 1, 1, 1, 1, 1);
@@ -760,7 +760,7 @@ public class Variants : MonoBehaviour
             attributes.effectPower += attributes.effectPower * percentageEffectPowerBlack;
             attributes.passivePower += attributes.passivePower * percentagePassivePowerBlack;
             //Update Actions
-            if (stealHoneyBlack == false && gameObject.GetComponent<Actions>().CheckAction("Attack Queen") == false)
+            if (stealHoneyBlack == false && gameObject.GetComponent<Actions>().CheckAction("Steal Honey") == true)
             {
                 gameObject.GetComponent<Actions>().RemoveAction("Steal Honey");
                 gameObject.GetComponent<Actions>().AddAction("Attack Queen", null, SoundType.EMPTY, 1, 1, 1, 1, 1, 1);
@@ -798,7 +798,7 @@ public class Variants : MonoBehaviour
             attributes.effectPower += attributes.effectPower * percentageEffectPowerWhite;
             attributes.passivePower += attributes.passivePower * percentagePassivePowerWhite;
             //Update Actions
-            if (stealHoneyWhite == false && gameObject.GetComponent<Actions>().CheckAction("Attack Queen") == false)
+            if (stealHoneyWhite == false && gameObject.GetComponent<Actions>().CheckAction("Steal Honey") == true)
             {
                 gameObject.GetComponent<Actions>().RemoveAction("Steal Honey");
                 gameObject.GetComponent<Actions>().AddAction("Attack Queen", null, SoundType.EMPTY, 1, 1, 1, 1, 1, 1);
@@ -836,7 +836,7 @@ public class Variants : MonoBehaviour
             attributes.effectPower += attributes.effectPower * percentageEffectPowerPurple;
             attributes.passivePower += attributes.passivePower * percentagePassivePowerPurple;
             //Update Actions
-            if (stealHoneyPurple == false && gameObject.GetComponent<Actions>().CheckAction("Attack Queen") == false)
+            if (stealHoneyPurple == false && gameObject.GetComponent<Actions>().CheckAction("Steal Honey") == true)
             {
                 gameObject.GetComponent<Actions>().RemoveAction("Steal Honey");
                 gameObject.GetComponent<Actions>().AddAction("Attack Queen", null, SoundType.EMPTY, 1, 1, 1, 1, 1, 1);
@@ -874,7 +874,7 @@ public class Variants : MonoBehaviour
             attributes.effectPower += attributes.effectPower * percentageEffectPowerPink;
             attributes.passivePower += attributes.passivePower * percentagePassivePowerPink;
             //Update Actions
-            if (stealHoneyPink == false && gameObject.GetComponent<Actions>().CheckAction("Attack Queen") == false)
+            if (stealHoneyPink == false && gameObject.GetComponent<Actions>().CheckAction("Steal Honey") == true)
             {
                 gameObject.GetComponent<Actions>().RemoveAction("Steal Honey");
                 gameObject.GetComponent<Actions>().AddAction("Attack Queen", null, SoundType.EMPTY, 1, 1, 1, 1, 1, 1);
