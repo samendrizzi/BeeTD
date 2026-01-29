@@ -16,11 +16,9 @@ public class LevelManager : MonoBehaviour
     [SerializeField] public SoundType waveStartSound;
 
     [Header("Attributes")]
-    [SerializeField] public float queenBeeHP = 100f;
-    [SerializeField] public float queenBeeMaxHP = 100f;
-    [SerializeField] public float queenArmor = 0f;
     [SerializeField] public float honey = 0f;
     [SerializeField] public float bonusNectar = 0f;
+    [SerializeField] public float bonusHoney = 0f;
     [SerializeField] public float honeyRequired = 100f;
     [SerializeField] public float percentageOfFlowersUsed = 1f;
     [SerializeField] public float difficultyScaling = 0.05f;
@@ -53,6 +51,9 @@ public class LevelManager : MonoBehaviour
     public Transform[][] flyingPaths;
     public Transform[] pathsStart;
     public Transform[] pathsNextPoint;
+    public float queenHP;
+    public float queenArmor;
+    public float queenMaxHP;
     public float incomeRate;
     public float investmentRate;
     public float bonusInvestmentRate;
@@ -81,7 +82,6 @@ public class LevelManager : MonoBehaviour
     public string autoAssignBees = "Nectar";
     public int honeyCombTicks;
     public float honeyPerCombTick;
-    public float honeyCombCreatePause;
     private float timeElapsed = 0f;
 
     private void Awake()
@@ -95,12 +95,8 @@ public class LevelManager : MonoBehaviour
         GlobalValues.main.SetUI(true);
         speed = UIManager.main.speed;
         pause = UIManager.main.pause;
-        honeyRequired = honeyRequired * GlobalValues.main.difficultyMultiplier;
-        nectarGenerationRate = GlobalValues.main.globalFertility;
-        CalculateIncome();
-        honeyCombTicks = GlobalValues.main.honeyCombTicks;
-        honeyCombCreatePause = GlobalValues.main.honeyCombCreatePause;
-        honeyPerCombTick = GlobalValues.main.honeyPerCombTick;
+        //honeyRequired = honeyRequired;
+        //nectarGenerationRate = 0;
         GameObject[] root = FindObjectsByType<GameObject>(FindObjectsSortMode.None);
         foreach (GameObject obj in root)
         {
@@ -111,7 +107,6 @@ public class LevelManager : MonoBehaviour
             }
         }
         honeyCombs = honeyCombs.OrderBy(point => Vector2.Distance(queenBee.transform.position, point.transform.position)).ToArray();
-        workerBeeCost = GlobalValues.main.workerBeeCost * (1 + (GlobalValues.main.workerBeeCostIncrease * workerBees.Length));
         UIManager.main.UpdateQueensCommand();
         //Set Speed
         UIManager.main.NormalSpeed(false);
@@ -129,11 +124,25 @@ public class LevelManager : MonoBehaviour
             pathsStart[i] = paths[i][0];
             pathsNextPoint[i] = paths[i][1];
         }
-        nectar = GlobalValues.main.startingNectar + bonusNectar;
+        nectar = BuffManager.main.startingNectar + bonusNectar;
+        honey = BuffManager.main.startingHoney + bonusHoney;
+        SetStats();
+        queenHP = queenMaxHP;
         StartingReveal();
         FindAllFlowers();
         BloomFlowers();
         SpawnStartingBees();
+    }
+
+    public void SetStats()
+    {
+        //nectarGenerationRate = 0; Not Implemented
+        honeyCombTicks = BuffManager.main.honeycombTicks;
+        honeyPerCombTick = BuffManager.main.honeycombTicks;
+        workerBeeCost = BuffManager.main.beeCost * (1 + (BuffManager.main.beeCostScaling * workerBees.Length));
+        queenArmor = BuffManager.main.queenBeeArmor;
+        queenHP = BuffManager.main.queenBeeHitPoints;
+        CalculateIncome();
     }
 
     public void IncreaseNectar(float amount)
@@ -162,7 +171,7 @@ public class LevelManager : MonoBehaviour
 
     public void CalculateIncome()
     {
-        incomeRate = GlobalValues.main.baseNectarGeneration;
+        incomeRate = 0; //Not Implemented
         bonusInvestmentRate = 0f;
     }
 
@@ -179,7 +188,7 @@ public class LevelManager : MonoBehaviour
             Time.timeScale = timing;
         }
         timeElapsed += Time.deltaTime;
-        if (timeElapsed >= GlobalValues.main.honeyCombCheckTime)
+        if (timeElapsed >= GlobalValues.main.honeycombCheckTime)
         {
             timeElapsed = 0f;
             CheckHoneyCombs();
@@ -207,8 +216,8 @@ public class LevelManager : MonoBehaviour
             //no damage
             return;
         }
-        queenBeeHP -= (1f - armorBlock) * dmg;
-        if (queenBeeHP <= 0f)
+        queenHP -= (1f - armorBlock) * dmg;
+        if (queenHP <= 0f)
         {
             QueenDies();
         }
@@ -296,21 +305,21 @@ public class LevelManager : MonoBehaviour
     {
         SoundManager.main.PlaySound(victorySound, 0f);
         CollectAllHoney();
-        if (GlobalValues.main.difficultySetting == "Easy")
+        if (GlobalValues.main.difficulty == GlobalValues.Difficulty.EASY)
         {
             if (SaveFile.gameData.easyScores[GlobalValues.main.levelIndex] < honey)
             {
                 SaveFile.gameData.easyScores[GlobalValues.main.levelIndex] = (int)honey;
             }
         }
-        else if (GlobalValues.main.difficultySetting == "Medium")
+        else if (GlobalValues.main.difficulty == GlobalValues.Difficulty.MEDIUM)
         {
             if (SaveFile.gameData.mediumScores[GlobalValues.main.levelIndex] < honey)
             {
                 SaveFile.gameData.mediumScores[GlobalValues.main.levelIndex] = (int)honey;
             }
         }
-        else if (GlobalValues.main.difficultySetting == "Hard")
+        else if (GlobalValues.main.difficulty == GlobalValues.Difficulty.HARD)
         {
             if (SaveFile.gameData.hardScores[GlobalValues.main.levelIndex] < honey)
             {
@@ -514,7 +523,7 @@ public class LevelManager : MonoBehaviour
             soldierBees[soldierBees.Length - 1] = unit;
         }
         //Update bee cost
-        workerBeeCost = GlobalValues.main.workerBeeCost * (1 + (GlobalValues.main.workerBeeCostIncrease * workerBees.Length));
+        workerBeeCost = BuffManager.main.beeCost * (1 + (BuffManager.main.beeCostScaling * workerBees.Length));
         //Update
         OrganizeBees();
     }
@@ -680,17 +689,17 @@ public class LevelManager : MonoBehaviour
 
     public void HealQueen(float effectPower)
     {
-        float missingHP = queenBeeMaxHP - queenBeeHP;
+        float missingHP = queenMaxHP - queenHP;
         if (missingHP > 0)
         {
-            float heal = GlobalValues.main.queenHealModifier * effectPower;
+            float heal = GlobalValues.main.beeHeal * effectPower;
             if (heal < missingHP)
             {
-                queenBeeHP += heal;
+                queenHP += heal;
             }
             else
             {
-                queenBeeHP = queenBeeMaxHP;
+                queenHP = queenMaxHP;
             }
         }
     }
@@ -735,8 +744,7 @@ public class LevelManager : MonoBehaviour
 
     private void SpawnStartingBees()
     {
-        int startingBees = 2;
-        for (int i = 1; i <= startingBees; i++) 
+        for (int i = 1; i <= BuffManager.main.startingBees; i++) 
         {
             SpawnUnit("Nectar");
         }

@@ -34,7 +34,6 @@ public class GlobalMap : MonoBehaviour
 
     public void StartLevel()
     {
-        GlobalValues.main.SetDifficulty(difficultySetting.text);
         SceneManager.LoadScene(levelSelect, LoadSceneMode.Additive);
         SceneManager.UnloadSceneAsync("Global Map");
     }

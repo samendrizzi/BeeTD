@@ -52,16 +52,16 @@ public class Projectile : MonoBehaviour
         ignoreTerrain = igTerrain;
         action = actioner;
         actionDuration = actionDur;
-        AoE = actionAoE;
+        AoE = actionAoE * BuffManager.main.towerAoEArea;
         effectPower = effPower;
         if (action == "Shoot Slowing" || action == "Shoot Freezing" || action == "Shoot AoE Freezing" || action == "Shoot AoE Slowing")
         {
-            slow = effectPower * GlobalValues.main.slowPowerModifier;
-            slowDuration = actionDuration * GlobalValues.main.slowDurationModifier;
+            slow = effectPower;
+            slowDuration = actionDuration;
         }
         else if (action == "Shoot Ricochet")
         {
-            numberRicochet = (int)actionDuration;
+            numberRicochet = (int)actionDuration + BuffManager.main.towerExtraRicochetCount;
         }
     }
 
@@ -247,8 +247,8 @@ public class Projectile : MonoBehaviour
                     if (AoEDropOff == true)
                     {
                         float distance = Vector2.Distance(hit.transform.position, transform.position);
-                        damageDrop = (AoE - distance * (1 - GlobalValues.main.AoeDropOffFloor)) * projectileDamage;
-                        slowDrop = (AoE - distance * (1 - GlobalValues.main.AoeDropOffFloor)) * slow;
+                        damageDrop = (AoE - distance * (1 - BuffManager.main.towerAoEDamageDropOff)) * projectileDamage;
+                        slowDrop = (AoE - distance * (1 - BuffManager.main.towerAoEDamageDropOff)) * slow;
                     }
                     hit.transform.gameObject.GetComponent<Attributes>().TakeDamage(damageDrop, armorPierce);
                     if (action == "Shoot AoE Slowing")

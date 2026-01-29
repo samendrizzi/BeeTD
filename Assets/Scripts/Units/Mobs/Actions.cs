@@ -71,8 +71,8 @@ public class Actions : MonoBehaviour
                     attributes.Pause(GlobalValues.main.turretPauseTime);
                     return;
                 }
-                float actionAoE = attributes.actionExtraModifiers[i] * GlobalValues.main.projectileAoEModifier;
-                Shoot(action, attributes.actionPrefabs[i], attributes.actionSounds[i], actionPower, effectPower, actionPierce, effectPierce, actionDuration, actionAoE);
+                float actionExtraMod = attributes.actionExtraModifiers[i];
+                Shoot(action, attributes.actionPrefabs[i], attributes.actionSounds[i], actionPower, effectPower, actionPierce, effectPierce, actionDuration, actionExtraMod);
                 attributes.timeUntilActions[i] = 1 / (actionRate);
             }
             else if (action == "Pulse Slow")
@@ -300,7 +300,7 @@ public class Actions : MonoBehaviour
         if (Vector2.Distance(LevelManager.main.queenBee.transform.position, transform.position) <= attributes.wayPointDistance)
         {
             LevelManager.main.HitQueen(damage, armorPierce);
-            attributes.TakeDamage(damage * GlobalValues.main.queenThornModifier, armorPierce);
+            attributes.TakeDamage(damage * BuffManager.main.queenBeeReturnDamage, armorPierce);
         }
     }
 
@@ -311,7 +311,7 @@ public class Actions : MonoBehaviour
         attributes.Pause(GlobalValues.main.hummingbirdWaitTime / power);      
     }
 
-    private void Shoot(string action, GameObject projectilePrefab, SoundType sound, float actionPower, float effectPower, float actionPierce, float effectPierce, float actionDuration, float actionAoE)
+    private void Shoot(string action, GameObject projectilePrefab, SoundType sound, float actionPower, float effectPower, float actionPierce, float effectPierce, float actionDuration, float actionExtra)
     {
         float angle = Mathf.Atan2(attributes.target.position.y - transform.position.y, attributes.target.position.x - transform.position.x) * Mathf.Rad2Deg;
         Quaternion targetRotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
@@ -319,15 +319,15 @@ public class Actions : MonoBehaviour
         Projectile projectileScript = projectileObj.GetComponent<Projectile>();
         if (action == "Shoot Ramping")
         {
-            projectileScript.SetTarget(attributes.target, (actionPower * (1 + ((float)attributes.rampCount) * GlobalValues.main.rampPowerGain)), effectPower, actionPierce, effectPierce, attributes.canHit, attributes.ignoreTerrain, action, actionDuration, actionAoE);
-            if (attributes.rampCount < 10)
+            projectileScript.SetTarget(attributes.target, (actionPower * (1 + ((float)attributes.rampCount) * BuffManager.main.towerRampingDamage * actionExtra)), effectPower, actionPierce, effectPierce, attributes.canHit, attributes.ignoreTerrain, action, actionDuration, actionExtra);
+            if (attributes.rampCount < attributes.actionDurations[FindAction("Shoot Ramping")] + BuffManager.main.towerExtraRampCount)
             {
                 attributes.rampCount++;
             }
         }
         else
         {
-            projectileScript.SetTarget(attributes.target, actionPower, effectPower, actionPierce, effectPierce, attributes.canHit, attributes.ignoreTerrain, action, actionDuration, actionAoE);
+            projectileScript.SetTarget(attributes.target, actionPower, effectPower, actionPierce, effectPierce, attributes.canHit, attributes.ignoreTerrain, action, actionDuration, actionExtra);
         }
         SoundManager.main.PlaySound(sound);
     }
@@ -404,10 +404,10 @@ public class Actions : MonoBehaviour
                     attributes.target = null;
                     return;
                 }
-                attributes.target.gameObject.GetComponent<Plot>().HoneyFill(power * LevelManager.main.honeyPerCombTick, LevelManager.main.honeyCombTicks);
+                attributes.target.gameObject.GetComponent<Plot>().HoneyFill();
                 attributes.inventoryFull = false;
                 attributes.target = null;
-                attributes.Pause(LevelManager.main.honeyCombCreatePause);
+                attributes.Pause(BuffManager.main.honeycombFillTime);
             }
             else
             {

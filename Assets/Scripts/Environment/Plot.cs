@@ -249,7 +249,7 @@ public class Plot : MonoBehaviour
         {
             isSapped = true;
             sr.sprite = fogSprite;
-            pause += duration;
+            pause += duration / BuffManager.main.nectarGenerationRate;
         }
         else
         {
@@ -277,10 +277,10 @@ public class Plot : MonoBehaviour
         }
     }
 
-    public void HoneyFill(float amount, int duration)
+    public void HoneyFill()
     {
-        honeyTicks = duration;
-        honeyPerTick = amount;
+        honeyTicks = BuffManager.main.honeycombTicks;
+        honeyPerTick = BuffManager.main.honeycombGeneration;
         sr.sprite = honeySprite;
     }
 

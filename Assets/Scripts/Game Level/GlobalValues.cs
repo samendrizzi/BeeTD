@@ -51,8 +51,8 @@ public class GlobalValues : MonoBehaviour
     [SerializeField] public float wayPointDistance = 0.2f;
     [SerializeField] public float maxSlowDebuff = 0.2f;
     [SerializeField] public float freezeImmuneRatio = 0.25f;
-    [SerializeField] public float StealthModifier = 1f;
-    [SerializeField] public float StealthTransparancy = 0.3f;
+    [SerializeField] public float stealthModifier = 1f;
+    [SerializeField] public float stealthTransparancy = 0.3f;
     [SerializeField] public float reviveCooldownModifier = 1f;
     [SerializeField] public float reviveDurationModifier = 1f;
 
@@ -138,12 +138,13 @@ public class GlobalValues : MonoBehaviour
     [SerializeField] public float buffPower = 1f;
     [SerializeField] public float buffTimer = 1f;
     [SerializeField] public float healTimer = 1f;
-    [SerializeField] public float SlowPower = 1f;
-    [SerializeField] public float SlowPierce = 0f;
-    [SerializeField] public float FreezePower = 1f;
-    [SerializeField] public float towerFreezePierce = 0f;
+    [SerializeField] public float slowPower = 1f;
+    [SerializeField] public float slowPierce = 0f;
+    [SerializeField] public float freezePower = 1f;
+    [SerializeField] public float freezePierce = 0f;
     [SerializeField] public float towerAoEArea = 1f;
     [SerializeField] public float towerAoEDamageDropOff = 0.25f;
+    [SerializeField] public float towerRampingDamage = 1f;
     [SerializeField] public int towerExtraRampCount = 0;
     [SerializeField] public int towerExtraRicochetCount = 0;
     [SerializeField] public float ricochetRange = 2f;
@@ -157,6 +158,7 @@ public class GlobalValues : MonoBehaviour
     [SerializeField] public float towerAttackRate = 1f;
     [SerializeField] public float towerActionPower = 1f;
     [SerializeField] public float towerActionRate = 1f;
+    [SerializeField] public float towerBuffPower = 1f;
     [SerializeField] public float towerEffectPower = 1f;
     [SerializeField] public float towerEffectRate = 1f;
     [SerializeField] public float towerCarryCapacity = 1f;
@@ -309,8 +311,6 @@ public class GlobalValues : MonoBehaviour
 
     [Header("Attributes")]
     [SerializeField] public float projectileCollisonDistance = 0.1f;
-    [SerializeField] public float rampPowerGain = 0.1f;
-    [SerializeField] public float projectileAoEModifier = 1f;
 
     [Header("_______________________")]
     [Header("Environment")]

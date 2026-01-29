@@ -56,7 +56,7 @@ public class Effects : MonoBehaviour
         {
             float effectRange = attributes.effectRangeModifiers[i] * attributes.targetingRange;
             float effectPower = attributes.effectPowerModifiers[i] * attributes.effectPower;
-            float effectDuration = attributes.effectDurations[i] * GlobalValues.main.spawnTimerModifier;
+            float effectDuration = attributes.effectDurations[i];
             if (effect == "Pulse Power Buff")
             {
                 SendPowerBuff(effectPower, effectDuration, effectRange);
@@ -89,7 +89,7 @@ public class Effects : MonoBehaviour
             if (effect == "Spawn")
             {
                 float effectPower = attributes.effectPowerModifiers[i] * attributes.effectPower;
-                float effectDuration = attributes.effectDurations[i] * GlobalValues.main.spawnTimerModifier;
+                float effectDuration = attributes.effectDurations[i] * GlobalValues.main.enemySpawnTime;
                 GameObject prefab = attributes.effectPrefabs[i];
                 Spawn(prefab, effectPower, effectDuration);
             }
@@ -120,7 +120,7 @@ public class Effects : MonoBehaviour
             else if (effect == "Stealth")
             {
                 float effectPower = attributes.effectPowerModifiers[i] * attributes.effectPower;
-                float effectDuration = attributes.effectDurations[i] * GlobalValues.main.StealthModifier;
+                float effectDuration = attributes.effectDurations[i] * GlobalValues.main.stealthModifier;
                 Stealth(effectPower, effectDuration);
             }
             else if (effect == "Prismatic Buff")
@@ -290,7 +290,7 @@ public class Effects : MonoBehaviour
         }
         else if (spawnAtt.effects[0] == "Hatch")
         {
-            spawnAtt.timeUntilEffects[0] = duration * GlobalValues.main.eggHatchingTimerModifier;
+            spawnAtt.timeUntilEffects[0] = duration * GlobalValues.main.enemyHatchTime;
             spawnAtt.effectPowerModifiers[0] = power;
         }
         else if (spawnAtt.effects[0] == "Smoke Screen")
@@ -320,8 +320,8 @@ public class Effects : MonoBehaviour
     private void HealAura(float power, float range)
     {
         //find objects of same type in range
-        float rangeAdjusted = range * GlobalValues.main.enemyHealRangeModifier;
-        float powerAdjusted = power * GlobalValues.main.enemyHealModifier;
+        float rangeAdjusted = range;
+        float powerAdjusted = power;
         RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, rangeAdjusted, (Vector2)transform.position, 0f, (1 << gameObject.layer));
         if (hits.Length > 0)
         {
@@ -442,8 +442,8 @@ public class Effects : MonoBehaviour
     private void SendPowerBuff(float effectPower, float effectDuration, float effectRange)
     {
         RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, effectRange, (Vector2)transform.position, 0f, GlobalValues.main.towerMask);
-        float buff = 1 + (GlobalValues.main.buffPowerModifier * effectPower);
-        float duration = GlobalValues.main.buffTimerModifier * effectDuration;
+        float buff = 1 + (BuffManager.main.towerBuffPower * effectPower);
+        float duration = effectDuration;
         if (hits.Length > 0)
         {
             for (int i = 0; i < hits.Length; i++)
@@ -457,8 +457,8 @@ public class Effects : MonoBehaviour
     private void SendRateBuff(float effectPower, float effectDuration, float effectRange)
     {
         RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, effectRange, (Vector2)transform.position, 0f, GlobalValues.main.towerMask);
-        float buff = 1 + (GlobalValues.main.buffPowerModifier * effectPower);
-        float duration = GlobalValues.main.buffTimerModifier * effectDuration;
+        float buff = 1 + (BuffManager.main.towerBuffPower * effectPower);
+        float duration = effectDuration;
         if (hits.Length > 0)
         {
             for (int i = 0; i < hits.Length; i++)

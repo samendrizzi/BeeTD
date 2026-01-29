@@ -58,6 +58,7 @@ public class TechTreeManager : MonoBehaviour
     public float towerAttackRate;
     public float towerActionPower;
     public float towerActionRate;
+    public float towerBuffPower;
     public float towerEffectPower;
     public float towerEffectRate;
     public float towerCarryCapacity;
@@ -71,6 +72,7 @@ public class TechTreeManager : MonoBehaviour
     public float towerStealthDetection;
     public float towerAoEArea;
     public float towerAoEDamageDropOff;
+    public float towerRampingDamage;
     public int towerExtraRampCount;
     public int towerExtraRicochetCount;
     //Enemies

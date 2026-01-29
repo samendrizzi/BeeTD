@@ -61,6 +61,7 @@ public class BuffManager : MonoBehaviour
     public float towerAttackRate;
     public float towerActionPower;
     public float towerActionRate;
+    public float towerBuffPower;
     public float towerEffectPower;
     public float towerEffectRate;
     public float towerCarryCapacity;
@@ -74,6 +75,7 @@ public class BuffManager : MonoBehaviour
     public float towerStealthDetection;
     public float towerAoEArea;
     public float towerAoEDamageDropOff;
+    public float towerRampingDamage;
     public int towerExtraRampCount;
     public int towerExtraRicochetCount;
     //Enemies
@@ -114,96 +116,121 @@ public class BuffManager : MonoBehaviour
     void RefreshBuffs()
     {
         //Environment
-        startingNectar = GlobalValues.main.startingNectar + TechTreeManager.main.startingNectar;
-        startingHoney = GlobalValues.main.startingHoney + TechTreeManager.main.startingHoney;
-        queenBeeHitPoints = GlobalValues.main.queenBeeHitPoints * TechTreeManager.main.queenBeeHitPoints;
-        queenBeeReturnDamage = GlobalValues.main.queenBeeReturnDamage + TechTreeManager.main.queenBeeReturnDamage;
-        queenBeeArmor = GlobalValues.main.queenBeeArmor + TechTreeManager.main.queenBeeArmor;
-        honeyDropRate = GlobalValues.main.honeyDropRate + TechTreeManager.main.honeyDropRate;
-        honeyinterest = GlobalValues.main.honeyinterest + TechTreeManager.main.honeyinterest;
-        pollenBuff = GlobalValues.main.pollenBuff + TechTreeManager.main.pollenBuff;
-        nectarGenerationRate = GlobalValues.main.nectarGenerationRate + TechTreeManager.main.nectarGenerationRate;
-        pollenGenerationRate = GlobalValues.main.pollenGenerationRate + TechTreeManager.main.pollenGenerationRate;
-        honeycombTicks = GlobalValues.main.honeycombTicks + TechTreeManager.main.honeycombTicks;
-        honeycombGeneration = GlobalValues.main.honeycombGeneration * TechTreeManager.main.honeycombGeneration;
-        honeycombFillTime = GlobalValues.main.honeycombFillTime * TechTreeManager.main.honeycombFillTime;
+        startingNectar = GlobalValues.main.startingNectar[(int)GlobalValues.main.difficulty] + TechTreeManager.main.startingNectar; //LevelManager
+        startingHoney = GlobalValues.main.startingHoney[(int)GlobalValues.main.difficulty] + TechTreeManager.main.startingHoney; //LevelManager
+        queenBeeHitPoints = GlobalValues.main.queenBeeHitPoints * TechTreeManager.main.queenBeeHitPoints; //LevelManager
+        queenBeeReturnDamage = GlobalValues.main.queenBeeReturnDamage + TechTreeManager.main.queenBeeReturnDamage; //Actions
+        queenBeeArmor = GlobalValues.main.queenBeeArmor + TechTreeManager.main.queenBeeArmor; //LevelManager
+        honeyDropRate = GlobalValues.main.honeyDropRate[(int)GlobalValues.main.difficulty] + TechTreeManager.main.honeyDropRate; //Attributes
+        if (honeyDropRate > 1f)
+        {
+            honeyDropRate = 1f;
+        }
+        honeyinterest = GlobalValues.main.honeyinterest + TechTreeManager.main.honeyinterest; //Not Implemented
+        pollenBuff = GlobalValues.main.pollenBuff + TechTreeManager.main.pollenBuff; //Not Implemented
+        nectarGenerationRate = GlobalValues.main.nectarGenerationRate * TechTreeManager.main.nectarGenerationRate; //Plot
+        pollenGenerationRate = GlobalValues.main.pollenGenerationRate * TechTreeManager.main.pollenGenerationRate; //Not Implentation
+        honeycombTicks = GlobalValues.main.honeycombTicks + TechTreeManager.main.honeycombTicks; //Plot
+        honeycombGeneration = GlobalValues.main.honeycombGeneration * TechTreeManager.main.honeycombGeneration; //Plot
+        honeycombFillTime = GlobalValues.main.honeycombFillTime * TechTreeManager.main.honeycombFillTime; //Actions
         //Worker Bees + Towers
-        slowPower = GlobalValues.main.slowPower * TechTreeManager.main.slowPower;
-        slowPierce = GlobalValues.main.slowPierce * TechTreeManager.main.slowPierce;
-        freezePower = GlobalValues.main.freezePower * TechTreeManager.main.freezePower;
-        freezePierce = GlobalValues.main.freezePierce * TechTreeManager.main.freezePierce;
+        slowPower = GlobalValues.main.slowPower * TechTreeManager.main.slowPower; //Attributes
+        slowPierce = GlobalValues.main.slowPierce * TechTreeManager.main.slowPierce; //Attributes
+        freezePower = GlobalValues.main.freezePower * TechTreeManager.main.freezePower; //Attributes
+        freezePierce = GlobalValues.main.freezePierce * TechTreeManager.main.freezePierce; //Attributes
         //Worker Bees
-        startingBees = GlobalValues.main.startingBees + TechTreeManager.main.startingBees;
-        beeCost = GlobalValues.main.beeCost * TechTreeManager.main.beeCost;
-        beeCostScaling = GlobalValues.main.beeCostScaling * TechTreeManager.main.beeCostScaling;
-        beeHitPoints = GlobalValues.main.beeHitPoints * TechTreeManager.main.beeHitPoints;
-        beeHeal = GlobalValues.main.beeHeal * TechTreeManager.main.beeHeal;
-        beeShield = GlobalValues.main.beeShield + TechTreeManager.main.beeShield;
-        beeShieldGeneration = GlobalValues.main.beeShieldGeneration;
-        beeTargetingRange = GlobalValues.main.beeTargetingRange + TechTreeManager.main.beeTargetingRange;
-        beeDamage = GlobalValues.main.beeDamage * TechTreeManager.main.beeDamage;
-        beeAttackRate = GlobalValues.main.beeAttackRate * TechTreeManager.main.beeAttackRate;
-        beeActionPower = GlobalValues.main.beeActionPower * TechTreeManager.main.beeActionPower;
-
-        beeEffectPower = GlobalValues.main.beeEffectPower * TechTreeManager.main.beeEffectPower;
-        beeEffectRate = GlobalValues.main.beeEffectRate * TechTreeManager.main.beeEffectRate;
-        beeCarryCapacity = GlobalValues.main.beeCarryCapacity * TechTreeManager.main.beeCarryCapacity;
-        beeMoveSpeed = GlobalValues.main.beeMoveSpeed * TechTreeManager.main.beeMoveSpeed;
-        beeArmor = GlobalValues.main.beeArmor + TechTreeManager.main.beeArmor;
-        beeResistance = GlobalValues.main.beeResistance + TechTreeManager.main.beeResistance;
-        beeDodge = GlobalValues.main.beeDodge + TechTreeManager.main.beeDodge;
-        beeArmorPierce = GlobalValues.main.beeArmorPierce + TechTreeManager.main.beeArmorPierce;
-        beeResistancePierce = GlobalValues.main.beeResistancePierce + TechTreeManager.main.beeResistancePierce;
-        beeDodgePierce = GlobalValues.main.beeDodgePierce + TechTreeManager.main.beeDodgePierce;
-        beeStealthDetection = GlobalValues.main.beeStealthDetection + TechTreeManager.main.beeStealthDetection;
+        startingBees = GlobalValues.main.startingBees[(int)GlobalValues.main.difficulty] + TechTreeManager.main.startingBees; //LevelManager
+        beeCost = GlobalValues.main.beeCost * TechTreeManager.main.beeCost; //LevelManager
+        beeCostScaling = GlobalValues.main.beeCostScaling * TechTreeManager.main.beeCostScaling; //LevelManager
+        beeHitPoints = GlobalValues.main.beeHitPoints * TechTreeManager.main.beeHitPoints; //Attributes
+        beeHeal = GlobalValues.main.beeHeal * TechTreeManager.main.beeHeal; //Attributes
+        beeShield = GlobalValues.main.beeShield + TechTreeManager.main.beeShield; //Attributes
+        beeShieldGeneration = GlobalValues.main.beeShieldGeneration; //Attributes
+        beeTargetingRange = GlobalValues.main.beeTargetingRange + TechTreeManager.main.beeTargetingRange; //Attributes
+        beeDamage = GlobalValues.main.beeDamage * TechTreeManager.main.beeDamage; //Attributes
+        beeAttackRate = GlobalValues.main.beeAttackRate * TechTreeManager.main.beeAttackRate; //Attributes
+        beeActionPower = GlobalValues.main.beeActionPower * TechTreeManager.main.beeActionPower; //Attributes
+        beeEffectPower = GlobalValues.main.beeEffectPower * TechTreeManager.main.beeEffectPower; //Attributes
+        beeEffectRate = GlobalValues.main.beeEffectRate * TechTreeManager.main.beeEffectRate; //Attributes
+        beeCarryCapacity = GlobalValues.main.beeCarryCapacity * TechTreeManager.main.beeCarryCapacity; //Attributes
+        beeMoveSpeed = GlobalValues.main.beeMoveSpeed * TechTreeManager.main.beeMoveSpeed; //Attributes
+        beeArmor = GlobalValues.main.beeArmor + TechTreeManager.main.beeArmor; //Attributes
+        beeResistance = GlobalValues.main.beeResistance + TechTreeManager.main.beeResistance; //Attributes
+        beeDodge = GlobalValues.main.beeDodge + TechTreeManager.main.beeDodge; //Attributes
+        beeArmorPierce = GlobalValues.main.beeArmorPierce + TechTreeManager.main.beeArmorPierce; //Attributes
+        beeResistancePierce = GlobalValues.main.beeResistancePierce + TechTreeManager.main.beeResistancePierce; //Attributes
+        beeDodgePierce = GlobalValues.main.beeDodgePierce + TechTreeManager.main.beeDodgePierce; //Attributes
+        beeStealthDetection = GlobalValues.main.beeStealthDetection + TechTreeManager.main.beeStealthDetection; //Attributes
+        if (beeStealthDetection > 1f)
+        {
+            beeStealthDetection = 1f;
+        }
         //Towers
-        towerSell = GlobalValues.main.towerSell + TechTreeManager.main.towerSell;
-        towerHitPoints = GlobalValues.main.towerHitPoints * TechTreeManager.main.towerHitPoints;
-        towerHeal = GlobalValues.main.towerHeal * TechTreeManager.main.towerHeal;
-        towerShield = GlobalValues.main.towerShield + TechTreeManager.main.towerShield;
-        towerShieldGeneration = GlobalValues.main.towerShieldGeneration;
-        towerTargetingRange = GlobalValues.main.towerTargetingRange + TechTreeManager.main.towerTargetingRange;
-        towerDamage = GlobalValues.main.towerDamage * TechTreeManager.main.towerDamage;
-        towerAttackRate = GlobalValues.main.towerAttackRate * TechTreeManager.main.towerAttackRate;
-        towerActionPower = GlobalValues.main.towerActionPower * TechTreeManager.main.towerActionPower;
-        towerEffectPower = GlobalValues.main.towerEffectPower * TechTreeManager.main.towerEffectPower;
-        towerEffectRate = GlobalValues.main.towerEffectRate * TechTreeManager.main.towerEffectRate;
-        towerCarryCapacity = GlobalValues.main.towerCarryCapacity * TechTreeManager.main.towerCarryCapacity;
-        towerMoveSpeed = GlobalValues.main.towerMoveSpeed * TechTreeManager.main.towerMoveSpeed;
-        towerArmor = GlobalValues.main.towerArmor + TechTreeManager.main.towerArmor;
-        towerResistance = GlobalValues.main.towerResistance + TechTreeManager.main.towerResistance;
-        towerDodge = GlobalValues.main.towerDodge + TechTreeManager.main.towerDodge;
-        towerArmorPierce = GlobalValues.main.towerArmorPierce + TechTreeManager.main.towerArmorPierce;
-        towerResistancePierce = GlobalValues.main.towerResistancePierce + TechTreeManager.main.towerResistancePierce;
-        towerDodgePierce = GlobalValues.main.towerDodgePierce + TechTreeManager.main.towerDodgePierce;
-        towerStealthDetection = GlobalValues.main.towerStealthDetection + TechTreeManager.main.towerStealthDetection;
-        towerAoEArea = GlobalValues.main.towerAoEArea * TechTreeManager.main.towerAoEArea;
-        towerAoEDamageDropOff = GlobalValues.main.towerAoEDamageDropOff + TechTreeManager.main.towerAoEDamageDropOff;
-        towerExtraRampCount = GlobalValues.main.towerExtraRampCount + TechTreeManager.main.towerExtraRampCount;
-        towerExtraRicochetCount = GlobalValues.main.towerExtraRicochetCount + TechTreeManager.main.towerExtraRicochetCount;
+        towerSell = GlobalValues.main.towerSell + TechTreeManager.main.towerSell; //StructureUIHandler
+        if (towerSell > 1f)
+        {
+            towerSell = 1f;
+        }
+        towerHitPoints = GlobalValues.main.towerHitPoints * TechTreeManager.main.towerHitPoints; //Attributes
+        towerHeal = GlobalValues.main.towerHeal * TechTreeManager.main.towerHeal; //Attributes
+        towerShield = GlobalValues.main.towerShield + TechTreeManager.main.towerShield; //Attributes
+        towerShieldGeneration = GlobalValues.main.towerShieldGeneration; //Attributes
+        towerTargetingRange = GlobalValues.main.towerTargetingRange + TechTreeManager.main.towerTargetingRange; //Attributes
+        towerDamage = GlobalValues.main.towerDamage * TechTreeManager.main.towerDamage; //Attributes
+        towerAttackRate = GlobalValues.main.towerAttackRate * TechTreeManager.main.towerAttackRate; //Attributes
+        towerActionPower = GlobalValues.main.towerActionPower * TechTreeManager.main.towerActionPower; //Attributes
+        towerBuffPower = GlobalValues.main.towerBuffPower * TechTreeManager.main.towerBuffPower; //Effects
+        towerEffectPower = GlobalValues.main.towerEffectPower * TechTreeManager.main.towerEffectPower; //Attributes
+        towerEffectRate = GlobalValues.main.towerEffectRate * TechTreeManager.main.towerEffectRate; //Attributes
+        towerCarryCapacity = GlobalValues.main.towerCarryCapacity * TechTreeManager.main.towerCarryCapacity; //Attributes
+        towerMoveSpeed = GlobalValues.main.towerMoveSpeed * TechTreeManager.main.towerMoveSpeed; //Attributes
+        towerArmor = GlobalValues.main.towerArmor + TechTreeManager.main.towerArmor; //Attributes
+        towerResistance = GlobalValues.main.towerResistance + TechTreeManager.main.towerResistance; //Attributes
+        towerDodge = GlobalValues.main.towerDodge + TechTreeManager.main.towerDodge; //Attributes
+        towerArmorPierce = GlobalValues.main.towerArmorPierce + TechTreeManager.main.towerArmorPierce; //Attributes
+        towerResistancePierce = GlobalValues.main.towerResistancePierce + TechTreeManager.main.towerResistancePierce; //Attributes
+        towerDodgePierce = GlobalValues.main.towerDodgePierce + TechTreeManager.main.towerDodgePierce; //Attributes
+        towerStealthDetection = GlobalValues.main.towerStealthDetection + TechTreeManager.main.towerStealthDetection; //Attributes
+        if (towerStealthDetection > 1f)
+        {
+            towerStealthDetection = 1f;
+        }
+        towerAoEArea = GlobalValues.main.towerAoEArea * TechTreeManager.main.towerAoEArea; //Projectile
+        towerAoEDamageDropOff = GlobalValues.main.towerAoEDamageDropOff + TechTreeManager.main.towerAoEDamageDropOff; //Projectile
+        if (towerAoEDamageDropOff > 1f)
+        {
+            towerAoEDamageDropOff = 1f;
+        }
+        towerRampingDamage = GlobalValues.main.towerRampingDamage * TechTreeManager.main.towerRampingDamage; //Actions
+        towerExtraRampCount = GlobalValues.main.towerExtraRampCount + TechTreeManager.main.towerExtraRampCount; //Actions
+        towerExtraRicochetCount = GlobalValues.main.towerExtraRicochetCount + TechTreeManager.main.towerExtraRicochetCount; //Projectile
         //Enemies
-        enemyHitPoints = GlobalValues.main.enemyHitPoints * TechTreeManager.main.enemyHitPoints;
-        enemyHeal = GlobalValues.main.enemyHeal * TechTreeManager.main.enemyHeal;
-        enemyShield = GlobalValues.main.enemyShield + TechTreeManager.main.enemyShield;
-        enemyShieldGeneration = GlobalValues.main.enemyShieldGeneration;
-        enemyTargetingRange = GlobalValues.main.enemyTargetingRange + TechTreeManager.main.enemyTargetingRange;
-        enemyDamage = GlobalValues.main.enemyDamage * TechTreeManager.main.enemyDamage;
-        enemyAttackRate = GlobalValues.main.enemyAttackRate * TechTreeManager.main.enemyAttackRate;
-        enemyActionPower = GlobalValues.main.enemyActionPower * TechTreeManager.main.enemyActionPower;
-        enemySlowPower = GlobalValues.main.enemySlowPower * TechTreeManager.main.enemySlowPower;
-        enemySlowPierce = GlobalValues.main.enemySlowPierce * TechTreeManager.main.enemySlowPierce;
-        enemyFreezePower = GlobalValues.main.enemyFreezePower * TechTreeManager.main.enemyFreezePower;
-        enemyFreezePierce = GlobalValues.main.enemyFreezePierce * TechTreeManager.main.enemyFreezePierce;
-        enemyEffectPower = GlobalValues.main.enemyEffectPower * TechTreeManager.main.enemyEffectPower;
-        enemyEffectRate = GlobalValues.main.enemyEffectRate * TechTreeManager.main.enemyEffectRate;
-        enemyCarryCapacity = GlobalValues.main.enemyCarryCapacity * TechTreeManager.main.enemyCarryCapacity;
-        enemyMoveSpeed = GlobalValues.main.enemyMoveSpeed * TechTreeManager.main.enemyMoveSpeed;
-        enemyArmor = GlobalValues.main.enemyArmor + TechTreeManager.main.enemyArmor;
-        enemyResistance = GlobalValues.main.enemyResistance + TechTreeManager.main.enemyResistance;
-        enemyDodge = GlobalValues.main.enemyDodge + TechTreeManager.main.enemyDodge;
-        enemyArmorPierce = GlobalValues.main.enemyArmorPierce + TechTreeManager.main.enemyArmorPierce;
-        enemyResistancePierce = GlobalValues.main.enemyResistancePierce + TechTreeManager.main.enemyResistancePierce;
-        enemyDodgePierce = GlobalValues.main.enemyDodgePierce + TechTreeManager.main.enemyDodgePierce;
-        enemyStealthDetection = GlobalValues.main.enemyStealthDetection + TechTreeManager.main.enemyStealthDetection;
+        enemyHitPoints = GlobalValues.main.enemyHitPoints[(int)GlobalValues.main.difficulty] * TechTreeManager.main.enemyHitPoints; //Attributes
+        enemyHeal = GlobalValues.main.enemyHeal * TechTreeManager.main.enemyHeal; //Attributes
+        enemyShield = GlobalValues.main.enemyShield + TechTreeManager.main.enemyShield; //Attributes
+        enemyShieldGeneration = GlobalValues.main.enemyShieldGeneration; //Attributes
+        enemyTargetingRange = GlobalValues.main.enemyTargetingRange + TechTreeManager.main.enemyTargetingRange; //Attributes
+        enemyDamage = GlobalValues.main.enemyDamage * TechTreeManager.main.enemyDamage; //Attributes
+        enemyAttackRate = GlobalValues.main.enemyAttackRate * TechTreeManager.main.enemyAttackRate; //Attributes
+        enemyActionPower = GlobalValues.main.enemyActionPower * TechTreeManager.main.enemyActionPower; //Attributes
+        enemySlowPower = GlobalValues.main.enemySlowPower * TechTreeManager.main.enemySlowPower; //Attributes
+        enemySlowPierce = GlobalValues.main.enemySlowPierce * TechTreeManager.main.enemySlowPierce; //Attributes
+        enemyFreezePower = GlobalValues.main.enemyFreezePower * TechTreeManager.main.enemyFreezePower; //Attributes
+        enemyFreezePierce = GlobalValues.main.enemyFreezePierce * TechTreeManager.main.enemyFreezePierce; //Attributes
+        enemyEffectPower = GlobalValues.main.enemyEffectPower * TechTreeManager.main.enemyEffectPower; //Attributes
+        enemyEffectRate = GlobalValues.main.enemyEffectRate * TechTreeManager.main.enemyEffectRate; //Attributes
+        enemyCarryCapacity = GlobalValues.main.enemyCarryCapacity * TechTreeManager.main.enemyCarryCapacity; //Attributes
+        enemyMoveSpeed = GlobalValues.main.enemyMoveSpeed[(int)GlobalValues.main.difficulty] * TechTreeManager.main.enemyMoveSpeed; //Attributes
+        enemyArmor = GlobalValues.main.enemyArmor + TechTreeManager.main.enemyArmor; //Attributes
+        enemyResistance = GlobalValues.main.enemyResistance + TechTreeManager.main.enemyResistance; //Attributes
+        enemyDodge = GlobalValues.main.enemyDodge + TechTreeManager.main.enemyDodge; //Attributes
+        enemyArmorPierce = GlobalValues.main.enemyArmorPierce + TechTreeManager.main.enemyArmorPierce; //Attributes
+        enemyResistancePierce = GlobalValues.main.enemyResistancePierce + TechTreeManager.main.enemyResistancePierce; //Attributes
+        enemyDodgePierce = GlobalValues.main.enemyDodgePierce + TechTreeManager.main.enemyDodgePierce; //Attributes
+        enemyStealthDetection = GlobalValues.main.enemyStealthDetection + TechTreeManager.main.enemyStealthDetection; //Attributes
+        if (enemyStealthDetection > 1f)
+        {
+            enemyStealthDetection = 1f;
+        }
     }
 }

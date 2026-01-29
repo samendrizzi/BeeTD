@@ -83,7 +83,7 @@ public class StructureUIHandler : MonoBehaviour, IPointerExitHandler
             }
             else
             {
-                sellPrice = Mathf.Round((attributes.cost - GlobalValues.main.sellNonrefund) * GlobalValues.main.sellRatio);
+                sellPrice = Mathf.Round((attributes.cost - GlobalValues.main.sellNonrefund) * BuffManager.main.towerSell);
             }
             //sell button
             button3.gameObject.SetActive(true);

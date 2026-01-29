@@ -60,7 +60,7 @@ public class UIManager : MonoBehaviour
             nectarCounterUI.text = Mathf.FloorToInt(LevelManager.main.nectar).ToString();
             honeyCounterRequiredUI.text = Mathf.FloorToInt(LevelManager.main.honey).ToString() + " / " + LevelManager.main.honeyRequired;
             waveSpawnCounterUI.text = Mathf.FloorToInt(GameObject.Find("LevelManager").GetComponent<WaveSpawner>().waveCountdown).ToString();
-            queenHealthNumbered.text = Mathf.Round(100 * LevelManager.main.queenBeeHP / LevelManager.main.queenBeeMaxHP).ToString() + "%";
+            queenHealthNumbered.text = Mathf.Round(100 * LevelManager.main.queenHP / LevelManager.main.queenMaxHP).ToString() + "%";
             frameCounter = 0;
         }
         frameCounter++;

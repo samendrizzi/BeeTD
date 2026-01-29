@@ -6,6 +6,8 @@ using UnityEngine;
 using UnityEditor;
 using UnityEngine.UI;
 using System.Xml.Linq;
+using Unity.VisualScripting;
+using static System.Collections.Specialized.BitVector32;
 
 public class Attributes : MonoBehaviour
 {
@@ -99,7 +101,7 @@ public class Attributes : MonoBehaviour
     public int pathIndex = 0;
     public bool inventoryFull = false;
     public bool frozen = false;
-    public int Stealth = 0;
+    public int stealth = 0;
     public float freezeImmune = 0f;
     public float pausing = 0f;
     public float[] timeUntilActions;
@@ -155,9 +157,37 @@ public class Attributes : MonoBehaviour
 
     private void Awake()
     {
+        //initiate default values into trackers
+        wayPointDistance = GlobalValues.main.wayPointDistance * wayPointRangeModifier;
+        targetingOptions = GlobalValues.main.targetingOptions;
+        if (hasTargetSettings == true)
+        {
+            targetingOptions = GlobalValues.main.targetingOptions;
+        }
+        SetBaseAttributes();
+        SetHealthBar();
+    }
+
+    private void Update()
+    {
+        if (pausing > 0f)
+        {
+            pausing -= Time.deltaTime;
+        }
+        if (frozen == true)
+        {
+            return;
+        }
+        //Update Counters
+        if (freezeImmune > 0)
+        {
+            freezeImmune -= Time.deltaTime;
+        }
+    }
+
+    public void SetBaseAttributes()
+    {
         //Set Base Attributes
-        hitPoints = maxHP;
-        shield = maxShield;
         carryCapacityBase = carryCapacity;
         moveSpeedBase = moveSpeed;
         targetingRangeBase = targetingRange;
@@ -195,134 +225,7 @@ public class Attributes : MonoBehaviour
         passiveRangeModifiersBase = passiveRangeModifiers;
         passiveDurationsBase = passiveDurations;
         passiveExtraModifiersBase = passiveExtraModifiers;
-        //initiate default values into trackers
-        wayPointDistance = GlobalValues.main.wayPointDistance * wayPointRangeModifier;
-        targetingOptions = GlobalValues.main.targetingOptions;
-        if (hasTargetSettings == true)
-        {
-            targetingOptions = GlobalValues.main.targetingOptions;
-        }
-        SetBaseAttributes();
-        SetHealthBar();
-    }
-
-    private void Update()
-    {
-        if (pausing > 0f)
-        {
-            pausing -= Time.deltaTime;
-        }
-        if (frozen == true)
-        {
-            return;
-        }
-        //Update Counters
-        if (freezeImmune > 0)
-        {
-            freezeImmune -= Time.deltaTime;
-        }
-    }
-
-    public void SetBaseAttributes()
-    {
-        //Set Stats
-        if (type == "Tower")
-        {
-            maxHP = maxHP * BuffManager.main.towerHitPoints;
-            hitPoints = maxHP;
-            //moveSpeed = moveSpeed * BuffManager.main.towerMoveSpeed;
-            //shield = maxShield * BuffManager.main.towerShield;
-            //carryCapacity = carryCapacityBase * BuffManager.main.towerCarryCapacity;
-            moveSpeedUncapped = moveSpeed;
-            targetingRange = targetingRange * BuffManager.main.towerTargetingRange;
-            stealthDetection = stealthDetectionBase + BuffManager.main.towerStealthDetection;
-            armor = armor + BuffManager.main.towerArmor;
-            resistance = resistance + BuffManager.main.towerResistance;
-            dodgeChance = dodgeChance + BuffManager.main.towerDodge;
-            armorPierce = armorPierce * BuffManager.main.towerArmorPierce;
-            resistancePierce = resistancePierce + BuffManager.main.towerResistancePierce;
-            dodgePierce = dodgePierceBase + BuffManager.main.towerDodgePierce;
-            //Tower + Bees / Action + Effect Powers
-            actionPower = actionPower + BuffManager.main.towerActionPower;
-            actionRate = actionRate + BuffManager.main.towerActionRate;
-            effectPower = effectPower + BuffManager.main.towerEffectPower;
-            effectRate = effectRate + BuffManager.main.towerEffectRate;
-
-
-            //damage + slow + freeze
-
-
-
-
-
-
-                towerSlowPower;
-                towerSlowPierce;
-                towerFreezePower;
-                towerFreezePierce;
-                towerAoEArea;
-                towerAoEDamageDropOff;
-                towerExtraRampCount;
-                towerExtraRicochetCount;
-
-
-        }
-        else if (type == "Friendly Unit")
-        {
-            maxHP = maxHP * BuffManager.main.beeHitPoints;
-            hitPoints = maxHP;
-            moveSpeed = moveSpeed * ;
-            shield = maxShield;
-            moveSpeedUncapped = moveSpeed;
-            //targetingRange = targetingRange;
-            armor = armor + BuffManager.main.beeArmor;
-            resistance = resistance + BuffManager.main.beeResistance;
-            dodgeChance = dodgeChance + BuffManager.main.beeDodge;
-            armorPierce = armorPierce * BuffManager.main.beeArmorPierce;
-            resistancePierce = resistancePierce + BuffManager.main.beeResistancePierce;
-            //Action + Effect Powers
-        }
-        else
-        {
-            hitPoints = maxHP * BuffManager.main.towerHitPoints;
-            shield = maxShield * BuffManager.main.towerShield;
-            moveSpeedBase = moveSpeed;
-            moveSpeedUncapped = moveSpeed;
-            targetingRangeBase = targetingRange;
-            maxHPBase = maxHP;
-            maxShieldBase = maxShield;
-            armorBase = armor;
-            resistanceBase = resistance;
-            dodgeChanceBase = dodgeChance;
-            actionPowerBase = actionPower;
-            actionRateBase = actionRate;
-            armorPierceBase = armorPierce;
-            actionPowerModifiersBase = actionPowerModifiers;
-            actionRateModifiersBase = actionRateModifiers;
-            actionRangeModifiersBase = actionRangeModifiers;
-            actionPierceModifiersBase = actionPierceModifiers;
-            actionDurationsBase = actionDurations;
-            actionExtraModifiersBase = actionExtraModifiers;
-            effectPowerBase = effectPower;
-            effectRateBase = effectRate;
-            resistancePierceBase = resistancePierce;
-            effectPowerModifiersBase = effectPowerModifiers;
-            effectPierceModifiersBase = effectPierceModifiers;
-            effectRateModifiersBase = effectRateModifiers;
-            effectRangeModifiersBase = effectRangeModifiers;
-            effectDurationsBase = effectDurations;
-            effectExtraModifiersBase = effectExtraModifiers;
-            passivePowerBase = passivePower;
-            passiveRateBase = passiveRate;
-            passivePierceBase = passivePierce;
-            passivePowerModifiersBase = passivePowerModifiers;
-            passivePierceModifiersBase = passivePierceModifiers;
-            passiveRateModifiersBase = passiveRateModifiers;
-            passiveRangeModifiersBase = passiveRangeModifiers;
-            passiveDurationsBase = passiveDurations;
-            passiveExtraModifiersBase = passiveExtraModifiers;
-        }
-
+        SetBuffedAttributes();
         //create action timers
         if (actions.Length > 0)
         {
@@ -337,6 +240,152 @@ public class Attributes : MonoBehaviour
         if (passives.Length > 0)
         {
             Array.Resize(ref timeUntilPassives, passives.Length);
+        }
+        //Set for initial buff
+        hitPoints = maxHP;
+        shield = maxShield;
+    }
+
+    public void SetBuffedAttributes()
+    {
+        //Set Stats
+        if (type == "Tower")
+        {
+            maxHP = maxHPBase * BuffManager.main.towerHitPoints;
+            //Keep same slow ratio
+            moveSpeedUncapped = (moveSpeedBase * BuffManager.main.towerMoveSpeed) * (moveSpeedUncapped / moveSpeed);
+            moveSpeed = moveSpeedBase * BuffManager.main.towerMoveSpeed;
+            maxShield = maxShieldBase * BuffManager.main.towerShield;
+            carryCapacity = (int)(carryCapacityBase * BuffManager.main.towerCarryCapacity);
+            targetingRange = targetingRangeBase * BuffManager.main.towerTargetingRange;
+            stealthDetection = stealthDetectionBase + BuffManager.main.towerStealthDetection;
+            armor = armorBase + BuffManager.main.towerArmor;
+            resistance = resistanceBase + BuffManager.main.towerResistance;
+            dodgeChance = dodgeChanceBase + BuffManager.main.towerDodge;
+            armorPierce = armorPierceBase * BuffManager.main.towerArmorPierce;
+            resistancePierce = resistancePierceBase + BuffManager.main.towerResistancePierce;
+            dodgePierce = dodgePierceBase + BuffManager.main.towerDodgePierce;
+            //Tower + Bees / Action + Effect Powers
+            actionPower = actionPowerBase + BuffManager.main.towerActionPower;
+            actionRate = actionRateBase + BuffManager.main.towerActionRate;
+            effectPower = effectPowerBase + BuffManager.main.towerEffectPower;
+            effectRate = effectRateBase + BuffManager.main.towerEffectRate;
+            //damage + rate
+            if (actions.Length > 0)
+            {
+                //iterate through all actions
+                for (int i = 0; i < actions.Length; i++)
+                {
+                    if (actions[i].Substring(0, 5) == "Shoot")
+                    {
+                        actionPowerModifiers[i] = actionPowerModifiersBase[i] * BuffManager.main.towerDamage;
+                        actionRateModifiers[i] = actionRateModifiersBase[i] * BuffManager.main.towerAttackRate;
+                    }
+                }
+            }
+            if (effects.Length > 0)
+            {
+                //iterate through all actions
+                for (int i = 0; i < effects.Length; i++)
+                {
+                    if (effects[i].Substring(0, 5) == "Shield Regen")
+                    {
+                        effectPowerModifiers[i] = effectPowerModifiersBase[i] * BuffManager.main.towerShieldGeneration;
+                    }
+                }
+            }
+        }
+        else if (type == "Friendly Unit")
+        {
+            maxHP = maxHPBase * BuffManager.main.beeHitPoints;
+            //Keep same slow ratio
+            moveSpeedUncapped = (moveSpeedBase * BuffManager.main.beeMoveSpeed) * (moveSpeedUncapped / moveSpeed);
+            moveSpeed = moveSpeedBase * BuffManager.main.beeMoveSpeed;
+            maxShield = maxShieldBase * BuffManager.main.beeShield;
+            carryCapacity = (int)(carryCapacityBase * BuffManager.main.beeCarryCapacity);
+            targetingRange = targetingRangeBase * BuffManager.main.beeTargetingRange;
+            stealthDetection = stealthDetectionBase + BuffManager.main.beeStealthDetection;
+            armor = armorBase + BuffManager.main.beeArmor;
+            resistance = resistanceBase + BuffManager.main.beeResistance;
+            dodgeChance = dodgeChanceBase + BuffManager.main.beeDodge;
+            armorPierce = armorPierceBase * BuffManager.main.beeArmorPierce;
+            resistancePierce = resistancePierceBase + BuffManager.main.beeResistancePierce;
+            dodgePierce = dodgePierceBase + BuffManager.main.beeDodgePierce;
+            //bee + Bees / Action + Effect Powers
+            actionPower = actionPowerBase + BuffManager.main.beeActionPower;
+            actionRate = actionRateBase + BuffManager.main.beeActionRate;
+            effectPower = effectPowerBase + BuffManager.main.beeEffectPower;
+            effectRate = effectRateBase + BuffManager.main.beeEffectRate;
+            //damage + rate
+            if (actions.Length > 0)
+            {
+                //iterate through all actions
+                for (int i = 0; i < actions.Length; i++)
+                {
+                    if (actions[i] == "Attack")
+                    {
+                        actionPowerModifiers[i] = actionPowerModifiersBase[i] * BuffManager.main.beeDamage;
+                        actionRateModifiers[i] = actionRateModifiersBase[i] * BuffManager.main.beeAttackRate;
+                    }
+                }
+            }
+            if (effects.Length > 0)
+            {
+                //iterate through all actions
+                for (int i = 0; i < effects.Length; i++)
+                {
+                    if (effects[i].Substring(0, 5) == "Shield Regen")
+                    {
+                        effectPowerModifiers[i] = effectPowerModifiersBase[i] * BuffManager.main.beeShieldGeneration;
+                    }
+                }
+            }
+        }
+        else
+        {
+            maxHP = maxHPBase * BuffManager.main.enemyHitPoints;
+            //Keep same slow ratio
+            moveSpeedUncapped = (moveSpeedBase * BuffManager.main.enemyMoveSpeed) * (moveSpeedUncapped / moveSpeed);
+            moveSpeed = moveSpeedBase * BuffManager.main.enemyMoveSpeed;
+            maxShield = maxShieldBase * BuffManager.main.enemyShield;
+            carryCapacity = (int)(carryCapacityBase * BuffManager.main.enemyCarryCapacity);
+            targetingRange = targetingRangeBase * BuffManager.main.enemyTargetingRange;
+            stealthDetection = stealthDetectionBase + BuffManager.main.enemyStealthDetection;
+            armor = armorBase + BuffManager.main.enemyArmor;
+            resistance = resistanceBase + BuffManager.main.enemyResistance;
+            dodgeChance = dodgeChanceBase + BuffManager.main.enemyDodge;
+            armorPierce = armorPierceBase * BuffManager.main.enemyArmorPierce;
+            resistancePierce = resistancePierceBase + BuffManager.main.enemyResistancePierce;
+            dodgePierce = dodgePierceBase + BuffManager.main.enemyDodgePierce;
+            //enemy + enemys / Action + Effect Powers
+            actionPower = actionPowerBase + BuffManager.main.enemyActionPower;
+            actionRate = actionRateBase + BuffManager.main.enemyActionRate;
+            effectPower = effectPowerBase + BuffManager.main.enemyEffectPower;
+            effectRate = effectRateBase + BuffManager.main.enemyEffectRate;
+            //damage + rate
+            if (actions.Length > 0)
+            {
+                //iterate through all actions
+                for (int i = 0; i < actions.Length; i++)
+                {
+                    if (actions[i] == "Steal Honey" || actions[i] == "Attack Queen")
+                    {
+                        actionPowerModifiers[i] = actionPowerModifiersBase[i] * BuffManager.main.enemyDamage;
+                        actionRateModifiers[i] = actionRateModifiersBase[i] * BuffManager.main.enemyAttackRate;
+                    }
+                }
+            }
+            if (effects.Length > 0)
+            {
+                //iterate through all actions
+                for (int i = 0; i < effects.Length; i++)
+                {
+                    if (effects[i].Substring(0, 5) == "Shield Regen")
+                    {
+                        effectPowerModifiers[i] = effectPowerModifiersBase[i] * BuffManager.main.enemyShieldGeneration;
+                    }
+                }
+            }
         }
     }
 
@@ -416,7 +465,23 @@ public class Attributes : MonoBehaviour
 
     public void Heal(float heal)
     {
-        if (heal == 0f || (heal + hitPoints) >= maxHP)
+        if (heal <= 0f)
+        {
+            return;
+        }
+        if (type == "Enemy Unit")
+        {
+            heal = heal * BuffManager.main.enemyHeal;
+        }
+        else if (type == "Friendly Unit")
+        {
+            heal = heal * BuffManager.main.beeHeal;
+        }
+        else if (type == "Tower")
+        {
+            heal = heal * BuffManager.main.towerHeal;
+        }
+        if ((heal + hitPoints) >= maxHP)
         {
             hitPoints = maxHP;
         }
@@ -449,13 +514,19 @@ public class Attributes : MonoBehaviour
                 return;
             }
         }
-        float resistanceAdjusted = (resistance - resistance * (pierce / 100));
+        float pierceAdjust = pierce * BuffManager.main.slowPierce;
+        float resistanceAdjusted = (resistance - resistance * (pierceAdjust / 100));
         if (resistanceAdjusted < 0)
         {
             resistanceAdjusted = 0f;
         }
         float resist;
-        float powerAdjusted = power * GlobalValues.main.slowPowerModifier;
+        float slowPowerMod = 1f;
+        if (type == "Enemy Unit")
+        {
+            slowPowerMod = BuffManager.main.slowPower;
+        }
+        float powerAdjusted = power * slowPowerMod;
         if (resistanceAdjusted <= 90)
         {
             resist = powerAdjusted * (resistanceAdjusted / 100);
@@ -475,7 +546,7 @@ public class Attributes : MonoBehaviour
         {
             moveSpeed = moveSpeedUncapped;
         }
-        StartCoroutine(ResetSpeed(speedLoss, duration * GlobalValues.main.slowDurationModifier));
+        StartCoroutine(ResetSpeed(speedLoss, duration));
     }
 
     public void Freeze(float power, float pierce, float duration)
@@ -496,22 +567,39 @@ public class Attributes : MonoBehaviour
             SlowSpeed(power, pierce, duration);
             return;
         }
-        float resistanceAdjusted = (resistance - resistance * (pierce / 100f));
+        float pierceAdjust = 1f;
+        if (type == "Enemy Unit")
+        {
+            pierceAdjust = pierce * BuffManager.main.freezePierce;
+        }
+        else
+        {
+            pierceAdjust = pierce * BuffManager.main.enemyFreezePierce;
+        }
+        float resistanceAdjusted = (resistance - resistance * (pierceAdjust / 100f));
         if (resistanceAdjusted < 0)
         {
             resistanceAdjusted = 0f;
         }
         float resist;
-        float powerAdjusted = power * GlobalValues.main.freezePowerModifier;
-        if (resistanceAdjusted <= 90)
+        float powerAdjust = 1f;
+        if (type == "Enemy Unit")
         {
-            resist = powerAdjusted * (resistanceAdjusted / 100);
+            powerAdjust = power * BuffManager.main.freezePower;
         }
         else
         {
-            resist = powerAdjusted - powerAdjusted * 10f * (float)Math.Pow(1f + resistanceAdjusted, -1f);
+            powerAdjust = power * BuffManager.main.enemyFreezePower;
         }
-        float freezeChance = ((power * GlobalValues.main.freezePowerModifier) - resist);
+        if (resistanceAdjusted <= 90)
+        {
+            resist = powerAdjust * (resistanceAdjusted / 100);
+        }
+        else
+        {
+            resist = powerAdjust - powerAdjust * 10f * (float)Math.Pow(1f + resistanceAdjusted, -1f);
+        }
+        float freezeChance = ((powerAdjust) - resist);
         System.Random RandomGen = new System.Random();
         int freezeRoll = RandomGen.Next(100);
         if (freezeChance * 100 > freezeRoll)
@@ -519,7 +607,7 @@ public class Attributes : MonoBehaviour
             HaltMovement();
             frozen = true;
             freezeImmune = (duration * GlobalValues.main.freezeImmuneRatio);
-            StartCoroutine(Unfreeze(duration * GlobalValues.main.freezeDurationModifier));
+            StartCoroutine(Unfreeze(duration ));
         }
         else
         {
@@ -602,13 +690,13 @@ public class Attributes : MonoBehaviour
     {
         if (inventoryFull)
         {
-            LevelManager.main.honey += carryCapacity * GlobalValues.main.honeyDropReturnModifier;
+            LevelManager.main.honey += carryCapacity * BuffManager.main.honeyDropRate;
         }
     }
 
     public void AddStealth(float invisDuration)
     {
-        Stealth++;
+        stealth++;
         //add code
         {
             ToggleStealth(true);
@@ -619,14 +707,14 @@ public class Attributes : MonoBehaviour
     private IEnumerator RemoveStealth(float duration)
     {
         yield return new WaitForSeconds(duration);
-        Stealth--;
-        if (Stealth < 1)
+        stealth--;
+        if (stealth < 1)
         {
             ToggleStealth(false);
         }
         else
         {
-            Stealth = 0;
+            stealth = 0;
         }
     }
 
@@ -635,7 +723,7 @@ public class Attributes : MonoBehaviour
         Color tempColor = gameObject.GetComponent<SpriteRenderer>().color;
         if (state == true)
         {
-            tempColor.a = GlobalValues.main.StealthTransparancy;
+            tempColor.a = GlobalValues.main.stealthTransparancy;
             gameObject.GetComponent<SpriteRenderer>().color = tempColor;
         }
         else
