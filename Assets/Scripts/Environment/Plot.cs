@@ -14,6 +14,7 @@ public class Plot : MonoBehaviour
     [SerializeField] private Color hoverColor;
 
     [Header("Attributes")]
+    [SerializeField] public FlowerType flowerType = FlowerType.EMPTY;
     [SerializeField] public bool isHive;
     [SerializeField] public bool isBuildable;
     [SerializeField] public bool isResourceNode;

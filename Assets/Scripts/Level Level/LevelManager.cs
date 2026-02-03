@@ -59,7 +59,7 @@ public class LevelManager : MonoBehaviour
     public float bonusInvestmentRate;
     private float numberOfOpenedFlowers = 0;
     private float numberOfClosedFlowers = 0;
-    private GameObject[] flowers = new GameObject[] { };
+    public GameObject[] flowers = new GameObject[] { };
     private GameObject[] flowersToBloom = new GameObject[] { };
     public bool levelStarted = false;
     public bool finalWave = false;
@@ -87,6 +87,8 @@ public class LevelManager : MonoBehaviour
     private void Awake()
     {
         main = this;
+        FindAllFlowers();
+        BloomFlowers();
     }
 
     private void Start()
@@ -129,8 +131,6 @@ public class LevelManager : MonoBehaviour
         SetStats();
         queenHP = queenMaxHP;
         StartingReveal();
-        FindAllFlowers();
-        BloomFlowers();
         SpawnStartingBees();
     }
 

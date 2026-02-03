@@ -254,6 +254,7 @@ public class GlobalValues : MonoBehaviour
     [SerializeField] public Sprite blueFlowerSprite;
     [SerializeField] public string blueFlowerText = "Pollen source that strengthens effects";
     [SerializeField] public float blueFlowerModifier = 1.3f; //effect multiplier
+    [SerializeField] public float[] blueFlowerPollenThreshold = new float[] {100, 250, 500, 1000, 2500};
     [SerializeField] public float blueFlowerRarity = 1f;
 
     [Header("White Flower")]
@@ -261,7 +262,8 @@ public class GlobalValues : MonoBehaviour
     [Header("Attributes")]
     [SerializeField] public Sprite whiteFlowerSprite;
     [SerializeField] public string whiteFlowerText = "Pollen source that increases attack speed";
-    [SerializeField] public float whiteFlowerModifier = 1.2f; //attack speed multiplier
+    [SerializeField] public float whiteFlowerBuffs = new float[] { 0.1f, 0.2f, 0.3f, 0.4f, 0.5f};
+    [SerializeField] public float[] whiteFlowerPollenThreshold = new float[] {100, 250, 500, 1000, 2500};
     [SerializeField] public float whiteFlowerRarity = 1f;
 
     [Header("Pink Flower")]
@@ -269,7 +271,8 @@ public class GlobalValues : MonoBehaviour
     [Header("Attributes")]
     [SerializeField] public Sprite pinkFlowerSprite;
     [SerializeField] public string pinkFlowerText = "Pollen source with extra potency";
-    [SerializeField] public float pinkFlowerModifier = 1.15f; //minor income multiplier
+    [SerializeField] public float whiteFlowerBuffs = new float[] { 0.1f, 0.2f, 0.3f, 0.4f, 0.5f};
+    [SerializeField] public float[] pinkFlowerPollenThreshold = new float[] {100, 250, 500, 1000, 2500};
     [SerializeField] public float pinkFlowerRarity = 3f;
 
     [Header("Purple Flower")]
@@ -277,7 +280,8 @@ public class GlobalValues : MonoBehaviour
     [Header("Attributes")]
     [SerializeField] public Sprite purpleFlowerSprite;
     [SerializeField] public string purpleFlowerText = "Pollen source with a lot more potency";
-    [SerializeField] public float purpleFlowerModifier = 1.3f; //major income multiplier
+    [SerializeField] public float whiteFlowerBuffs = new float[] { 0.1f, 0.2f, 0.3f, 0.4f, 0.5f};
+    [SerializeField] public float[] purpleFlowerPollenThreshold = new float[] {100, 250, 500, 1000, 2500};
     [SerializeField] public float purpleFlowerRarity = 5f;
 
     [Header("Gold Flower")]
@@ -285,7 +289,8 @@ public class GlobalValues : MonoBehaviour
     [Header("Attributes")]
     [SerializeField] public Sprite goldFlowerSprite;
     [SerializeField] public string goldFlowerText = "Pollen source with bonus processed nectar";
-    [SerializeField] public float goldFlowerModifier = 0.1f; //bonus stored nectar multiplier
+    [SerializeField] public float whiteFlowerBuffs = new float[] { 0.1f, 0.2f, 0.3f, 0.4f, 0.5f};
+    [SerializeField] public float[] goldFlowerPollenThreshold = new float[] {100, 250, 500, 1000, 2500};
     [SerializeField] public float goldFlowerRarity = 5f;
 
     [Header("Red Flower")]
@@ -293,7 +298,8 @@ public class GlobalValues : MonoBehaviour
     [Header("Attributes")]
     [SerializeField] public Sprite redFlowerSprite;
     [SerializeField] public string redFlowerText = "Pollen source that increases damage";
-    [SerializeField] public float redFlowerModifier = 1.2f; //damage multiplier
+    [SerializeField] public float whiteFlowerBuffs = new float[] { 0.1f, 0.2f, 0.3f, 0.4f, 0.5f};
+    [SerializeField] public float redFlowerPollenThreshold = new float[] {100, 250, 500, 1000, 2500};
     [SerializeField] public float redFlowerRarity = 2f;
 
     [Header("Yellow Flower")]
@@ -301,7 +307,8 @@ public class GlobalValues : MonoBehaviour
     [Header("Attributes")]
     [SerializeField] public Sprite yellowFlowerSprite;
     [SerializeField] public string yellowFlowerText = "Pollen source that increases range";
-    [SerializeField] public float yellowFlowerModifier = 1.5f; //range multiplier
+    [SerializeField] public float whiteFlowerBuffs = new float[] { 0.1f, 0.2f, 0.3f, 0.4f, 0.5f};
+    [SerializeField] public float yellowFlowerPollenThreshold = new float[] {100, 250, 500, 1000, 2500};
     [SerializeField] public float yellowFlowerRarity = 2f;
 
     [Header("_______________________")]
