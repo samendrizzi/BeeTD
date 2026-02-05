@@ -240,76 +240,118 @@ public class GlobalValues : MonoBehaviour
     [Header("_______________________")]
     [Header("Flowers")]
 
+    [SerializeField] public string[] flowerNames = new string[] {"Closed", "Orange", "Brown", "Green", "Blue", "Yellow", "Red", "Black", "White", "Purple", "Pink", "Gold"};
     [Header("Closed Flower")]
     [Header("ID 0")]
     [Header("Attributes")]
     [SerializeField] public Sprite closedFlowerSprite;
-    [SerializeField] public string closedFlowerText = "No Pollen Yet";
-    [SerializeField] public float closedFlowerModifier = 0f; //not used
+    [SerializeField] public string closedFlowerText = "No Pollen Yet.";
+    [SerializeField] public float[] closedFlowerBuffModifier = new float[] { 0.1f, 0.2f, 0.3f, 0.4f, 0.5f}; 
+    [SerializeField] public float[] closedFlowerPollenThreshold = new float[] {100, 250, 500, 1000, 2500};
     [SerializeField] public float closedFlowerRarity = 1f;
 
-    [Header("Blue Flower")]
+    [Header("Orange Flower")]
     [Header("ID 1")]
     [Header("Attributes")]
+    [SerializeField] public Sprite orangeFlowerSprite;
+    [SerializeField] public string orangeFlowerText = "Pollen source that increases the effectiveness of your worker bees.";
+    [SerializeField] public float[] orangeFlowerBuffModifier = new float[] { 0.1f, 0.25f, 0.5f, 0.75f, 1f}; //Carry Capacity + Move Speed
+    [SerializeField] public float[] orangeFlowerPollenThreshold = new float[] {100, 250, 500, 1000, 2500};
+    [SerializeField] public float orangeFlowerRarity = 1f;
+
+    [Header("Brown Flower")]
+    [Header("ID 2")]
+    [Header("Attributes")]
+    [SerializeField] public Sprite brownFlowerSprite;
+    [SerializeField] public string brownFlowerText = "Pollen source that helps expose the weakness of enemy insects.";
+    [SerializeField] public float[] brownFlowerBuffModifier = new float[] { 0.1f, 0.25f, 0.5f, 0.75f, 1f}; //Armor + Resistance Pierce
+    [SerializeField] public float[] brownFlowerPollenThreshold = new float[] {100, 250, 500, 1000, 2500};
+    [SerializeField] public float brownFlowerRarity = 1f;
+
+    [Header("Green Flower")]
+    [Header("ID 3")]
+    [Header("Attributes")]
+    [SerializeField] public Sprite greenFlowerSprite;
+    [SerializeField] public string greenFlowerText = "Pollen source that increases flower fertility.";
+    [SerializeField] public float[] greenFlowerBuffModifier = new float[] { 0.1f, 0.25f, 0.5f, 0.75f, 1f}; //Nectar Generation
+    [SerializeField] public float[] greenFlowerPollenThreshold = new float[] {100, 250, 500, 1000, 2500};
+    [SerializeField] public float greenFlowerRarity = 1f;
+
+    [Header("Blue Flower")]
+    [Header("ID 4")]
+    [Header("Attributes")]
     [SerializeField] public Sprite blueFlowerSprite;
-    [SerializeField] public string blueFlowerText = "Pollen source that strengthens effects";
-    [SerializeField] public float blueFlowerModifier = 1.3f; //effect multiplier
+    [SerializeField] public string blueFlowerText = "Pollen source that strengthens slowing and freezing effects from your bees.";
+    [SerializeField] public float[] blueFlowerBuffModifier = new float[] { 0.1f, 0.25f, 0.5f, 0.75f, 1f}; //Slow + Freeze Effect
     [SerializeField] public float[] blueFlowerPollenThreshold = new float[] {100, 250, 500, 1000, 2500};
     [SerializeField] public float blueFlowerRarity = 1f;
 
-    [Header("White Flower")]
-    [Header("ID 2")]
-    [Header("Attributes")]
-    [SerializeField] public Sprite whiteFlowerSprite;
-    [SerializeField] public string whiteFlowerText = "Pollen source that increases attack speed";
-    [SerializeField] public float whiteFlowerBuffs = new float[] { 0.1f, 0.2f, 0.3f, 0.4f, 0.5f};
-    [SerializeField] public float[] whiteFlowerPollenThreshold = new float[] {100, 250, 500, 1000, 2500};
-    [SerializeField] public float whiteFlowerRarity = 1f;
-
-    [Header("Pink Flower")]
-    [Header("ID 3")]
-    [Header("Attributes")]
-    [SerializeField] public Sprite pinkFlowerSprite;
-    [SerializeField] public string pinkFlowerText = "Pollen source with extra potency";
-    [SerializeField] public float whiteFlowerBuffs = new float[] { 0.1f, 0.2f, 0.3f, 0.4f, 0.5f};
-    [SerializeField] public float[] pinkFlowerPollenThreshold = new float[] {100, 250, 500, 1000, 2500};
-    [SerializeField] public float pinkFlowerRarity = 3f;
-
-    [Header("Purple Flower")]
-    [Header("ID 4")]
-    [Header("Attributes")]
-    [SerializeField] public Sprite purpleFlowerSprite;
-    [SerializeField] public string purpleFlowerText = "Pollen source with a lot more potency";
-    [SerializeField] public float whiteFlowerBuffs = new float[] { 0.1f, 0.2f, 0.3f, 0.4f, 0.5f};
-    [SerializeField] public float[] purpleFlowerPollenThreshold = new float[] {100, 250, 500, 1000, 2500};
-    [SerializeField] public float purpleFlowerRarity = 5f;
-
-    [Header("Gold Flower")]
+    [Header("Yellow Flower")]
     [Header("ID 5")]
     [Header("Attributes")]
-    [SerializeField] public Sprite goldFlowerSprite;
-    [SerializeField] public string goldFlowerText = "Pollen source with bonus processed nectar";
-    [SerializeField] public float whiteFlowerBuffs = new float[] { 0.1f, 0.2f, 0.3f, 0.4f, 0.5f};
-    [SerializeField] public float[] goldFlowerPollenThreshold = new float[] {100, 250, 500, 1000, 2500};
-    [SerializeField] public float goldFlowerRarity = 5f;
+    [SerializeField] public Sprite yellowFlowerSprite;
+    [SerializeField] public string yellowFlowerText = "Pollen source that increases honey generation."; //Honey Generation
+    [SerializeField] public float[] yellowFlowerBuffModifier = new float[] { 0.1f, 0.2f, 0.3f, 0.4f, 0.5f};
+    [SerializeField] public float[] yellowFlowerPollenThreshold = new float[] {100, 250, 500, 1000, 2500};
+    [SerializeField] public float yellowFlowerRarity = 2f;
 
     [Header("Red Flower")]
     [Header("ID 6")]
     [Header("Attributes")]
     [SerializeField] public Sprite redFlowerSprite;
-    [SerializeField] public string redFlowerText = "Pollen source that increases damage";
-    [SerializeField] public float whiteFlowerBuffs = new float[] { 0.1f, 0.2f, 0.3f, 0.4f, 0.5f};
-    [SerializeField] public float redFlowerPollenThreshold = new float[] {100, 250, 500, 1000, 2500};
+    [SerializeField] public string redFlowerText = "Pollen source that increases the damage and attack rate of your offensive bees.";
+    [SerializeField] public float[] redFlowerBuffModifier = new float[] { 0.1f, 0.2f, 0.3f, 0.4f, 0.5f}; //Damage + Attack Speed
+    [SerializeField] public float[] redFlowerPollenThreshold = new float[] {100, 250, 500, 1000, 2500};
     [SerializeField] public float redFlowerRarity = 2f;
 
-    [Header("Yellow Flower")]
+    [Header("Black Flower")]
     [Header("ID 7")]
     [Header("Attributes")]
-    [SerializeField] public Sprite yellowFlowerSprite;
-    [SerializeField] public string yellowFlowerText = "Pollen source that increases range";
-    [SerializeField] public float whiteFlowerBuffs = new float[] { 0.1f, 0.2f, 0.3f, 0.4f, 0.5f};
-    [SerializeField] public float yellowFlowerPollenThreshold = new float[] {100, 250, 500, 1000, 2500};
-    [SerializeField] public float yellowFlowerRarity = 2f;
+    [SerializeField] public Sprite blackFlowerSprite;
+    [SerializeField] public string blackFlowerText = "Pollen source that increases the accuracy and awareness of your bees.";
+    [SerializeField] public float[] blackFlowerBuffModifier = new float[] { 0.1f, 0.25f, 0.5f, 0.75f, 1f}; //Stealth Detection + Dodge Pierce
+    [SerializeField] public float[] blackFlowerPollenThreshold = new float[] {100, 250, 500, 1000, 2500};
+    [SerializeField] public float blackFlowerRarity = 2f;
+
+    [Header("White Flower")]
+    [Header("ID 8")]
+    [Header("Attributes")]
+    [SerializeField] public Sprite whiteFlowerSprite;
+    [SerializeField] public string whiteFlowerText = "Pollen source that increases the range of your bees.";
+    [SerializeField] public float[] whiteFlowerBuffModifier = new float[] { 0.1f, 0.2f, 0.3f, 0.4f, 0.5f}; //Range
+    [SerializeField] public float[] whiteFlowerPollenThreshold = new float[] {100, 250, 500, 1000, 2500};
+    [SerializeField] public float whiteFlowerRarity = 2f;
+
+    [Header("Purple Flower")]
+    [Header("ID 9")]
+    [Header("Attributes")]
+    [SerializeField] public Sprite purpleFlowerSprite;
+    [SerializeField] public string purpleFlowerText = "Pollen source that strengthens your special offensive bees."; 
+    [SerializeField] public float[] purpleFlowerBuffModifier = new float[] { 0.1f, 0.2f, 0.3f, 0.4f, 0.5f}; //AoE Area & Drop Off + Ramp & Ricochet Numbers
+    [SerializeField] public float[] purpleFlowerPollenThreshold = new float[] {100, 250, 500, 1000, 2500};
+    [SerializeField] public float purpleFlowerRarity = 3f;
+
+    [Header("Pink Flower")]
+    [Header("ID 10")]
+    [Header("Attributes")]
+    [SerializeField] public Sprite pinkFlowerSprite;
+    [SerializeField] public string pinkFlowerText = "Pollen source that strengthens the buffing effects to your bees.";
+    [SerializeField] public float[] pinkFlowerBuffModifier = new float[] { 0.1f, 0.25f, 0.5f, 0.75f, 1f}; //Buff Power
+    [SerializeField] public float[] pinkFlowerPollenThreshold = new float[] {100, 250, 500, 1000, 2500};
+    [SerializeField] public float pinkFlowerRarity = 3f;
+
+    [Header("Gold Flower")]
+    [Header("ID 11")]
+    [Header("Attributes")]
+    [SerializeField] public Sprite goldFlowerSprite;
+    [SerializeField] public string goldFlowerText = "Pollen source that generates honey interest.";
+    [SerializeField] public float[] goldFlowerBuffModifier = new float[] { 0.01f, 0.025f, 0.05f, 0.075f, 0.1f}; //Honey Interest
+    [SerializeField] public float[] goldFlowerPollenThreshold = new float[] {100, 250, 500, 1000, 2500};
+    [SerializeField] public float goldFlowerRarity = 5f;
+
+
+
+
 
     [Header("_______________________")]
     [Header("Projectiles")]
@@ -352,7 +394,8 @@ public class GlobalValues : MonoBehaviour
     //Flowers
     public Sprite[] FLOWERSprite;
     public string[] FLOWERText;
-    public float[] FLOWERModifier;
+    public float[][] FLOWERBuffModifier;
+    public float[][] FLOWERPollenThreshold;
     public float[] FLOWERRarity;
 
     public void Start()
@@ -372,10 +415,11 @@ public class GlobalValues : MonoBehaviour
         targetingOptionDefault = targetingOptions[0];
         //Build parameter arrays for other scripts to pull from
         //Flower Arrays
-        FLOWERSprite = new Sprite[] { closedFlowerSprite, blueFlowerSprite, whiteFlowerSprite, pinkFlowerSprite, purpleFlowerSprite, goldFlowerSprite, redFlowerSprite, yellowFlowerSprite };
-        FLOWERText = new string[] { closedFlowerText, blueFlowerText, whiteFlowerText, pinkFlowerText, purpleFlowerText, goldFlowerText, redFlowerText, yellowFlowerText };
-        FLOWERModifier = new float[] { closedFlowerModifier, blueFlowerModifier, whiteFlowerModifier, pinkFlowerModifier, purpleFlowerModifier, goldFlowerModifier, redFlowerModifier, yellowFlowerModifier };
-        FLOWERRarity = new float[] { closedFlowerRarity, blueFlowerRarity, whiteFlowerRarity, pinkFlowerRarity, purpleFlowerRarity, goldFlowerRarity, redFlowerRarity, yellowFlowerRarity };
+        FLOWERSprite = new Sprite[] { closedFlowerSprite, orangeFlowerSprite, brownFlowerSprite, greenFlowerSprite, blueFlowerSprite, yellowFlowerSprite, redFlowerSprite, blackFlowerSprite, whiteFlowerSprite, purpleFlowerSprite, pinkFlowerSprite, goldFlowerSprite };
+        FLOWERText = new string[] { closedFlowerText, orangeFlowerText, brownFlowerText, greenFlowerText, blueFlowerText, yellowFlowerText, redFlowerText, blackFlowerText, whiteFlowerText, purpleFlowerText, pinkFlowerText, goldFlowerText };
+        FLOWERBuffModifier = new float[][] { closedFlowerBuffModifier, orangeFlowerBuffModifier, brownFlowerBuffModifier, greenFlowerBuffModifier, blueFlowerBuffModifier, yellowFlowerBuffModifier, redFlowerBuffModifier, blackFlowerBuffModifier, whiteFlowerBuffModifier, purpleFlowerBuffModifier, pinkFlowerBuffModifier, goldFlowerBuffModifier };
+        FLOWERPollenThreshold = new float[][] { closedFlowerPollenThreshold, orangeFlowerPollenThreshold, brownFlowerPollenThreshold, greenFlowerPollenThreshold, blueFlowerPollenThreshold, yellowFlowerPollenThreshold, redFlowerPollenThreshold, blackFlowerPollenThreshold, whiteFlowerPollenThreshold, purpleFlowerPollenThreshold, pinkFlowerPollenThreshold, goldFlowerPollenThreshold };
+        FLOWERRarity = new float[] { closedFlowerRarity, orangeFlowerRarity, brownFlowerRarity, greenFlowerRarity, blueFlowerRarity, yellowFlowerRarity, redFlowerRarity, blackFlowerRarity, whiteFlowerRarity, purpleFlowerRarity, pinkFlowerRarity, goldFlowerRarity };
     }
 
     public void SetUI(bool state)

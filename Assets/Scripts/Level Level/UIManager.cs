@@ -22,6 +22,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] public GameObject defeatUI;
     [SerializeField] public GameObject controlUI;
     [SerializeField] public GameObject enemyUI;
+    [SerializeField] public GameObject pollenUI;
     [SerializeField] public GameObject menuUI;
     [SerializeField] public TextMeshProUGUI queenHealthNumbered;
     [SerializeField] public TextMeshProUGUI unitCost;
@@ -59,7 +60,7 @@ public class UIManager : MonoBehaviour
         {
             nectarCounterUI.text = Mathf.FloorToInt(LevelManager.main.nectar).ToString();
             honeyCounterRequiredUI.text = Mathf.FloorToInt(LevelManager.main.honey).ToString() + " / " + LevelManager.main.honeyRequired;
-            waveSpawnCounterUI.text = Mathf.FloorToInt(GameObject.Find("LevelManager").GetComponent<WaveSpawner>().waveCountdown).ToString();
+            waveSpawnCounterUI.text = Mathf.FloorToInt(WaveSpawner.main.waveCountdown).ToString();
             queenHealthNumbered.text = Mathf.Round(100 * LevelManager.main.queenHP / LevelManager.main.queenMaxHP).ToString() + "%";
             frameCounter = 0;
         }
@@ -278,6 +279,12 @@ public class UIManager : MonoBehaviour
         enemyUI.SetActive(!enemyUI.activeSelf);
     }
 
+    public void TogglePollenUI()
+    {
+        SoundManager.main.PlaySound(clickToggle);
+        pollenUI.SetActive(!pollenUI.activeSelf);
+    }
+
     public void ToggleMenuUI()
     {
         SoundManager.main.PlaySound(clickToggle);
@@ -292,6 +299,11 @@ public class UIManager : MonoBehaviour
     public void SetEnemyUI(bool state)
     {
         enemyUI.SetActive(state);
+    }
+        
+    public void SetPollenUI(bool state)
+    {
+        pollenUI.SetActive(state);
     }
 
     public void SetMenuUI(bool state)
@@ -317,6 +329,17 @@ public class UIManager : MonoBehaviour
         nectarBees.text = LevelManager.main.nectarBees.Length.ToString();
         honeyBees.text = LevelManager.main.honeyBees.Length.ToString();
         soldierBees.text = LevelManager.main.soldierBees.Length.ToString();
+    }
+
+    public void RefreshPollenPanel()
+    {
+
+    }
+
+    public void CreatePollenPanel()
+    {
+
+        RefreshPollenPanel();
     }
 }
 

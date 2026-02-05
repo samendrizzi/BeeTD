@@ -87,8 +87,8 @@ public class LevelManager : MonoBehaviour
     private void Awake()
     {
         main = this;
-        FindAllFlowers();
-        BloomFlowers();
+        //FindAllFlowers();
+        //BloomFlowers();
     }
 
     private void Start()
@@ -236,6 +236,10 @@ public class LevelManager : MonoBehaviour
         flowersToBloom = new GameObject[] { };
         discoveredFlowers = new GameObject[] { };
         GameObject[] root = FindObjectsByType<GameObject>(FindObjectsSortMode.None);
+        if (root.Length == 0)
+        {
+            return;
+        }
         foreach (GameObject obj in root)
         {
             if ((GlobalValues.main.flowerMask | (1 << obj.layer)) == GlobalValues.main.flowerMask)

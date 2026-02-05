@@ -110,6 +110,7 @@ MonoBehaviour:
   fogSprite: {fileID: 21300000, guid: 32ad9d44bed9fa6448d37bc8324c496e, type: 3}
   honeySprite: {fileID: 0}
   hoverColor: {r: 0.22116414, g: 0.26248312, b: 0.6603774, a: 0.5882353}
+  flowerType: 9
   isHive: 0
   isBuildable: 1
   isResourceNode: 1
@@ -175,4 +176,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acd1c72bb5d79314a802a8fe0e3a96d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ID: 4
+  ID: 9
