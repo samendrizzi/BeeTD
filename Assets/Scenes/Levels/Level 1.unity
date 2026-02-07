@@ -5594,18 +5594,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 490234949}
     m_Modifications:
     - target: {fileID: 7945665055211121443, guid: 90230e6d240278a4a98e21ff610e8052, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.325
-      objectReference: {fileID: 0}
-    - target: {fileID: 7945665055211121443, guid: 90230e6d240278a4a98e21ff610e8052, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.325
-      objectReference: {fileID: 0}
-    - target: {fileID: 7945665055211121443, guid: 90230e6d240278a4a98e21ff610e8052, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7945665055211121443, guid: 90230e6d240278a4a98e21ff610e8052, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.75
       objectReference: {fileID: 0}
@@ -5647,7 +5635,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9156115538744241620, guid: 90230e6d240278a4a98e21ff610e8052, type: 3}
       propertyPath: m_Name
-      value: Outside Plot
+      value: Outside Plot (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6465,18 +6453,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 490234949}
     m_Modifications:
     - target: {fileID: 7945665055211121443, guid: 90230e6d240278a4a98e21ff610e8052, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.325
-      objectReference: {fileID: 0}
-    - target: {fileID: 7945665055211121443, guid: 90230e6d240278a4a98e21ff610e8052, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.325
-      objectReference: {fileID: 0}
-    - target: {fileID: 7945665055211121443, guid: 90230e6d240278a4a98e21ff610e8052, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7945665055211121443, guid: 90230e6d240278a4a98e21ff610e8052, type: 3}
       propertyPath: m_LocalPosition.x
       value: 9
       objectReference: {fileID: 0}
@@ -6518,7 +6494,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9156115538744241620, guid: 90230e6d240278a4a98e21ff610e8052, type: 3}
       propertyPath: m_Name
-      value: Outside Plot
+      value: Outside Plot (4)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12213,18 +12189,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 490234949}
     m_Modifications:
     - target: {fileID: 7945665055211121443, guid: 90230e6d240278a4a98e21ff610e8052, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.325
-      objectReference: {fileID: 0}
-    - target: {fileID: 7945665055211121443, guid: 90230e6d240278a4a98e21ff610e8052, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.325
-      objectReference: {fileID: 0}
-    - target: {fileID: 7945665055211121443, guid: 90230e6d240278a4a98e21ff610e8052, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7945665055211121443, guid: 90230e6d240278a4a98e21ff610e8052, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.5
       objectReference: {fileID: 0}
@@ -12266,7 +12230,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9156115538744241620, guid: 90230e6d240278a4a98e21ff610e8052, type: 3}
       propertyPath: m_Name
-      value: Outside Plot
+      value: Outside Plot (3)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13027,18 +12991,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 490234949}
     m_Modifications:
     - target: {fileID: 7945665055211121443, guid: 90230e6d240278a4a98e21ff610e8052, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.325
-      objectReference: {fileID: 0}
-    - target: {fileID: 7945665055211121443, guid: 90230e6d240278a4a98e21ff610e8052, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.325
-      objectReference: {fileID: 0}
-    - target: {fileID: 7945665055211121443, guid: 90230e6d240278a4a98e21ff610e8052, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7945665055211121443, guid: 90230e6d240278a4a98e21ff610e8052, type: 3}
       propertyPath: m_LocalPosition.x
       value: 9.75
       objectReference: {fileID: 0}
@@ -13080,7 +13032,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9156115538744241620, guid: 90230e6d240278a4a98e21ff610e8052, type: 3}
       propertyPath: m_Name
-      value: Outside Plot
+      value: Outside Plot (8)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13965,18 +13917,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 490234949}
     m_Modifications:
     - target: {fileID: 7945665055211121443, guid: 90230e6d240278a4a98e21ff610e8052, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.325
-      objectReference: {fileID: 0}
-    - target: {fileID: 7945665055211121443, guid: 90230e6d240278a4a98e21ff610e8052, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.325
-      objectReference: {fileID: 0}
-    - target: {fileID: 7945665055211121443, guid: 90230e6d240278a4a98e21ff610e8052, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7945665055211121443, guid: 90230e6d240278a4a98e21ff610e8052, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.5
       objectReference: {fileID: 0}
@@ -14018,7 +13958,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9156115538744241620, guid: 90230e6d240278a4a98e21ff610e8052, type: 3}
       propertyPath: m_Name
-      value: Outside Plot
+      value: Outside Plot (2)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15158,24 +15098,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PollenManager
   honeyInterest: 0
-  nectarGenerationRate: 0
-  honeycombGeneration: 0
-  slowPower: 0
-  freezePower: 0
-  damage: 0
-  attackRate: 0
-  buffPower: 0
-  armorPierce: 0
-  resistancePierce: 0
-  dodgePierce: 0
+  nectarGenerationRate: 1
+  honeycombGeneration: 1
+  slowPower: 1
+  freezePower: 1
+  damage: 1
+  attackRate: 1
+  buffPower: 1
+  armorPierce: 1
+  resistancePierce: 1
+  dodgePierce: 1
   stealthDetection: 0
-  beeCarryCapacity: 0
-  beeMoveSpeed: 0
-  towerTargetingRange: 0
-  towerAoEArea: 0
-  towerAoEDamageDropOff: 0
-  towerExtraRampCount: 0
-  towerExtraRicochetCount: 0
+  beeCarryCapacity: 1
+  beeMoveSpeed: 1
+  towerTargetingRange: 1
+  towerAoEArea: 1
+  towerAoEDamageDropOff: 1
+  towerExtraRampCount: 1
+  towerExtraRicochetCount: 1
   flowersAvailable: 
   flowerLevel: 
   flowerPollen: []
@@ -19672,99 +19612,99 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BuffManager
   startingNectar: 0
   startingHoney: 0
-  queenBeeHitPoints: 0
+  queenBeeHitPoints: 100
   queenBeeReturnDamage: 0
   queenBeeArmor: 0
   honeyDropRate: 0
   honeyinterest: 0
-  pollenBuff: 0
-  nectarGenerationRate: 0
-  pollenGenerationRate: 0
-  honeycombTicks: 0
-  honeycombGeneration: 0
-  honeycombFillTime: 0
-  slowPower: 0
-  slowPierce: 0
-  freezePower: 0
-  freezePierce: 0
-  startingBees: 0
-  beeCost: 0
-  beeCostScaling: 0
-  beeHitPoints: 0
-  beeHeal: 0
-  beeShield: 0
-  beeShieldGeneration: 0
-  beeTargetingRange: 0
-  beeDamage: 0
-  beeAttackRate: 0
-  beeActionPower: 0
-  beeActionRate: 0
-  beeEffectPower: 0
-  beeEffectRate: 0
-  beeCarryCapacity: 0
-  beeMoveSpeed: 0
-  beeArmor: 0
-  beeResistance: 0
-  beeDodge: 0
-  beeArmorPierce: 0
-  beeResistancePierce: 0
-  beeDodgePierce: 0
-  beeStealthDetection: 0
-  towerSell: 0
-  towerHitPoints: 0
-  towerHeal: 0
-  towerShield: 0
-  towerShieldGeneration: 0
-  towerTargetingRange: 0
-  towerDamage: 0
-  towerAttackRate: 0
-  towerActionPower: 0
-  towerActionRate: 0
-  towerBuffPower: 0
-  towerEffectPower: 0
-  towerEffectRate: 0
-  towerCarryCapacity: 0
-  towerMoveSpeed: 0
-  towerArmor: 0
-  towerResistance: 0
-  towerDodge: 0
-  towerArmorPierce: 0
-  towerResistancePierce: 0
-  towerDodgePierce: 0
-  towerStealthDetection: 0
-  towerAoEArea: 0
-  towerAoEDamageDropOff: 0
-  towerRampingDamage: 0
-  towerExtraRampCount: 0
-  towerExtraRicochetCount: 0
-  enemyHitPoints: 0
-  enemyHeal: 0
-  enemyShield: 0
-  enemyShieldGeneration: 0
-  enemyTargetingRange: 0
-  enemyDamage: 0
-  enemyAttackRate: 0
-  enemyActionPower: 0
-  enemyActionRate: 0
-  enemySlowPower: 0
-  enemySlowPierce: 0
-  enemyFreezePower: 0
-  enemyFreezePierce: 0
-  enemyEffectPower: 0
-  enemyEffectRate: 0
-  enemyCarryCapacity: 0
-  enemyMoveSpeed: 0
-  enemyArmor: 0
-  enemyResistance: 0
-  enemyDodge: 0
-  enemyArmorPierce: 0
-  enemyResistancePierce: 0
-  enemyDodgePierce: 0
-  enemyStealthDetection: 0
-  enemyWaveScaling: 0
-  enemyHatchTime: 0
-  enemySpawnTime: 0
-  enemyStealthTime: 0
+  pollenGatherRatio: 0.25
+  pollenBuff: 1
+  nectarGenerationRate: 1
+  honeycombTicks: 60
+  honeycombGeneration: 1
+  honeycombFillTime: 1
+  slowPower: 1
+  slowPierce: 1
+  freezePower: 1
+  freezePierce: 1
+  startingBees: 1
+  beeCost: 50
+  beeCostScaling: 0.05
+  beeHitPoints: 1
+  beeHeal: 1
+  beeShield: 1
+  beeShieldGeneration: 1
+  beeTargetingRange: 1
+  beeDamage: 1
+  beeAttackRate: 1
+  beeActionPower: 1
+  beeActionRate: 1
+  beeEffectPower: 1
+  beeEffectRate: 1
+  beeCarryCapacity: 1
+  beeMoveSpeed: 1
+  beeArmor: 1
+  beeResistance: 1
+  beeDodge: 1
+  beeArmorPierce: 1
+  beeResistancePierce: 1
+  beeDodgePierce: 1
+  beeStealthDetection: 1
+  towerSell: 0.5
+  towerHitPoints: 1
+  towerHeal: 1
+  towerShield: 1
+  towerShieldGeneration: 1
+  towerTargetingRange: 1
+  towerDamage: 1
+  towerAttackRate: 1
+  towerActionPower: 1
+  towerActionRate: 1
+  towerBuffPower: 1
+  towerEffectPower: 1
+  towerEffectRate: 1
+  towerCarryCapacity: 1
+  towerMoveSpeed: 1
+  towerArmor: 1
+  towerResistance: 1
+  towerDodge: 1
+  towerArmorPierce: 1
+  towerResistancePierce: 1
+  towerDodgePierce: 1
+  towerStealthDetection: 1
+  towerAoEArea: 1
+  towerAoEDamageDropOff: 1
+  towerRampingDamage: 1
+  towerExtraRampCount: 1
+  towerExtraRicochetCount: 1
+  enemyHitPoints: 1
+  enemyHeal: 1
+  enemyShield: 1
+  enemyShieldGeneration: 1
+  enemyTargetingRange: 1
+  enemyDamage: 1
+  enemyAttackRate: 1
+  enemyActionPower: 1
+  enemyActionRate: 1
+  enemySlowPower: 1
+  enemySlowPierce: 1
+  enemyFreezePower: 1
+  enemyFreezePierce: 1
+  enemyEffectPower: 1
+  enemyEffectRate: 1
+  enemyCarryCapacity: 1
+  enemyMoveSpeed: 1
+  enemyArmor: 1
+  enemyResistance: 1
+  enemyDodge: 1
+  enemyArmorPierce: 1
+  enemyResistancePierce: 1
+  enemyDodgePierce: 1
+  enemyStealthDetection: 1
+  enemyWaveScaling: 1
+  enemyHatchTime: 1
+  enemySpawnTime: 1
+  enemyStealthTime: 1
 --- !u!1001 &1012341113
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25426,18 +25366,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 490234949}
     m_Modifications:
     - target: {fileID: 7945665055211121443, guid: 90230e6d240278a4a98e21ff610e8052, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.325
-      objectReference: {fileID: 0}
-    - target: {fileID: 7945665055211121443, guid: 90230e6d240278a4a98e21ff610e8052, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.325
-      objectReference: {fileID: 0}
-    - target: {fileID: 7945665055211121443, guid: 90230e6d240278a4a98e21ff610e8052, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7945665055211121443, guid: 90230e6d240278a4a98e21ff610e8052, type: 3}
       propertyPath: m_LocalPosition.x
       value: 12
       objectReference: {fileID: 0}
@@ -25479,7 +25407,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9156115538744241620, guid: 90230e6d240278a4a98e21ff610e8052, type: 3}
       propertyPath: m_Name
-      value: Outside Plot
+      value: Outside Plot (6)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -33215,18 +33143,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 490234949}
     m_Modifications:
     - target: {fileID: 7945665055211121443, guid: 90230e6d240278a4a98e21ff610e8052, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.325
-      objectReference: {fileID: 0}
-    - target: {fileID: 7945665055211121443, guid: 90230e6d240278a4a98e21ff610e8052, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.325
-      objectReference: {fileID: 0}
-    - target: {fileID: 7945665055211121443, guid: 90230e6d240278a4a98e21ff610e8052, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7945665055211121443, guid: 90230e6d240278a4a98e21ff610e8052, type: 3}
       propertyPath: m_LocalPosition.x
       value: 10.5
       objectReference: {fileID: 0}
@@ -33268,7 +33184,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9156115538744241620, guid: 90230e6d240278a4a98e21ff610e8052, type: 3}
       propertyPath: m_Name
-      value: Outside Plot
+      value: Outside Plot (7)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -38055,6 +37971,7 @@ MonoBehaviour:
   queenBeeArmor: 0
   honeyDropRate: 0
   honeyinterest: 0
+  pollenGather: 1
   pollenBuff: 0
   nectarGenerationRate: 1
   pollenGenerationRate: 1
@@ -39226,18 +39143,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 490234949}
     m_Modifications:
     - target: {fileID: 7945665055211121443, guid: 90230e6d240278a4a98e21ff610e8052, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.325
-      objectReference: {fileID: 0}
-    - target: {fileID: 7945665055211121443, guid: 90230e6d240278a4a98e21ff610e8052, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.325
-      objectReference: {fileID: 0}
-    - target: {fileID: 7945665055211121443, guid: 90230e6d240278a4a98e21ff610e8052, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7945665055211121443, guid: 90230e6d240278a4a98e21ff610e8052, type: 3}
       propertyPath: m_LocalPosition.x
       value: 11.25
       objectReference: {fileID: 0}
@@ -39279,7 +39184,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9156115538744241620, guid: 90230e6d240278a4a98e21ff610e8052, type: 3}
       propertyPath: m_Name
-      value: Outside Plot
+      value: Outside Plot (5)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

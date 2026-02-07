@@ -129,6 +129,7 @@ public class LevelManager : MonoBehaviour
         nectar = BuffManager.main.startingNectar + bonusNectar;
         honey = BuffManager.main.startingHoney + bonusHoney;
         SetStats();
+        queenMaxHP = BuffManager.main.queenBeeHitPoints;
         queenHP = queenMaxHP;
         StartingReveal();
         SpawnStartingBees();

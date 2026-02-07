@@ -212,6 +212,7 @@ public class Plot : MonoBehaviour
         if (fog == true && (((1 << gameObject.layer) & GlobalValues.main.flowerMask) != 0))
         {
             LevelManager.main.FoundFlower(gameObject);
+            PollenManager.main.AddFlower(gameObject);
         }
         fog = false;
     }

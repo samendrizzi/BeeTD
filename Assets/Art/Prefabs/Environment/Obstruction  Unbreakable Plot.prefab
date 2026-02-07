@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8767738084471890597}
   - component: {fileID: 4408989788420563467}
   m_Layer: 10
-  m_Name: Obstruction Plot
+  m_Name: Obstruction  Unbreakable Plot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -114,7 +114,7 @@ MonoBehaviour:
   isBuildable: 0
   isResourceNode: 0
   visionObstruction: 1
-  isDestructible: 1
+  isDestructible: 0
   health: 5
   armor: 50
   noObstructionPrefab: {fileID: 9156115538744241620, guid: 95b54ab0d985d424b901c99185de7e00, type: 3}

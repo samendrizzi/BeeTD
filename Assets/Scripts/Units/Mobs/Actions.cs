@@ -373,6 +373,7 @@ public class Actions : MonoBehaviour
     {
         attributes.inventoryFull = false;
         LevelManager.main.IncreaseNectar(attributes.nectar);
+        PollenManager.main.AddPollen(attributes.nectar, attributes.flower.GetComponent<Plot>().flowerType);
         attributes.nectar = 0f;
         attributes.target = attributes.flower.transform;
     }

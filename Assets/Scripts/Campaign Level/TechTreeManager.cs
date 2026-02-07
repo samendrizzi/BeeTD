@@ -12,6 +12,7 @@ public class TechTreeManager : MonoBehaviour
     public float queenBeeArmor = 0f;
     public float honeyDropRate = 0f;
     public float honeyinterest = 0f;
+    public float pollenGather = 1f;
     public float pollenBuff = 0f;
     public float nectarGenerationRate = 1f;
     public float pollenGenerationRate = 1f;

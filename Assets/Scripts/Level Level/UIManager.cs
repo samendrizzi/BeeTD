@@ -24,6 +24,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] public GameObject enemyUI;
     [SerializeField] public GameObject pollenUI;
     [SerializeField] public GameObject menuUI;
+    [SerializeField] public GameObject[] pollenEntries;
     [SerializeField] public TextMeshProUGUI queenHealthNumbered;
     [SerializeField] public TextMeshProUGUI unitCost;
     [SerializeField] public TextMeshProUGUI unassignedBees;
@@ -51,7 +52,7 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        Reset();
+        
     }
 
     private void Update()
@@ -184,8 +185,9 @@ public class UIManager : MonoBehaviour
         SetMenuUI(false);
         SetVictoryUI(false);
         SetDefeatUI(false);
-        controlUI.transform.position = controlUI.GetComponent<DraggableUI>().startingPosition;
-        enemyUI.transform.position = enemyUI.GetComponent<DraggableUI>().startingPosition;
+        ResetPollenPanel();
+        //controlUI.transform.position = controlUI.GetComponent<DraggableUI>().startingPosition;
+        //enemyUI.transform.position = enemyUI.GetComponent<DraggableUI>().startingPosition;
         //Set button colors
         normalSpeedButton.GetComponent<Image>().color = pressedColor;
         pauseButton.GetComponent<Image>().color = pressedColor;
@@ -331,15 +333,35 @@ public class UIManager : MonoBehaviour
         soldierBees.text = LevelManager.main.soldierBees.Length.ToString();
     }
 
-    public void RefreshPollenPanel()
+    public void RefreshPollenPanel(FlowerType type)
     {
-
+        for (int i = 0; i < pollenEntries.Length; i++)
+        {
+            if (pollenEntries[i].activeSelf)
+            {
+                pollenEntries[i].GetComponent<PollenPanelEntry>().RefreshPollen(type);
+            }
+        }
     }
 
-    public void CreatePollenPanel()
+    public void CreatePollenPanel(FlowerType type)
     {
+        for (int i = 0; i < pollenEntries.Length; i++)
+        {
+            if (!pollenEntries[i].activeSelf)
+            {
+                pollenEntries[i].GetComponent<PollenPanelEntry>().Setup(type);
+                return;
+            }
+        }
+    }
 
-        RefreshPollenPanel();
+    private void ResetPollenPanel()
+    {
+        for (int i = 0; i < pollenEntries.Length; i++)
+        {
+            pollenEntries[i].SetActive(false);
+        }
     }
 }
 

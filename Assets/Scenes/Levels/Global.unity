@@ -2062,6 +2062,7 @@ MonoBehaviour:
   pollenTier: {fileID: 1701223244}
   pollenAmountText: {fileID: 1261979355}
   pollenSlider: {fileID: 851698255}
+  pollenSliderImage: {fileID: 924589524}
 --- !u!114 &260634594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2395,6 +2396,7 @@ MonoBehaviour:
   pollenTier: {fileID: 696808863}
   pollenAmountText: {fileID: 1861795334}
   pollenSlider: {fileID: 542110862}
+  pollenSliderImage: {fileID: 256951237}
 --- !u!114 &297224520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2468,6 +2470,7 @@ GameObject:
   m_Component:
   - component: {fileID: 304586706}
   - component: {fileID: 304586707}
+  - component: {fileID: 304586708}
   m_Layer: 5
   m_Name: Content
   m_TagString: Untagged
@@ -2503,7 +2506,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 300}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &304586707
 MonoBehaviour:
@@ -2529,6 +2532,20 @@ MonoBehaviour:
   m_Spacing: {x: 0, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
+--- !u!114 &304586708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 304586705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.ContentSizeFitter
+  m_HorizontalFit: 0
+  m_VerticalFit: 2
 --- !u!1 &312531339
 GameObject:
   m_ObjectHideFlags: 0
@@ -4559,7 +4576,7 @@ MonoBehaviour:
   startingBees: 030000000200000001000000
   beeCost: 50
   beeCostScaling: 0.1
-  beeHitPoints: 1
+  beeHitPoints: 100
   beeHeal: 1
   beeShield: 1
   beeShieldGeneration: 1
@@ -4691,6 +4708,7 @@ MonoBehaviour:
   - 0.25
   - 0
   honeyinterest: 0
+  pollenGatherRatio: 0.25
   pollenBuff: 0
   nectarGenerationRate: 3
   pollenGenerationRate: 1
@@ -8409,6 +8427,7 @@ MonoBehaviour:
   pollenTier: {fileID: 2047950725}
   pollenAmountText: {fileID: 249965878}
   pollenSlider: {fileID: 967942442}
+  pollenSliderImage: {fileID: 1165017705}
 --- !u!114 &745247229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8781,6 +8800,7 @@ MonoBehaviour:
   pollenTier: {fileID: 1681957171}
   pollenAmountText: {fileID: 712995189}
   pollenSlider: {fileID: 1619264581}
+  pollenSliderImage: {fileID: 1103667485}
 --- !u!114 &782107019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10201,6 +10221,7 @@ MonoBehaviour:
   pollenTier: {fileID: 1611753920}
   pollenAmountText: {fileID: 409456064}
   pollenSlider: {fileID: 1131125859}
+  pollenSliderImage: {fileID: 1811485720}
 --- !u!114 &904428350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10322,6 +10343,7 @@ MonoBehaviour:
   pollenTier: {fileID: 696818197}
   pollenAmountText: {fileID: 1317217389}
   pollenSlider: {fileID: 1638445779}
+  pollenSliderImage: {fileID: 617452733}
 --- !u!114 &910003712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11445,6 +11467,7 @@ MonoBehaviour:
   pollenTier: {fileID: 554412664}
   pollenAmountText: {fileID: 1547190501}
   pollenSlider: {fileID: 222258646}
+  pollenSliderImage: {fileID: 1584287445}
 --- !u!114 &1038062966
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11919,7 +11942,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 2022812123}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.88809603
+  m_Size: 0.484416
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -13527,6 +13550,7 @@ MonoBehaviour:
   pollenTier: {fileID: 716780968}
   pollenAmountText: {fileID: 1321681326}
   pollenSlider: {fileID: 1459037972}
+  pollenSliderImage: {fileID: 2103454274}
 --- !u!114 &1270671010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14616,6 +14640,7 @@ MonoBehaviour:
   pollenTier: {fileID: 1833222958}
   pollenAmountText: {fileID: 578072043}
   pollenSlider: {fileID: 1351700472}
+  pollenSliderImage: {fileID: 1939463720}
 --- !u!114 &1423062698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15339,6 +15364,18 @@ MonoBehaviour:
   enemyUI: {fileID: 777083658}
   pollenUI: {fileID: 208260097}
   menuUI: {fileID: 473812889}
+  pollenEntries:
+  - {fileID: 910003709}
+  - {fileID: 297224517}
+  - {fileID: 782107016}
+  - {fileID: 904428347}
+  - {fileID: 745247226}
+  - {fileID: 1423062695}
+  - {fileID: 260634591}
+  - {fileID: 1038062963}
+  - {fileID: 2085920938}
+  - {fileID: 1675930575}
+  - {fileID: 1270671007}
   queenHealthNumbered: {fileID: 2130544910}
   unitCost: {fileID: 1897581848}
   unassignedBees: {fileID: 450362846}
@@ -17358,6 +17395,7 @@ MonoBehaviour:
   pollenTier: {fileID: 1801517121}
   pollenAmountText: {fileID: 614242127}
   pollenSlider: {fileID: 1887663146}
+  pollenSliderImage: {fileID: 1198232191}
 --- !u!114 &1675930578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20726,6 +20764,7 @@ MonoBehaviour:
   pollenTier: {fileID: 1499161064}
   pollenAmountText: {fileID: 145596849}
   pollenSlider: {fileID: 1028895730}
+  pollenSliderImage: {fileID: 1684017543}
 --- !u!114 &2085920941
 MonoBehaviour:
   m_ObjectHideFlags: 0

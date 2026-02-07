@@ -7,28 +7,28 @@ public class PollenManager : MonoBehaviour
     public static PollenManager main;
 
     //Environment
-    public float honeyInterest;
-    public float nectarGenerationRate;
-    public float honeycombGeneration;
+    public float honeyInterest = 0f;
+    public float nectarGenerationRate = 1f;
+    public float honeycombGeneration = 1f;
     //Worker Bees + Towers
-    public float slowPower;
-    public float freezePower;
-    public float damage;
-    public float attackRate;
-    public float buffPower;
-    public float armorPierce;
-    public float resistancePierce;
-    public float dodgePierce;
-    public float stealthDetection;
+    public float slowPower = 1f;
+    public float freezePower = 1f;
+    public float damage = 1f;
+    public float attackRate = 1f;
+    public float buffPower = 1f;
+    public float armorPierce = 1f;
+    public float resistancePierce = 1f;
+    public float dodgePierce = 1f;
+    public float stealthDetection = 0f;
     //Worker Bees
-    public float beeCarryCapacity;
-    public float beeMoveSpeed;
+    public float beeCarryCapacity = 1f;
+    public float beeMoveSpeed = 1f;
     //Towers
-    public float towerTargetingRange;
-    public float towerAoEArea;
-    public float towerAoEDamageDropOff;
-    public float towerExtraRampCount;
-    public float towerExtraRicochetCount;
+    public float towerTargetingRange = 1f;
+    public float towerAoEArea = 1f;
+    public float towerAoEDamageDropOff = 1f;
+    public float towerExtraRampCount = 1f;
+    public float towerExtraRicochetCount = 1f;
 
     public FlowerType[] flowersAvailable;
     public int[] flowerLevel;
@@ -39,15 +39,7 @@ public class PollenManager : MonoBehaviour
         main = this;
     }
 
-    private void Start()
-    {
-        foreach (GameObject flower in LevelManager.main.flowers)
-        {
-            AddFlower(flower);
-        }
-    }
-
-    private void AddFlower(GameObject flower)
+    public void AddFlower(GameObject flower)
     {
         FlowerType type = flower.GetComponent<Plot>().flowerType;
         if (FindFlowerIndex(type) == -1)
@@ -56,34 +48,35 @@ public class PollenManager : MonoBehaviour
             Array.Resize(ref flowerLevel, flowersAvailable.Length);
             Array.Resize(ref flowerPollen, flowersAvailable.Length);
             flowersAvailable[flowersAvailable.Length - 1] = type;
-            flowerLevel[flowersAvailable.Length - 1] = -1;
+            flowerLevel[flowersAvailable.Length - 1] = 0;
             flowerPollen[flowersAvailable.Length - 1] = 0f;
+            CreateUI(type);
         }
     }
 
     public void AddPollen(float amount, FlowerType type)
     {
         int index = FindFlowerIndex(type);
-        flowerPollen[index] += amount;
+        flowerPollen[index] += amount * BuffManager.main.pollenGatherRatio;
         CheckBuffLevels(type, index);
     }
 
     public void CheckBuffLevels(FlowerType type, int index)
     {
         int level = 0;
-        if (flowerPollen[index] >= GlobalValues.main.FLOWERPollenThreshold[(int)type][level + 1])
+        if (flowerPollen[index] >= GlobalValues.main.FLOWERPollenThreshold[(int)type][level])
         {
             level++;
-            if (flowerPollen[index] >= GlobalValues.main.FLOWERPollenThreshold[(int)type][level + 1])
+            if (flowerPollen[index] >= GlobalValues.main.FLOWERPollenThreshold[(int)type][level])
             {
                 level++;
-                if (flowerPollen[index] >= GlobalValues.main.FLOWERPollenThreshold[(int)type][level + 1])
+                if (flowerPollen[index] >= GlobalValues.main.FLOWERPollenThreshold[(int)type][level])
                 {
                     level++;
-                    if (flowerPollen[index] >= GlobalValues.main.FLOWERPollenThreshold[(int)type][level + 1])
+                    if (flowerPollen[index] >= GlobalValues.main.FLOWERPollenThreshold[(int)type][level])
                     {
                         level++;
-                        if (flowerPollen[index] >= GlobalValues.main.FLOWERPollenThreshold[(int)type][level + 1])
+                        if (flowerPollen[index] >= GlobalValues.main.FLOWERPollenThreshold[(int)type][level])
                         {
                             level++;
                         }
@@ -95,9 +88,8 @@ public class PollenManager : MonoBehaviour
         {
             flowerLevel[index] = level;
             RefreshBuffs();
-            CreateUI();
         }
-        RefreshUI();
+        RefreshUI(type);
     }
 
     private int FindFlowerIndex(FlowerType type)
@@ -107,56 +99,85 @@ public class PollenManager : MonoBehaviour
 
     private void RefreshBuffs()
     {
-        int index = 1;
-        //Orange Buff
-        beeCarryCapacity = 1f + GlobalValues.main.FLOWERBuffModifier[index][flowerLevel[index]];
-        beeMoveSpeed = 1f + GlobalValues.main.FLOWERBuffModifier[index][flowerLevel[index]]; 
-        index++;
-        //Brown Buff
-        armorPierce = 1f + GlobalValues.main.FLOWERBuffModifier[index][flowerLevel[index]];
-        resistancePierce = 1f + GlobalValues.main.FLOWERBuffModifier[index][flowerLevel[index]]; 
-        index++;
-        //Green Buff
-        nectarGenerationRate = 1f + GlobalValues.main.FLOWERBuffModifier[index][flowerLevel[index]];
-        index++;
-        //Blue Buff
-        slowPower = 1f + GlobalValues.main.FLOWERBuffModifier[index][flowerLevel[index]];
-        freezePower = 1f + GlobalValues.main.FLOWERBuffModifier[index][flowerLevel[index]]; 
-        index++;
-        //Yellow Buff
-        honeycombGeneration = 1f + GlobalValues.main.FLOWERBuffModifier[index][flowerLevel[index]];
-        index++;
-        //Red Buff
-        damage = 1f + GlobalValues.main.FLOWERBuffModifier[index][flowerLevel[index]];
-        attackRate = 1f + GlobalValues.main.FLOWERBuffModifier[index][flowerLevel[index]]; 
-        index++;
-        //Black Buff
-        stealthDetection = 1f + GlobalValues.main.FLOWERBuffModifier[index][flowerLevel[index]];
-        dodgePierce = 1f + GlobalValues.main.FLOWERBuffModifier[index][flowerLevel[index]]; 
-        index++;
-        //White Buff
-        towerTargetingRange = 1f + GlobalValues.main.FLOWERBuffModifier[index][flowerLevel[index]];
-        index++;
-        //Purple Buff
-        towerAoEArea = 1f + GlobalValues.main.FLOWERBuffModifier[index][flowerLevel[index]];
-        towerAoEDamageDropOff = 1f + GlobalValues.main.FLOWERBuffModifier[index][flowerLevel[index]]; 
-        towerExtraRampCount = 1f + GlobalValues.main.FLOWERBuffModifier[index][flowerLevel[index]]; 
-        towerExtraRicochetCount = 1f + GlobalValues.main.FLOWERBuffModifier[index][flowerLevel[index]]; 
-        index++;
-        //Pink Buff
-        buffPower = 1f + GlobalValues.main.FLOWERBuffModifier[index][flowerLevel[index]];
-        index++;
-        //Gold Buff
-        honeyInterest = GlobalValues.main.FLOWERBuffModifier[index][flowerLevel[index]];
+        for (int i = 0; i < flowersAvailable.Length; i++)
+        {
+            if (flowerLevel[i] > 0)
+            {
+                if (flowersAvailable[i] == FlowerType.ORANGE)
+                {
+                    //Orange Buff
+                    beeCarryCapacity = 1f + GlobalValues.main.FLOWERBuffModifier[(int)FlowerType.ORANGE][flowerLevel[i] - 1];
+                    beeMoveSpeed = 1f + GlobalValues.main.FLOWERBuffModifier[(int)FlowerType.ORANGE][flowerLevel[i] - 1]; 
+                }
+                else if (flowersAvailable[i] == FlowerType.BROWN)
+                {
+                    //Brown Buff
+                    armorPierce = 1f + GlobalValues.main.FLOWERBuffModifier[(int)FlowerType.BROWN][flowerLevel[i] - 1];
+                    resistancePierce = 1f + GlobalValues.main.FLOWERBuffModifier[(int)FlowerType.BROWN][flowerLevel[i] - 1]; 
+                }
+                else if (flowersAvailable[i] == FlowerType.GREEN)
+                {
+                    //Green Buff
+                    nectarGenerationRate = 1f + GlobalValues.main.FLOWERBuffModifier[(int)FlowerType.GREEN][flowerLevel[i] - 1];
+                }
+                else if (flowersAvailable[i] == FlowerType.BLUE)
+                {
+                    //Blue Buff
+                    slowPower = 1f + GlobalValues.main.FLOWERBuffModifier[(int)FlowerType.BLUE][flowerLevel[i] - 1];
+                    freezePower = 1f + GlobalValues.main.FLOWERBuffModifier[(int)FlowerType.BLUE][flowerLevel[i] - 1]; 
+                }
+                else if (flowersAvailable[i] == FlowerType.YELLOW)
+                {
+                    //Yellow Buff
+                    honeycombGeneration = 1f + GlobalValues.main.FLOWERBuffModifier[(int)FlowerType.YELLOW][flowerLevel[i] - 1];
+                }
+                else if (flowersAvailable[i] == FlowerType.RED)
+                {
+                    //Red Buff
+                    damage = 1f + GlobalValues.main.FLOWERBuffModifier[(int)FlowerType.RED][flowerLevel[i] - 1];
+                    attackRate = 1f + GlobalValues.main.FLOWERBuffModifier[(int)FlowerType.RED][flowerLevel[i] - 1]; 
+                }
+                else if (flowersAvailable[i] == FlowerType.BLACK)
+                {
+                    //Black Buff
+                    stealthDetection = 1f + GlobalValues.main.FLOWERBuffModifier[(int)FlowerType.BLACK][flowerLevel[i] - 1];
+                    dodgePierce = 1f + GlobalValues.main.FLOWERBuffModifier[(int)FlowerType.BLACK][flowerLevel[i] - 1]; 
+                }
+                else if (flowersAvailable[i] == FlowerType.WHITE)
+                {
+                    //White Buff
+                    towerTargetingRange = 1f + GlobalValues.main.FLOWERBuffModifier[(int)FlowerType.WHITE][flowerLevel[i] - 1];
+                }
+                else if (flowersAvailable[i] == FlowerType.PURPLE)
+                {
+                    //Purple Buff
+                    towerAoEArea = 1f + GlobalValues.main.FLOWERBuffModifier[(int)FlowerType.PURPLE][flowerLevel[i] - 1];
+                    towerAoEDamageDropOff = 1f + GlobalValues.main.FLOWERBuffModifier[(int)FlowerType.PURPLE][flowerLevel[i] - 1]; 
+                    towerExtraRampCount = 1f + GlobalValues.main.FLOWERBuffModifier[(int)FlowerType.PURPLE][flowerLevel[i] - 1]; 
+                    towerExtraRicochetCount = 1f + GlobalValues.main.FLOWERBuffModifier[(int)FlowerType.PURPLE][flowerLevel[i] - 1];
+                }
+                else if (flowersAvailable[i] == FlowerType.PINK)
+                {
+                    //Pink Buff
+                    buffPower = 1f + GlobalValues.main.FLOWERBuffModifier[(int)FlowerType.PINK][flowerLevel[i] - 1];
+                }
+                else if (flowersAvailable[i] == FlowerType.GOLD)
+                {
+                    //Gold Buff
+                    honeyInterest = GlobalValues.main.FLOWERBuffModifier[(int)FlowerType.GOLD][flowerLevel[i] - 1];
+                }
+            }            
+        }       
+        BuffManager.main.RefreshBuffs();
     }
 
-    public void RefreshUI()
+    public void RefreshUI(FlowerType type)
     {
-        UIManager.main.RefreshPollenPanel();
+        UIManager.main.RefreshPollenPanel(type);
     }
 
-    public void CreateUI()
+    public void CreateUI(FlowerType type)
     {
-        UIManager.main.CreatePollenPanel();
+        UIManager.main.CreatePollenPanel(type);
     }
 }
