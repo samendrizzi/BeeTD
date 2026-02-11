@@ -25,6 +25,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] public GameObject pollenUI;
     [SerializeField] public GameObject menuUI;
     [SerializeField] public GameObject[] pollenEntries;
+    [SerializeField] public GameObject[] honeyEntries;
     [SerializeField] public TextMeshProUGUI queenHealthNumbered;
     [SerializeField] public TextMeshProUGUI unitCost;
     [SerializeField] public TextMeshProUGUI unassignedBees;
@@ -52,7 +53,7 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        
+
     }
 
     private void Update()
@@ -81,7 +82,7 @@ public class UIManager : MonoBehaviour
 
     public void WaveUpdate()
     {
-        WaveTrackerUI.text = "DAY " + WaveSpawner.main.currentWave + " OF " + WaveSpawner.main.numberOfWaves;
+        WaveTrackerUI.text = "DAY " + WaveSpawner.main.currentWave + " OF " + LevelManager.main.numberOfWaves;
     }
 
     public void VictoryUI()
@@ -186,6 +187,7 @@ public class UIManager : MonoBehaviour
         SetVictoryUI(false);
         SetDefeatUI(false);
         ResetPollenPanel();
+        ResetHoneyPanel();
         //controlUI.transform.position = controlUI.GetComponent<DraggableUI>().startingPosition;
         //enemyUI.transform.position = enemyUI.GetComponent<DraggableUI>().startingPosition;
         //Set button colors
@@ -361,6 +363,33 @@ public class UIManager : MonoBehaviour
         for (int i = 0; i < pollenEntries.Length; i++)
         {
             pollenEntries[i].SetActive(false);
+        }
+    }
+
+    public void RefreshHoneyPanel()
+    {
+        for (int i = 0; i < honeyEntries.Length; i++)
+        {
+            if (honeyEntries[i].activeSelf)
+            {
+                honeyEntries[i].GetComponent<HoneyPanelEntry>().RefreshUI();
+            }
+        }
+    }
+
+    public void CreateHoneyPanel()
+    {
+        for (int i = 0; i < LevelManager.main.honeyBuffs.Length; i++)
+        {
+             honeyEntries[i].GetComponent<HoneyPanelEntry>().Setup(i);
+        }
+    }
+
+    private void ResetHoneyPanel()
+    {
+        for (int i = 0; i < honeyEntries.Length; i++)
+        {
+            honeyEntries[i].SetActive(false);
         }
     }
 }

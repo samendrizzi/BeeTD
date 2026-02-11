@@ -9,61 +9,9 @@ public class WaveSpawner : MonoBehaviour
 
     public static WaveSpawner main;
 
-    [Header("Attributes")]
-    [SerializeField] public int numberOfWaves = 15;
-    [SerializeField] private MobStruct[] wave1;
-    [SerializeField] private MobStruct[] wave2;
-    [SerializeField] private MobStruct[] wave3;
-    [SerializeField] private MobStruct[] wave4;
-    [SerializeField] private MobStruct[] wave5;
-    [SerializeField] private MobStruct[] wave6;
-    [SerializeField] private MobStruct[] wave7;
-    [SerializeField] private MobStruct[] wave8;
-    [SerializeField] private MobStruct[] wave9;
-    [SerializeField] private MobStruct[] wave10;
-    [SerializeField] private MobStruct[] wave11;
-    [SerializeField] private MobStruct[] wave12;
-    [SerializeField] private MobStruct[] wave13;
-    [SerializeField] private MobStruct[] wave14;
-    [SerializeField] private MobStruct[] wave15;
-    [SerializeField] private MobStruct[] wave16;
-    [SerializeField] private MobStruct[] wave17;
-    [SerializeField] private MobStruct[] wave18;
-    [SerializeField] private MobStruct[] wave19;
-    [SerializeField] private MobStruct[] wave20;
-    [SerializeField] private MobStruct[] wave21;
-    [SerializeField] private MobStruct[] wave22;
-    [SerializeField] private MobStruct[] wave23;
-    [SerializeField] private MobStruct[] wave24;
-    [SerializeField] private MobStruct[] wave25;
-    [SerializeField] private MobStruct[] wave26;
-    [SerializeField] private MobStruct[] wave27;
-    [SerializeField] private MobStruct[] wave28;
-    [SerializeField] private MobStruct[] wave29;
-    [SerializeField] private MobStruct[] wave30;
-    [SerializeField] private MobStruct[] wave31;
-    [SerializeField] private MobStruct[] wave32;
-    [SerializeField] private MobStruct[] wave33;
-    [SerializeField] private MobStruct[] wave34;
-    [SerializeField] private MobStruct[] wave35;
-    [SerializeField] private MobStruct[] wave36;
-    [SerializeField] private MobStruct[] wave37;
-    [SerializeField] private MobStruct[] wave38;
-    [SerializeField] private MobStruct[] wave39;
-    [SerializeField] private MobStruct[] wave40;
-    [SerializeField] private MobStruct[] wave41;
-    [SerializeField] private MobStruct[] wave42;
-    [SerializeField] private MobStruct[] wave43;
-    [SerializeField] private MobStruct[] wave44;
-    [SerializeField] private MobStruct[] wave45;
-    [SerializeField] private MobStruct[] wave46;
-    [SerializeField] private MobStruct[] wave47;
-    [SerializeField] private MobStruct[] wave48;
-    [SerializeField] private MobStruct[] wave49;
-    [SerializeField] private MobStruct[] wave50;
-
     [Header("Trackers")]
     private MobStruct[][] enemySpawns;
+    private int numberOfWaves;
     public int currentWave = 0;
     private MobStruct[][] enemiesToSpawnThisWave;
     private float[] timeSinceLastSpawn;
@@ -88,10 +36,11 @@ public class WaveSpawner : MonoBehaviour
 
     private void Start()
     {
+        numberOfWaves = LevelManager.main.numberOfWaves;
         waveCountdown = GlobalValues.main.startingWaveCountdown;
         waveSpawnRatio = GlobalValues.main.waveSpawnRatio;
         timeBetweenWaves = GlobalValues.main.waveLength;
-        enemySpawns = new MobStruct[][] {wave1, wave2, wave3, wave4, wave5, wave6, wave7, wave8, wave9, wave10, wave11, wave12, wave13, wave14, wave15, wave16, wave17, wave18, wave19, wave20, wave21, wave22, wave23, wave24, wave25, wave26, wave27, wave28, wave29, wave30, wave31, wave32, wave33, wave34, wave35, wave36, wave37, wave38, wave39, wave40, wave41, wave42, wave43, wave44, wave45, wave46, wave47, wave48, wave49, wave50};
+        enemySpawns = new MobStruct[][] {LevelManager.main.wave1, LevelManager.main.wave2, LevelManager.main.wave3, LevelManager.main.wave4, LevelManager.main.wave5, LevelManager.main.wave6, LevelManager.main.wave7, LevelManager.main.wave8, LevelManager.main.wave9, LevelManager.main.wave10, LevelManager.main.wave11, LevelManager.main.wave12, LevelManager.main.wave13, LevelManager.main.wave14, LevelManager.main.wave15, LevelManager.main.wave16, LevelManager.main.wave17, LevelManager.main.wave18, LevelManager.main.wave19, LevelManager.main.wave20, LevelManager.main.wave21, LevelManager.main.wave22, LevelManager.main.wave23, LevelManager.main.wave24, LevelManager.main.wave25, LevelManager.main.wave26, LevelManager.main.wave27, LevelManager.main.wave28, LevelManager.main.wave29, LevelManager.main.wave30, LevelManager.main.wave31, LevelManager.main.wave32, LevelManager.main.wave33, LevelManager.main.wave34, LevelManager.main.wave35, LevelManager.main.wave36, LevelManager.main.wave37, LevelManager.main.wave38, LevelManager.main.wave39, LevelManager.main.wave40, LevelManager.main.wave41, LevelManager.main.wave42, LevelManager.main.wave43, LevelManager.main.wave44, LevelManager.main.wave45, LevelManager.main.wave46, LevelManager.main.wave47, LevelManager.main.wave48, LevelManager.main.wave49, LevelManager.main.wave50};
         Array.Resize(ref timeSinceLastSpawn, LevelManager.main.numberOfPaths);
         Array.Resize(ref enemiesLeftToSpawn, LevelManager.main.numberOfPaths);
         Array.Resize(ref spawnIndex, LevelManager.main.numberOfPaths);
