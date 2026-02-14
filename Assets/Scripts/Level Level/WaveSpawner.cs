@@ -130,7 +130,7 @@ public class WaveSpawner : MonoBehaviour
     private void SpawnEnemy(MobStruct spawn)
     {
         GameObject prefabToSpawn = spawn.prefab;;
-        string prestige = spawn.prestige;
+        string prestiges = spawn. prestiges;
         VariantType variant = spawn.variant;
         int pathIndex = spawn.path - 1;
         Transform start = LevelManager.main.pathsStart[pathIndex];
@@ -151,7 +151,7 @@ public class WaveSpawner : MonoBehaviour
             enemyRotation = Quaternion.identity;
         }
         prefabToSpawn.GetComponent<Attributes>().variant = variant;
-        prefabToSpawn.GetComponent<Attributes>().prestige = prestige;
+        prefabToSpawn.GetComponent<Attributes>().prestiges= prestiges;
         prefabToSpawn.GetComponent<Attributes>().onPath = pathIndex;
         GameObject enemy = Instantiate(prefabToSpawn, start.position, enemyRotation);
         if (enemiesLeftToSpawn[pathIndex] <= 0)

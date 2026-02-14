@@ -7,7 +7,8 @@ using UnityEditor;
 using UnityEngine.UI;
 using System.Text.RegularExpressions;
 
-public class Prestige : MonoBehaviour
+
+public class Prestiges : MonoBehaviour
 {
     [SerializeField] private GameObject prestigeStar1;
     [SerializeField] private GameObject prestigeStar2;
@@ -35,22 +36,22 @@ public class Prestige : MonoBehaviour
         prestigeStar3.SetActive(false);
         prestigeStar4.SetActive(false);
         prestigeStar5.SetActive(false);
-        if (attributes.prestige != null)
+        if (attributes.prestiges!= null)
         {
-            SetPrestigeRed(true, Regex.Matches(attributes.prestige, "Red").Count);
-            SetPrestigeBlue(true, Regex.Matches(attributes.prestige, "Blue").Count);
-            SetPrestigeGreen(true, Regex.Matches(attributes.prestige, "Green").Count);
-            SetPrestigeYellow(true, Regex.Matches(attributes.prestige, "Yellow").Count);
-            SetPrestigeWhite(true, Regex.Matches(attributes.prestige, "White").Count);
-            SetPrestigePurple(true, Regex.Matches(attributes.prestige, "Purple").Count);
-            SetPrestigeBlack(true, Regex.Matches(attributes.prestige, "Black").Count);
-            SetPrestigeGold(true, Regex.Matches(attributes.prestige, "Gold").Count);
-            SetPrestigeBrown(true, Regex.Matches(attributes.prestige, "Brown").Count);
-            SetPrestigeGrey(true, Regex.Matches(attributes.prestige, "Grey").Count);
-            SetPrestigePrismatic(true, Regex.Matches(attributes.prestige, "Prismatic").Count);
-            SetPrestigeSilver(true, Regex.Matches(attributes.prestige, "Silver").Count);
-            SetPrestigePlatinum(true, Regex.Matches(attributes.prestige, "Platinum").Count);
-            SetPrestigeTeal(true, Regex.Matches(attributes.prestige, "Teal").Count);
+            SetPrestigeRed(true, Regex.Matches(attributes. prestiges, "Red").Count);
+            SetPrestigeBlue(true, Regex.Matches(attributes. prestiges, "Blue").Count);
+            SetPrestigeGreen(true, Regex.Matches(attributes. prestiges, "Green").Count);
+            SetPrestigeYellow(true, Regex.Matches(attributes. prestiges, "Yellow").Count);
+            SetPrestigeWhite(true, Regex.Matches(attributes. prestiges, "White").Count);
+            SetPrestigePurple(true, Regex.Matches(attributes. prestiges, "Purple").Count);
+            SetPrestigeBlack(true, Regex.Matches(attributes. prestiges, "Black").Count);
+            SetPrestigeGold(true, Regex.Matches(attributes. prestiges, "Gold").Count);
+            SetPrestigeBrown(true, Regex.Matches(attributes. prestiges, "Brown").Count);
+            SetPrestigeGrey(true, Regex.Matches(attributes. prestiges, "Grey").Count);
+            SetPrestigePrismatic(true, Regex.Matches(attributes. prestiges, "Prismatic").Count);
+            SetPrestigeSilver(true, Regex.Matches(attributes. prestiges, "Silver").Count);
+            SetPrestigePlatinum(true, Regex.Matches(attributes. prestiges, "Platinum").Count);
+            SetPrestigeTeal(true, Regex.Matches(attributes. prestiges, "Teal").Count);
         }
         attributes.SetHealthBar();
     }

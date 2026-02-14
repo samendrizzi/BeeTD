@@ -1585,19 +1585,19 @@ MonoBehaviour:
   waveStartSound: 8
   hiveEntrance: {fileID: 1711572364}
   honeyRequired: 1000
-  difficultyScaling: 0.05
+  difficultyScaling: 0.01
   startingVision: 4.8
   percentageOfFlowersUsed: 1
   bonusNectar: 2000
   bonusHoney: 0
-  honeyBuffs: 040000001200000039000000500000004000000027000000
+  honeyBuffs: 010000000b00000026000000270000000800000025000000
   honeyBuffAmount:
-  - 0.03
-  - 0.1
-  - 3
-  - -0.25
-  - -0.35
-  - 0.5
+  - 0.25
+  - 0.15
+  - 0.15
+  - 0.15
+  - 10
+  - 0.25
   honeyBuffThresholds:
   - 0.25
   - 0.5
@@ -1664,64 +1664,8 @@ MonoBehaviour:
   - {fileID: 997013210}
   - {fileID: 2132858005}
   - {fileID: 1956898013}
-  path2:
-  - {fileID: 1395565097}
-  - {fileID: 1489652848}
-  - {fileID: 1210742644}
-  - {fileID: 1421694428}
-  - {fileID: 1419839330}
-  - {fileID: 365830208}
-  - {fileID: 571986829}
-  - {fileID: 2084537467}
-  - {fileID: 1861610349}
-  - {fileID: 488982905}
-  - {fileID: 2084849232}
-  - {fileID: 1863297779}
-  - {fileID: 1731363363}
-  - {fileID: 1782675520}
-  - {fileID: 265519478}
-  - {fileID: 1308141992}
-  - {fileID: 775190861}
-  - {fileID: 382629696}
-  - {fileID: 23617574}
-  - {fileID: 230539864}
-  - {fileID: 397803253}
-  - {fileID: 440512018}
-  - {fileID: 1221104176}
-  - {fileID: 833971450}
-  - {fileID: 1634566808}
-  - {fileID: 997013210}
-  - {fileID: 2132858005}
-  - {fileID: 1956898013}
-  flyingPath2:
-  - {fileID: 1395565097}
-  - {fileID: 1489652848}
-  - {fileID: 1210742644}
-  - {fileID: 1421694428}
-  - {fileID: 1419839330}
-  - {fileID: 365830208}
-  - {fileID: 571986829}
-  - {fileID: 2084537467}
-  - {fileID: 1861610349}
-  - {fileID: 488982905}
-  - {fileID: 2084849232}
-  - {fileID: 1863297779}
-  - {fileID: 1731363363}
-  - {fileID: 1782675520}
-  - {fileID: 265519478}
-  - {fileID: 1308141992}
-  - {fileID: 775190861}
-  - {fileID: 382629696}
-  - {fileID: 23617574}
-  - {fileID: 230539864}
-  - {fileID: 397803253}
-  - {fileID: 440512018}
-  - {fileID: 1221104176}
-  - {fileID: 833971450}
-  - {fileID: 1634566808}
-  - {fileID: 997013210}
-  - {fileID: 2132858005}
-  - {fileID: 1956898013}
+  path2: []
+  flyingPath2: []
   path3: []
   flyingPath3: []
   path4: []
@@ -1816,7 +1760,7 @@ MonoBehaviour:
   queuedTargets: []
   workerBeeCost: 0
   honey: 0
-  nectar: 200
+  nectar: 0
   autoAssignBees: Nectar
   honeyCombTicks: 0
   honeyPerCombTick: 0
@@ -27911,83 +27855,83 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  - 1
-  - 0
-  - 1
-  - 0
-  - 1
-  - 1
-  - 1
-  - 1
-  - 1
-  - 1
-  - 1
-  - 1
-  - 1
-  - 1
-  - 1
-  - 1
-  - 1
-  - 1
-  - 1
-  - 1
-  - 1
-  - 1
   - 0
   - 0
   - 0
-  - 1
-  - 1
-  - 1
-  - 1
-  - 1
-  - 1
-  - 1
-  - 1
-  - 1
-  - 1
-  - 1
-  - 1
-  - 1
-  - 1
-  - 1
-  - 1
-  - 1
   - 0
   - 0
   - 0
-  - 1
-  - 1
-  - 1
-  - 1
-  - 1
-  - 1
-  - 1
-  - 1
-  - 1
-  - 1
-  - 1
-  - 1
-  - 1
-  - 1
-  - 1
-  - 1
-  - 1
-  - 1
-  - 1
-  - 1
-  - 1
-  - 1
   - 0
   - 0
   - 0
-  - 1
-  - 1
-  - 1
-  - 1
-  - 1
-  - 1
-  - 1
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
   honeyThresholds: []
   level: 0
 --- !u!1001 &1469252212

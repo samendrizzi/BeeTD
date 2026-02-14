@@ -93,7 +93,7 @@ public class Attributes : MonoBehaviour
     //trackers
     public VariantType variant;
     public string variantName;
-    public string prestige;
+    public string  prestiges;
     public float hitPoints = 1f;
     public float shield = 0f;
     public bool isDestroyed = false;
@@ -507,7 +507,7 @@ public class Attributes : MonoBehaviour
         {
             return;
         }
-        if (prestige.Length > 0)
+        if ( prestiges.Length > 0)
         {
             if (gameObject.GetComponent<Passives>().CheckPassive("Slow & Freeze Immunity") )
             {
@@ -551,7 +551,7 @@ public class Attributes : MonoBehaviour
 
     public void Freeze(float power, float pierce, float duration)
     {
-        if (prestige.Length > 0)
+        if ( prestiges.Length > 0)
         {
             if (gameObject.GetComponent<Passives>().CheckPassive("Slow & Freeze Immunity"))
             {
@@ -636,7 +636,7 @@ public class Attributes : MonoBehaviour
         if (isDestroyed == false)
         {
             isDestroyed = true;
-            if (prestige.Length > 0)
+            if ( prestiges.Length > 0)
             {
                 if (gameObject.GetComponent<Passives>().CheckPassive("Revive") == true && timeUntilPassives[gameObject.GetComponent<Passives>().FindPassive("Revive")] <= 0f)
                 {
@@ -668,7 +668,7 @@ public class Attributes : MonoBehaviour
         //
         if (type.Substring(0, 5) == "Enemy")
         {
-            gameObject.GetComponent<Prestige>().SetPrestigeStats();
+            gameObject.GetComponent<Prestiges>().SetPrestigeStats();
         }
     }
 

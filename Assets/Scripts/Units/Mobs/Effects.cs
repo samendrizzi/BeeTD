@@ -5,6 +5,22 @@ using UnityEditor;
 using UnityEngine.UI;
 using System;
 
+public enum Prestige
+{
+    EMPTY,
+    ORANGE,
+    BROWN,
+    GREEN,
+    BLUE,
+    YELLOW,
+    RED,
+    BLACK,
+    WHITE,
+    PURPLE,
+    PINK,
+    GOLD
+}
+
 public class Effects : MonoBehaviour
 {
     public static Effects main;
@@ -310,7 +326,7 @@ public class Effects : MonoBehaviour
         spawnAtt.path = attributes.path;
         spawnAtt.pathIndex = attributes.pathIndex;
         spawnAtt.target = attributes.target;
-        spawnAtt.prestige = attributes.prestige;
+        spawnAtt.prestiges = attributes.prestiges;
         spawnAtt.variant = attributes.variant;
         //spawn.SetActive(true);
         attributes.Die();
@@ -377,37 +393,37 @@ public class Effects : MonoBehaviour
 
     private void PrismaticBuff(float power, float duration)
     {
-        Prestige prestige = gameObject.GetComponent<Prestige>();
-        if (prestige == null)
+        Prestiges prestiges = gameObject.GetComponent<Prestiges>();
+        if (prestiges== null)
         {
-            Debug.Log(attributes.sName + " does not contain prestige script and cannot utilize Prismatic Buff.");
+            Debug.Log(attributes.sName + " does not contain prestiges script and cannot utilize Prismatic Buff.");
             return;
         }
         System.Random RandomGen = new System.Random();
         int randompick = RandomGen.Next(4);
         if (randompick == 0)
         {
-            prestige.SetPrestigeRed(true, (int)(power * GlobalValues.main.prestigePrismatic));
+             prestiges.SetPrestigeRed(true, (int)(power * GlobalValues.main.prestigePrismatic));
             StartCoroutine(RemovePrismaticBuff("Red", (int)(power * GlobalValues.main.prestigePrismatic), duration));
         }
         else if (randompick == 1)
         {
-            prestige.SetPrestigeBlue(true, (int)(power * GlobalValues.main.prestigePrismatic));
+             prestiges.SetPrestigeBlue(true, (int)(power * GlobalValues.main.prestigePrismatic));
             StartCoroutine(RemovePrismaticBuff("Blue", (int)(power * GlobalValues.main.prestigePrismatic), duration));
         }
         else if (randompick == 2)
         {
-            prestige.SetPrestigeGold(true, (int)(power * GlobalValues.main.prestigePrismatic));
+             prestiges.SetPrestigeGold(true, (int)(power * GlobalValues.main.prestigePrismatic));
             StartCoroutine(RemovePrismaticBuff("Gold", (int)(power * GlobalValues.main.prestigePrismatic), duration));
         }
         else if (randompick == 3)
         {
-            prestige.SetPrestigeBrown(true, (int)(power * GlobalValues.main.prestigePrismatic));
+             prestiges.SetPrestigeBrown(true, (int)(power * GlobalValues.main.prestigePrismatic));
             StartCoroutine(RemovePrismaticBuff("Brown", (int)(power * GlobalValues.main.prestigePrismatic), duration));
         }
         else if (randompick == 4)
         {
-            prestige.SetPrestigeSilver(true, (int)(power * GlobalValues.main.prestigePrismatic));
+             prestiges.SetPrestigeSilver(true, (int)(power * GlobalValues.main.prestigePrismatic));
             StartCoroutine(RemovePrismaticBuff("Silver", (int)(power * GlobalValues.main.prestigePrismatic), duration));
         }
     }
@@ -415,26 +431,26 @@ public class Effects : MonoBehaviour
     private IEnumerator RemovePrismaticBuff(string buff, float power, float duration)
     {
         yield return new WaitForSeconds(duration);
-        Prestige prestige = gameObject.GetComponent<Prestige>();
+        Prestiges prestiges= gameObject.GetComponent<Prestiges>();
         if (buff == "Red")
         {
-            prestige.SetPrestigeRed(false, (int)(power * GlobalValues.main.prestigePrismatic));
+             prestiges.SetPrestigeRed(false, (int)(power * GlobalValues.main.prestigePrismatic));
         }
         else if (buff == "Blue")
         {
-            prestige.SetPrestigeBlue(false, (int)(power * GlobalValues.main.prestigePrismatic));
+             prestiges.SetPrestigeBlue(false, (int)(power * GlobalValues.main.prestigePrismatic));
         }
         else if (buff == "Gold")
         {
-            prestige.SetPrestigeGold(false, (int)(power * GlobalValues.main.prestigePrismatic));
+             prestiges.SetPrestigeGold(false, (int)(power * GlobalValues.main.prestigePrismatic));
         }
         else if (buff == "Brown")
         {
-            prestige.SetPrestigeBrown(false, (int)(power * GlobalValues.main.prestigePrismatic));
+             prestiges.SetPrestigeBrown(false, (int)(power * GlobalValues.main.prestigePrismatic));
         }
         else if (buff == "Silver")
         {
-            prestige.SetPrestigeSilver(false, (int)(power * GlobalValues.main.prestigePrismatic));
+             prestiges.SetPrestigeSilver(false, (int)(power * GlobalValues.main.prestigePrismatic));
         }
     }
 

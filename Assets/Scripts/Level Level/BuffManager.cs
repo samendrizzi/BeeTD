@@ -121,128 +121,128 @@ public class BuffManager : MonoBehaviour
     public void RefreshBuffs()
     {
         //Environment
-        startingNectar = GlobalValues.main.startingNectar[(int)GlobalValues.main.difficulty] + TechTreeManager.main.startingNectar; //LevelManager
-        startingHoney = GlobalValues.main.startingHoney[(int)GlobalValues.main.difficulty] + TechTreeManager.main.startingHoney; //LevelManager
-        queenBeeHitPoints = GlobalValues.main.queenBeeHitPoints * TechTreeManager.main.queenBeeHitPoints; //LevelManager
-        queenBeeReturnDamage = GlobalValues.main.queenBeeReturnDamage + TechTreeManager.main.queenBeeReturnDamage + HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.QUEENTHORNS]; //Actions
-        queenBeeArmor = GlobalValues.main.queenBeeArmor + TechTreeManager.main.queenBeeArmor + HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.QUEENARMOR]; //LevelManager
-        honeyDropRate = GlobalValues.main.honeyDropRate[(int)GlobalValues.main.difficulty] + TechTreeManager.main.honeyDropRate + HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.HONEYDROPRATE]; //Attributes
+        startingNectar = GlobalValues.main.startingNectar[(int)GlobalValues.main.difficulty] * (TechTreeManager.main.startingNectar+ 1f); //LevelManager
+        startingHoney = GlobalValues.main.startingHoney[(int)GlobalValues.main.difficulty] * (TechTreeManager.main.startingHoney+ 1f); //LevelManager
+        queenBeeHitPoints = GlobalValues.main.queenBeeHitPoints * (TechTreeManager.main.queenBeeHitPoints+ 1f); //LevelManager
+        queenBeeReturnDamage = GlobalValues.main.queenBeeReturnDamage * (TechTreeManager.main.queenBeeReturnDamage + HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.QUEENTHORNS]+ 1f); //Actions
+        queenBeeArmor = GlobalValues.main.queenBeeArmor * (TechTreeManager.main.queenBeeArmor + HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.QUEENARMOR]+ 1f); //LevelManager
+        honeyDropRate = GlobalValues.main.honeyDropRate[(int)GlobalValues.main.difficulty] * (TechTreeManager.main.honeyDropRate + HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.HONEYDROPRATE]+ 1f); //Attributes
         if (honeyDropRate > 1f)
         {
             honeyDropRate = 1f;
         }
-        honeyinterest = GlobalValues.main.honeyinterest + TechTreeManager.main.honeyinterest + PollenManager.main.honeyInterest + HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.HONEYINTEREST]; //Not Implemented
-        pollenGatherRatio = GlobalValues.main.pollenGatherRatio * TechTreeManager.main.pollenGather * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.POLLENGATHERRATE]; //PollenManager
-        pollenBuff = GlobalValues.main.pollenBuff + TechTreeManager.main.pollenBuff + HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.POLLENBUFF]; //Not Implemented
-        nectarGenerationRate = GlobalValues.main.nectarGenerationRate * TechTreeManager.main.nectarGenerationRate * PollenManager.main.nectarGenerationRate * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.NECTARGENERATIONRATE]; //Plot
-        honeycombTicks = GlobalValues.main.honeycombTicks + TechTreeManager.main.honeycombTicks + (int)HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.HONEYCOMBTICKS]; //Plot
-        honeycombGeneration = GlobalValues.main.honeycombGeneration * TechTreeManager.main.honeycombGeneration * PollenManager.main.honeycombGeneration * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.HONEYCOMBGENERATIONRATE]; //Plot
-        honeycombFillTime = GlobalValues.main.honeycombFillTime * TechTreeManager.main.honeycombFillTime * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.HONEYCOMBFILLTIME]; //Actions
+        honeyinterest = GlobalValues.main.honeyinterest * (TechTreeManager.main.honeyinterest + PollenManager.main.honeyInterest + HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.HONEYINTEREST]+ 1f); //Not Implemented
+        pollenGatherRatio = GlobalValues.main.pollenGatherRatio * (TechTreeManager.main.pollenGather * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.POLLENGATHERRATE]+ 1f); //PollenManager
+        pollenBuff = GlobalValues.main.pollenBuff * (TechTreeManager.main.pollenBuff + HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.POLLENBUFF]+ 1f); //Not Implemented
+        nectarGenerationRate = GlobalValues.main.nectarGenerationRate * (TechTreeManager.main.nectarGenerationRate * PollenManager.main.nectarGenerationRate * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.NECTARGENERATIONRATE]+ 1f); //Plot
+        honeycombTicks = GlobalValues.main.honeycombTicks * (TechTreeManager.main.honeycombTicks + (int)HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.HONEYCOMBTICKS]+ 1); //Plot
+        honeycombGeneration = GlobalValues.main.honeycombGeneration * (TechTreeManager.main.honeycombGeneration * PollenManager.main.honeycombGeneration * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.HONEYCOMBGENERATIONRATE]+ 1f); //Plot
+        honeycombFillTime = GlobalValues.main.honeycombFillTime * (TechTreeManager.main.honeycombFillTime * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.HONEYCOMBFILLTIME]+ 1f); //Actions
         //Worker Bees + Towers
-        slowPower = GlobalValues.main.slowPower * TechTreeManager.main.slowPower * PollenManager.main.slowPower * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.SLOWPOWER]; //Attributes
-        slowPierce = GlobalValues.main.slowPierce * TechTreeManager.main.slowPierce * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.SLOWPIERCE]; //Attributes
-        freezePower = GlobalValues.main.freezePower * TechTreeManager.main.freezePower * PollenManager.main.freezePower * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.FREEZEPOWER]; //Attributes
-        freezePierce = GlobalValues.main.freezePierce * TechTreeManager.main.freezePierce * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.FREEZEPIERCE]; //Attributes
+        slowPower = GlobalValues.main.slowPower * (TechTreeManager.main.slowPower * PollenManager.main.slowPower * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.SLOWPOWER]+ 1f); //Attributes
+        slowPierce = GlobalValues.main.slowPierce * (TechTreeManager.main.slowPierce * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.SLOWPIERCE]+ 1f); //Attributes
+        freezePower = GlobalValues.main.freezePower * (TechTreeManager.main.freezePower * PollenManager.main.freezePower * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.FREEZEPOWER]+ 1f); //Attributes
+        freezePierce = GlobalValues.main.freezePierce * (TechTreeManager.main.freezePierce * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.FREEZEPIERCE]+ 1f); //Attributes
         //Worker Bees
-        startingBees = GlobalValues.main.startingBees[(int)GlobalValues.main.difficulty] + TechTreeManager.main.startingBees; //LevelManager
-        beeCost = GlobalValues.main.beeCost * TechTreeManager.main.beeCost; //LevelManager
-        beeCostScaling = GlobalValues.main.beeCostScaling * TechTreeManager.main.beeCostScaling; //LevelManager
-        beeHitPoints = GlobalValues.main.beeHitPoints * TechTreeManager.main.beeHitPoints; //Attributes
-        beeHeal = GlobalValues.main.beeHeal * TechTreeManager.main.beeHeal * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.BEEHEAL]; //Attributes
-        beeShield = GlobalValues.main.beeShield * TechTreeManager.main.beeShield * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.BEESHIELD]; //Attributes
-        beeShieldGeneration = GlobalValues.main.beeShieldGeneration * TechTreeManager.main.beeShieldGeneration * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.BEESHIELDGENERATION]; //Attributes
-        beeTargetingRange = GlobalValues.main.beeTargetingRange * TechTreeManager.main.beeTargetingRange * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.BEETARGETINGRANGE]; //Attributes
-        beeDamage = GlobalValues.main.beeDamage * TechTreeManager.main.beeDamage * PollenManager.main.damage * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.BEEDAMAGE]; //Attributes
-        beeAttackRate = GlobalValues.main.beeAttackRate * TechTreeManager.main.beeAttackRate * PollenManager.main.attackRate * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.BEEATTACKRATE]; //Attributes
-        beeActionPower = GlobalValues.main.beeActionPower * TechTreeManager.main.beeActionPower * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.BEEACTIONPOWER]; //Attributes
-        beeActionRate = GlobalValues.main.beeActionRate * TechTreeManager.main.beeActionRate * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.BEEACTIONRATE]; //Attributes
-        beeEffectPower = GlobalValues.main.beeEffectPower * TechTreeManager.main.beeEffectPower * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.BEEEFFECTPOWER]; //Attributes
-        beeEffectRate = GlobalValues.main.beeEffectRate * TechTreeManager.main.beeEffectRate * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.BEEEFFECTRATE]; //Attributes
-        beeCarryCapacity = GlobalValues.main.beeCarryCapacity * TechTreeManager.main.beeCarryCapacity * PollenManager.main.beeCarryCapacity * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.BEECARRYCAPACITY]; //Attributes
-        beeMoveSpeed = GlobalValues.main.beeMoveSpeed * TechTreeManager.main.beeMoveSpeed * PollenManager.main.beeMoveSpeed * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.BEEMOVESPEED]; //Attributes
-        beeArmor = GlobalValues.main.beeArmor + TechTreeManager.main.beeArmor + HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.BEEARMOR]; //Attributes
-        beeResistance = GlobalValues.main.beeResistance + TechTreeManager.main.beeResistance + HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.BEEREISTANCE]; //Attributes
-        beeDodge = GlobalValues.main.beeDodge + TechTreeManager.main.beeDodge + HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.BEEDODGE]; //Attributes
-        beeArmorPierce = GlobalValues.main.beeArmorPierce * TechTreeManager.main.beeArmorPierce * PollenManager.main.armorPierce * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.BEEARMORPIERCE]; //Attributes
-        beeResistancePierce = GlobalValues.main.beeResistancePierce * TechTreeManager.main.beeResistancePierce * PollenManager.main.resistancePierce * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.BEERESISTANCEPIERCE]; //Attributes
-        beeDodgePierce = GlobalValues.main.beeDodgePierce * TechTreeManager.main.beeDodgePierce * PollenManager.main.dodgePierce * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.BEEDODGEPIERCE]; //Attributes
-        beeStealthDetection = GlobalValues.main.beeStealthDetection + TechTreeManager.main.beeStealthDetection + PollenManager.main.stealthDetection + HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.BEESTEALTHDETECTION]; //Attributes
+        startingBees = GlobalValues.main.startingBees[(int)GlobalValues.main.difficulty] * (TechTreeManager.main.startingBees+ 1); //LevelManager
+        beeCost = GlobalValues.main.beeCost * (TechTreeManager.main.beeCost+ 1f); //LevelManager
+        beeCostScaling = GlobalValues.main.beeCostScaling * (TechTreeManager.main.beeCostScaling+ 1f); //LevelManager
+        beeHitPoints = GlobalValues.main.beeHitPoints * (TechTreeManager.main.beeHitPoints+ 1f); //Attributes
+        beeHeal = GlobalValues.main.beeHeal * (TechTreeManager.main.beeHeal * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.BEEHEAL]+ 1f); //Attributes
+        beeShield = GlobalValues.main.beeShield * (TechTreeManager.main.beeShield * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.BEESHIELD]+ 1f); //Attributes
+        beeShieldGeneration = GlobalValues.main.beeShieldGeneration * (TechTreeManager.main.beeShieldGeneration * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.BEESHIELDGENERATION]+ 1f); //Attributes
+        beeTargetingRange = GlobalValues.main.beeTargetingRange * (TechTreeManager.main.beeTargetingRange * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.BEETARGETINGRANGE]+ 1f); //Attributes
+        beeDamage = GlobalValues.main.beeDamage * (TechTreeManager.main.beeDamage * PollenManager.main.damage * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.BEEDAMAGE]+ 1f); //Attributes
+        beeAttackRate = GlobalValues.main.beeAttackRate * (TechTreeManager.main.beeAttackRate * PollenManager.main.attackRate * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.BEEATTACKRATE]+ 1f); //Attributes
+        beeActionPower = GlobalValues.main.beeActionPower * (TechTreeManager.main.beeActionPower * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.BEEACTIONPOWER]+ 1f); //Attributes
+        beeActionRate = GlobalValues.main.beeActionRate * (TechTreeManager.main.beeActionRate * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.BEEACTIONRATE]+ 1f); //Attributes
+        beeEffectPower = GlobalValues.main.beeEffectPower * (TechTreeManager.main.beeEffectPower * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.BEEEFFECTPOWER]+ 1f); //Attributes
+        beeEffectRate = GlobalValues.main.beeEffectRate * (TechTreeManager.main.beeEffectRate * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.BEEEFFECTRATE]+ 1f); //Attributes
+        beeCarryCapacity = GlobalValues.main.beeCarryCapacity * (TechTreeManager.main.beeCarryCapacity * PollenManager.main.beeCarryCapacity * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.BEECARRYCAPACITY]+ 1f); //Attributes
+        beeMoveSpeed = GlobalValues.main.beeMoveSpeed * (TechTreeManager.main.beeMoveSpeed * PollenManager.main.beeMoveSpeed * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.BEEMOVESPEED]+ 1f); //Attributes
+        beeArmor = GlobalValues.main.beeArmor * (TechTreeManager.main.beeArmor + HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.BEEARMOR]+ 1f); //Attributes
+        beeResistance = GlobalValues.main.beeResistance * (TechTreeManager.main.beeResistance + HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.BEEREISTANCE]+ 1f); //Attributes
+        beeDodge = GlobalValues.main.beeDodge * (TechTreeManager.main.beeDodge + HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.BEEDODGE]+ 1f); //Attributes
+        beeArmorPierce = GlobalValues.main.beeArmorPierce * (TechTreeManager.main.beeArmorPierce * PollenManager.main.armorPierce * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.BEEARMORPIERCE]+ 1f); //Attributes
+        beeResistancePierce = GlobalValues.main.beeResistancePierce * (TechTreeManager.main.beeResistancePierce * PollenManager.main.resistancePierce * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.BEERESISTANCEPIERCE]+ 1f); //Attributes
+        beeDodgePierce = GlobalValues.main.beeDodgePierce * (TechTreeManager.main.beeDodgePierce * PollenManager.main.dodgePierce * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.BEEDODGEPIERCE]+ 1f); //Attributes
+        beeStealthDetection = GlobalValues.main.beeStealthDetection * (TechTreeManager.main.beeStealthDetection + PollenManager.main.stealthDetection + HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.BEESTEALTHDETECTION]+ 1f); //Attributes
         if (beeStealthDetection > 1f)
         {
             beeStealthDetection = 1f;
         }
         //Towers
-        towerSell = GlobalValues.main.towerSell + TechTreeManager.main.towerSell; //StructureUIHandler
+        towerSell = GlobalValues.main.towerSell * (TechTreeManager.main.towerSell+ 1f); //StructureUIHandler
         if (towerSell > 1f)
         {
             towerSell = 1f;
         }
-        towerHitPoints = GlobalValues.main.towerHitPoints * TechTreeManager.main.towerHitPoints; //Attributes
-        towerHeal = GlobalValues.main.towerHeal * TechTreeManager.main.towerHeal * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.TOWERHEAL]; //Attributes
-        towerShield = GlobalValues.main.towerShield * TechTreeManager.main.towerShield * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.TOWERSHIELD]; //Attributes
-        towerShieldGeneration = GlobalValues.main.towerShieldGeneration * TechTreeManager.main.towerShieldGeneration * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.TOWERSHIELDGENERATION]; //Attributes
-        towerTargetingRange = GlobalValues.main.towerTargetingRange * TechTreeManager.main.towerTargetingRange * PollenManager.main.towerTargetingRange * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.TOWERTARGETINGRANGE]; //Attributes
-        towerDamage = GlobalValues.main.towerDamage * TechTreeManager.main.towerDamage * PollenManager.main.damage * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.TOWERDAMAGE]; //Attributes
-        towerAttackRate = GlobalValues.main.towerAttackRate * TechTreeManager.main.towerAttackRate * PollenManager.main.attackRate * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.TOWERATTACKRATE]; //Attributes
-        towerActionPower = GlobalValues.main.towerActionPower * TechTreeManager.main.towerActionPower * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.TOWERACTIONPOWER]; //Attributes
-        towerActionRate = GlobalValues.main.towerActionRate * TechTreeManager.main.towerActionRate * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.TOWERACTIONRATE]; //Attributes
-        towerBuffPower = GlobalValues.main.towerBuffPower * TechTreeManager.main.towerBuffPower * PollenManager.main.buffPower * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.TOWERBUFFPOWER]; //Effects
-        towerEffectPower = GlobalValues.main.towerEffectPower * TechTreeManager.main.towerEffectPower * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.TOWEREFFECTPOWER]; //Attributes
-        towerEffectRate = GlobalValues.main.towerEffectRate * TechTreeManager.main.towerEffectRate * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.TOWEREFFECTRATE]; //Attributes
-        towerCarryCapacity = GlobalValues.main.towerCarryCapacity * TechTreeManager.main.towerCarryCapacity * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.TOWERCARRYCAPACITY]; //Attributes
-        towerMoveSpeed = GlobalValues.main.towerMoveSpeed * TechTreeManager.main.towerMoveSpeed * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.TOWERMOVESPEED]; //Attributes
-        towerArmor = GlobalValues.main.towerArmor + TechTreeManager.main.towerArmor + HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.TOWERARMOR]; //Attributes
-        towerResistance = GlobalValues.main.towerResistance + TechTreeManager.main.towerResistance + HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.TOWERREISTANCE]; //Attributes
-        towerDodge = GlobalValues.main.towerDodge + TechTreeManager.main.towerDodge + HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.TOWERDODGE]; //Attributes
-        towerArmorPierce = GlobalValues.main.towerArmorPierce * TechTreeManager.main.towerArmorPierce * PollenManager.main.armorPierce * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.TOWERARMORPIERCE]; //Attributes
-        towerResistancePierce = GlobalValues.main.towerResistancePierce * TechTreeManager.main.towerResistancePierce * PollenManager.main.resistancePierce * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.TOWERRESISTANCEPIERCE]; //Attributes
-        towerDodgePierce = GlobalValues.main.towerDodgePierce * TechTreeManager.main.towerDodgePierce * PollenManager.main.dodgePierce * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.TOWERDODGEPIERCE]; //Attributes
-        towerStealthDetection = GlobalValues.main.towerStealthDetection + TechTreeManager.main.towerStealthDetection * PollenManager.main.stealthDetection + HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.TOWERSTEALTHDETECTION]; //Attributes
+        towerHitPoints = GlobalValues.main.towerHitPoints * (TechTreeManager.main.towerHitPoints+ 1f); //Attributes
+        towerHeal = GlobalValues.main.towerHeal * (TechTreeManager.main.towerHeal * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.TOWERHEAL]+ 1f); //Attributes
+        towerShield = GlobalValues.main.towerShield * (TechTreeManager.main.towerShield * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.TOWERSHIELD]+ 1f); //Attributes
+        towerShieldGeneration = GlobalValues.main.towerShieldGeneration * (TechTreeManager.main.towerShieldGeneration * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.TOWERSHIELDGENERATION]+ 1f); //Attributes
+        towerTargetingRange = GlobalValues.main.towerTargetingRange * (TechTreeManager.main.towerTargetingRange * PollenManager.main.towerTargetingRange * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.TOWERTARGETINGRANGE]+ 1f); //Attributes
+        towerDamage = GlobalValues.main.towerDamage * (TechTreeManager.main.towerDamage * PollenManager.main.damage * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.TOWERDAMAGE]+ 1f); //Attributes
+        towerAttackRate = GlobalValues.main.towerAttackRate * (TechTreeManager.main.towerAttackRate * PollenManager.main.attackRate * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.TOWERATTACKRATE]+ 1f); //Attributes
+        towerActionPower = GlobalValues.main.towerActionPower * (TechTreeManager.main.towerActionPower * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.TOWERACTIONPOWER]+ 1f); //Attributes
+        towerActionRate = GlobalValues.main.towerActionRate * (TechTreeManager.main.towerActionRate * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.TOWERACTIONRATE]+ 1f); //Attributes
+        towerBuffPower = GlobalValues.main.towerBuffPower * (TechTreeManager.main.towerBuffPower * PollenManager.main.buffPower * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.TOWERBUFFPOWER]+ 1f); //Effects
+        towerEffectPower = GlobalValues.main.towerEffectPower * (TechTreeManager.main.towerEffectPower * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.TOWEREFFECTPOWER]+ 1f); //Attributes
+        towerEffectRate = GlobalValues.main.towerEffectRate * (TechTreeManager.main.towerEffectRate * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.TOWEREFFECTRATE]+ 1f); //Attributes
+        towerCarryCapacity = GlobalValues.main.towerCarryCapacity * (TechTreeManager.main.towerCarryCapacity * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.TOWERCARRYCAPACITY]+ 1f); //Attributes
+        towerMoveSpeed = GlobalValues.main.towerMoveSpeed * (TechTreeManager.main.towerMoveSpeed * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.TOWERMOVESPEED]+ 1f); //Attributes
+        towerArmor = GlobalValues.main.towerArmor * (TechTreeManager.main.towerArmor + HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.TOWERARMOR]+ 1f); //Attributes
+        towerResistance = GlobalValues.main.towerResistance * (TechTreeManager.main.towerResistance + HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.TOWERREISTANCE]+ 1f); //Attributes
+        towerDodge = GlobalValues.main.towerDodge * (TechTreeManager.main.towerDodge + HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.TOWERDODGE]+ 1f); //Attributes
+        towerArmorPierce = GlobalValues.main.towerArmorPierce * (TechTreeManager.main.towerArmorPierce * PollenManager.main.armorPierce * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.TOWERARMORPIERCE]+ 1f); //Attributes
+        towerResistancePierce = GlobalValues.main.towerResistancePierce * (TechTreeManager.main.towerResistancePierce * PollenManager.main.resistancePierce * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.TOWERRESISTANCEPIERCE]+ 1f); //Attributes
+        towerDodgePierce = GlobalValues.main.towerDodgePierce * (TechTreeManager.main.towerDodgePierce * PollenManager.main.dodgePierce * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.TOWERDODGEPIERCE]+ 1f); //Attributes
+        towerStealthDetection = GlobalValues.main.towerStealthDetection * (TechTreeManager.main.towerStealthDetection * PollenManager.main.stealthDetection + HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.TOWERSTEALTHDETECTION]+ 1f); //Attributes
         if (towerStealthDetection > 1f)
         {
             towerStealthDetection = 1f;
         }
-        towerAoEArea = GlobalValues.main.towerAoEArea * TechTreeManager.main.towerAoEArea * PollenManager.main.towerAoEArea * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.TOWERAOEAREA]; //Projectile
-        towerAoEDamageDropOff = GlobalValues.main.towerAoEDamageDropOff * TechTreeManager.main.towerAoEDamageDropOff * PollenManager.main.towerAoEDamageDropOff * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.TOWERAOEDAMAGEDROPOFF]; //Projectile
+        towerAoEArea = GlobalValues.main.towerAoEArea * (TechTreeManager.main.towerAoEArea * PollenManager.main.towerAoEArea * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.TOWERAOEAREA]+ 1f); //Projectile
+        towerAoEDamageDropOff = GlobalValues.main.towerAoEDamageDropOff * (TechTreeManager.main.towerAoEDamageDropOff * PollenManager.main.towerAoEDamageDropOff * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.TOWERAOEDAMAGEDROPOFF]+ 1f); //Projectile
         if (towerAoEDamageDropOff > 1f)
         {
             towerAoEDamageDropOff = 1f;
         }
-        towerRampingDamage = GlobalValues.main.towerRampingDamage * TechTreeManager.main.towerRampingDamage * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.TOWERRAMPINGDAMAGE]; //Actions
-        towerExtraRampCount = (int)(GlobalValues.main.towerExtraRampCount + TechTreeManager.main.towerExtraRampCount * PollenManager.main.towerExtraRampCount + (int)HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.TOWEREXTRARAMPCOUNT]); //Actions
-        towerExtraRicochetCount = (int)(GlobalValues.main.towerExtraRicochetCount + TechTreeManager.main.towerExtraRicochetCount * PollenManager.main.towerExtraRicochetCount + (int)HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.TOWEREXTRARICOCHETCOUNT]); //Projectile
+        towerRampingDamage = GlobalValues.main.towerRampingDamage * (TechTreeManager.main.towerRampingDamage * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.TOWERRAMPINGDAMAGE]+ 1f); //Actions
+        towerExtraRampCount = (int)(GlobalValues.main.towerExtraRampCount * (TechTreeManager.main.towerExtraRampCount * PollenManager.main.towerExtraRampCount + (int)HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.TOWEREXTRARAMPCOUNT])+ 1f); //Actions
+        towerExtraRicochetCount = (int)(GlobalValues.main.towerExtraRicochetCount * (TechTreeManager.main.towerExtraRicochetCount * PollenManager.main.towerExtraRicochetCount + (int)HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.TOWEREXTRARICOCHETCOUNT])+ 1f); //Projectile
         //Enemies
-        enemyHitPoints = GlobalValues.main.enemyHitPoints[(int)GlobalValues.main.difficulty] * TechTreeManager.main.enemyHitPoints; //Attributes
-        enemyHeal = GlobalValues.main.enemyHeal * TechTreeManager.main.enemyHeal * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.ENEMYHEAL]; //Attributes
-        enemyShield = GlobalValues.main.enemyShield * TechTreeManager.main.enemyShield * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.ENEMYSHIELD]; //Attributes
-        enemyShieldGeneration = GlobalValues.main.enemyShieldGeneration * TechTreeManager.main.enemyShieldGeneration * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.ENEMYSHIELDGENERATION]; //Attributes
-        enemyTargetingRange = GlobalValues.main.enemyTargetingRange * TechTreeManager.main.enemyTargetingRange * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.ENEMYTARGETINGRANGE]; //Attributes
-        enemyDamage = GlobalValues.main.enemyDamage * TechTreeManager.main.enemyDamage * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.ENEMYDAMAGE]; //Attributes
-        enemyAttackRate = GlobalValues.main.enemyAttackRate * TechTreeManager.main.enemyAttackRate * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.ENEMYATTACKRATE]; //Attributes
-        enemyActionPower = GlobalValues.main.enemyActionPower * TechTreeManager.main.enemyActionPower * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.ENEMYACTIONPOWER]; //Attributes
-        enemyActionRate = GlobalValues.main.enemyActionRate * TechTreeManager.main.enemyActionRate * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.ENEMYACTIONRATE]; //Attributes
-        enemySlowPower = GlobalValues.main.enemySlowPower * TechTreeManager.main.enemySlowPower; //Attributes
-        enemySlowPierce = GlobalValues.main.enemySlowPierce * TechTreeManager.main.enemySlowPierce; //Attributes
-        enemyFreezePower = GlobalValues.main.enemyFreezePower * TechTreeManager.main.enemyFreezePower; //Attributes
-        enemyFreezePierce = GlobalValues.main.enemyFreezePierce * TechTreeManager.main.enemyFreezePierce; //Attributes
-        enemyEffectPower = GlobalValues.main.enemyEffectPower * TechTreeManager.main.enemyEffectPower * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.ENEMYEFFECTPOWER]; //Attributes
-        enemyEffectRate = GlobalValues.main.enemyEffectRate * TechTreeManager.main.enemyEffectRate * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.ENEMYEFFECTRATE]; //Attributes
-        enemyCarryCapacity = GlobalValues.main.enemyCarryCapacity * TechTreeManager.main.enemyCarryCapacity * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.ENEMYCARRYCAPACITY]; //Attributes
-        enemyMoveSpeed = GlobalValues.main.enemyMoveSpeed[(int)GlobalValues.main.difficulty] * TechTreeManager.main.enemyMoveSpeed * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.ENEMYMOVESPEED]; //Attributes
-        enemyArmor = GlobalValues.main.enemyArmor + TechTreeManager.main.enemyArmor + HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.ENEMYARMOR]; //Attributes
-        enemyResistance = GlobalValues.main.enemyResistance + TechTreeManager.main.enemyResistance + HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.ENEMYREISTANCE]; //Attributes
-        enemyDodge = GlobalValues.main.enemyDodge + TechTreeManager.main.enemyDodge + HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.ENEMYDODGE]; //Attributes
-        enemyArmorPierce = GlobalValues.main.enemyArmorPierce * TechTreeManager.main.enemyArmorPierce * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.ENEMYARMORPIERCE]; //Attributes
-        enemyResistancePierce = GlobalValues.main.enemyResistancePierce * TechTreeManager.main.enemyResistancePierce * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.ENEMYRESISTANCEPIERCE]; //Attributes
-        enemyDodgePierce = GlobalValues.main.enemyDodgePierce * TechTreeManager.main.enemyDodgePierce * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.ENEMYDODGEPIERCE]; //Attributes
-        enemyStealthDetection = GlobalValues.main.enemyStealthDetection + TechTreeManager.main.enemyStealthDetection + HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.ENEMYSTEALTHDETECTION]; //Attributes
+        enemyHitPoints = GlobalValues.main.enemyHitPoints[(int)GlobalValues.main.difficulty] * (TechTreeManager.main.enemyHitPoints+ 1f); //Attributes
+        enemyHeal = GlobalValues.main.enemyHeal * (TechTreeManager.main.enemyHeal * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.ENEMYHEAL]+ 1f); //Attributes
+        enemyShield = GlobalValues.main.enemyShield * (TechTreeManager.main.enemyShield * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.ENEMYSHIELD]+ 1f); //Attributes
+        enemyShieldGeneration = GlobalValues.main.enemyShieldGeneration * (TechTreeManager.main.enemyShieldGeneration * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.ENEMYSHIELDGENERATION]+ 1f); //Attributes
+        enemyTargetingRange = GlobalValues.main.enemyTargetingRange * (TechTreeManager.main.enemyTargetingRange * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.ENEMYTARGETINGRANGE]+ 1f); //Attributes
+        enemyDamage = GlobalValues.main.enemyDamage * (TechTreeManager.main.enemyDamage * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.ENEMYDAMAGE]+ 1f); //Attributes
+        enemyAttackRate = GlobalValues.main.enemyAttackRate * (TechTreeManager.main.enemyAttackRate * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.ENEMYATTACKRATE]+ 1f); //Attributes
+        enemyActionPower = GlobalValues.main.enemyActionPower * (TechTreeManager.main.enemyActionPower * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.ENEMYACTIONPOWER]+ 1f); //Attributes
+        enemyActionRate = GlobalValues.main.enemyActionRate * (TechTreeManager.main.enemyActionRate * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.ENEMYACTIONRATE]+ 1f); //Attributes
+        enemySlowPower = GlobalValues.main.enemySlowPower * (TechTreeManager.main.enemySlowPower+ 1f); //Attributes
+        enemySlowPierce = GlobalValues.main.enemySlowPierce * (TechTreeManager.main.enemySlowPierce+ 1f); //Attributes
+        enemyFreezePower = GlobalValues.main.enemyFreezePower * (TechTreeManager.main.enemyFreezePower+ 1f); //Attributes
+        enemyFreezePierce = GlobalValues.main.enemyFreezePierce * (TechTreeManager.main.enemyFreezePierce+ 1f); //Attributes
+        enemyEffectPower = GlobalValues.main.enemyEffectPower * (TechTreeManager.main.enemyEffectPower * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.ENEMYEFFECTPOWER]+ 1f); //Attributes
+        enemyEffectRate = GlobalValues.main.enemyEffectRate * (TechTreeManager.main.enemyEffectRate * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.ENEMYEFFECTRATE]+ 1f); //Attributes
+        enemyCarryCapacity = GlobalValues.main.enemyCarryCapacity * (TechTreeManager.main.enemyCarryCapacity * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.ENEMYCARRYCAPACITY]+ 1f); //Attributes
+        enemyMoveSpeed = GlobalValues.main.enemyMoveSpeed[(int)GlobalValues.main.difficulty] * (TechTreeManager.main.enemyMoveSpeed * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.ENEMYMOVESPEED]+ 1f); //Attributes
+        enemyArmor = GlobalValues.main.enemyArmor * (TechTreeManager.main.enemyArmor + HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.ENEMYARMOR]+ 1f); //Attributes
+        enemyResistance = GlobalValues.main.enemyResistance * (TechTreeManager.main.enemyResistance + HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.ENEMYREISTANCE]+ 1f); //Attributes
+        enemyDodge = GlobalValues.main.enemyDodge * (TechTreeManager.main.enemyDodge + HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.ENEMYDODGE]+ 1f); //Attributes
+        enemyArmorPierce = GlobalValues.main.enemyArmorPierce * (TechTreeManager.main.enemyArmorPierce * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.ENEMYARMORPIERCE]+ 1f); //Attributes
+        enemyResistancePierce = GlobalValues.main.enemyResistancePierce * (TechTreeManager.main.enemyResistancePierce * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.ENEMYRESISTANCEPIERCE]+ 1f); //Attributes
+        enemyDodgePierce = GlobalValues.main.enemyDodgePierce * (TechTreeManager.main.enemyDodgePierce * HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.ENEMYDODGEPIERCE]+ 1f); //Attributes
+        enemyStealthDetection = GlobalValues.main.enemyStealthDetection * (TechTreeManager.main.enemyStealthDetection + HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.ENEMYSTEALTHDETECTION]+ 1f); //Attributes
         if (enemyStealthDetection > 1f)
         {
             enemyStealthDetection = 1f;
         }
-        enemyHatchTime = GlobalValues.main.enemyHatchTime + TechTreeManager.main.enemyHatchTime + HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.ENEMYHATCHTIME]; //Effects
-        enemySpawnTime = GlobalValues.main.enemySpawnTime + TechTreeManager.main.enemySpawnTime + HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.ENEMYSPAWNTIME]; //Effects
-        enemyStealthTime = GlobalValues.main.enemyStealthTime + TechTreeManager.main.enemyStealthTime + HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.ENEMYSTEALTHTIME]; //Effects
+        enemyHatchTime = GlobalValues.main.enemyHatchTime * (TechTreeManager.main.enemyHatchTime + HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.ENEMYHATCHTIME]+ 1f); //Effects
+        enemySpawnTime = GlobalValues.main.enemySpawnTime * (TechTreeManager.main.enemySpawnTime + HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.ENEMYSPAWNTIME]+ 1f); //Effects
+        enemyStealthTime = GlobalValues.main.enemyStealthTime * (TechTreeManager.main.enemyStealthTime + HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.ENEMYSTEALTHTIME]+ 1f); //Effects
         Attributes[] allAttributes = FindObjectsByType<Attributes>(FindObjectsSortMode.None);
         foreach (Attributes attributes in allAttributes)
         {

@@ -1751,14 +1751,16 @@ MonoBehaviour:
   victorySound: 5
   defeatSound: 6
   waveStartSound: 8
-  honey: 0
+  hiveEntrance: {fileID: 1187208122}
+  honeyRequired: 1000
+  difficultyScaling: 0.05
+  startingVision: 4.8
+  percentageOfFlowersUsed: 1
   bonusNectar: 0
   bonusHoney: 0
-  honeyRequired: 1000
-  percentageOfFlowersUsed: 1
-  difficultyScaling: 0.05
-  hiveEntrance: {fileID: 1187208122}
-  startingVision: 4.8
+  honeyBuffs: 
+  honeyBuffAmount: []
+  honeyBuffThresholds: []
   numberOfPaths: 1
   path1:
   - {fileID: 1729914140}
@@ -1829,6 +1831,57 @@ MonoBehaviour:
   flyingPath9: []
   path10: []
   flyingPath10: []
+  numberOfWaves: 15
+  wave1: []
+  wave2: []
+  wave3: []
+  wave4: []
+  wave5: []
+  wave6: []
+  wave7: []
+  wave8: []
+  wave9: []
+  wave10: []
+  wave11: []
+  wave12: []
+  wave13: []
+  wave14: []
+  wave15: []
+  wave16: []
+  wave17: []
+  wave18: []
+  wave19: []
+  wave20: []
+  wave21: []
+  wave22: []
+  wave23: []
+  wave24: []
+  wave25: []
+  wave26: []
+  wave27: []
+  wave28: []
+  wave29: []
+  wave30: []
+  wave31: []
+  wave32: []
+  wave33: []
+  wave34: []
+  wave35: []
+  wave36: []
+  wave37: []
+  wave38: []
+  wave39: []
+  wave40: []
+  wave41: []
+  wave42: []
+  wave43: []
+  wave44: []
+  wave45: []
+  wave46: []
+  wave47: []
+  wave48: []
+  wave49: []
+  wave50: []
   pathsStart: []
   pathsNextPoint: []
   queenHP: 0
@@ -1855,6 +1908,7 @@ MonoBehaviour:
   emptyHoneyCombs: []
   queuedTargets: []
   workerBeeCost: 0
+  honey: 0
   nectar: 0
   autoAssignBees: Nectar
   honeyCombTicks: 0
@@ -1876,6 +1930,7 @@ Transform:
   - {fileID: 721780950}
   - {fileID: 1676794942}
   - {fileID: 2041403255}
+  - {fileID: 656575701}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &69508896
@@ -17637,6 +17692,135 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7945665055211121443, guid: 79f1de25f0ba24e43999a8c51fdfad1f, type: 3}
   m_PrefabInstance: {fileID: 654377686}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &656575700
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 656575701}
+  - component: {fileID: 656575702}
+  m_Layer: 0
+  m_Name: HoneyBuffManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &656575701
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 656575700}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 68999845}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &656575702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 656575700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 908c6c620f85190488672f97341ba778, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HoneyBuffManager
+  honeyBuffs:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  honeyThresholds: []
+  level: 0
 --- !u!1001 &658158732
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40966,57 +41150,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7979e7980427d214ebb2291ddc061a1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WaveSpawner
-  numberOfWaves: 15
-  wave1: []
-  wave2: []
-  wave3: []
-  wave4: []
-  wave5: []
-  wave6: []
-  wave7: []
-  wave8: []
-  wave9: []
-  wave10: []
-  wave11: []
-  wave12: []
-  wave13: []
-  wave14: []
-  wave15: []
-  wave16: []
-  wave17: []
-  wave18: []
-  wave19: []
-  wave20: []
-  wave21: []
-  wave22: []
-  wave23: []
-  wave24: []
-  wave25: []
-  wave26: []
-  wave27: []
-  wave28: []
-  wave29: []
-  wave30: []
-  wave31: []
-  wave32: []
-  wave33: []
-  wave34: []
-  wave35: []
-  wave36: []
-  wave37: []
-  wave38: []
-  wave39: []
-  wave40: []
-  wave41: []
-  wave42: []
-  wave43: []
-  wave44: []
-  wave45: []
-  wave46: []
-  wave47: []
-  wave48: []
-  wave49: []
-  wave50: []
   currentWave: 0
   enemiesAlive: 0
   waveCountdown: 10
@@ -49907,6 +50040,7 @@ MonoBehaviour:
   towerRampingDamage: 1
   towerExtraRampCount: 0
   towerExtraRicochetCount: 0
+  enemyWaveScaling: 1
   enemyHitPoints: 1
   enemyHeal: 1
   enemyShield: 1
@@ -49931,7 +50065,6 @@ MonoBehaviour:
   enemyResistancePierce: 1
   enemyDodgePierce: 1
   enemyStealthDetection: 0
-  enemyWaveScaling: 1
   enemyHatchTime: 1
   enemySpawnTime: 1
   enemyStealthTime: 1
