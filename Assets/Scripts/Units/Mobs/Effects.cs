@@ -89,7 +89,7 @@ public class Effects : MonoBehaviour
             if (effect == "Spawn")
             {
                 float effectPower = attributes.effectPowerModifiers[i] * attributes.effectPower;
-                float effectDuration = attributes.effectDurations[i] * GlobalValues.main.enemySpawnTime;
+                float effectDuration = attributes.effectDurations[i] * BuffManager.main.enemySpawnTime;
                 GameObject prefab = attributes.effectPrefabs[i];
                 Spawn(prefab, effectPower, effectDuration);
             }
@@ -120,7 +120,7 @@ public class Effects : MonoBehaviour
             else if (effect == "Stealth")
             {
                 float effectPower = attributes.effectPowerModifiers[i] * attributes.effectPower;
-                float effectDuration = attributes.effectDurations[i] * GlobalValues.main.stealthModifier;
+                float effectDuration = attributes.effectDurations[i] * BuffManager.main.enemyStealthTime;
                 Stealth(effectPower, effectDuration);
             }
             else if (effect == "Prismatic Buff")
@@ -290,7 +290,7 @@ public class Effects : MonoBehaviour
         }
         else if (spawnAtt.effects[0] == "Hatch")
         {
-            spawnAtt.timeUntilEffects[0] = duration * GlobalValues.main.enemyHatchTime;
+            spawnAtt.timeUntilEffects[0] = duration * BuffManager.main.enemyHatchTime;
             spawnAtt.effectPowerModifiers[0] = power;
         }
         else if (spawnAtt.effects[0] == "Smoke Screen")
@@ -299,7 +299,6 @@ public class Effects : MonoBehaviour
             spawnAtt.timeUntilEffects[0] = duration;
             spawnAtt.effectPowerModifiers[0] = power;
         }
-        //spawn.SetActive(true);
     }
 
     public void Hatch(GameObject prefab, float power)

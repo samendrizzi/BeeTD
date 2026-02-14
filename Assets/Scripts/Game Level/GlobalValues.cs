@@ -9,18 +9,17 @@ using System;
 using static UnityEngine.GraphicsBuffer;
 using UnityEngine.SceneManagement;
 
+public enum Difficulty 
+{ 
+    EASY,
+    MEDIUM,
+    HARD
+}
+
 public class GlobalValues : MonoBehaviour
 {
 
     public static GlobalValues main;
-
-    public enum Difficulty 
-    { 
-        EASY,
-        MEDIUM,
-        HARD
-    }
-
 
     [Header("_______________________")]
     [Header("Global")]
@@ -237,6 +236,11 @@ public class GlobalValues : MonoBehaviour
     [SerializeField] public float maxCamSize = 10f;
     [SerializeField] public float moveStep = 1f;
     [SerializeField] public float keystrokesPerSecond = 20f;
+
+    [Header("_______________________")]
+    [Header("Honey Buffs")]
+    [SerializeField] public string[] honeyBuffText = new string[] {"No Buff","Queen Bee Thorns","Queen's Armor","Honey Returned on Drop","Honey Interest Rate","Pollen Gather Rate","Pollen Buff","Nectar Generation Rate","Honeycomb Generation Time","Honey Generation Rate","Honeycomb Fill Time","Slow Effect Power","Slow Effect Pierce","Freeze Effect Power","Freeze Effect Pierce","Bee Heal Power","Bee Shield Power","Bee Shield Generation","Bee Targeting Range","Bee Attack Damage","Bee Attack Rate","Bee Action Power","Bee Action Rate","Bee Effect Power","Bee Effect Rate","Bee Carry Capacity","Bee Movement Speed","Bee Armor","Bee Resistance","Bee Dodge","Bee Armor Pierce","Bee Resistance Pierce","Bee Dodge Pierce","Bee Stealth Detection","Tower Heal Power","Tower Shield Power","Tower Shield Generation","Tower Targeting Range","Tower Attack Damage","Tower Attack Rate","Tower Action Power","Tower Action Rate","Tower Buff Power","Tower Effect Power","Tower Effect Rate","Tower Carry Capacity","Tower Movement Speed","Tower Armor","Tower Resistance","Tower Dodge","Tower Armor Pierce","Tower Resistance Pierce","Tower Dodge Pierce","Tower Stealth Detection","Tower Area of Effect Size","Tower Area of Effect Damage Drop Off","Tower Ramping Damage Power","Tower Ramping Damage Count","Tower Ricochet Count","Enemy Heal Power","Enemy Shield Power","Enemy Shield Generation","Enemy Targeting Range","Enemy Attack Damage","Enemy Attack Rate","Enemy Action Power","Enemy Action Rate","Enemy Effect Power","Enemy Effect Rate","Enemy Carry Capacity","Enemy Movement Speed","Enemy Armor","Enemy Resistance","Enemy Dodge","Enemy Armor Pierce","Enemy Resistance Pierce","Enemy Dodge Pierce","Enemy Stealth Detection","Enemy Hatch Time","Enemy Spawn Effect Time","Enemy Stealth Time"};
+    [SerializeField] public string[] honeyBuffUnit = new string[] {"","%","","%","%","%","%","%","s","%","%","%","%","%","%","%","%","%","%","%","%","%","%","%","%","%","%","","","","%","%","%","%","%","%","%","%","%","%","%","%","%","%","%","%","%","","","","%","%","%","%","%","%","%","","","%","%","%","%","%","%","%","%","%","%","%","%","","","","%","%","%","%","%","%","%"};
 
     [Header("_______________________")]
     [Header("Flowers")]

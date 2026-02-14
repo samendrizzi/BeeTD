@@ -77,6 +77,7 @@ public class TechTreeManager : MonoBehaviour
     public int towerExtraRampCount = 0;
     public int towerExtraRicochetCount = 0;
     //Enemies
+    public float enemyWaveScaling = 1f;
     public float enemyHitPoints = 1f;
     public float enemyHeal = 1f;
     public float enemyShield = 1f;
@@ -101,7 +102,6 @@ public class TechTreeManager : MonoBehaviour
     public float enemyResistancePierce = 1f;
     public float enemyDodgePierce = 1f;
     public float enemyStealthDetection = 0f;
-    public float enemyWaveScaling = 1f;
     public float enemyHatchTime = 1f;
     public float enemySpawnTime = 1f;
     public float enemyStealthTime = 1f;

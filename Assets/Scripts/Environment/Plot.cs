@@ -74,7 +74,7 @@ public class Plot : MonoBehaviour
         if (honeyTicks > 0 && pause <= 0)
         {
             pause = 1f;
-            LevelManager.main.honey += honeyPerTick;
+            LevelManager.main.IncreaseHoney(honeyPerTick);
             honeyTicks--;
             if (honeyTicks <= 0)
             {
@@ -297,7 +297,7 @@ public class Plot : MonoBehaviour
     {
         if (honeyTicks > 0)
         {
-            LevelManager.main.honey += honeyPerTick * honeyTicks;
+            LevelManager.main.IncreaseHoney(honeyPerTick * honeyTicks);
         }
         HoneyEmpty();
     }

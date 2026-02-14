@@ -14,16 +14,22 @@ public class LevelManager : MonoBehaviour
     [SerializeField] public SoundType victorySound;
     [SerializeField] public SoundType defeatSound;
     [SerializeField] public SoundType waveStartSound;
+    [SerializeField] public GameObject hiveEntrance;
 
-    [Header("Attributes")]
-    [SerializeField] public float honey = 0f;
+    [Header("Level Attributes")]
+    [SerializeField] public float honeyRequired = 100f;
+    [SerializeField] public float difficultyScaling = 0.05f;
+    [SerializeField] public float startingVision = 5f;
+    [SerializeField] public float percentageOfFlowersUsed = 1f;
     [SerializeField] public float bonusNectar = 0f;
     [SerializeField] public float bonusHoney = 0f;
-    [SerializeField] public float honeyRequired = 100f;
-    [SerializeField] public float percentageOfFlowersUsed = 1f;
-    [SerializeField] public float difficultyScaling = 0.05f;
-    [SerializeField] public GameObject hiveEntrance;
-    [SerializeField] public float startingVision = 5f;
+
+    [Header("Honey Buffs")]
+    [SerializeField] public HoneyBuff[] honeyBuffs;
+    [SerializeField] public float[] honeyBuffAmount;
+    [SerializeField] public float[] honeyBuffThresholds;
+
+    [Header("Enemy Paths")]
     [SerializeField] public int numberOfPaths = 0;
     [SerializeField] private Transform[] path1;
     [SerializeField] private Transform[] flyingPath1;
@@ -45,6 +51,59 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private Transform[] flyingPath9;
     [SerializeField] private Transform[] path10;
     [SerializeField] private Transform[] flyingPath10;
+
+    [Header("Enemy Waves")]
+    [SerializeField] public int numberOfWaves = 15;
+    [SerializeField] public MobStruct[] wave1;
+    [SerializeField] public MobStruct[] wave2;
+    [SerializeField] public MobStruct[] wave3;
+    [SerializeField] public MobStruct[] wave4;
+    [SerializeField] public MobStruct[] wave5;
+    [SerializeField] public MobStruct[] wave6;
+    [SerializeField] public MobStruct[] wave7;
+    [SerializeField] public MobStruct[] wave8;
+    [SerializeField] public MobStruct[] wave9;
+    [SerializeField] public MobStruct[] wave10;
+    [SerializeField] public MobStruct[] wave11;
+    [SerializeField] public MobStruct[] wave12;
+    [SerializeField] public MobStruct[] wave13;
+    [SerializeField] public MobStruct[] wave14;
+    [SerializeField] public MobStruct[] wave15;
+    [SerializeField] public MobStruct[] wave16;
+    [SerializeField] public MobStruct[] wave17;
+    [SerializeField] public MobStruct[] wave18;
+    [SerializeField] public MobStruct[] wave19;
+    [SerializeField] public MobStruct[] wave20;
+    [SerializeField] public MobStruct[] wave21;
+    [SerializeField] public MobStruct[] wave22;
+    [SerializeField] public MobStruct[] wave23;
+    [SerializeField] public MobStruct[] wave24;
+    [SerializeField] public MobStruct[] wave25;
+    [SerializeField] public MobStruct[] wave26;
+    [SerializeField] public MobStruct[] wave27;
+    [SerializeField] public MobStruct[] wave28;
+    [SerializeField] public MobStruct[] wave29;
+    [SerializeField] public MobStruct[] wave30;
+    [SerializeField] public MobStruct[] wave31;
+    [SerializeField] public MobStruct[] wave32;
+    [SerializeField] public MobStruct[] wave33;
+    [SerializeField] public MobStruct[] wave34;
+    [SerializeField] public MobStruct[] wave35;
+    [SerializeField] public MobStruct[] wave36;
+    [SerializeField] public MobStruct[] wave37;
+    [SerializeField] public MobStruct[] wave38;
+    [SerializeField] public MobStruct[] wave39;
+    [SerializeField] public MobStruct[] wave40;
+    [SerializeField] public MobStruct[] wave41;
+    [SerializeField] public MobStruct[] wave42;
+    [SerializeField] public MobStruct[] wave43;
+    [SerializeField] public MobStruct[] wave44;
+    [SerializeField] public MobStruct[] wave45;
+    [SerializeField] public MobStruct[] wave46;
+    [SerializeField] public MobStruct[] wave47;
+    [SerializeField] public MobStruct[] wave48;
+    [SerializeField] public MobStruct[] wave49;
+    [SerializeField] public MobStruct[] wave50;
 
     //Trackers
     public Transform[][] paths;
@@ -78,6 +137,7 @@ public class LevelManager : MonoBehaviour
     public Transform[] emptyHoneyCombs = new Transform[] { };
     public Transform[] queuedTargets = new Transform[] { };
     public float workerBeeCost;
+    public float honey = 0f;
     public float nectar;
     public string autoAssignBees = "Nectar";
     public int honeyCombTicks;
@@ -133,6 +193,7 @@ public class LevelManager : MonoBehaviour
         queenHP = queenMaxHP;
         StartingReveal();
         SpawnStartingBees();
+        UIManager.main.CreateHoneyPanel();
     }
 
     public void SetStats()
@@ -168,6 +229,7 @@ public class LevelManager : MonoBehaviour
     public void IncreaseHoney(float amount)
     {
         honey += amount;
+        HoneyBuffManager.main.HoneyUpdate();
     }
 
     public void CalculateIncome()
@@ -310,21 +372,21 @@ public class LevelManager : MonoBehaviour
     {
         SoundManager.main.PlaySound(victorySound, 0f);
         CollectAllHoney();
-        if (GlobalValues.main.difficulty == GlobalValues.Difficulty.EASY)
+        if (GlobalValues.main.difficulty == Difficulty.EASY)
         {
             if (SaveFile.gameData.easyScores[GlobalValues.main.levelIndex] < honey)
             {
                 SaveFile.gameData.easyScores[GlobalValues.main.levelIndex] = (int)honey;
             }
         }
-        else if (GlobalValues.main.difficulty == GlobalValues.Difficulty.MEDIUM)
+        else if (GlobalValues.main.difficulty == Difficulty.MEDIUM)
         {
             if (SaveFile.gameData.mediumScores[GlobalValues.main.levelIndex] < honey)
             {
                 SaveFile.gameData.mediumScores[GlobalValues.main.levelIndex] = (int)honey;
             }
         }
-        else if (GlobalValues.main.difficulty == GlobalValues.Difficulty.HARD)
+        else if (GlobalValues.main.difficulty == Difficulty.HARD)
         {
             if (SaveFile.gameData.hardScores[GlobalValues.main.levelIndex] < honey)
             {
