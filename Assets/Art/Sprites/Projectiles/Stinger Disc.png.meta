@@ -1,0 +1,741 @@
+fileFormatVersion: 2
+guid: e954a878f01ddb94f8363031272ce199
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4845570889473220195
+    second: Stinger Disc_0
+  - first:
+      213: 3965262275932442242
+    second: Stinger Disc_1
+  - first:
+      213: -1841441538250451112
+    second: Stinger Disc_2
+  - first:
+      213: -3286335438847583154
+    second: Stinger Disc_3
+  - first:
+      213: -8492792757021608632
+    second: Stinger Disc_4
+  - first:
+      213: -1775339026086852527
+    second: Stinger Disc_5
+  - first:
+      213: 7319431543044405889
+    second: Stinger Disc_6
+  - first:
+      213: 8718973732468617846
+    second: Stinger Disc_7
+  - first:
+      213: 2134281527804208536
+    second: Stinger Disc_8
+  - first:
+      213: 1451752342179295445
+    second: Stinger Disc_9
+  - first:
+      213: -8554615050462388640
+    second: Stinger Disc_10
+  - first:
+      213: -1978919640787137710
+    second: Stinger Disc_11
+  - first:
+      213: -5473808366095745968
+    second: Stinger Disc_12
+  - first:
+      213: 1927543304295765369
+    second: Stinger Disc_13
+  - first:
+      213: 3461082803353620530
+    second: Stinger Disc_14
+  - first:
+      213: -4426189359747633596
+    second: Stinger Disc_15
+  - first:
+      213: 363654021484967062
+    second: Stinger Disc_16
+  - first:
+      213: 3285191705924020840
+    second: Stinger Disc_17
+  - first:
+      213: 4813110432563443267
+    second: Stinger Disc_18
+  - first:
+      213: 3634595979500524400
+    second: Stinger Disc_19
+  - first:
+      213: -2482651116300617170
+    second: Stinger Disc_20
+  - first:
+      213: 472657548260877711
+    second: Stinger Disc_21
+  - first:
+      213: -1386051487557033053
+    second: Stinger Disc_22
+  - first:
+      213: 3139629957935348368
+    second: Stinger Disc_23
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Stinger Disc_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 230
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36e56011d0dee3340800000000000000
+      internalID: 4845570889473220195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stinger Disc_1
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 350
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28ec536f701770730800000000000000
+      internalID: 3965262275932442242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stinger Disc_2
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 279
+        width: 8
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 857dee56da2e176e0800000000000000
+      internalID: -1841441538250451112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stinger Disc_3
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 735
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4c56b284579462d0800000000000000
+      internalID: -3286335438847583154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stinger Disc_4
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 654
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84577b6fbf9832a80800000000000000
+      internalID: -8492792757021608632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stinger Disc_5
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 636
+        width: 6
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 158843adf8abc57e0800000000000000
+      internalID: -1775339026086852527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stinger Disc_6
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 620
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18a73f85538d39560800000000000000
+      internalID: 7319431543044405889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stinger Disc_7
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 326
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 672f0c12a64000970800000000000000
+      internalID: 8718973732468617846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stinger Disc_8
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 30
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 895a27bddbd7e9d10800000000000000
+      internalID: 2134281527804208536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stinger Disc_9
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 0
+        width: 1282
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d030714019a52410800000000000000
+      internalID: 1451752342179295445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stinger Disc_10
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 600
+        width: 9
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06e9af69fe6e74980800000000000000
+      internalID: -8554615050462388640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stinger Disc_11
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 668
+        width: 9
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25bc6db42177984e0800000000000000
+      internalID: -1978919640787137710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stinger Disc_12
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 589
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05c3d42ea402904b0800000000000000
+      internalID: -5473808366095745968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stinger Disc_13
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 536
+        width: 22
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9755bb53c6200ca10800000000000000
+      internalID: 1927543304295765369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stinger Disc_14
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 704
+        width: 152
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2301b18d87c380030800000000000000
+      internalID: 3461082803353620530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stinger Disc_15
+      rect:
+        serializedVersion: 2
+        x: 389
+        y: 339
+        width: 377
+        height: 198
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44ee0af6a340392c0800000000000000
+      internalID: -4426189359747633596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stinger Disc_16
+      rect:
+        serializedVersion: 2
+        x: 772
+        y: 349
+        width: 61
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 694f0c3e765fb0500800000000000000
+      internalID: 363654021484967062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stinger Disc_17
+      rect:
+        serializedVersion: 2
+        x: 955
+        y: 415
+        width: 272
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86a29aa6378579d20800000000000000
+      internalID: 3285191705924020840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stinger Disc_18
+      rect:
+        serializedVersion: 2
+        x: 994
+        y: 104
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 346bbadff6a9bc240800000000000000
+      internalID: 4813110432563443267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stinger Disc_19
+      rect:
+        serializedVersion: 2
+        x: 994
+        y: 24
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 073113459cda07230800000000000000
+      internalID: 3634595979500524400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stinger Disc_20
+      rect:
+        serializedVersion: 2
+        x: 995
+        y: 963
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2abcaf96f9db8dd0800000000000000
+      internalID: -2482651116300617170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stinger Disc_21
+      rect:
+        serializedVersion: 2
+        x: 995
+        y: 10
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f852f7039873f8600800000000000000
+      internalID: 472657548260877711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stinger Disc_22
+      rect:
+        serializedVersion: 2
+        x: 1041
+        y: 39
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a3e2c30481c3cce0800000000000000
+      internalID: -1386051487557033053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stinger Disc_23
+      rect:
+        serializedVersion: 2
+        x: 1088
+        y: 19
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09a39e0ffc4329b20800000000000000
+      internalID: 3139629957935348368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Stinger Disc_0: 4845570889473220195
+      Stinger Disc_1: 3965262275932442242
+      Stinger Disc_10: -8554615050462388640
+      Stinger Disc_11: -1978919640787137710
+      Stinger Disc_12: -5473808366095745968
+      Stinger Disc_13: 1927543304295765369
+      Stinger Disc_14: 3461082803353620530
+      Stinger Disc_15: -4426189359747633596
+      Stinger Disc_16: 363654021484967062
+      Stinger Disc_17: 3285191705924020840
+      Stinger Disc_18: 4813110432563443267
+      Stinger Disc_19: 3634595979500524400
+      Stinger Disc_2: -1841441538250451112
+      Stinger Disc_20: -2482651116300617170
+      Stinger Disc_21: 472657548260877711
+      Stinger Disc_22: -1386051487557033053
+      Stinger Disc_23: 3139629957935348368
+      Stinger Disc_3: -3286335438847583154
+      Stinger Disc_4: -8492792757021608632
+      Stinger Disc_5: -1775339026086852527
+      Stinger Disc_6: 7319431543044405889
+      Stinger Disc_7: 8718973732468617846
+      Stinger Disc_8: 2134281527804208536
+      Stinger Disc_9: 1451752342179295445
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

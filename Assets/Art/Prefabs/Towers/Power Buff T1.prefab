@@ -81,7 +81,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -5163576445969879599, guid: 0781f5c799ea7774d99eb718af46fe98, type: 3}
+  m_Sprite: {fileID: -8844915546479043648, guid: 9188f6abf73065c4d8136b82fa2950b0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -118,7 +118,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.35, y: 0.35, z: 0.35}
+  m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 5233765770551618463}
@@ -172,8 +172,8 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 751ec2c4fbb617140b1077ad5ac4b4c4, type: 3}
-  m_Color: {r: 1, g: 0, b: 1, a: 1}
+  m_Sprite: {fileID: -107516482007935686, guid: 7c5db8affe9c6b54d920024cce600247, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -299,11 +299,13 @@ MonoBehaviour:
   resistance: 20
   dodgeChance: 0
   targetingRange: 5
+  stealthDetection: 0
   rotationSpeed: 500
   wayPointRangeModifier: 1
   actionPower: 1
   actionRate: 1
   armorPierce: 0
+  dodgePierce: 0
   actions: []
   actionPrefabs: []
   actionSounds: 
@@ -351,6 +353,8 @@ MonoBehaviour:
   ignoreTerrain: 0
   hasTargetSettings: 0
   targetSetting: 
+  variant: 0
+  variantName: 
   prestige: 
   hitPoints: 1
   shield: 0
@@ -359,7 +363,7 @@ MonoBehaviour:
   pathIndex: 0
   inventoryFull: 0
   frozen: 0
-  invisibility: 0
+  stealth: 0
   freezeImmune: 0
   pausing: 0
   timeUntilActions: []
@@ -370,9 +374,11 @@ MonoBehaviour:
   path: []
   targetingOptions: []
   rampCount: 0
+  carryCapacityBase: 0
   moveSpeedBase: 0
   moveSpeedUncapped: 0
   targetingRangeBase: 0
+  stealthDetectionBase: 0
   maxHPBase: 0
   maxShieldBase: 0
   armorBase: 0
@@ -381,6 +387,7 @@ MonoBehaviour:
   actionPowerBase: 0
   actionRateBase: 0
   armorPierceBase: 0
+  dodgePierceBase: 0
   actionPowerModifiersBase: []
   actionRateModifiersBase: []
   actionRangeModifiersBase: []

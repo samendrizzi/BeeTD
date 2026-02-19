@@ -39,5 +39,6 @@ public class MainMenu : MonoBehaviour
     public void Tutorial()
     {
         SoundManager.main.PlaySound(clickInteresting);
+        HowToPlay.main.OpenUI();
     }
 }
