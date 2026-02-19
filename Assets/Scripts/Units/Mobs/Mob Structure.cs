@@ -9,7 +9,7 @@ public struct MobStruct
 {
     public GameObject prefab;
     public VariantType variant;
-    public string prestige;
+    public string  prestiges;
     public int path;
 }
 

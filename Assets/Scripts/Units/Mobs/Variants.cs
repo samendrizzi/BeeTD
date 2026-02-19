@@ -7,6 +7,22 @@ using UnityEditor;
 using UnityEngine.UI;
 using System.Text.RegularExpressions;
 
+public enum VariantType
+{
+    EMPTY,
+    ORANGE,
+    BROWN,
+    GREEN,
+    BLUE,
+    YELLOW,
+    RED,
+    BLACK,
+    WHITE,
+    PURPLE,
+    PINK,
+    GOLD
+}
+
 public class Variants : MonoBehaviour
 {
     [Header("Sprites")]

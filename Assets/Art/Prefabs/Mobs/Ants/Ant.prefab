@@ -299,7 +299,7 @@ GameObject:
   - component: {fileID: 6492762394861498065}
   - component: {fileID: 4047690027497037073}
   - component: {fileID: -7789018602063434315}
-  - component: {fileID: 6504643086764655692}
+  - component: {fileID: -2741258921225195383}
   - component: {fileID: 3556078947065284143}
   - component: {fileID: -712867556086043885}
   - component: {fileID: 6480904273133475943}
@@ -486,11 +486,13 @@ MonoBehaviour:
   resistance: 0
   dodgeChance: 0
   targetingRange: 0.2
+  stealthDetection: 0
   rotationSpeed: 150
   wayPointRangeModifier: 1
   actionPower: 1
   actionRate: 1
   armorPierce: 0
+  dodgePierce: 0
   actions:
   - Steal Honey
   actionPrefabs:
@@ -540,7 +542,7 @@ MonoBehaviour:
   targetSetting: 
   variant: 0
   variantName: 
-  prestige: 
+  prestiges: 
   hitPoints: 1
   shield: 0
   isDestroyed: 0
@@ -548,7 +550,7 @@ MonoBehaviour:
   pathIndex: 0
   inventoryFull: 0
   frozen: 0
-  Stealth: 0
+  stealth: 0
   freezeImmune: 0
   pausing: 0
   timeUntilActions: []
@@ -559,9 +561,11 @@ MonoBehaviour:
   path: []
   targetingOptions: []
   rampCount: 0
+  carryCapacityBase: 0
   moveSpeedBase: 0
   moveSpeedUncapped: 0
   targetingRangeBase: 0
+  stealthDetectionBase: 0
   maxHPBase: 0
   maxShieldBase: 0
   armorBase: 0
@@ -570,6 +574,7 @@ MonoBehaviour:
   actionPowerBase: 0
   actionRateBase: 0
   armorPierceBase: 0
+  dodgePierceBase: 0
   actionPowerModifiersBase: []
   actionRateModifiersBase: []
   actionRangeModifiersBase: []
@@ -598,7 +603,7 @@ MonoBehaviour:
   flower: {fileID: 0}
   nectar: 0
   targetingIndex: 0
---- !u!114 &6504643086764655692
+--- !u!114 &-2741258921225195383
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

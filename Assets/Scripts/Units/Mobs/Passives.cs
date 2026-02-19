@@ -171,9 +171,9 @@ public class Passives : MonoBehaviour
             int count = (int)(attributes.passivePowerModifiers[index] * attributes.passivePower);
             float power = (attributes.passiveExtraModifiers[index] * attributes.passivePower);
             RemovePassive("Death Split");
-            if (attributes.prestige.IndexOf("Black") != -1)
+            if (attributes. prestiges.IndexOf("Black") != -1)
             {
-                attributes.prestige = attributes.prestige.Remove(attributes.prestige.IndexOf("Black"), "Black".Length);
+                attributes.prestiges= attributes. prestiges.Remove(attributes. prestiges.IndexOf("Black"), "Black".Length);
             }
             attributes.hitPoints = attributes.maxHP;
             attributes.shield = attributes.maxShield;
