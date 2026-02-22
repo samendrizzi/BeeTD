@@ -5,6 +5,33 @@ TextureImporter:
   - first:
       213: -3100587905405979391
     second: Wasp_0
+  - first:
+      213: -202273061664295752
+    second: Wasp_1
+  - first:
+      213: -8630741147279505954
+    second: Wasp_2
+  - first:
+      213: -5019629007719168259
+    second: Wasp_3
+  - first:
+      213: 8042016122642760018
+    second: Wasp_4
+  - first:
+      213: -6572935084018573952
+    second: Wasp_5
+  - first:
+      213: -5316980723501727432
+    second: Wasp_6
+  - first:
+      213: -1133350379456374480
+    second: Wasp_7
+  - first:
+      213: -2450158862379435069
+    second: Wasp_8
+  - first:
+      213: 7614550833551509769
+    second: Wasp_9
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -103,10 +130,10 @@ TextureImporter:
       name: Wasp_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1536
-        height: 1024
+        x: 87
+        y: 614
+        width: 255
+        height: 317
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -117,6 +144,204 @@ TextureImporter:
       bones: []
       spriteID: 10577674abf78f4d0800000000000000
       internalID: -3100587905405979391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wasp_1
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 613
+        width: 253
+        height: 317
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b47edbd8b1613df0800000000000000
+      internalID: -202273061664295752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wasp_2
+      rect:
+        serializedVersion: 2
+        x: 675
+        y: 614
+        width: 254
+        height: 317
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed5ce0877a2793880800000000000000
+      internalID: -8630741147279505954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wasp_3
+      rect:
+        serializedVersion: 2
+        x: 985
+        y: 613
+        width: 255
+        height: 319
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df607aa3302b65ab0800000000000000
+      internalID: -5019629007719168259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wasp_4
+      rect:
+        serializedVersion: 2
+        x: 1244
+        y: 613
+        width: 249
+        height: 318
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 251061c1e0bfa9f60800000000000000
+      internalID: 8042016122642760018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wasp_5
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 165
+        width: 254
+        height: 324
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08dde51bd5e38c4a0800000000000000
+      internalID: -6572935084018573952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wasp_6
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 165
+        width: 254
+        height: 322
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 831841ad33a4636b0800000000000000
+      internalID: -5316980723501727432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wasp_7
+      rect:
+        serializedVersion: 2
+        x: 676
+        y: 165
+        width: 252
+        height: 323
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 039d27aa5d78540f0800000000000000
+      internalID: -1133350379456374480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wasp_8
+      rect:
+        serializedVersion: 2
+        x: 987
+        y: 165
+        width: 255
+        height: 323
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3cb39940f794ffdd0800000000000000
+      internalID: -2450158862379435069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wasp_9
+      rect:
+        serializedVersion: 2
+        x: 1245
+        y: 165
+        width: 250
+        height: 322
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9090ef5b3a15ca960800000000000000
+      internalID: 7614550833551509769
       vertices: []
       indices: 
       edges: []
@@ -136,6 +361,15 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       Wasp_0: -3100587905405979391
+      Wasp_1: -202273061664295752
+      Wasp_2: -8630741147279505954
+      Wasp_3: -5019629007719168259
+      Wasp_4: 8042016122642760018
+      Wasp_5: -6572935084018573952
+      Wasp_6: -5316980723501727432
+      Wasp_7: -1133350379456374480
+      Wasp_8: -2450158862379435069
+      Wasp_9: 7614550833551509769
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

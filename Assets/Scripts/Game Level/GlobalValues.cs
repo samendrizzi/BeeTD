@@ -173,6 +173,7 @@ public class GlobalValues : MonoBehaviour
     [Header("_______________________")]
     [Header("UI")]
     [SerializeField] public GameObject UIPrefab;
+    [SerializeField] public GameObject howToPlayMenu;
 
     [Header("_______________________")]
     [Header("Resources")]
@@ -409,6 +410,10 @@ public class GlobalValues : MonoBehaviour
         //Setup Scenes
         UnloadAllBut("Global");
         SceneManager.LoadScene("Main Menu", LoadSceneMode.Additive);
+        if (howToPlayMenu.activeSelf)
+        {
+            howToPlayMenu.SetActive(false);
+        }
     }
 
     public void Awake()

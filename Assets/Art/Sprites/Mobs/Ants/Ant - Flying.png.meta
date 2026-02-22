@@ -1,0 +1,377 @@
+fileFormatVersion: 2
+guid: 38bccb3c5f62f39498fbfb29c6da30b1
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6178837357805500113
+    second: Ant - Flying_0
+  - first:
+      213: 4487657422550387860
+    second: Ant - Flying_1
+  - first:
+      213: -8091785080328921429
+    second: Ant - Flying_2
+  - first:
+      213: -6136175889422042132
+    second: Ant - Flying_3
+  - first:
+      213: 4448862397018380729
+    second: Ant - Flying_4
+  - first:
+      213: 7832575368979855379
+    second: Ant - Flying_5
+  - first:
+      213: -2250922142529973440
+    second: Ant - Flying_6
+  - first:
+      213: -4109753179340387433
+    second: Ant - Flying_7
+  - first:
+      213: 2393803480080424191
+    second: Ant - Flying_8
+  - first:
+      213: -6858631052579583392
+    second: Ant - Flying_9
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Ant - Flying_0
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 657
+        width: 273
+        height: 251
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f290713f82c504aa0800000000000000
+      internalID: -6178837357805500113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ant - Flying_1
+      rect:
+        serializedVersion: 2
+        x: 364
+        y: 657
+        width: 264
+        height: 251
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49cc2c036ac574e30800000000000000
+      internalID: 4487657422550387860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ant - Flying_2
+      rect:
+        serializedVersion: 2
+        x: 637
+        y: 657
+        width: 266
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bae5030775434bf80800000000000000
+      internalID: -8091785080328921429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ant - Flying_3
+      rect:
+        serializedVersion: 2
+        x: 912
+        y: 656
+        width: 267
+        height: 251
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cebbea71a8ce7daa0800000000000000
+      internalID: -6136175889422042132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ant - Flying_4
+      rect:
+        serializedVersion: 2
+        x: 1189
+        y: 656
+        width: 270
+        height: 251
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b99fdc67c88dbd30800000000000000
+      internalID: 4448862397018380729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ant - Flying_5
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 233
+        width: 271
+        height: 257
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 318b480acc5e2bc60800000000000000
+      internalID: 7832575368979855379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ant - Flying_6
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 233
+        width: 265
+        height: 257
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 043907dbc3e13c0e0800000000000000
+      internalID: -2250922142529973440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ant - Flying_7
+      rect:
+        serializedVersion: 2
+        x: 637
+        y: 232
+        width: 265
+        height: 258
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79b42eef14937f6c0800000000000000
+      internalID: -4109753179340387433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ant - Flying_8
+      rect:
+        serializedVersion: 2
+        x: 912
+        y: 232
+        width: 267
+        height: 257
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffc994c059f783120800000000000000
+      internalID: 2393803480080424191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ant - Flying_9
+      rect:
+        serializedVersion: 2
+        x: 1189
+        y: 233
+        width: 270
+        height: 257
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06ac781756f31d0a0800000000000000
+      internalID: -6858631052579583392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Ant - Flying_0: -6178837357805500113
+      Ant - Flying_1: 4487657422550387860
+      Ant - Flying_2: -8091785080328921429
+      Ant - Flying_3: -6136175889422042132
+      Ant - Flying_4: 4448862397018380729
+      Ant - Flying_5: 7832575368979855379
+      Ant - Flying_6: -2250922142529973440
+      Ant - Flying_7: -4109753179340387433
+      Ant - Flying_8: 2393803480080424191
+      Ant - Flying_9: -6858631052579583392
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

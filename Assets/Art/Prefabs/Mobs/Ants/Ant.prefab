@@ -376,12 +376,12 @@ SpriteRenderer:
   m_SortingLayer: 3
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -7075980700805715429, guid: 5ceb1c5081375f341833ce12e1764614, type: 3}
+  m_Sprite: {fileID: -767842634614617014, guid: 5ceb1c5081375f341833ce12e1764614, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 3.2, y: 3.2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -668,16 +668,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d70c71ca4013dca48b5cf2899608ad3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Variants
-  spriteBlack: {fileID: -7075980700805715429, guid: 5ceb1c5081375f341833ce12e1764614, type: 3}
-  spriteWhite: {fileID: -2513750971434267929, guid: 5ceb1c5081375f341833ce12e1764614, type: 3}
-  spriteBrown: {fileID: 7301995050108997010, guid: 5ceb1c5081375f341833ce12e1764614, type: 3}
-  spriteOrange: {fileID: -530127482465205334, guid: 5ceb1c5081375f341833ce12e1764614, type: 3}
-  spriteYellow: {fileID: -4783338215079195070, guid: 5ceb1c5081375f341833ce12e1764614, type: 3}
-  spriteRed: {fileID: 8263787857412600106, guid: 5ceb1c5081375f341833ce12e1764614, type: 3}
-  spriteGreen: {fileID: -8583994337478008131, guid: 5ceb1c5081375f341833ce12e1764614, type: 3}
-  spriteBlue: {fileID: 372740928218721709, guid: 5ceb1c5081375f341833ce12e1764614, type: 3}
-  spritePurple: {fileID: 5981686028242691686, guid: 5ceb1c5081375f341833ce12e1764614, type: 3}
-  spritePink: {fileID: 806333844211326343, guid: 5ceb1c5081375f341833ce12e1764614, type: 3}
+  spriteBlack: {fileID: -767842634614617014, guid: 5ceb1c5081375f341833ce12e1764614, type: 3}
+  spriteWhite: {fileID: -5720907883160835152, guid: 5ceb1c5081375f341833ce12e1764614, type: 3}
+  spriteBrown: {fileID: 8088607974869636516, guid: 5ceb1c5081375f341833ce12e1764614, type: 3}
+  spriteOrange: {fileID: 655083063, guid: 5ceb1c5081375f341833ce12e1764614, type: 3}
+  spriteYellow: {fileID: 1772096748, guid: 5ceb1c5081375f341833ce12e1764614, type: 3}
+  spriteRed: {fileID: 369037658, guid: 5ceb1c5081375f341833ce12e1764614, type: 3}
+  spriteGreen: {fileID: -884062089, guid: 5ceb1c5081375f341833ce12e1764614, type: 3}
+  spriteBlue: {fileID: 1466024604, guid: 5ceb1c5081375f341833ce12e1764614, type: 3}
+  spritePurple: {fileID: 535370598, guid: 5ceb1c5081375f341833ce12e1764614, type: 3}
+  spritePink: {fileID: -702658736, guid: 5ceb1c5081375f341833ce12e1764614, type: 3}
   roleNameOrange: Carrier
   flatHPOrange: 0
   percentageHPOrange: 0.3

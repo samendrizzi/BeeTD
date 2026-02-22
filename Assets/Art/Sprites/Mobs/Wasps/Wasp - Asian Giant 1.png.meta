@@ -5,6 +5,21 @@ TextureImporter:
   - first:
       213: 3014393016160866829
     second: Wasp - Asian Giant 1_0
+  - first:
+      213: -3858974137979001228
+    second: Wasp - Asian Giant 1_1
+  - first:
+      213: -2119719274892095045
+    second: Wasp - Asian Giant 1_2
+  - first:
+      213: 510250674862768095
+    second: Wasp - Asian Giant 1_3
+  - first:
+      213: -7109481432369965386
+    second: Wasp - Asian Giant 1_4
+  - first:
+      213: 8747041268846511237
+    second: Wasp - Asian Giant 1_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -103,10 +118,10 @@ TextureImporter:
       name: Wasp - Asian Giant 1_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1536
-        height: 1024
+        x: 47
+        y: 607
+        width: 475
+        height: 360
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -117,6 +132,116 @@ TextureImporter:
       bones: []
       spriteID: d02dfad2a7645d920800000000000000
       internalID: 3014393016160866829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wasp - Asian Giant 1_1
+      rect:
+        serializedVersion: 2
+        x: 532
+        y: 604
+        width: 465
+        height: 364
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 476a75c977b227ac0800000000000000
+      internalID: -3858974137979001228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wasp - Asian Giant 1_2
+      rect:
+        serializedVersion: 2
+        x: 1011
+        y: 607
+        width: 475
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb1128cdc8e3592e0800000000000000
+      internalID: -2119719274892095045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wasp - Asian Giant 1_3
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 149
+        width: 476
+        height: 367
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fdf399d0946c41700800000000000000
+      internalID: 510250674862768095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wasp - Asian Giant 1_4
+      rect:
+        serializedVersion: 2
+        x: 533
+        y: 149
+        width: 465
+        height: 391
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b65a5e0e4c065d90800000000000000
+      internalID: -7109481432369965386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wasp - Asian Giant 1_5
+      rect:
+        serializedVersion: 2
+        x: 1011
+        y: 149
+        width: 476
+        height: 367
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5844741b0bbb36970800000000000000
+      internalID: 8747041268846511237
       vertices: []
       indices: 
       edges: []
@@ -136,6 +261,11 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       Wasp - Asian Giant 1_0: 3014393016160866829
+      Wasp - Asian Giant 1_1: -3858974137979001228
+      Wasp - Asian Giant 1_2: -2119719274892095045
+      Wasp - Asian Giant 1_3: 510250674862768095
+      Wasp - Asian Giant 1_4: -7109481432369965386
+      Wasp - Asian Giant 1_5: 8747041268846511237
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

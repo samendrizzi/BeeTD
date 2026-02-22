@@ -5,6 +5,36 @@ TextureImporter:
   - first:
       213: -3026716310638734145
     second: Beetle - Firefly_0
+  - first:
+      213: -7034788338121552755
+    second: Beetle - Firefly_1
+  - first:
+      213: 2382538810966578903
+    second: Beetle - Firefly_2
+  - first:
+      213: -1680436384201925513
+    second: Beetle - Firefly_3
+  - first:
+      213: 8650516530222149919
+    second: Beetle - Firefly_4
+  - first:
+      213: 1377291228152689265
+    second: Beetle - Firefly_5
+  - first:
+      213: 2564672660564600064
+    second: Beetle - Firefly_6
+  - first:
+      213: -2952941338167511083
+    second: Beetle - Firefly_7
+  - first:
+      213: -2058527362026878765
+    second: Beetle - Firefly_8
+  - first:
+      213: -8506312674878023283
+    second: Beetle - Firefly_9
+  - first:
+      213: -5512323974681831803
+    second: Beetle - Firefly_10
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -103,10 +133,10 @@ TextureImporter:
       name: Beetle - Firefly_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1536
-        height: 1024
+        x: 108
+        y: 599
+        width: 196
+        height: 359
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -117,6 +147,226 @@ TextureImporter:
       bones: []
       spriteID: fb45f7c3d81fef5d0800000000000000
       internalID: -3026716310638734145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Firefly_1
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 590
+        width: 195
+        height: 368
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8c443447496f5e90800000000000000
+      internalID: -7034788338121552755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Firefly_2
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 587
+        width: 194
+        height: 371
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d69e33ec6a701120800000000000000
+      internalID: 2382538810966578903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Firefly_3
+      rect:
+        serializedVersion: 2
+        x: 949
+        y: 580
+        width: 195
+        height: 378
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77c900c0304eda8e0800000000000000
+      internalID: -1680436384201925513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Firefly_4
+      rect:
+        serializedVersion: 2
+        x: 1232
+        y: 582
+        width: 195
+        height: 376
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f11398ba3fecc0870800000000000000
+      internalID: 8650516530222149919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Firefly_5
+      rect:
+        serializedVersion: 2
+        x: 1348
+        y: 591
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1727d46231f1d1310800000000000000
+      internalID: 1377291228152689265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Firefly_6
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 118
+        width: 146
+        height: 346
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 005eb12523c879320800000000000000
+      internalID: 2564672660564600064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Firefly_7
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 112
+        width: 143
+        height: 352
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d775ff8f7b0507d0800000000000000
+      internalID: -2952941338167511083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Firefly_8
+      rect:
+        serializedVersion: 2
+        x: 697
+        y: 115
+        width: 145
+        height: 349
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d847f15544ae63e0800000000000000
+      internalID: -2058527362026878765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Firefly_9
+      rect:
+        serializedVersion: 2
+        x: 969
+        y: 113
+        width: 156
+        height: 351
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d891e79c0b183f980800000000000000
+      internalID: -8506312674878023283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Firefly_10
+      rect:
+        serializedVersion: 2
+        x: 1251
+        y: 113
+        width: 166
+        height: 352
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5865832fc8a4083b0800000000000000
+      internalID: -5512323974681831803
       vertices: []
       indices: 
       edges: []
@@ -136,6 +386,16 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       Beetle - Firefly_0: -3026716310638734145
+      Beetle - Firefly_1: -7034788338121552755
+      Beetle - Firefly_10: -5512323974681831803
+      Beetle - Firefly_2: 2382538810966578903
+      Beetle - Firefly_3: -1680436384201925513
+      Beetle - Firefly_4: 8650516530222149919
+      Beetle - Firefly_5: 1377291228152689265
+      Beetle - Firefly_6: 2564672660564600064
+      Beetle - Firefly_7: -2952941338167511083
+      Beetle - Firefly_8: -2058527362026878765
+      Beetle - Firefly_9: -8506312674878023283
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

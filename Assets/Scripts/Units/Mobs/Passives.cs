@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEditor;
 using UnityEngine.UI;
@@ -171,9 +172,25 @@ public class Passives : MonoBehaviour
             int count = (int)(attributes.passivePowerModifiers[index] * attributes.passivePower);
             float power = (attributes.passiveExtraModifiers[index] * attributes.passivePower);
             RemovePassive("Death Split");
-            if (attributes. prestiges.IndexOf("Black") != -1)
+            if (attributes.prestiges.Contains(Prest.BLACK))
             {
-                attributes.prestiges= attributes. prestiges.Remove(attributes. prestiges.IndexOf("Black"), "Black".Length);
+                Prest[] tempArray = new Prest[] { };
+                Array.Resize(ref tempArray, attributes.prestiges.Length - 1);
+                int i2 = 0;
+                bool found = false;
+                for (int i = 0; i < attributes.prestiges.Length; i++)
+                {
+                    if (attributes.prestiges[i] != Prest.BLACK || found == true)
+                    {
+                        tempArray[i2] = attributes.prestiges[i];
+                        i2++;
+                    }
+                    else
+                    {
+                        found = true;
+                    }
+                }
+                attributes.prestiges = tempArray;
             }
             attributes.hitPoints = attributes.maxHP;
             attributes.shield = attributes.maxShield;

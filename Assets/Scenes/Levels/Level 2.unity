@@ -2001,7 +2001,7 @@ MonoBehaviour:
   waveStartSound: 8
   hiveEntrance: {fileID: 333592244}
   honeyRequired: 1000
-  difficultyScaling: 0.05
+  difficultyScaling: 0.02
   startingVision: 4.8
   percentageOfFlowersUsed: 1
   bonusNectar: 0

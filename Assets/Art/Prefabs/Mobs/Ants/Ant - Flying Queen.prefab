@@ -436,12 +436,12 @@ SpriteRenderer:
   m_SortingLayer: 3
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -5139181461593757363, guid: 9fce9d38efe1fa94dbf78fb61d8d617f, type: 3}
+  m_Sprite: {fileID: 1925446485838559525, guid: 2433738dc42bcf742a49c465378539f8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2.87, y: 3.98}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -610,7 +610,7 @@ MonoBehaviour:
   targetSetting: 
   variant: 0
   variantName: 
-  prestige: 
+  prestiges: 
   hitPoints: 1
   shield: 0
   isDestroyed: 0
@@ -736,16 +736,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d70c71ca4013dca48b5cf2899608ad3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Variants
-  spriteBlack: {fileID: -5139181461593757363, guid: 9fce9d38efe1fa94dbf78fb61d8d617f, type: 3}
-  spriteWhite: {fileID: 1337100499798399421, guid: 9fce9d38efe1fa94dbf78fb61d8d617f, type: 3}
-  spriteBrown: {fileID: -8212406419578296715, guid: 9fce9d38efe1fa94dbf78fb61d8d617f, type: 3}
-  spriteOrange: {fileID: 9140250383832053747, guid: 9fce9d38efe1fa94dbf78fb61d8d617f, type: 3}
-  spriteYellow: {fileID: -2697579475631617654, guid: 9fce9d38efe1fa94dbf78fb61d8d617f, type: 3}
-  spriteRed: {fileID: -5444621567878705094, guid: 9fce9d38efe1fa94dbf78fb61d8d617f, type: 3}
-  spriteGreen: {fileID: -1568441886, guid: 9fce9d38efe1fa94dbf78fb61d8d617f, type: 3}
-  spriteBlue: {fileID: 3797147801191714751, guid: 9fce9d38efe1fa94dbf78fb61d8d617f, type: 3}
-  spritePurple: {fileID: 7180114834661624130, guid: 9fce9d38efe1fa94dbf78fb61d8d617f, type: 3}
-  spritePink: {fileID: 8291290538184473228, guid: 9fce9d38efe1fa94dbf78fb61d8d617f, type: 3}
+  spriteBlack: {fileID: 1925446485838559525, guid: 2433738dc42bcf742a49c465378539f8, type: 3}
+  spriteWhite: {fileID: -3658814088387244494, guid: 2433738dc42bcf742a49c465378539f8, type: 3}
+  spriteBrown: {fileID: 2757749624162114783, guid: 2433738dc42bcf742a49c465378539f8, type: 3}
+  spriteOrange: {fileID: 7074788359653016999, guid: 2433738dc42bcf742a49c465378539f8, type: 3}
+  spriteYellow: {fileID: 3178008116003984421, guid: 2433738dc42bcf742a49c465378539f8, type: 3}
+  spriteRed: {fileID: 7235119203165711674, guid: 2433738dc42bcf742a49c465378539f8, type: 3}
+  spriteGreen: {fileID: 1674289201493638602, guid: 2433738dc42bcf742a49c465378539f8, type: 3}
+  spriteBlue: {fileID: -4779059232031349284, guid: 2433738dc42bcf742a49c465378539f8, type: 3}
+  spritePurple: {fileID: 4666127087547124644, guid: 2433738dc42bcf742a49c465378539f8, type: 3}
+  spritePink: {fileID: 3511728138968008225, guid: 2433738dc42bcf742a49c465378539f8, type: 3}
   roleNameOrange: Carrier
   flatHPOrange: 0
   percentageHPOrange: 0.3

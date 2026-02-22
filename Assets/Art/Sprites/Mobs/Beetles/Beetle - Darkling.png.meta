@@ -5,6 +5,33 @@ TextureImporter:
   - first:
       213: 5510835945819659518
     second: Beetle - Darkling_0
+  - first:
+      213: -6266323808304747404
+    second: Beetle - Darkling_1
+  - first:
+      213: -8986615785609873615
+    second: Beetle - Darkling_2
+  - first:
+      213: 4263015179435009143
+    second: Beetle - Darkling_3
+  - first:
+      213: -2671861083127423800
+    second: Beetle - Darkling_4
+  - first:
+      213: 438659698153432984
+    second: Beetle - Darkling_5
+  - first:
+      213: -4270035514109462747
+    second: Beetle - Darkling_6
+  - first:
+      213: -6282076690427969215
+    second: Beetle - Darkling_7
+  - first:
+      213: -6779899082298842681
+    second: Beetle - Darkling_8
+  - first:
+      213: 665980467873543027
+    second: Beetle - Darkling_9
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -103,10 +130,10 @@ TextureImporter:
       name: Beetle - Darkling_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1536
-        height: 1024
+        x: 118
+        y: 634
+        width: 246
+        height: 329
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -117,6 +144,204 @@ TextureImporter:
       bones: []
       spriteID: efcd806581c6a7c40800000000000000
       internalID: 5510835945819659518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Darkling_1
+      rect:
+        serializedVersion: 2
+        x: 395
+        y: 632
+        width: 246
+        height: 331
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47c2c6e52bb8909a0800000000000000
+      internalID: -6266323808304747404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Darkling_2
+      rect:
+        serializedVersion: 2
+        x: 650
+        y: 633
+        width: 246
+        height: 330
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1373ecd5e80294380800000000000000
+      internalID: -8986615785609873615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Darkling_3
+      rect:
+        serializedVersion: 2
+        x: 904
+        y: 634
+        width: 248
+        height: 329
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 774625228b5492b30800000000000000
+      internalID: 4263015179435009143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Darkling_4
+      rect:
+        serializedVersion: 2
+        x: 1163
+        y: 634
+        width: 251
+        height: 329
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ccdff24084abead0800000000000000
+      internalID: -2671861083127423800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Darkling_5
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 162
+        width: 243
+        height: 359
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89727bddbae661600800000000000000
+      internalID: 438659698153432984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Darkling_6
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 162
+        width: 244
+        height: 359
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 527f333d259cdb4c0800000000000000
+      internalID: -4270035514109462747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Darkling_7
+      rect:
+        serializedVersion: 2
+        x: 651
+        y: 161
+        width: 244
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 141874fa88491d8a0800000000000000
+      internalID: -6282076690427969215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Darkling_8
+      rect:
+        serializedVersion: 2
+        x: 906
+        y: 162
+        width: 245
+        height: 359
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c1a492c4b5f8e1a0800000000000000
+      internalID: -6779899082298842681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Darkling_9
+      rect:
+        serializedVersion: 2
+        x: 1163
+        y: 162
+        width: 251
+        height: 359
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37373fef4b90e3900800000000000000
+      internalID: 665980467873543027
       vertices: []
       indices: 
       edges: []
@@ -136,6 +361,15 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       Beetle - Darkling_0: 5510835945819659518
+      Beetle - Darkling_1: -6266323808304747404
+      Beetle - Darkling_2: -8986615785609873615
+      Beetle - Darkling_3: 4263015179435009143
+      Beetle - Darkling_4: -2671861083127423800
+      Beetle - Darkling_5: 438659698153432984
+      Beetle - Darkling_6: -4270035514109462747
+      Beetle - Darkling_7: -6282076690427969215
+      Beetle - Darkling_8: -6779899082298842681
+      Beetle - Darkling_9: 665980467873543027
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

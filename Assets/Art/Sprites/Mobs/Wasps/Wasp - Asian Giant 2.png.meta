@@ -5,6 +5,15 @@ TextureImporter:
   - first:
       213: 1156922866664492238
     second: Wasp - Asian Giant 2_0
+  - first:
+      213: 9022099404580394226
+    second: Wasp - Asian Giant 2_1
+  - first:
+      213: -271633726118291892
+    second: Wasp - Asian Giant 2_2
+  - first:
+      213: -1411858870243976963
+    second: Wasp - Asian Giant 2_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -103,10 +112,10 @@ TextureImporter:
       name: Wasp - Asian Giant 2_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1536
-        height: 1024
+        x: 58
+        y: 577
+        width: 622
+        height: 388
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -117,6 +126,72 @@ TextureImporter:
       bones: []
       spriteID: ecc4014b7373e0010800000000000000
       internalID: 1156922866664492238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wasp - Asian Giant 2_1
+      rect:
+        serializedVersion: 2
+        x: 752
+        y: 577
+        width: 636
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f4174a7b9fe43d70800000000000000
+      internalID: 9022099404580394226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wasp - Asian Giant 2_2
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 112
+        width: 622
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4614b5b096fa3cf0800000000000000
+      internalID: -271633726118291892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wasp - Asian Giant 2_3
+      rect:
+        serializedVersion: 2
+        x: 751
+        y: 112
+        width: 637
+        height: 389
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df89f1e76d1186ce0800000000000000
+      internalID: -1411858870243976963
       vertices: []
       indices: 
       edges: []
@@ -136,6 +211,9 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       Wasp - Asian Giant 2_0: 1156922866664492238
+      Wasp - Asian Giant 2_1: 9022099404580394226
+      Wasp - Asian Giant 2_2: -271633726118291892
+      Wasp - Asian Giant 2_3: -1411858870243976963
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

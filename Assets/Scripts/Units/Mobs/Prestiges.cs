@@ -7,6 +7,27 @@ using UnityEditor;
 using UnityEngine.UI;
 using System.Text.RegularExpressions;
 
+public enum Prest
+{
+    EMPTY,
+    COMMON,
+    ORANGE,
+    BROWN,
+    GREEN,
+    BLUE,
+    YELLOW,
+    RED,
+    BLACK,
+    WHITE,
+    PURPLE,
+    PINK,
+    GOLD,
+    SILVER,
+    PLATINUM,
+    PRISMATIC,
+    GREY,
+    TEAL,
+}
 
 public class Prestiges : MonoBehaviour
 {
@@ -38,22 +59,40 @@ public class Prestiges : MonoBehaviour
         prestigeStar5.SetActive(false);
         if (attributes.prestiges!= null)
         {
-            SetPrestigeRed(true, Regex.Matches(attributes. prestiges, "Red").Count);
-            SetPrestigeBlue(true, Regex.Matches(attributes. prestiges, "Blue").Count);
-            SetPrestigeGreen(true, Regex.Matches(attributes. prestiges, "Green").Count);
-            SetPrestigeYellow(true, Regex.Matches(attributes. prestiges, "Yellow").Count);
-            SetPrestigeWhite(true, Regex.Matches(attributes. prestiges, "White").Count);
-            SetPrestigePurple(true, Regex.Matches(attributes. prestiges, "Purple").Count);
-            SetPrestigeBlack(true, Regex.Matches(attributes. prestiges, "Black").Count);
-            SetPrestigeGold(true, Regex.Matches(attributes. prestiges, "Gold").Count);
-            SetPrestigeBrown(true, Regex.Matches(attributes. prestiges, "Brown").Count);
-            SetPrestigeGrey(true, Regex.Matches(attributes. prestiges, "Grey").Count);
-            SetPrestigePrismatic(true, Regex.Matches(attributes. prestiges, "Prismatic").Count);
-            SetPrestigeSilver(true, Regex.Matches(attributes. prestiges, "Silver").Count);
-            SetPrestigePlatinum(true, Regex.Matches(attributes. prestiges, "Platinum").Count);
-            SetPrestigeTeal(true, Regex.Matches(attributes. prestiges, "Teal").Count);
+            SetPrestigeCommon(true, attributes.prestiges.Count(n => n == Prest.COMMON));
+            SetPrestigeOrange(true, attributes.prestiges.Count(n => n == Prest.ORANGE));
+            SetPrestigeBrown(true, attributes.prestiges.Count(n => n == Prest.BROWN));
+            SetPrestigeGreen(true, attributes.prestiges.Count(n => n == Prest.GREEN));
+            SetPrestigeBlue(true, attributes.prestiges.Count(n => n == Prest.BLUE));
+            SetPrestigeYellow(true, attributes.prestiges.Count(n => n == Prest.YELLOW));
+            SetPrestigeRed(true, attributes.prestiges.Count(n => n == Prest.RED));
+            SetPrestigeBlack(true, attributes.prestiges.Count(n => n == Prest.BLACK));
+            SetPrestigeWhite(true, attributes.prestiges.Count(n => n == Prest.WHITE));
+            SetPrestigePurple(true, attributes.prestiges.Count(n => n == Prest.PURPLE));
+            SetPrestigePink(true, attributes.prestiges.Count(n => n == Prest.PINK));
+            SetPrestigeGold(true, attributes.prestiges.Count(n => n == Prest.GOLD));
+            SetPrestigeSilver(true, attributes.prestiges.Count(n => n == Prest.SILVER));
+            SetPrestigePrismatic(true, attributes.prestiges.Count(n => n == Prest.PRISMATIC));
+            SetPrestigePlatinum(true, attributes.prestiges.Count(n => n == Prest.PLATINUM));
+            SetPrestigeGrey(true, attributes.prestiges.Count(n => n == Prest.GREY));            
+            SetPrestigeTeal(true, attributes.prestiges.Count(n => n == Prest.TEAL));
         }
         attributes.SetHealthBar();
+    }
+
+    public void SetPrestigeCommon(bool add, int count)
+    {
+
+    }
+
+    public void SetPrestigeOrange(bool add, int count)
+    {
+
+    }
+
+    public void SetPrestigePink(bool add, int count)
+    {
+
     }
 
     public void SetPrestigeRed(bool add, int count)

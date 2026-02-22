@@ -377,7 +377,7 @@ public class Variants : MonoBehaviour
     [SerializeField] private string roleNameWhite = "Shielder";
     [SerializeField] private float flatHPWhite = 0f;
     [SerializeField] private float percentageHPWhite = 0.2f;
-    [SerializeField] private float flatArmorWhite =20f;
+    [SerializeField] private float flatArmorWhite = 20f;
     [SerializeField] private float percentageArmorWhite = 0f;
     [SerializeField] private float flatMoveSpeedWhite = 0f;
     [SerializeField] private float percentageMoveSpeedWhite = -0.1f;
@@ -516,6 +516,54 @@ public class Variants : MonoBehaviour
     [SerializeField] private float passivePierceModifierPink = 0f;
     [SerializeField] private float passiveDurationPink = 0f;
     [SerializeField] private float passiveExtraModifierPink = 0f;
+
+    [Header("Gold Modifications")]
+    [SerializeField] private string roleNameGold = "Royal";
+    [SerializeField] private float flatHPGold = 0f;
+    [SerializeField] private float percentageHPGold = 3f;
+    [SerializeField] private float flatArmorGold = 30f;
+    [SerializeField] private float percentageArmorGold = 0f;
+    [SerializeField] private float flatMoveSpeedGold = 0f;
+    [SerializeField] private float percentageMoveSpeedGold = 0f;
+    [SerializeField] private float flatResistanceGold = 30f;
+    [SerializeField] private float percentageResistanceGold = 0f;
+    [SerializeField] private float flatDodgeGold = 30f;
+    [SerializeField] private float percentageDodgeGold = 0f;
+    [SerializeField] private float flatCarryCapacityGold = 0f;
+    [SerializeField] private float percentageCarryCapacityGold = 5f;
+    [SerializeField] private float flatShieldGold = 0f;
+    [SerializeField] private float percentageShieldGold = 0f;
+    [SerializeField] private bool stealHoneyGold = true;
+    [SerializeField] private float percentageActionPowerGold = 0f;
+    [SerializeField] private float percentageEffectPowerGold = 0f;
+    [SerializeField] private float percentagePassivePowerGold = 0f;
+    [SerializeField] private string extraActionGold;
+    [SerializeField] private GameObject actionPrefabGold;
+    [SerializeField] private SoundType actionSoundGold;
+    [SerializeField] private float actionPowerModifierGold = 0f;
+    [SerializeField] private float actionRateModifierGold = 0f;
+    [SerializeField] private float actionRangeModifierGold = 0f;
+    [SerializeField] private float actionPierceModifierGold = 0f;
+    [SerializeField] private float actionDurationGold = 0f;
+    [SerializeField] private float actionExtraModifierGold = 0f;
+    [SerializeField] private string extraEffectGold;
+    [SerializeField] private GameObject effectPrefabGold;
+    [SerializeField] private SoundType effectSoundGold;
+    [SerializeField] private float effectPowerModifierGold = 1f;
+    [SerializeField] private float effectRateModifierGold = 1f;
+    [SerializeField] private float effectRangeModifierGold = 5f;
+    [SerializeField] private float effectPierceModifierGold = 0f;
+    [SerializeField] private float effectDurationGold = 1f;
+    [SerializeField] private float effectExtraModifierGold = 0f;
+    [SerializeField] private string extraPassiveGold;
+    [SerializeField] private GameObject passivePrefabGold;
+    [SerializeField] private SoundType passiveSoundGold;
+    [SerializeField] private float passivePowerModifierGold = 0f;
+    [SerializeField] private float passiveRateModifierGold = 0f;
+    [SerializeField] private float passiveRangeModifierGold = 0f;
+    [SerializeField] private float passivePierceModifierGold = 0f;
+    [SerializeField] private float passiveDurationGold = 0f;
+    [SerializeField] private float passiveExtraModifierGold = 0f;
 
     //trackers
     private Attributes attributes;

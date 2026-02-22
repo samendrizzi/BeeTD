@@ -5,6 +5,33 @@ TextureImporter:
   - first:
       213: 131580017568983203
     second: Beetle - Longhorn_0
+  - first:
+      213: -5295636862375959654
+    second: Beetle - Longhorn_1
+  - first:
+      213: 6373078888468154412
+    second: Beetle - Longhorn_2
+  - first:
+      213: -5496534911902024931
+    second: Beetle - Longhorn_3
+  - first:
+      213: 3299791950669523473
+    second: Beetle - Longhorn_4
+  - first:
+      213: 7771882558318214069
+    second: Beetle - Longhorn_5
+  - first:
+      213: 1983626781702592078
+    second: Beetle - Longhorn_6
+  - first:
+      213: -356028037702743284
+    second: Beetle - Longhorn_7
+  - first:
+      213: -7916306661701421575
+    second: Beetle - Longhorn_8
+  - first:
+      213: -5039756756751325343
+    second: Beetle - Longhorn_9
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -103,10 +130,10 @@ TextureImporter:
       name: Beetle - Longhorn_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1536
-        height: 1024
+        x: 135
+        y: 590
+        width: 241
+        height: 371
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -117,6 +144,204 @@ TextureImporter:
       bones: []
       spriteID: 3a82dbe245773d100800000000000000
       internalID: 131580017568983203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Longhorn_1
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 603
+        width: 236
+        height: 357
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a93ed96c45e1286b0800000000000000
+      internalID: -5295636862375959654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Longhorn_2
+      rect:
+        serializedVersion: 2
+        x: 666
+        y: 604
+        width: 234
+        height: 357
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c288fa8ab79b17850800000000000000
+      internalID: 6373078888468154412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Longhorn_3
+      rect:
+        serializedVersion: 2
+        x: 912
+        y: 602
+        width: 236
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1bfb889e9268b3b0800000000000000
+      internalID: -5496534911902024931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Longhorn_4
+      rect:
+        serializedVersion: 2
+        x: 1162
+        y: 602
+        width: 237
+        height: 359
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11aa95ccb473bcd20800000000000000
+      internalID: 3299791950669523473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Longhorn_5
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 151
+        width: 240
+        height: 350
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5bb7c9472064bdb60800000000000000
+      internalID: 7771882558318214069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Longhorn_6
+      rect:
+        serializedVersion: 2
+        x: 413
+        y: 151
+        width: 240
+        height: 349
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e46955a5c02478b10800000000000000
+      internalID: 1983626781702592078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Longhorn_7
+      rect:
+        serializedVersion: 2
+        x: 664
+        y: 152
+        width: 237
+        height: 349
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0b06a2d2622f0bf0800000000000000
+      internalID: -356028037702743284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Longhorn_8
+      rect:
+        serializedVersion: 2
+        x: 912
+        y: 151
+        width: 237
+        height: 349
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f57a389801a32290800000000000000
+      internalID: -7916306661701421575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Longhorn_9
+      rect:
+        serializedVersion: 2
+        x: 1162
+        y: 151
+        width: 239
+        height: 350
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16766777eef2f0ab0800000000000000
+      internalID: -5039756756751325343
       vertices: []
       indices: 
       edges: []
@@ -136,6 +361,15 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       Beetle - Longhorn_0: 131580017568983203
+      Beetle - Longhorn_1: -5295636862375959654
+      Beetle - Longhorn_2: 6373078888468154412
+      Beetle - Longhorn_3: -5496534911902024931
+      Beetle - Longhorn_4: 3299791950669523473
+      Beetle - Longhorn_5: 7771882558318214069
+      Beetle - Longhorn_6: 1983626781702592078
+      Beetle - Longhorn_7: -356028037702743284
+      Beetle - Longhorn_8: -7916306661701421575
+      Beetle - Longhorn_9: -5039756756751325343
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

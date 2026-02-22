@@ -5,6 +5,33 @@ TextureImporter:
   - first:
       213: 5615741474696845071
     second: Beetle - Leaf_0
+  - first:
+      213: 2292754609830343489
+    second: Beetle - Leaf_1
+  - first:
+      213: 1780801235081697117
+    second: Beetle - Leaf_2
+  - first:
+      213: 3822304196204673037
+    second: Beetle - Leaf_3
+  - first:
+      213: 6058487793787945516
+    second: Beetle - Leaf_4
+  - first:
+      213: -2962552975047755522
+    second: Beetle - Leaf_5
+  - first:
+      213: -4898422461640824085
+    second: Beetle - Leaf_6
+  - first:
+      213: -3361592182625290341
+    second: Beetle - Leaf_7
+  - first:
+      213: 3780457901393598328
+    second: Beetle - Leaf_8
+  - first:
+      213: 7392361026534347839
+    second: Beetle - Leaf_9
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -103,10 +130,10 @@ TextureImporter:
       name: Beetle - Leaf_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1536
-        height: 1024
+        x: 90
+        y: 626
+        width: 266
+        height: 290
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -117,6 +144,204 @@ TextureImporter:
       bones: []
       spriteID: f07dbb52e1f1fed40800000000000000
       internalID: 5615741474696845071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Leaf_1
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 627
+        width: 257
+        height: 288
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 143b31c8b2081df10800000000000000
+      internalID: 2292754609830343489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Leaf_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 627
+        width: 257
+        height: 287
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d571f98c94da6b810800000000000000
+      internalID: 1780801235081697117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Leaf_3
+      rect:
+        serializedVersion: 2
+        x: 910
+        y: 626
+        width: 258
+        height: 288
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d08b34e3a6d8b0530800000000000000
+      internalID: 3822304196204673037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Leaf_4
+      rect:
+        serializedVersion: 2
+        x: 1186
+        y: 626
+        width: 265
+        height: 302
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2245c89c82141450800000000000000
+      internalID: 6058487793787945516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Leaf_5
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 177
+        width: 274
+        height: 293
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef87006f3c5e2e6d0800000000000000
+      internalID: -2962552975047755522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Leaf_6
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 178
+        width: 262
+        height: 292
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: beaaa1e59be450cb0800000000000000
+      internalID: -4898422461640824085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Leaf_7
+      rect:
+        serializedVersion: 2
+        x: 639
+        y: 178
+        width: 263
+        height: 293
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b97b3ea68b93951d0800000000000000
+      internalID: -3361592182625290341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Leaf_8
+      rect:
+        serializedVersion: 2
+        x: 910
+        y: 178
+        width: 267
+        height: 293
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87752ec7e62e67430800000000000000
+      internalID: 3780457901393598328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Leaf_9
+      rect:
+        serializedVersion: 2
+        x: 1186
+        y: 178
+        width: 269
+        height: 293
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f34950eef21f69660800000000000000
+      internalID: 7392361026534347839
       vertices: []
       indices: 
       edges: []
@@ -136,6 +361,15 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       Beetle - Leaf_0: 5615741474696845071
+      Beetle - Leaf_1: 2292754609830343489
+      Beetle - Leaf_2: 1780801235081697117
+      Beetle - Leaf_3: 3822304196204673037
+      Beetle - Leaf_4: 6058487793787945516
+      Beetle - Leaf_5: -2962552975047755522
+      Beetle - Leaf_6: -4898422461640824085
+      Beetle - Leaf_7: -3361592182625290341
+      Beetle - Leaf_8: 3780457901393598328
+      Beetle - Leaf_9: 7392361026534347839
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

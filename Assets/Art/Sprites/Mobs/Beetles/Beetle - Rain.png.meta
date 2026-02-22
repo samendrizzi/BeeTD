@@ -5,6 +5,33 @@ TextureImporter:
   - first:
       213: -5913637798312383951
     second: Beetle - Rain_0
+  - first:
+      213: -2963097815869907260
+    second: Beetle - Rain_1
+  - first:
+      213: -4960880564674035225
+    second: Beetle - Rain_2
+  - first:
+      213: 6532806788696864126
+    second: Beetle - Rain_3
+  - first:
+      213: -8909996157458431019
+    second: Beetle - Rain_4
+  - first:
+      213: -994996883788648061
+    second: Beetle - Rain_5
+  - first:
+      213: 6895743628781272628
+    second: Beetle - Rain_6
+  - first:
+      213: 2463966583304642138
+    second: Beetle - Rain_7
+  - first:
+      213: -276140464233517733
+    second: Beetle - Rain_8
+  - first:
+      213: -1188962123053217978
+    second: Beetle - Rain_9
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -103,10 +130,10 @@ TextureImporter:
       name: Beetle - Rain_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1536
-        height: 1024
+        x: 103
+        y: 618
+        width: 238
+        height: 266
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -117,6 +144,204 @@ TextureImporter:
       bones: []
       spriteID: 13a644511c98eeda0800000000000000
       internalID: -5913637798312383951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Rain_1
+      rect:
+        serializedVersion: 2
+        x: 379
+        y: 618
+        width: 236
+        height: 259
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ce96525c36f0e6d0800000000000000
+      internalID: -2963097815869907260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Rain_2
+      rect:
+        serializedVersion: 2
+        x: 653
+        y: 618
+        width: 237
+        height: 262
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e107790969672bb0800000000000000
+      internalID: -4960880564674035225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Rain_3
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 618
+        width: 235
+        height: 261
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e75798a792139aa50800000000000000
+      internalID: 6532806788696864126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Rain_4
+      rect:
+        serializedVersion: 2
+        x: 1189
+        y: 618
+        width: 240
+        height: 262
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d34894b3b5595480800000000000000
+      internalID: -8909996157458431019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Rain_5
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 174
+        width: 245
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 381382d1b9f0132f0800000000000000
+      internalID: -994996883788648061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Rain_6
+      rect:
+        serializedVersion: 2
+        x: 379
+        y: 175
+        width: 243
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43ebbaf8b4a92bf50800000000000000
+      internalID: 6895743628781272628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Rain_7
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 175
+        width: 245
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5e5e488d84c13220800000000000000
+      internalID: 2463966583304642138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Rain_8
+      rect:
+        serializedVersion: 2
+        x: 927
+        y: 176
+        width: 242
+        height: 258
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5def39f5b3fa2cf0800000000000000
+      internalID: -276140464233517733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Rain_9
+      rect:
+        serializedVersion: 2
+        x: 1190
+        y: 175
+        width: 244
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 647c40c9f35ff7fe0800000000000000
+      internalID: -1188962123053217978
       vertices: []
       indices: 
       edges: []
@@ -136,6 +361,15 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       Beetle - Rain_0: -5913637798312383951
+      Beetle - Rain_1: -2963097815869907260
+      Beetle - Rain_2: -4960880564674035225
+      Beetle - Rain_3: 6532806788696864126
+      Beetle - Rain_4: -8909996157458431019
+      Beetle - Rain_5: -994996883788648061
+      Beetle - Rain_6: 6895743628781272628
+      Beetle - Rain_7: 2463966583304642138
+      Beetle - Rain_8: -276140464233517733
+      Beetle - Rain_9: -1188962123053217978
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

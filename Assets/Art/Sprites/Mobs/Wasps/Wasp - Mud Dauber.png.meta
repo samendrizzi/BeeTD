@@ -5,6 +5,33 @@ TextureImporter:
   - first:
       213: 3467880176139633053
     second: Wasp - Mud Dauber_0
+  - first:
+      213: -5006802531668837086
+    second: Wasp - Mud Dauber_1
+  - first:
+      213: 5339682741556114271
+    second: Wasp - Mud Dauber_2
+  - first:
+      213: 5190279729378035821
+    second: Wasp - Mud Dauber_3
+  - first:
+      213: -5226087613755634553
+    second: Wasp - Mud Dauber_4
+  - first:
+      213: 8918383649902288315
+    second: Wasp - Mud Dauber_5
+  - first:
+      213: -5925347731026961915
+    second: Wasp - Mud Dauber_6
+  - first:
+      213: 5056753073935443311
+    second: Wasp - Mud Dauber_7
+  - first:
+      213: -1237775672218499852
+    second: Wasp - Mud Dauber_8
+  - first:
+      213: 4820354036732368542
+    second: Wasp - Mud Dauber_9
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -103,10 +130,10 @@ TextureImporter:
       name: Wasp - Mud Dauber_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1536
-        height: 1024
+        x: 54
+        y: 590
+        width: 264
+        height: 389
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -117,6 +144,204 @@ TextureImporter:
       bones: []
       spriteID: d910c6685a2602030800000000000000
       internalID: 3467880176139633053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wasp - Mud Dauber_1
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 591
+        width: 266
+        height: 387
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22d3a57ef93448ab0800000000000000
+      internalID: -5006802531668837086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wasp - Mud Dauber_2
+      rect:
+        serializedVersion: 2
+        x: 627
+        y: 591
+        width: 267
+        height: 387
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f537cbf992d5a1a40800000000000000
+      internalID: 5339682741556114271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wasp - Mud Dauber_3
+      rect:
+        serializedVersion: 2
+        x: 914
+        y: 591
+        width: 266
+        height: 387
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d680d722ae3970840800000000000000
+      internalID: 5190279729378035821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wasp - Mud Dauber_4
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 590
+        width: 267
+        height: 389
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78cc60911053977b0800000000000000
+      internalID: -5226087613755634553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wasp - Mud Dauber_5
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 116
+        width: 267
+        height: 393
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbdd31f8da674cb70800000000000000
+      internalID: 8918383649902288315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wasp - Mud Dauber_6
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 116
+        width: 267
+        height: 393
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50a9879e1afe4cda0800000000000000
+      internalID: -5925347731026961915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wasp - Mud Dauber_7
+      rect:
+        serializedVersion: 2
+        x: 627
+        y: 116
+        width: 267
+        height: 393
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6569c001223d2640800000000000000
+      internalID: 5056753073935443311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wasp - Mud Dauber_8
+      rect:
+        serializedVersion: 2
+        x: 913
+        y: 116
+        width: 267
+        height: 393
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f4cbc9859982dee0800000000000000
+      internalID: -1237775672218499852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wasp - Mud Dauber_9
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 115
+        width: 268
+        height: 394
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e969d03057655e240800000000000000
+      internalID: 4820354036732368542
       vertices: []
       indices: 
       edges: []
@@ -136,6 +361,15 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       Wasp - Mud Dauber_0: 3467880176139633053
+      Wasp - Mud Dauber_1: -5006802531668837086
+      Wasp - Mud Dauber_2: 5339682741556114271
+      Wasp - Mud Dauber_3: 5190279729378035821
+      Wasp - Mud Dauber_4: -5226087613755634553
+      Wasp - Mud Dauber_5: 8918383649902288315
+      Wasp - Mud Dauber_6: -5925347731026961915
+      Wasp - Mud Dauber_7: 5056753073935443311
+      Wasp - Mud Dauber_8: -1237775672218499852
+      Wasp - Mud Dauber_9: 4820354036732368542
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

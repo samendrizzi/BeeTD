@@ -2495,14 +2495,16 @@ MonoBehaviour:
   victorySound: 5
   defeatSound: 6
   waveStartSound: 8
-  honey: 0
+  hiveEntrance: {fileID: 1896614255}
+  honeyRequired: 2000
+  difficultyScaling: 0.09
+  startingVision: 4.8
+  percentageOfFlowersUsed: 1
   bonusNectar: 0
   bonusHoney: 0
-  honeyRequired: 2000
-  percentageOfFlowersUsed: 1
-  difficultyScaling: 0.05
-  hiveEntrance: {fileID: 1896614255}
-  startingVision: 4.8
+  honeyBuffs: 
+  honeyBuffAmount: []
+  honeyBuffThresholds: []
   numberOfPaths: 2
   path1:
   - {fileID: 1729914140}
@@ -2637,6 +2639,57 @@ MonoBehaviour:
   flyingPath9: []
   path10: []
   flyingPath10: []
+  numberOfWaves: 20
+  wave1: []
+  wave2: []
+  wave3: []
+  wave4: []
+  wave5: []
+  wave6: []
+  wave7: []
+  wave8: []
+  wave9: []
+  wave10: []
+  wave11: []
+  wave12: []
+  wave13: []
+  wave14: []
+  wave15: []
+  wave16: []
+  wave17: []
+  wave18: []
+  wave19: []
+  wave20: []
+  wave21: []
+  wave22: []
+  wave23: []
+  wave24: []
+  wave25: []
+  wave26: []
+  wave27: []
+  wave28: []
+  wave29: []
+  wave30: []
+  wave31: []
+  wave32: []
+  wave33: []
+  wave34: []
+  wave35: []
+  wave36: []
+  wave37: []
+  wave38: []
+  wave39: []
+  wave40: []
+  wave41: []
+  wave42: []
+  wave43: []
+  wave44: []
+  wave45: []
+  wave46: []
+  wave47: []
+  wave48: []
+  wave49: []
+  wave50: []
   pathsStart: []
   pathsNextPoint: []
   queenHP: 0
@@ -2663,6 +2716,7 @@ MonoBehaviour:
   emptyHoneyCombs: []
   queuedTargets: []
   workerBeeCost: 0
+  honey: 0
   nectar: 0
   autoAssignBees: Nectar
   honeyCombTicks: 0
@@ -65252,57 +65306,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7979e7980427d214ebb2291ddc061a1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WaveSpawner
-  numberOfWaves: 20
-  wave1: []
-  wave2: []
-  wave3: []
-  wave4: []
-  wave5: []
-  wave6: []
-  wave7: []
-  wave8: []
-  wave9: []
-  wave10: []
-  wave11: []
-  wave12: []
-  wave13: []
-  wave14: []
-  wave15: []
-  wave16: []
-  wave17: []
-  wave18: []
-  wave19: []
-  wave20: []
-  wave21: []
-  wave22: []
-  wave23: []
-  wave24: []
-  wave25: []
-  wave26: []
-  wave27: []
-  wave28: []
-  wave29: []
-  wave30: []
-  wave31: []
-  wave32: []
-  wave33: []
-  wave34: []
-  wave35: []
-  wave36: []
-  wave37: []
-  wave38: []
-  wave39: []
-  wave40: []
-  wave41: []
-  wave42: []
-  wave43: []
-  wave44: []
-  wave45: []
-  wave46: []
-  wave47: []
-  wave48: []
-  wave49: []
-  wave50: []
   currentWave: 0
   enemiesAlive: 0
   waveCountdown: 10
@@ -78945,6 +78948,7 @@ MonoBehaviour:
   towerRampingDamage: 1
   towerExtraRampCount: 0
   towerExtraRicochetCount: 0
+  enemyWaveScaling: 1
   enemyHitPoints: 1
   enemyHeal: 1
   enemyShield: 1
@@ -78969,7 +78973,6 @@ MonoBehaviour:
   enemyResistancePierce: 1
   enemyDodgePierce: 1
   enemyStealthDetection: 0
-  enemyWaveScaling: 1
   enemyHatchTime: 1
   enemySpawnTime: 1
   enemyStealthTime: 1

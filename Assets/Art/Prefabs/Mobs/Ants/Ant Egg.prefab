@@ -706,12 +706,12 @@ SpriteRenderer:
   m_SortingLayer: 3
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -2989900158182312478, guid: dea50e8acd6c0e04192a17912885006b, type: 3}
+  m_Sprite: {fileID: -2989900158182312478, guid: b02eeecf7559d2c4da61a90840b13857, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 10.24, y: 14.7}
+  m_Size: {x: 2.77, y: 2.57}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -816,11 +816,13 @@ MonoBehaviour:
   resistance: 0
   dodgeChance: 0
   targetingRange: 0.2
+  stealthDetection: 0
   rotationSpeed: 150
   wayPointRangeModifier: 1
   actionPower: 1
   actionRate: 1
   armorPierce: 0
+  dodgePierce: 0
   actions: []
   actionPrefabs: []
   actionSounds: 
@@ -870,7 +872,7 @@ MonoBehaviour:
   targetSetting: 
   variant: 0
   variantName: 
-  prestige: 
+  prestiges: 
   hitPoints: 1
   shield: 0
   isDestroyed: 0
@@ -878,7 +880,7 @@ MonoBehaviour:
   pathIndex: 0
   inventoryFull: 0
   frozen: 0
-  Stealth: 0
+  stealth: 0
   freezeImmune: 0
   pausing: 0
   timeUntilActions: []
@@ -889,9 +891,11 @@ MonoBehaviour:
   path: []
   targetingOptions: []
   rampCount: 0
+  carryCapacityBase: 0
   moveSpeedBase: 0
   moveSpeedUncapped: 0
   targetingRangeBase: 0
+  stealthDetectionBase: 0
   maxHPBase: 0
   maxShieldBase: 0
   armorBase: 0
@@ -900,6 +904,7 @@ MonoBehaviour:
   actionPowerBase: 0
   actionRateBase: 0
   armorPierceBase: 0
+  dodgePierceBase: 0
   actionPowerModifiersBase: []
   actionRateModifiersBase: []
   actionRangeModifiersBase: []
@@ -993,16 +998,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d70c71ca4013dca48b5cf2899608ad3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Variants
-  spriteBlack: {fileID: -2989900158182312478, guid: dea50e8acd6c0e04192a17912885006b, type: 3}
-  spriteWhite: {fileID: -8479584203722251183, guid: dea50e8acd6c0e04192a17912885006b, type: 3}
-  spriteBrown: {fileID: -406553704942438375, guid: dea50e8acd6c0e04192a17912885006b, type: 3}
-  spriteOrange: {fileID: -8403673218527731226, guid: dea50e8acd6c0e04192a17912885006b, type: 3}
-  spriteYellow: {fileID: 421371116572744973, guid: dea50e8acd6c0e04192a17912885006b, type: 3}
-  spriteRed: {fileID: 4331571614131699228, guid: dea50e8acd6c0e04192a17912885006b, type: 3}
-  spriteGreen: {fileID: -2592778302070610736, guid: dea50e8acd6c0e04192a17912885006b, type: 3}
-  spriteBlue: {fileID: -7424459830344728122, guid: dea50e8acd6c0e04192a17912885006b, type: 3}
-  spritePurple: {fileID: -4533031738604148839, guid: dea50e8acd6c0e04192a17912885006b, type: 3}
-  spritePink: {fileID: 1122126167847134842, guid: dea50e8acd6c0e04192a17912885006b, type: 3}
+  spriteBlack: {fileID: -2989900158182312478, guid: b02eeecf7559d2c4da61a90840b13857, type: 3}
+  spriteWhite: {fileID: -8479584203722251183, guid: b02eeecf7559d2c4da61a90840b13857, type: 3}
+  spriteBrown: {fileID: -406553704942438375, guid: b02eeecf7559d2c4da61a90840b13857, type: 3}
+  spriteOrange: {fileID: -8403673218527731226, guid: b02eeecf7559d2c4da61a90840b13857, type: 3}
+  spriteYellow: {fileID: 421371116572744973, guid: b02eeecf7559d2c4da61a90840b13857, type: 3}
+  spriteRed: {fileID: 4331571614131699228, guid: b02eeecf7559d2c4da61a90840b13857, type: 3}
+  spriteGreen: {fileID: -2592778302070610736, guid: b02eeecf7559d2c4da61a90840b13857, type: 3}
+  spriteBlue: {fileID: -7424459830344728122, guid: b02eeecf7559d2c4da61a90840b13857, type: 3}
+  spritePurple: {fileID: -4533031738604148839, guid: b02eeecf7559d2c4da61a90840b13857, type: 3}
+  spritePink: {fileID: 1122126167847134842, guid: b02eeecf7559d2c4da61a90840b13857, type: 3}
   roleNameOrange: Carrier
   flatHPOrange: 0
   percentageHPOrange: 0.3

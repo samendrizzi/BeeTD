@@ -1850,7 +1850,7 @@ MonoBehaviour:
   flyingPath9: []
   path10: []
   flyingPath10: []
-  numberOfWaves: 15
+  numberOfWaves: 20
   wave1: []
   wave2: []
   wave3: []

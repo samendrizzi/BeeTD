@@ -1751,7 +1751,11 @@ MonoBehaviour:
   path10: []
   flyingPath10: []
   numberOfWaves: 15
-  wave1: []
+  wave1:
+  - prefab: {fileID: 0}
+    variant: 0
+    prestiges: 
+    path: 0
   wave2: []
   wave3: []
   wave4: []

@@ -5,6 +5,33 @@ TextureImporter:
   - first:
       213: -4781030842614175661
     second: Fly - Robber_0
+  - first:
+      213: -8398143273704461045
+    second: Fly - Robber_1
+  - first:
+      213: 5890108292688913982
+    second: Fly - Robber_2
+  - first:
+      213: -8452782865180859196
+    second: Fly - Robber_3
+  - first:
+      213: -5848046917050974585
+    second: Fly - Robber_4
+  - first:
+      213: -15975251472255429
+    second: Fly - Robber_5
+  - first:
+      213: 4247990620685732779
+    second: Fly - Robber_6
+  - first:
+      213: -6028049649266394898
+    second: Fly - Robber_7
+  - first:
+      213: 1089961998153744917
+    second: Fly - Robber_8
+  - first:
+      213: -7779501324130094006
+    second: Fly - Robber_9
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -103,10 +130,10 @@ TextureImporter:
       name: Fly - Robber_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1536
-        height: 1024
+        x: 11
+        y: 1
+        width: 366
+        height: 1019
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -117,6 +144,204 @@ TextureImporter:
       bones: []
       spriteID: 358abc597cd56adb0800000000000000
       internalID: -4781030842614175661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fly - Robber_1
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 115
+        width: 233
+        height: 369
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0d6206103dc37b80800000000000000
+      internalID: -8398143273704461045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fly - Robber_2
+      rect:
+        serializedVersion: 2
+        x: 395
+        y: 485
+        width: 265
+        height: 539
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e362e4af84eddb150800000000000000
+      internalID: 5890108292688913982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fly - Robber_3
+      rect:
+        serializedVersion: 2
+        x: 414
+        y: 1
+        width: 246
+        height: 483
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c4e265d4cea1ba80800000000000000
+      internalID: -8452782865180859196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fly - Robber_4
+      rect:
+        serializedVersion: 2
+        x: 653
+        y: 53
+        width: 236
+        height: 459
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78ebb5f205097dea0800000000000000
+      internalID: -5848046917050974585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fly - Robber_5
+      rect:
+        serializedVersion: 2
+        x: 670
+        y: 592
+        width: 219
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b367ccae79e37cff0800000000000000
+      internalID: -15975251472255429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fly - Robber_6
+      rect:
+        serializedVersion: 2
+        x: 911
+        y: 1
+        width: 233
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bab0a2376f4e3fa30800000000000000
+      internalID: 4247990620685732779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fly - Robber_7
+      rect:
+        serializedVersion: 2
+        x: 919
+        y: 480
+        width: 298
+        height: 544
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee8fe0f28c0185ca0800000000000000
+      internalID: -6028049649266394898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fly - Robber_8
+      rect:
+        serializedVersion: 2
+        x: 1159
+        y: 2
+        width: 365
+        height: 497
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51201a699a2502f00800000000000000
+      internalID: 1089961998153744917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fly - Robber_9
+      rect:
+        serializedVersion: 2
+        x: 1172
+        y: 541
+        width: 330
+        height: 426
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a447b8563c8a90490800000000000000
+      internalID: -7779501324130094006
       vertices: []
       indices: 
       edges: []
@@ -136,6 +361,15 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       Fly - Robber_0: -4781030842614175661
+      Fly - Robber_1: -8398143273704461045
+      Fly - Robber_2: 5890108292688913982
+      Fly - Robber_3: -8452782865180859196
+      Fly - Robber_4: -5848046917050974585
+      Fly - Robber_5: -15975251472255429
+      Fly - Robber_6: 4247990620685732779
+      Fly - Robber_7: -6028049649266394898
+      Fly - Robber_8: 1089961998153744917
+      Fly - Robber_9: -7779501324130094006
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -5,6 +5,33 @@ TextureImporter:
   - first:
       213: -869589917872386741
     second: Beetle - Stag_0
+  - first:
+      213: -4416123870872439603
+    second: Beetle - Stag_1
+  - first:
+      213: 2248532642332025681
+    second: Beetle - Stag_2
+  - first:
+      213: 3244302394988363773
+    second: Beetle - Stag_3
+  - first:
+      213: -6679646318982357667
+    second: Beetle - Stag_4
+  - first:
+      213: -9035057290175057713
+    second: Beetle - Stag_5
+  - first:
+      213: 293551331724974918
+    second: Beetle - Stag_6
+  - first:
+      213: -4623284945391622839
+    second: Beetle - Stag_7
+  - first:
+      213: -1199656451143726220
+    second: Beetle - Stag_8
+  - first:
+      213: 3893760377515809116
+    second: Beetle - Stag_9
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -103,10 +130,10 @@ TextureImporter:
       name: Beetle - Stag_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1536
-        height: 1024
+        x: 96
+        y: 576
+        width: 245
+        height: 353
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -117,6 +144,204 @@ TextureImporter:
       bones: []
       spriteID: b4d84f4b3989ee3f0800000000000000
       internalID: -869589917872386741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Stag_1
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 578
+        width: 241
+        height: 350
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc47680bcb6c6b2c0800000000000000
+      internalID: -4416123870872439603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Stag_2
+      rect:
+        serializedVersion: 2
+        x: 647
+        y: 576
+        width: 243
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15322146684643f10800000000000000
+      internalID: 2248532642332025681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Stag_3
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 577
+        width: 246
+        height: 353
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dfffa35d6d3160d20800000000000000
+      internalID: 3244302394988363773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Stag_4
+      rect:
+        serializedVersion: 2
+        x: 1198
+        y: 578
+        width: 246
+        height: 352
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5d9fcb20112d43a0800000000000000
+      internalID: -6679646318982357667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Stag_5
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 105
+        width: 251
+        height: 348
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc0ffcda3470d9280800000000000000
+      internalID: -9035057290175057713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Stag_6
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 106
+        width: 250
+        height: 347
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64b5fc28167e21400800000000000000
+      internalID: 293551331724974918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Stag_7
+      rect:
+        serializedVersion: 2
+        x: 642
+        y: 105
+        width: 254
+        height: 348
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 945658e56dac6dfb0800000000000000
+      internalID: -4623284945391622839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Stag_8
+      rect:
+        serializedVersion: 2
+        x: 916
+        y: 105
+        width: 252
+        height: 347
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47b821150d6f95fe0800000000000000
+      internalID: -1199656451143726220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Stag_9
+      rect:
+        serializedVersion: 2
+        x: 1193
+        y: 106
+        width: 253
+        height: 346
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c59125eee6a690630800000000000000
+      internalID: 3893760377515809116
       vertices: []
       indices: 
       edges: []
@@ -136,6 +361,15 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       Beetle - Stag_0: -869589917872386741
+      Beetle - Stag_1: -4416123870872439603
+      Beetle - Stag_2: 2248532642332025681
+      Beetle - Stag_3: 3244302394988363773
+      Beetle - Stag_4: -6679646318982357667
+      Beetle - Stag_5: -9035057290175057713
+      Beetle - Stag_6: 293551331724974918
+      Beetle - Stag_7: -4623284945391622839
+      Beetle - Stag_8: -1199656451143726220
+      Beetle - Stag_9: 3893760377515809116
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

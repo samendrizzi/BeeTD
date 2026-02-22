@@ -5,6 +5,33 @@ TextureImporter:
   - first:
       213: 3271616755531015203
     second: Beetle - Leaf Queen_0
+  - first:
+      213: -6030769030845345687
+    second: Beetle - Leaf Queen_1
+  - first:
+      213: 6843679216194776008
+    second: Beetle - Leaf Queen_2
+  - first:
+      213: 8427409387006723475
+    second: Beetle - Leaf Queen_3
+  - first:
+      213: 2027404917024038631
+    second: Beetle - Leaf Queen_4
+  - first:
+      213: 4226195327746267653
+    second: Beetle - Leaf Queen_5
+  - first:
+      213: -4744669312710744309
+    second: Beetle - Leaf Queen_6
+  - first:
+      213: 9064049434946978857
+    second: Beetle - Leaf Queen_7
+  - first:
+      213: 3758059953426150775
+    second: Beetle - Leaf Queen_8
+  - first:
+      213: -7586082927216783627
+    second: Beetle - Leaf Queen_9
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -103,10 +130,10 @@ TextureImporter:
       name: Beetle - Leaf Queen_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1536
-        height: 1024
+        x: 71
+        y: 632
+        width: 273
+        height: 351
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -117,6 +144,204 @@ TextureImporter:
       bones: []
       spriteID: 32464aafa1e176d20800000000000000
       internalID: 3271616755531015203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Leaf Queen_1
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 630
+        width: 269
+        height: 346
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9605902d4876e4ca0800000000000000
+      internalID: -6030769030845345687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Leaf Queen_2
+      rect:
+        serializedVersion: 2
+        x: 623
+        y: 630
+        width: 272
+        height: 348
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8cb630edcf1a9fe50800000000000000
+      internalID: 6843679216194776008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Leaf Queen_3
+      rect:
+        serializedVersion: 2
+        x: 901
+        y: 624
+        width: 274
+        height: 353
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3950459ef2c24f470800000000000000
+      internalID: 8427409387006723475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Leaf Queen_4
+      rect:
+        serializedVersion: 2
+        x: 1180
+        y: 631
+        width: 273
+        height: 347
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ee1917c70ac22c10800000000000000
+      internalID: 2027404917024038631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Leaf Queen_5
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 176
+        width: 275
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50a5bbd524676aa30800000000000000
+      internalID: 4226195327746267653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Leaf Queen_6
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 175
+        width: 271
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b07ed2ff56c872eb0800000000000000
+      internalID: -4744669312710744309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Leaf Queen_7
+      rect:
+        serializedVersion: 2
+        x: 622
+        y: 176
+        width: 275
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 924489c00f8f9cd70800000000000000
+      internalID: 9064049434946978857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Leaf Queen_8
+      rect:
+        serializedVersion: 2
+        x: 902
+        y: 176
+        width: 276
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7753698dd9f472430800000000000000
+      internalID: 3758059953426150775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Leaf Queen_9
+      rect:
+        serializedVersion: 2
+        x: 1188
+        y: 175
+        width: 277
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5fe869e35c1d8b690800000000000000
+      internalID: -7586082927216783627
       vertices: []
       indices: 
       edges: []
@@ -136,6 +361,15 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       Beetle - Leaf Queen_0: 3271616755531015203
+      Beetle - Leaf Queen_1: -6030769030845345687
+      Beetle - Leaf Queen_2: 6843679216194776008
+      Beetle - Leaf Queen_3: 8427409387006723475
+      Beetle - Leaf Queen_4: 2027404917024038631
+      Beetle - Leaf Queen_5: 4226195327746267653
+      Beetle - Leaf Queen_6: -4744669312710744309
+      Beetle - Leaf Queen_7: 9064049434946978857
+      Beetle - Leaf Queen_8: 3758059953426150775
+      Beetle - Leaf Queen_9: -7586082927216783627
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

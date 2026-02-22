@@ -5,6 +5,33 @@ TextureImporter:
   - first:
       213: 9149059290470458112
     second: Beetle - Scarab_0
+  - first:
+      213: 4459357058668866947
+    second: Beetle - Scarab_1
+  - first:
+      213: -8817617349756609101
+    second: Beetle - Scarab_2
+  - first:
+      213: 1758645512771689534
+    second: Beetle - Scarab_3
+  - first:
+      213: -88649518452517281
+    second: Beetle - Scarab_4
+  - first:
+      213: 2040787570966269670
+    second: Beetle - Scarab_5
+  - first:
+      213: 7543470158044708737
+    second: Beetle - Scarab_6
+  - first:
+      213: -5241809395232783339
+    second: Beetle - Scarab_7
+  - first:
+      213: 8550164981125952006
+    second: Beetle - Scarab_8
+  - first:
+      213: -394005230502465337
+    second: Beetle - Scarab_9
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -103,10 +130,10 @@ TextureImporter:
       name: Beetle - Scarab_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1536
-        height: 1024
+        x: 85
+        y: 615
+        width: 257
+        height: 263
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -117,6 +144,204 @@ TextureImporter:
       bones: []
       spriteID: 003aa7d63fcf7fe70800000000000000
       internalID: 9149059290470458112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Scarab_1
+      rect:
+        serializedVersion: 2
+        x: 381
+        y: 616
+        width: 242
+        height: 258
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38da6904e91d2ed30800000000000000
+      internalID: 4459357058668866947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Scarab_2
+      rect:
+        serializedVersion: 2
+        x: 648
+        y: 617
+        width: 238
+        height: 259
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3bd9f66fcb781a580800000000000000
+      internalID: -8817617349756609101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Scarab_3
+      rect:
+        serializedVersion: 2
+        x: 912
+        y: 617
+        width: 247
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3c5792b6c6f76810800000000000000
+      internalID: 1758645512771689534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Scarab_4
+      rect:
+        serializedVersion: 2
+        x: 1196
+        y: 616
+        width: 253
+        height: 259
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f56d02f8bbd05cef0800000000000000
+      internalID: -88649518452517281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Scarab_5
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 168
+        width: 255
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ee0a75bb75525c10800000000000000
+      internalID: 2040787570966269670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Scarab_6
+      rect:
+        serializedVersion: 2
+        x: 372
+        y: 168
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18fb308442acfa860800000000000000
+      internalID: 7543470158044708737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Scarab_7
+      rect:
+        serializedVersion: 2
+        x: 647
+        y: 168
+        width: 245
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51448d8902a5147b0800000000000000
+      internalID: -5241809395232783339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Scarab_8
+      rect:
+        serializedVersion: 2
+        x: 911
+        y: 169
+        width: 250
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6023ff6efb948a670800000000000000
+      internalID: 8550164981125952006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Scarab_9
+      rect:
+        serializedVersion: 2
+        x: 1196
+        y: 168
+        width: 258
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c031449456388af0800000000000000
+      internalID: -394005230502465337
       vertices: []
       indices: 
       edges: []
@@ -136,6 +361,15 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       Beetle - Scarab_0: 9149059290470458112
+      Beetle - Scarab_1: 4459357058668866947
+      Beetle - Scarab_2: -8817617349756609101
+      Beetle - Scarab_3: 1758645512771689534
+      Beetle - Scarab_4: -88649518452517281
+      Beetle - Scarab_5: 2040787570966269670
+      Beetle - Scarab_6: 7543470158044708737
+      Beetle - Scarab_7: -5241809395232783339
+      Beetle - Scarab_8: 8550164981125952006
+      Beetle - Scarab_9: -394005230502465337
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

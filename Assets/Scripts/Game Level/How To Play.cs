@@ -8,7 +8,7 @@ using System.Collections.Generic;
 public class HowToPlay : MonoBehaviour
 {
 
-    public static  HowToPlay main;
+    public static HowToPlay main;
 
     [Header("References")]
     [SerializeField] public TextMeshProUGUI[] sectionButtonTexts;
@@ -40,7 +40,6 @@ public class HowToPlay : MonoBehaviour
 
     void Start()
     {
-        CloseUI();
         Array.Resize(ref sectionPages, sections.Length);
         for (int i = 0; i < sections.Length; i++)
         {

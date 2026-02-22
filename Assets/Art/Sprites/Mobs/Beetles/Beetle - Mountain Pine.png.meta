@@ -5,6 +5,9 @@ TextureImporter:
   - first:
       213: 2482045772922536104
     second: Beetle - Mountain Pine_0
+  - first:
+      213: 6373037594597877608
+    second: Beetle - Mountain Pine_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -103,10 +106,10 @@ TextureImporter:
       name: Beetle - Mountain Pine_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1536
-        height: 1024
+        x: 132
+        y: 609
+        width: 1270
+        height: 335
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -117,6 +120,28 @@ TextureImporter:
       bones: []
       spriteID: 8a0ce43ea7ff17220800000000000000
       internalID: 2482045772922536104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Mountain Pine_1
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 151
+        width: 1276
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 867673e2de3917850800000000000000
+      internalID: 6373037594597877608
       vertices: []
       indices: 
       edges: []
@@ -136,6 +161,7 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       Beetle - Mountain Pine_0: 2482045772922536104
+      Beetle - Mountain Pine_1: 6373037594597877608
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

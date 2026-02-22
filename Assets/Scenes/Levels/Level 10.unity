@@ -2807,7 +2807,7 @@ MonoBehaviour:
   waveStartSound: 8
   hiveEntrance: {fileID: 0}
   honeyRequired: 4000
-  difficultyScaling: 0.05
+  difficultyScaling: 0.1
   startingVision: 4.8
   percentageOfFlowersUsed: 1
   bonusNectar: 0
@@ -2930,7 +2930,7 @@ MonoBehaviour:
   flyingPath9: []
   path10: []
   flyingPath10: []
-  numberOfWaves: 15
+  numberOfWaves: 25
   wave1: []
   wave2: []
   wave3: []
