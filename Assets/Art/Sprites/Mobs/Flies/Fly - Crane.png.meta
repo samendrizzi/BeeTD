@@ -29,6 +29,12 @@ TextureImporter:
   - first:
       213: 384749766607155788
     second: Fly - Crane_8
+  - first:
+      213: -8893413440046168602
+    second: Fly - Crane_9
+  - first:
+      213: 4817872792834773384
+    second: Fly - Crane_10
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -75,7 +81,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 250
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -127,12 +133,12 @@ TextureImporter:
       name: Fly - Crane_0
       rect:
         serializedVersion: 2
-        x: 11
-        y: 504
-        width: 367
-        height: 520
+        x: 61
+        y: 552
+        width: 315
+        height: 403
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -149,12 +155,12 @@ TextureImporter:
       name: Fly - Crane_1
       rect:
         serializedVersion: 2
-        x: 382
-        y: 505
-        width: 259
-        height: 519
+        x: 378
+        y: 552
+        width: 267
+        height: 401
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -171,12 +177,12 @@ TextureImporter:
       name: Fly - Crane_2
       rect:
         serializedVersion: 2
-        x: 644
-        y: 501
-        width: 512
-        height: 523
+        x: 645
+        y: 552
+        width: 258
+        height: 402
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -193,12 +199,12 @@ TextureImporter:
       name: Fly - Crane_3
       rect:
         serializedVersion: 2
-        x: 1140
-        y: 507
-        width: 365
-        height: 517
+        x: 907
+        y: 552
+        width: 261
+        height: 403
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -215,12 +221,12 @@ TextureImporter:
       name: Fly - Crane_4
       rect:
         serializedVersion: 2
-        x: 11
-        y: 0
-        width: 362
-        height: 501
+        x: 1174
+        y: 552
+        width: 298
+        height: 402
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -234,37 +240,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fly - Crane_5
-      rect:
-        serializedVersion: 2
-        x: 374
-        y: 0
-        width: 1131
-        height: 502
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f1b0cb1b3343d76c0800000000000000
-      internalID: -4144098685481120993
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Fly - Crane_6
       rect:
         serializedVersion: 2
-        x: 776
-        y: 85
-        width: 9
-        height: 9
+        x: 62
+        y: 89
+        width: 314
+        height: 391
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -281,12 +265,12 @@ TextureImporter:
       name: Fly - Crane_7
       rect:
         serializedVersion: 2
-        x: 1017
-        y: 83
-        width: 10
-        height: 10
+        x: 379
+        y: 90
+        width: 266
+        height: 390
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -303,12 +287,12 @@ TextureImporter:
       name: Fly - Crane_8
       rect:
         serializedVersion: 2
-        x: 1291
-        y: 85
-        width: 6
-        height: 7
+        x: 651
+        y: 90
+        width: 252
+        height: 390
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -321,11 +305,55 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Fly - Crane_9
+      rect:
+        serializedVersion: 2
+        x: 909
+        y: 90
+        width: 259
+        height: 390
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e50d59789f349480800000000000000
+      internalID: -8893413440046168602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fly - Crane_10
+      rect:
+        serializedVersion: 2
+        x: 1174
+        y: 90
+        width: 298
+        height: 390
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8819fe567c58cd240800000000000000
+      internalID: 4817872792834773384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 9876b6f348e4e864abcab45af8c62133
     internalID: 0
     vertices: []
     indices: 
@@ -337,6 +365,7 @@ TextureImporter:
     nameFileIdTable:
       Fly - Crane_0: 2450365062372835329
       Fly - Crane_1: 6867964991798223303
+      Fly - Crane_10: 4817872792834773384
       Fly - Crane_2: -5004516160918059163
       Fly - Crane_3: -34446541265411186
       Fly - Crane_4: 1619200810154615936
@@ -344,6 +373,7 @@ TextureImporter:
       Fly - Crane_6: -8200379061301932096
       Fly - Crane_7: 7527503444104202189
       Fly - Crane_8: 384749766607155788
+      Fly - Crane_9: -8893413440046168602
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

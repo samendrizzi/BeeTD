@@ -183,7 +183,7 @@ public class GlobalValues : MonoBehaviour
     [SerializeField] public float honeyinterest = 0f;
     [SerializeField] public float pollenGatherRatio = 0.25f;
     [SerializeField] public float pollenBuff = 0f;
-    [SerializeField] public float nectarGenerationRate = 3f;
+    [SerializeField] public float nectarGenerationRate = 1f;
     [SerializeField] public float pollenGenerationRate = 1f;
     [SerializeField] public int honeycombTicks = 60;
     [SerializeField] public float honeycombGeneration = 1f;
@@ -200,6 +200,11 @@ public class GlobalValues : MonoBehaviour
     [Header("_______________________")]
     [Header("Mob Prestige")]
     [SerializeField] public int prestigeMaxNumber = 5;
+    [SerializeField] public float prestigeCommonHP = 0.5f;
+    [SerializeField] public float prestigeCommonArmor = 0.25f;
+    [SerializeField] public float prestigeCommonResistance = 0.25f;
+    [SerializeField] public float prestigeCommonDodge = 0.25f;
+    [SerializeField] public float prestigeCommonCarryCapacity = 0.5f;
     [SerializeField] public float prestigeDuplicateModifier = 0.5f;
     [SerializeField] public float prestigeRed = .3f;     //Armor / HP Buff
     [SerializeField] public float prestigeBlue = .3f;     //Reistance / Speed Buff

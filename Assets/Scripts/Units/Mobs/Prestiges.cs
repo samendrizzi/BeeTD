@@ -57,8 +57,9 @@ public class Prestiges : MonoBehaviour
         prestigeStar3.SetActive(false);
         prestigeStar4.SetActive(false);
         prestigeStar5.SetActive(false);
-        if (attributes.prestiges!= null)
+        if (attributes.prestiges.Length > 0)
         {
+            SetCommonStats(true, attributes.prestiges.Length);
             SetPrestigeCommon(true, attributes.prestiges.Count(n => n == Prest.COMMON));
             SetPrestigeOrange(true, attributes.prestiges.Count(n => n == Prest.ORANGE));
             SetPrestigeBrown(true, attributes.prestiges.Count(n => n == Prest.BROWN));
@@ -77,22 +78,67 @@ public class Prestiges : MonoBehaviour
             SetPrestigeGrey(true, attributes.prestiges.Count(n => n == Prest.GREY));            
             SetPrestigeTeal(true, attributes.prestiges.Count(n => n == Prest.TEAL));
         }
-        attributes.SetHealthBar();
+        attributes.HealthBar();
+    }
+
+    public void SetCommonStats(bool add, int count)
+    {
+        if (count == 0)
+        {
+            return;
+        }
+        float hpIncrease = (float)Math.Pow(1f + GlobalValues.main.prestigeCommonHP, count);
+        float armorIncrease = (float)Math.Pow(1f + GlobalValues.main.prestigeCommonArmor, count);
+        float resistanceIncrease = (float)Math.Pow(1f + GlobalValues.main.prestigeCommonResistance, count);
+        float dodgeIncrease = (float)Math.Pow(1f + GlobalValues.main.prestigeCommonDodge, count);
+        float carryCapacityIncrease = (float)Math.Pow(1f + GlobalValues.main.prestigeCommonCarryCapacity, count);  
+        if (add == true) 
+        {
+            attributes.hitPoints = attributes.hitPoints * hpIncrease;
+            attributes.maxHP = attributes.maxHP * hpIncrease;
+            attributes.maxHPBase = attributes.maxHPBase * hpIncrease;
+            attributes.armorBase = attributes.armorBase * armorIncrease;
+            attributes.armor = attributes.armor * armorIncrease;
+            attributes.resistanceBase = attributes.resistanceBase * resistanceIncrease;
+            attributes.resistance = attributes.resistance * resistanceIncrease;
+            attributes.dodgeChanceBase = attributes.dodgeChanceBase * dodgeIncrease;
+            attributes.dodgeChance = attributes.dodgeChance * dodgeIncrease;
+            attributes.carryCapacity = (int)((float)attributes.carryCapacity * carryCapacityIncrease);
+        }
+        else
+        {
+            attributes.hitPoints = attributes.hitPoints / hpIncrease;
+            attributes.maxHP = attributes.maxHP / hpIncrease;
+            attributes.maxHPBase = attributes.maxHPBase / hpIncrease;
+            attributes.armorBase = attributes.armorBase / armorIncrease;
+            attributes.armor = attributes.armor / armorIncrease;
+            attributes.resistanceBase = attributes.resistanceBase / resistanceIncrease;
+            attributes.resistance = attributes.resistance / resistanceIncrease;
+            attributes.dodgeChanceBase = attributes.dodgeChanceBase / dodgeIncrease;
+            attributes.dodgeChance = attributes.dodgeChance / dodgeIncrease;
+            attributes.carryCapacity = (int)((float)attributes.carryCapacity / carryCapacityIncrease);
+        }
     }
 
     public void SetPrestigeCommon(bool add, int count)
     {
-
+        if (count == 0)
+        {
+            return;
+        }
+        Color colorTemp = Color.white;
+        colorTemp.a = 0.5f;
+        TurnOnStar(colorTemp, count);
     }
 
     public void SetPrestigeOrange(bool add, int count)
     {
-
+        TurnOnStar(Color.orange, count);
     }
 
     public void SetPrestigePink(bool add, int count)
     {
-
+        TurnOnStar(Color.pink, count);
     }
 
     public void SetPrestigeRed(bool add, int count)

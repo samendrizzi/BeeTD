@@ -54,7 +54,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 250
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -106,12 +106,12 @@ TextureImporter:
       name: Wasp - Giant Ichneumon_0
       rect:
         serializedVersion: 2
-        x: 81
-        y: 25
-        width: 1421
-        height: 512
+        x: 374
+        y: 536
+        width: 286
+        height: 441
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -125,23 +125,177 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Wasp - Giant Ichneumon_1
+      name: Wasp - Giant Ichneumon_2
       rect:
         serializedVersion: 2
-        x: 82
-        y: 535
-        width: 1417
-        height: 441
+        x: 659
+        y: 537
+        width: 284
+        height: 440
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: d4e18161fe0d0f960800000000000000
-      internalID: 7633831093679431245
+      spriteID: 68cd321427ffc184484fd4299a7e13fc
+      internalID: 1695495361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wasp - Giant Ichneumon_3
+      rect:
+        serializedVersion: 2
+        x: 942
+        y: 536
+        width: 282
+        height: 442
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42917f24fc7d54f4fa7237e2ccccbe09
+      internalID: 1102507132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wasp - Giant Ichneumon_4
+      rect:
+        serializedVersion: 2
+        x: 1222
+        y: 538
+        width: 277
+        height: 441
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e717e82fe1c8d6f418176a5820e0a71e
+      internalID: -1459362233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wasp - Giant Ichneumon_5
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 52
+        width: 293
+        height: 481
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 373fc2dbc07dc8d4b90188960a13e047
+      internalID: 1196786196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wasp - Giant Ichneumon_6
+      rect:
+        serializedVersion: 2
+        x: 374
+        y: 53
+        width: 287
+        height: 480
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa9ba4ce6a2a77349a692511e99a6427
+      internalID: 694397590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wasp - Giant Ichneumon_7
+      rect:
+        serializedVersion: 2
+        x: 659
+        y: 52
+        width: 284
+        height: 481
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f22d38e03ba6f524cb4bf7470ce694b8
+      internalID: 1583015036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wasp - Giant Ichneumon_8
+      rect:
+        serializedVersion: 2
+        x: 943
+        y: 49
+        width: 282
+        height: 485
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07774d6497099374aa1a988e6f5613f1
+      internalID: -2123377691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wasp - Giant Ichneumon_9
+      rect:
+        serializedVersion: 2
+        x: 1225
+        y: 47
+        width: 278
+        height: 487
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8689783da8f984149953c8ac02cad1d7
+      internalID: 2051737287
       vertices: []
       indices: 
       edges: []
@@ -150,7 +304,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: b0a8c3180141291458fa33f8d857012f
     internalID: 0
     vertices: []
     indices: 
@@ -162,6 +316,14 @@ TextureImporter:
     nameFileIdTable:
       Wasp - Giant Ichneumon_0: 4042862513325575628
       Wasp - Giant Ichneumon_1: 7633831093679431245
+      Wasp - Giant Ichneumon_2: 1695495361
+      Wasp - Giant Ichneumon_3: 1102507132
+      Wasp - Giant Ichneumon_4: -1459362233
+      Wasp - Giant Ichneumon_5: 1196786196
+      Wasp - Giant Ichneumon_6: 694397590
+      Wasp - Giant Ichneumon_7: 1583015036
+      Wasp - Giant Ichneumon_8: -2123377691
+      Wasp - Giant Ichneumon_9: 2051737287
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

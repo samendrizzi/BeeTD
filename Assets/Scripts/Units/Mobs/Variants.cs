@@ -598,8 +598,7 @@ public class Variants : MonoBehaviour
             //Update Actions
             if (stealHoneyOrange == false && gameObject.GetComponent<Actions>().CheckAction("Steal Honey") == true)
             {
-                gameObject.GetComponent<Actions>().RemoveAction("Steal Honey");
-                gameObject.GetComponent<Actions>().AddAction("Attack Queen",null,SoundType.EMPTY,1,1,1,1,1,1);
+                attributes.moveSpeed += (attributes.moveSpeed * percentageMoveSpeedOrange) / 2;
             }
             if (extraActionOrange != "")
             {
@@ -636,8 +635,7 @@ public class Variants : MonoBehaviour
             //Update Actions
             if (stealHoneyBrown == false && gameObject.GetComponent<Actions>().CheckAction("Steal Honey") == true)
             {
-                gameObject.GetComponent<Actions>().RemoveAction("Steal Honey");
-                gameObject.GetComponent<Actions>().AddAction("Attack Queen", null, SoundType.EMPTY, 1, 1, 1, 1, 1, 1);
+                attributes.moveSpeed += (attributes.moveSpeed * percentageMoveSpeedRed) / 2;
             }
             if (extraActionBrown != "")
             {

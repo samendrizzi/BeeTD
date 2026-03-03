@@ -54,7 +54,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 150
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -108,10 +108,10 @@ TextureImporter:
         serializedVersion: 2
         x: 132
         y: 609
-        width: 1270
+        width: 258
         height: 335
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -128,10 +128,10 @@ TextureImporter:
       name: Beetle - Mountain Pine_1
       rect:
         serializedVersion: 2
-        x: 130
-        y: 151
-        width: 1276
-        height: 343
+        x: 390
+        y: 607
+        width: 251
+        height: 337
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -146,11 +146,187 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Beetle - Mountain Pine_2
+      rect:
+        serializedVersion: 2
+        x: 641
+        y: 607
+        width: 252
+        height: 337
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ccb899ce908dfe4e88849e53a3a18b5
+      internalID: 1502124817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Mountain Pine_3
+      rect:
+        serializedVersion: 2
+        x: 891
+        y: 607
+        width: 251
+        height: 339
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20bd88dab8b2d68469ad7ff3443e7874
+      internalID: 1062589451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Mountain Pine_4
+      rect:
+        serializedVersion: 2
+        x: 1142
+        y: 607
+        width: 260
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50613d9100a86c24da5d030af38968e3
+      internalID: 1929634399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Mountain Pine_5
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 154
+        width: 262
+        height: 341
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd8221bbbe0adfc4494aeba777469ee5
+      internalID: -1560295372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Mountain Pine_6
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 154
+        width: 251
+        height: 342
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bd860c7fbd0b5345a94c9d652bdd711
+      internalID: -1885220650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Mountain Pine_7
+      rect:
+        serializedVersion: 2
+        x: 641
+        y: 155
+        width: 250
+        height: 342
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 783daba025f77aa43b91426baab8a20e
+      internalID: 1811149348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Mountain Pine_8
+      rect:
+        serializedVersion: 2
+        x: 890
+        y: 153
+        width: 254
+        height: 345
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39dec51743523524db7a08720aef163c
+      internalID: -876365646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Mountain Pine_9
+      rect:
+        serializedVersion: 2
+        x: 1143
+        y: 152
+        width: 266
+        height: 346
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a56b45d4005122745a1a1b16472a03d7
+      internalID: -2034825609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: a93df60c2a2be6a4e8a8b0fde119ba64
     internalID: 0
     vertices: []
     indices: 
@@ -162,6 +338,14 @@ TextureImporter:
     nameFileIdTable:
       Beetle - Mountain Pine_0: 2482045772922536104
       Beetle - Mountain Pine_1: 6373037594597877608
+      Beetle - Mountain Pine_2: 1502124817
+      Beetle - Mountain Pine_3: 1062589451
+      Beetle - Mountain Pine_4: 1929634399
+      Beetle - Mountain Pine_5: -1560295372
+      Beetle - Mountain Pine_6: -1885220650
+      Beetle - Mountain Pine_7: 1811149348
+      Beetle - Mountain Pine_8: -876365646
+      Beetle - Mountain Pine_9: -2034825609
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

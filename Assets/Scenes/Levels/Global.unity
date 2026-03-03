@@ -8261,7 +8261,7 @@ MonoBehaviour:
   honeyinterest: 0
   pollenGatherRatio: 0.25
   pollenBuff: 0
-  nectarGenerationRate: 3
+  nectarGenerationRate: 1
   pollenGenerationRate: 1
   honeycombTicks: 60
   honeycombGeneration: 1
@@ -8269,6 +8269,11 @@ MonoBehaviour:
   honeycombFillTime: 3
   flowerRange: 0.8
   prestigeMaxNumber: 5
+  prestigeCommonHP: 0.5
+  prestigeCommonArmor: 0.25
+  prestigeCommonResistance: 0.25
+  prestigeCommonDodge: 0.25
+  prestigeCommonCarryCapacity: 0.5
   prestigeDuplicateModifier: 1
   prestigeRed: 0.3
   prestigeBlue: 0.3

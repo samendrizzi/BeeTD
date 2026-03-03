@@ -165,7 +165,7 @@ public class Attributes : MonoBehaviour
             targetingOptions = GlobalValues.main.targetingOptions;
         }
         SetBaseAttributes();
-        SetHealthBar();
+        HealthBar();
     }
 
     private void Update()
@@ -263,13 +263,13 @@ public class Attributes : MonoBehaviour
             resistance = resistanceBase + BuffManager.main.towerResistance;
             dodgeChance = dodgeChanceBase + BuffManager.main.towerDodge;
             armorPierce = armorPierceBase * BuffManager.main.towerArmorPierce;
-            resistancePierce = resistancePierceBase + BuffManager.main.towerResistancePierce;
-            dodgePierce = dodgePierceBase + BuffManager.main.towerDodgePierce;
+            resistancePierce = resistancePierceBase * BuffManager.main.towerResistancePierce;
+            dodgePierce = dodgePierceBase * BuffManager.main.towerDodgePierce;
             //Tower + Bees / Action + Effect Powers
-            actionPower = actionPowerBase + BuffManager.main.towerActionPower;
-            actionRate = actionRateBase + BuffManager.main.towerActionRate;
-            effectPower = effectPowerBase + BuffManager.main.towerEffectPower;
-            effectRate = effectRateBase + BuffManager.main.towerEffectRate;
+            actionPower = actionPowerBase * BuffManager.main.towerActionPower;
+            actionRate = actionRateBase * BuffManager.main.towerActionRate;
+            effectPower = effectPowerBase * BuffManager.main.towerEffectPower;
+            effectRate = effectRateBase * BuffManager.main.towerEffectRate;
             //damage + rate
             if (actions.Length > 0)
             {
@@ -309,13 +309,13 @@ public class Attributes : MonoBehaviour
             resistance = resistanceBase + BuffManager.main.beeResistance;
             dodgeChance = dodgeChanceBase + BuffManager.main.beeDodge;
             armorPierce = armorPierceBase * BuffManager.main.beeArmorPierce;
-            resistancePierce = resistancePierceBase + BuffManager.main.beeResistancePierce;
-            dodgePierce = dodgePierceBase + BuffManager.main.beeDodgePierce;
+            resistancePierce = resistancePierceBase * BuffManager.main.beeResistancePierce;
+            dodgePierce = dodgePierceBase * BuffManager.main.beeDodgePierce;
             //bee + Bees / Action + Effect Powers
-            actionPower = actionPowerBase + BuffManager.main.beeActionPower;
-            actionRate = actionRateBase + BuffManager.main.beeActionRate;
-            effectPower = effectPowerBase + BuffManager.main.beeEffectPower;
-            effectRate = effectRateBase + BuffManager.main.beeEffectRate;
+            actionPower = actionPowerBase * BuffManager.main.beeActionPower;
+            actionRate = actionRateBase * BuffManager.main.beeActionRate;
+            effectPower = effectPowerBase * BuffManager.main.beeEffectPower;
+            effectRate = effectRateBase * BuffManager.main.beeEffectRate;
             //damage + rate
             if (actions.Length > 0)
             {
@@ -355,13 +355,13 @@ public class Attributes : MonoBehaviour
             resistance = resistanceBase + BuffManager.main.enemyResistance;
             dodgeChance = dodgeChanceBase + BuffManager.main.enemyDodge;
             armorPierce = armorPierceBase * BuffManager.main.enemyArmorPierce;
-            resistancePierce = resistancePierceBase + BuffManager.main.enemyResistancePierce;
-            dodgePierce = dodgePierceBase + BuffManager.main.enemyDodgePierce;
+            resistancePierce = resistancePierceBase * BuffManager.main.enemyResistancePierce;
+            dodgePierce = dodgePierceBase * BuffManager.main.enemyDodgePierce;
             //enemy + enemys / Action + Effect Powers
-            actionPower = actionPowerBase + BuffManager.main.enemyActionPower;
-            actionRate = actionRateBase + BuffManager.main.enemyActionRate;
-            effectPower = effectPowerBase + BuffManager.main.enemyEffectPower;
-            effectRate = effectRateBase + BuffManager.main.enemyEffectRate;
+            actionPower = actionPowerBase * BuffManager.main.enemyActionPower;
+            actionRate = actionRateBase * BuffManager.main.enemyActionRate;
+            effectPower = effectPowerBase * BuffManager.main.enemyEffectPower;
+            effectRate = effectRateBase * BuffManager.main.enemyEffectRate;
             //damage + rate
             if (actions.Length > 0)
             {
@@ -386,16 +386,6 @@ public class Attributes : MonoBehaviour
                     }
                 }
             }
-        }
-    }
-
-    public void SetHealthBar()
-    {
-        if (healthBar != null)
-        {
-            healthBar.maxValue = maxHP;
-            healthBar.value = hitPoints;
-            healthBar.gameObject.SetActive(true);
         }
     }
 
@@ -459,7 +449,9 @@ public class Attributes : MonoBehaviour
     {
         if (healthBar != null)
         {
+            healthBar.maxValue = maxHP;
             healthBar.value = hitPoints;
+            healthBar.gameObject.SetActive(true);
         }
     }
 

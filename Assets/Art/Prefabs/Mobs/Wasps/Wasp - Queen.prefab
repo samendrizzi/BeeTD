@@ -679,7 +679,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 14.35, y: 8.176033, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3632843298155864586}
@@ -734,12 +734,12 @@ SpriteRenderer:
   m_SortingLayer: 3
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -67220518237723569, guid: ddfcfa348717fee4da440d22f81a52d5, type: 3}
+  m_Sprite: {fileID: 5798453029779577612, guid: aaab00915d905ae40a698923734c1ba1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.76, y: 3.33}
+  m_Size: {x: 2.53, y: 4.14}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -805,8 +805,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0.21133333}
-  m_Radius: 2
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.5
 --- !u!114 &4047690027497037073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -857,7 +857,7 @@ MonoBehaviour:
   - {fileID: 0}
   actionSounds: 
   actionPowerModifiers:
-  - 1
+  - 5
   actionRateModifiers:
   - 1
   actionRangeModifiers:
@@ -880,7 +880,7 @@ MonoBehaviour:
   effectPierceModifiers:
   - 1
   effectRateModifiers:
-  - 0.25
+  - 0.1
   effectRangeModifiers:
   - 1
   effectDurations:
@@ -907,7 +907,7 @@ MonoBehaviour:
   targetSetting: 
   variant: 0
   variantName: 
-  prestige: 
+  prestiges: 
   hitPoints: 1
   shield: 0
   isDestroyed: 0
@@ -1033,16 +1033,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d70c71ca4013dca48b5cf2899608ad3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Variants
-  spriteBlack: {fileID: -67220518237723569, guid: ddfcfa348717fee4da440d22f81a52d5, type: 3}
-  spriteWhite: {fileID: 1585320543, guid: ddfcfa348717fee4da440d22f81a52d5, type: 3}
-  spriteBrown: {fileID: -4896504001314997646, guid: ddfcfa348717fee4da440d22f81a52d5, type: 3}
-  spriteOrange: {fileID: 8430253108229208743, guid: ddfcfa348717fee4da440d22f81a52d5, type: 3}
-  spriteYellow: {fileID: -6091846794965173561, guid: ddfcfa348717fee4da440d22f81a52d5, type: 3}
-  spriteRed: {fileID: 2872497026887554098, guid: ddfcfa348717fee4da440d22f81a52d5, type: 3}
-  spriteGreen: {fileID: -2133845508, guid: ddfcfa348717fee4da440d22f81a52d5, type: 3}
-  spriteBlue: {fileID: -1744021797258905142, guid: ddfcfa348717fee4da440d22f81a52d5, type: 3}
-  spritePurple: {fileID: -1325455862, guid: ddfcfa348717fee4da440d22f81a52d5, type: 3}
-  spritePink: {fileID: 1265584666, guid: ddfcfa348717fee4da440d22f81a52d5, type: 3}
+  spriteBlack: {fileID: 5798453029779577612, guid: aaab00915d905ae40a698923734c1ba1, type: 3}
+  spriteWhite: {fileID: -6658669122436371411, guid: aaab00915d905ae40a698923734c1ba1, type: 3}
+  spriteBrown: {fileID: -5585158446758024450, guid: aaab00915d905ae40a698923734c1ba1, type: 3}
+  spriteOrange: {fileID: -3409281238975832940, guid: aaab00915d905ae40a698923734c1ba1, type: 3}
+  spriteYellow: {fileID: -3198586676654836244, guid: aaab00915d905ae40a698923734c1ba1, type: 3}
+  spriteRed: {fileID: 4692916886603155377, guid: aaab00915d905ae40a698923734c1ba1, type: 3}
+  spriteGreen: {fileID: -8473960230683887370, guid: aaab00915d905ae40a698923734c1ba1, type: 3}
+  spriteBlue: {fileID: -6326735969260865289, guid: aaab00915d905ae40a698923734c1ba1, type: 3}
+  spritePurple: {fileID: 7385382403713308700, guid: aaab00915d905ae40a698923734c1ba1, type: 3}
+  spritePink: {fileID: 8725129156489424525, guid: aaab00915d905ae40a698923734c1ba1, type: 3}
   roleNameOrange: Carrier
   flatHPOrange: 0
   percentageHPOrange: 0.3
@@ -1503,6 +1503,52 @@ MonoBehaviour:
   passivePierceModifierPink: 0
   passiveDurationPink: 0
   passiveExtraModifierPink: 0
+  roleNameGold: Royal
+  flatHPGold: 0
+  percentageHPGold: 3
+  flatArmorGold: 30
+  percentageArmorGold: 0
+  flatMoveSpeedGold: 0
+  percentageMoveSpeedGold: 0
+  flatResistanceGold: 30
+  percentageResistanceGold: 0
+  flatDodgeGold: 30
+  percentageDodgeGold: 0
+  flatCarryCapacityGold: 0
+  percentageCarryCapacityGold: 5
+  flatShieldGold: 0
+  percentageShieldGold: 0
+  stealHoneyGold: 1
+  percentageActionPowerGold: 0
+  percentageEffectPowerGold: 0
+  percentagePassivePowerGold: 0
+  extraActionGold: 
+  actionPrefabGold: {fileID: 0}
+  actionSoundGold: 0
+  actionPowerModifierGold: 0
+  actionRateModifierGold: 0
+  actionRangeModifierGold: 0
+  actionPierceModifierGold: 0
+  actionDurationGold: 0
+  actionExtraModifierGold: 0
+  extraEffectGold: 
+  effectPrefabGold: {fileID: 0}
+  effectSoundGold: 0
+  effectPowerModifierGold: 1
+  effectRateModifierGold: 1
+  effectRangeModifierGold: 5
+  effectPierceModifierGold: 0
+  effectDurationGold: 1
+  effectExtraModifierGold: 0
+  extraPassiveGold: 
+  passivePrefabGold: {fileID: 0}
+  passiveSoundGold: 0
+  passivePowerModifierGold: 0
+  passiveRateModifierGold: 0
+  passiveRangeModifierGold: 0
+  passivePierceModifierGold: 0
+  passiveDurationGold: 0
+  passiveExtraModifierGold: 0
 --- !u!1 &6471890597003143751
 GameObject:
   m_ObjectHideFlags: 0
@@ -1622,7 +1668,7 @@ RectTransform:
   m_GameObject: {fileID: 7432365375055655024}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 2.5}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 50086104068239334}
@@ -1631,7 +1677,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -0.08, y: 5.07}
+  m_AnchoredPosition: {x: 0.002, y: 0.996}
   m_SizeDelta: {x: 2, y: 0.809}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &2905081671113707625

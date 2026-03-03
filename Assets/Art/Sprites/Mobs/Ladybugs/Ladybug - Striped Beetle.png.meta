@@ -57,7 +57,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 500
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -111,10 +111,10 @@ TextureImporter:
         serializedVersion: 2
         x: 87
         y: 605
-        width: 1386
+        width: 287
         height: 329
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -131,12 +131,12 @@ TextureImporter:
       name: Ladybug - Striped Beetle_1
       rect:
         serializedVersion: 2
-        x: 87
-        y: 175
-        width: 571
+        x: 373
+        y: 606
+        width: 280
         height: 328
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -153,12 +153,12 @@ TextureImporter:
       name: Ladybug - Striped Beetle_2
       rect:
         serializedVersion: 2
-        x: 657
-        y: 172
-        width: 829
-        height: 333
+        x: 653
+        y: 612
+        width: 273
+        height: 319
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -171,11 +171,165 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Ladybug - Striped Beetle_3
+      rect:
+        serializedVersion: 2
+        x: 925
+        y: 612
+        width: 275
+        height: 322
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8feabafeb7cdd24db8bffcc3a10dfef
+      internalID: 1232973495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ladybug - Striped Beetle_4
+      rect:
+        serializedVersion: 2
+        x: 1198
+        y: 613
+        width: 276
+        height: 322
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee5eb56f5ffb8344f81bd25b0ec5548e
+      internalID: 1906234888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ladybug - Striped Beetle_5
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 188
+        width: 287
+        height: 316
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a0668b8549333a40a3e7a6ea327dbdc
+      internalID: -1064979357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ladybug - Striped Beetle_6
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 187
+        width: 283
+        height: 316
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c135d9b24f550e4f8ff911052340d5f
+      internalID: -1615515538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ladybug - Striped Beetle_7
+      rect:
+        serializedVersion: 2
+        x: 658
+        y: 182
+        width: 272
+        height: 319
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88460c138f52695449e472b03a667f83
+      internalID: -330628905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ladybug - Striped Beetle_8
+      rect:
+        serializedVersion: 2
+        x: 928
+        y: 182
+        width: 281
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6d3038c61c99a543970adefc478f14e
+      internalID: -1655923086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ladybug - Striped Beetle_9
+      rect:
+        serializedVersion: 2
+        x: 1208
+        y: 179
+        width: 280
+        height: 321
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f110f3989869d164994408069432899b
+      internalID: -1211049466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: e2d84b90f94ac3b48bb5368aaba0bcf8
     internalID: 0
     vertices: []
     indices: 
@@ -188,6 +342,13 @@ TextureImporter:
       Ladybug - Striped Beetle_0: 6049301431425576037
       Ladybug - Striped Beetle_1: 798228016249649033
       Ladybug - Striped Beetle_2: 6107918712313475844
+      Ladybug - Striped Beetle_3: 1232973495
+      Ladybug - Striped Beetle_4: 1906234888
+      Ladybug - Striped Beetle_5: -1064979357
+      Ladybug - Striped Beetle_6: -1615515538
+      Ladybug - Striped Beetle_7: -330628905
+      Ladybug - Striped Beetle_8: -1655923086
+      Ladybug - Striped Beetle_9: -1211049466
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

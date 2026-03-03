@@ -54,7 +54,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 400
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -106,12 +106,12 @@ TextureImporter:
       name: Beetle - Skin_0
       rect:
         serializedVersion: 2
-        x: 11
-        y: 488
-        width: 1494
-        height: 536
+        x: 39
+        y: 588
+        width: 291
+        height: 383
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -128,10 +128,10 @@ TextureImporter:
       name: Beetle - Skin_1
       rect:
         serializedVersion: 2
-        x: 11
-        y: 0
-        width: 1461
-        height: 505
+        x: 329
+        y: 588
+        width: 282
+        height: 385
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -146,11 +146,187 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Beetle - Skin_2
+      rect:
+        serializedVersion: 2
+        x: 611
+        y: 589
+        width: 288
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4d5077b7bfb5e442a01b086c89b7132
+      internalID: -1942955803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Skin_3
+      rect:
+        serializedVersion: 2
+        x: 899
+        y: 589
+        width: 281
+        height: 385
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02ff3c29a95bf2141baf0574e378882d
+      internalID: 303416537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Skin_4
+      rect:
+        serializedVersion: 2
+        x: 1180
+        y: 585
+        width: 291
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ee64f25974a56f4cbe8cd58b31406b6
+      internalID: -1735708298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Skin_5
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 120
+        width: 289
+        height: 382
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b7661d1db349df49b78b842d5f6006d
+      internalID: 908938242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Skin_6
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 121
+        width: 285
+        height: 381
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b85a5c55dfc3b2640a3a1a8778f79baf
+      internalID: -2028846875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Skin_7
+      rect:
+        serializedVersion: 2
+        x: 613
+        y: 122
+        width: 280
+        height: 381
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83ffb1ebd616a7043bff49f0bd1de458
+      internalID: 254707649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Skin_8
+      rect:
+        serializedVersion: 2
+        x: 892
+        y: 120
+        width: 288
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df1a34e34aff6b74d9c2ee1fd8abf5c6
+      internalID: -102078599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beetle - Skin_9
+      rect:
+        serializedVersion: 2
+        x: 1180
+        y: 119
+        width: 292
+        height: 386
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c33bc2c5b558f204baa69d33a102902d
+      internalID: -714385318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: c072608cdaf02c6488bb12c1cac8097d
     internalID: 0
     vertices: []
     indices: 
@@ -162,6 +338,14 @@ TextureImporter:
     nameFileIdTable:
       Beetle - Skin_0: 7045313123541959179
       Beetle - Skin_1: 259870195799397956
+      Beetle - Skin_2: -1942955803
+      Beetle - Skin_3: 303416537
+      Beetle - Skin_4: -1735708298
+      Beetle - Skin_5: 908938242
+      Beetle - Skin_6: -2028846875
+      Beetle - Skin_7: 254707649
+      Beetle - Skin_8: -102078599
+      Beetle - Skin_9: -714385318
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

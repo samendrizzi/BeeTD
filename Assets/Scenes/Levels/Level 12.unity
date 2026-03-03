@@ -3239,7 +3239,9 @@ MonoBehaviour:
   victorySound: 5
   defeatSound: 6
   waveStartSound: 8
-  hiveEntrance: {fileID: 0}
+  hiveEntrances:
+  - {fileID: 2105523454}
+  - {fileID: 1468693951}
   honeyRequired: 4000
   difficultyScaling: 0.12
   startingVision: 4.8
@@ -13972,19 +13974,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7945665055211121443, guid: c4976b493321a1d4791f05560252eddd, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7945665055211121443, guid: c4976b493321a1d4791f05560252eddd, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7945665055211121443, guid: c4976b493321a1d4791f05560252eddd, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7945665055211121443, guid: c4976b493321a1d4791f05560252eddd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.023
+      value: -0.022
       objectReference: {fileID: 0}
     - target: {fileID: 7945665055211121443, guid: c4976b493321a1d4791f05560252eddd, type: 3}
       propertyPath: m_LocalPosition.y
@@ -33134,24 +33136,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PollenManager
   honeyInterest: 0
-  nectarGenerationRate: 1
-  honeycombGeneration: 1
-  slowPower: 1
-  freezePower: 1
-  damage: 1
-  attackRate: 1
-  buffPower: 1
-  armorPierce: 1
-  resistancePierce: 1
-  dodgePierce: 1
+  nectarGenerationRate: 0
+  honeycombGeneration: 0
+  slowPower: 0
+  freezePower: 0
+  damage: 0
+  attackRate: 0
+  buffPower: 0
+  armorPierce: 0
+  resistancePierce: 0
+  dodgePierce: 0
   stealthDetection: 0
-  beeCarryCapacity: 1
-  beeMoveSpeed: 1
-  towerTargetingRange: 1
-  towerAoEArea: 1
-  towerAoEDamageDropOff: 1
-  towerExtraRampCount: 1
-  towerExtraRicochetCount: 1
+  beeCarryCapacity: 0
+  beeMoveSpeed: 0
+  towerTargetingRange: 0
+  towerAoEArea: 0
+  towerAoEDamageDropOff: 0
+  towerExtraRampCount: 0
+  towerExtraRicochetCount: 0
   flowersAvailable: 
   flowerLevel: 
   flowerPollen: []
@@ -61558,6 +61560,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7945665055211121443, guid: 7e36c401110622e499067013d8bc9a61, type: 3}
   m_PrefabInstance: {fileID: 1468693949}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1468693951 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9156115538744241620, guid: 7e36c401110622e499067013d8bc9a61, type: 3}
+  m_PrefabInstance: {fileID: 1468693949}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1468820449
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -86381,6 +86388,11 @@ PrefabInstance:
 --- !u!4 &2105523453 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7945665055211121443, guid: 7e36c401110622e499067013d8bc9a61, type: 3}
+  m_PrefabInstance: {fileID: 2105523452}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2105523454 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9156115538744241620, guid: 7e36c401110622e499067013d8bc9a61, type: 3}
   m_PrefabInstance: {fileID: 2105523452}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2106006802

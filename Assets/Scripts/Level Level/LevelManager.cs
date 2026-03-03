@@ -14,7 +14,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] public SoundType victorySound;
     [SerializeField] public SoundType defeatSound;
     [SerializeField] public SoundType waveStartSound;
-    [SerializeField] public GameObject hiveEntrance;
+    [SerializeField] public GameObject[] hiveEntrances;
 
     [Header("Level Attributes")]
     [SerializeField] public float honeyRequired = 100f;
@@ -819,7 +819,10 @@ public class LevelManager : MonoBehaviour
 
     private void StartingReveal()
     {
-        StartCoroutine(hiveEntrance.GetComponent<Plot>().RevealFog(startingVision, true));
+        foreach (GameObject hiveEnt in hiveEntrances)
+        {
+            StartCoroutine(hiveEnt.GetComponent<Plot>().RevealFog(startingVision, true));
+        }
     }
 
     public void CollectAllHoney()

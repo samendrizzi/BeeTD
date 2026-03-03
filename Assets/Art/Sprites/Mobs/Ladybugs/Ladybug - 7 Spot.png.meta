@@ -54,7 +54,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 500
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -108,10 +108,10 @@ TextureImporter:
         serializedVersion: 2
         x: 107
         y: 623
-        width: 1317
+        width: 274
         height: 292
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -128,10 +128,10 @@ TextureImporter:
       name: Ladybug - 7 Spot_1
       rect:
         serializedVersion: 2
-        x: 106
-        y: 180
-        width: 1323
-        height: 297
+        x: 382
+        y: 624
+        width: 254
+        height: 291
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -146,11 +146,187 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Ladybug - 7 Spot_2
+      rect:
+        serializedVersion: 2
+        x: 635
+        y: 624
+        width: 259
+        height: 291
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6efe684fe7574004ea6103371e3ed381
+      internalID: -286961209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ladybug - 7 Spot_3
+      rect:
+        serializedVersion: 2
+        x: 893
+        y: 624
+        width: 261
+        height: 291
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3322d61840ea850499c0c83ad3f86870
+      internalID: -859833813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ladybug - 7 Spot_4
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 623
+        width: 276
+        height: 293
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d464f4bfae060f642a93264b61d4caad
+      internalID: -61091241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ladybug - 7 Spot_5
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 177
+        width: 273
+        height: 301
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31cea463b7e74a041b0876f427fc08dd
+      internalID: 23814587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ladybug - 7 Spot_6
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 181
+        width: 258
+        height: 297
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa223dfefc127b240b0c4a7e80b8e62c
+      internalID: 747403156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ladybug - 7 Spot_7
+      rect:
+        serializedVersion: 2
+        x: 635
+        y: 180
+        width: 260
+        height: 299
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9dfe503a4e2a91468f024c89bea681b
+      internalID: -1509288079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ladybug - 7 Spot_8
+      rect:
+        serializedVersion: 2
+        x: 893
+        y: 180
+        width: 259
+        height: 298
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 886ff1046b2dd9f4a89eaf101a00fecd
+      internalID: 402018173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ladybug - 7 Spot_9
+      rect:
+        serializedVersion: 2
+        x: 1151
+        y: 179
+        width: 278
+        height: 301
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0d918cf4b7772c45bc928b4eee653c0
+      internalID: 990367666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: b222da115ee07d24baad946748004d02
     internalID: 0
     vertices: []
     indices: 
@@ -162,6 +338,14 @@ TextureImporter:
     nameFileIdTable:
       Ladybug - 7 Spot_0: -782565438432201622
       Ladybug - 7 Spot_1: -3209917274335263135
+      Ladybug - 7 Spot_2: -286961209
+      Ladybug - 7 Spot_3: -859833813
+      Ladybug - 7 Spot_4: -61091241
+      Ladybug - 7 Spot_5: 23814587
+      Ladybug - 7 Spot_6: 747403156
+      Ladybug - 7 Spot_7: -1509288079
+      Ladybug - 7 Spot_8: 402018173
+      Ladybug - 7 Spot_9: 990367666
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

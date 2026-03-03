@@ -457,7 +457,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 14.35, y: 8.176033, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7596237538604398587}
@@ -583,8 +583,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0.21133333}
-  m_Radius: 1
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 1.5
 --- !u!114 &1431910639010889589
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -622,11 +622,13 @@ MonoBehaviour:
   resistance: 25
   dodgeChance: 0
   targetingRange: 0.5
+  stealthDetection: 0
   rotationSpeed: 150
   wayPointRangeModifier: 1
   actionPower: 1
   actionRate: 1
   armorPierce: 0
+  dodgePierce: 0
   actions:
   - Sap Flower
   actionPrefabs:
@@ -674,7 +676,9 @@ MonoBehaviour:
   ignoreTerrain: 0
   hasTargetSettings: 0
   targetSetting: 
-  prestige: 
+  variant: 0
+  variantName: 
+  prestiges: 
   hitPoints: 1
   shield: 0
   isDestroyed: 0
@@ -682,7 +686,7 @@ MonoBehaviour:
   pathIndex: 0
   inventoryFull: 0
   frozen: 0
-  invisibility: 0
+  stealth: 0
   freezeImmune: 0
   pausing: 0
   timeUntilActions: []
@@ -693,9 +697,11 @@ MonoBehaviour:
   path: []
   targetingOptions: []
   rampCount: 0
+  carryCapacityBase: 0
   moveSpeedBase: 0
   moveSpeedUncapped: 0
   targetingRangeBase: 0
+  stealthDetectionBase: 0
   maxHPBase: 0
   maxShieldBase: 0
   armorBase: 0
@@ -704,6 +710,7 @@ MonoBehaviour:
   actionPowerBase: 0
   actionRateBase: 0
   armorPierceBase: 0
+  dodgePierceBase: 0
   actionPowerModifiersBase: []
   actionRateModifiersBase: []
   actionRangeModifiersBase: []
@@ -1070,7 +1077,7 @@ RectTransform:
   m_GameObject: {fileID: 9023798239743091451}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 2.5}
+  m_LocalScale: {x: 2, y: 2, z: 2.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 990960991890638114}
@@ -1079,7 +1086,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 5.75}
+  m_AnchoredPosition: {x: -0.02, y: 2.42}
   m_SizeDelta: {x: 2, y: 0.809}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &6653293242031138552

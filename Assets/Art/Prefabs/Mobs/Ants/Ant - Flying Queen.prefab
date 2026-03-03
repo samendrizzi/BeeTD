@@ -179,7 +179,7 @@ RectTransform:
   m_GameObject: {fileID: 5199164820447441777}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.25, y: 1.25, z: 2.5}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 83869078217217675}
@@ -188,7 +188,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 2}
+  m_AnchoredPosition: {x: -0.028, y: 0.854}
   m_SizeDelta: {x: 2, y: 0.809}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &1939701210399402606
@@ -381,7 +381,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 14.35, y: 8.176033, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4514939953450042285}
@@ -507,8 +507,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0.21133333}
-  m_Radius: 1
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.4
 --- !u!114 &4047690027497037073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -544,7 +544,7 @@ MonoBehaviour:
   maxShield: 0
   armor: 25
   resistance: 35
-  dodgeChance: 10
+  dodgeChance: 0
   targetingRange: 0.2
   stealthDetection: 0
   rotationSpeed: 150
@@ -559,7 +559,7 @@ MonoBehaviour:
   - {fileID: 0}
   actionSounds: 
   actionPowerModifiers:
-  - 1
+  - 5
   actionRateModifiers:
   - 1
   actionRangeModifiers:
@@ -583,7 +583,7 @@ MonoBehaviour:
   effectPierceModifiers:
   - 1
   effectRateModifiers:
-  - 0.25
+  - 0.1
   effectRangeModifiers:
   - 1
   effectDurations:
@@ -1206,6 +1206,52 @@ MonoBehaviour:
   passivePierceModifierPink: 0
   passiveDurationPink: 0
   passiveExtraModifierPink: 0
+  roleNameGold: Royal
+  flatHPGold: 0
+  percentageHPGold: 3
+  flatArmorGold: 30
+  percentageArmorGold: 0
+  flatMoveSpeedGold: 0
+  percentageMoveSpeedGold: 0
+  flatResistanceGold: 30
+  percentageResistanceGold: 0
+  flatDodgeGold: 30
+  percentageDodgeGold: 0
+  flatCarryCapacityGold: 0
+  percentageCarryCapacityGold: 5
+  flatShieldGold: 0
+  percentageShieldGold: 0
+  stealHoneyGold: 1
+  percentageActionPowerGold: 0
+  percentageEffectPowerGold: 0
+  percentagePassivePowerGold: 0
+  extraActionGold: 
+  actionPrefabGold: {fileID: 0}
+  actionSoundGold: 0
+  actionPowerModifierGold: 0
+  actionRateModifierGold: 0
+  actionRangeModifierGold: 0
+  actionPierceModifierGold: 0
+  actionDurationGold: 0
+  actionExtraModifierGold: 0
+  extraEffectGold: 
+  effectPrefabGold: {fileID: 0}
+  effectSoundGold: 0
+  effectPowerModifierGold: 1
+  effectRateModifierGold: 1
+  effectRangeModifierGold: 5
+  effectPierceModifierGold: 0
+  effectDurationGold: 1
+  effectExtraModifierGold: 0
+  extraPassiveGold: 
+  passivePrefabGold: {fileID: 0}
+  passiveSoundGold: 0
+  passivePowerModifierGold: 0
+  passiveRateModifierGold: 0
+  passiveRangeModifierGold: 0
+  passivePierceModifierGold: 0
+  passiveDurationGold: 0
+  passiveExtraModifierGold: 0
 --- !u!1 &6370042011673793261
 GameObject:
   m_ObjectHideFlags: 0

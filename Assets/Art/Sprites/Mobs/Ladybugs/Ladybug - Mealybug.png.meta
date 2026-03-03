@@ -63,7 +63,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 500
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -117,10 +117,10 @@ TextureImporter:
         serializedVersion: 2
         x: 80
         y: 614
-        width: 1379
+        width: 286
         height: 307
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -137,12 +137,12 @@ TextureImporter:
       name: Ladybug - Mealybug_1
       rect:
         serializedVersion: 2
-        x: 87
-        y: 194
+        x: 370
+        y: 614
         width: 274
-        height: 290
+        height: 306
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -159,12 +159,12 @@ TextureImporter:
       name: Ladybug - Mealybug_2
       rect:
         serializedVersion: 2
-        x: 368
-        y: 194
-        width: 810
-        height: 291
+        x: 644
+        y: 614
+        width: 263
+        height: 304
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -181,12 +181,12 @@ TextureImporter:
       name: Ladybug - Mealybug_3
       rect:
         serializedVersion: 2
-        x: 1177
-        y: 194
-        width: 277
-        height: 291
+        x: 908
+        y: 610
+        width: 266
+        height: 310
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -200,23 +200,133 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ladybug - Mealybug_4
+      name: Ladybug - Mealybug_5
       rect:
         serializedVersion: 2
-        x: 1406
-        y: 193
-        width: 6
-        height: 7
+        x: 1173
+        y: 611
+        width: 287
+        height: 309
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: c5847fefd0db465f0800000000000000
-      internalID: -764278168936298404
+      spriteID: 6472ec58674e71241b6d407f47b0af2d
+      internalID: 1703344097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ladybug - Mealybug_6
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 190
+        width: 279
+        height: 298
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f55c0044e6ab4f14eb5f9dddd95b7645
+      internalID: -1479852826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ladybug - Mealybug_7
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 189
+        width: 274
+        height: 299
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4a0c59ca6e328a4dba171281b989282
+      internalID: 18277753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ladybug - Mealybug_8
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 192
+        width: 268
+        height: 298
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ae52df4a3c0c9e41bd233d785ce9e34
+      internalID: 2000324775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ladybug - Mealybug_9
+      rect:
+        serializedVersion: 2
+        x: 906
+        y: 192
+        width: 273
+        height: 295
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f5318d5e3d4c1c4ca83cdbe3f8b2127
+      internalID: 677270154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ladybug - Mealybug_10
+      rect:
+        serializedVersion: 2
+        x: 1178
+        y: 192
+        width: 275
+        height: 293
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 462f68a18b3824a40aeda84e64724175
+      internalID: -25100758
       vertices: []
       indices: 
       edges: []
@@ -225,7 +335,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: e5c4fe4ded5351d46935ef7ed4380da4
     internalID: 0
     vertices: []
     indices: 
@@ -237,9 +347,15 @@ TextureImporter:
     nameFileIdTable:
       Ladybug - Mealybug_0: -7287909643491448213
       Ladybug - Mealybug_1: -7492790779888633691
+      Ladybug - Mealybug_10: -25100758
       Ladybug - Mealybug_2: -3013555621773338526
       Ladybug - Mealybug_3: 2008843165489866620
       Ladybug - Mealybug_4: -764278168936298404
+      Ladybug - Mealybug_5: 1703344097
+      Ladybug - Mealybug_6: -1479852826
+      Ladybug - Mealybug_7: 18277753
+      Ladybug - Mealybug_8: 2000324775
+      Ladybug - Mealybug_9: 677270154
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

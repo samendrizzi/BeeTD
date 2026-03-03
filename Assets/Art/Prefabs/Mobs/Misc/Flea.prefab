@@ -369,7 +369,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 14.35, y: 8.176033, z: 0}
-  m_LocalScale: {x: 0.03, y: 0.03, z: 0.03}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6595213135177778796}
@@ -495,8 +495,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0.21133333}
-  m_Radius: 3
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.2
 --- !u!114 &4047690027497037073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -534,11 +534,13 @@ MonoBehaviour:
   resistance: 0
   dodgeChance: 0
   targetingRange: 0.4
+  stealthDetection: 0
   rotationSpeed: 150
   wayPointRangeModifier: 1
   actionPower: 0.5
   actionRate: 1
   armorPierce: 0
+  dodgePierce: 0
   actions:
   - Attack Queen
   actionPrefabs:
@@ -588,7 +590,7 @@ MonoBehaviour:
   targetSetting: 
   variant: 0
   variantName: 
-  prestige: 
+  prestiges: 
   hitPoints: 1
   shield: 0
   isDestroyed: 0
@@ -596,7 +598,7 @@ MonoBehaviour:
   pathIndex: 0
   inventoryFull: 0
   frozen: 0
-  Stealth: 0
+  stealth: 0
   freezeImmune: 0
   pausing: 0
   timeUntilActions: []
@@ -607,9 +609,11 @@ MonoBehaviour:
   path: []
   targetingOptions: []
   rampCount: 0
+  carryCapacityBase: 0
   moveSpeedBase: 0
   moveSpeedUncapped: 0
   targetingRangeBase: 0
+  stealthDetectionBase: 0
   maxHPBase: 0
   maxShieldBase: 0
   armorBase: 0
@@ -618,6 +622,7 @@ MonoBehaviour:
   actionPowerBase: 0
   actionRateBase: 0
   armorPierceBase: 0
+  dodgePierceBase: 0
   actionPowerModifiersBase: []
   actionRateModifiersBase: []
   actionRangeModifiersBase: []
@@ -1181,6 +1186,52 @@ MonoBehaviour:
   passivePierceModifierPink: 0
   passiveDurationPink: 0
   passiveExtraModifierPink: 0
+  roleNameGold: Royal
+  flatHPGold: 0
+  percentageHPGold: 3
+  flatArmorGold: 30
+  percentageArmorGold: 0
+  flatMoveSpeedGold: 0
+  percentageMoveSpeedGold: 0
+  flatResistanceGold: 30
+  percentageResistanceGold: 0
+  flatDodgeGold: 30
+  percentageDodgeGold: 0
+  flatCarryCapacityGold: 0
+  percentageCarryCapacityGold: 5
+  flatShieldGold: 0
+  percentageShieldGold: 0
+  stealHoneyGold: 1
+  percentageActionPowerGold: 0
+  percentageEffectPowerGold: 0
+  percentagePassivePowerGold: 0
+  extraActionGold: 
+  actionPrefabGold: {fileID: 0}
+  actionSoundGold: 0
+  actionPowerModifierGold: 0
+  actionRateModifierGold: 0
+  actionRangeModifierGold: 0
+  actionPierceModifierGold: 0
+  actionDurationGold: 0
+  actionExtraModifierGold: 0
+  extraEffectGold: 
+  effectPrefabGold: {fileID: 0}
+  effectSoundGold: 0
+  effectPowerModifierGold: 1
+  effectRateModifierGold: 1
+  effectRangeModifierGold: 5
+  effectPierceModifierGold: 0
+  effectDurationGold: 1
+  effectExtraModifierGold: 0
+  extraPassiveGold: 
+  passivePrefabGold: {fileID: 0}
+  passiveSoundGold: 0
+  passivePowerModifierGold: 0
+  passiveRateModifierGold: 0
+  passiveRangeModifierGold: 0
+  passivePierceModifierGold: 0
+  passiveDurationGold: 0
+  passiveExtraModifierGold: 0
 --- !u!1 &5844893648138551542
 GameObject:
   m_ObjectHideFlags: 0
@@ -1209,7 +1260,7 @@ RectTransform:
   m_GameObject: {fileID: 5844893648138551542}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 7, y: 7, z: 20}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9146727374007225184}
@@ -1218,7 +1269,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0.1, y: 10.51}
+  m_AnchoredPosition: {x: -0.02, y: 0.416}
   m_SizeDelta: {x: 2, y: 0.809}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &8410621157904892656

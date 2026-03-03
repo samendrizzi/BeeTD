@@ -2805,7 +2805,8 @@ MonoBehaviour:
   victorySound: 5
   defeatSound: 6
   waveStartSound: 8
-  hiveEntrance: {fileID: 0}
+  hiveEntrances:
+  - {fileID: 268627742}
   honeyRequired: 4000
   difficultyScaling: 0.1
   startingVision: 4.8
@@ -12211,6 +12212,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7945665055211121443, guid: 7e36c401110622e499067013d8bc9a61, type: 3}
   m_PrefabInstance: {fileID: 268627740}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &268627742 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9156115538744241620, guid: 7e36c401110622e499067013d8bc9a61, type: 3}
+  m_PrefabInstance: {fileID: 268627740}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &269547096
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14544,29 +14550,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7423359546902803796, guid: c4976b493321a1d4791f05560252eddd, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -1598761302719014929, guid: 7549aa9dd83dc6f47a54eca9735b33d4, type: 3}
-    - target: {fileID: 7945665055211121443, guid: c4976b493321a1d4791f05560252eddd, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7945665055211121443, guid: c4976b493321a1d4791f05560252eddd, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7945665055211121443, guid: c4976b493321a1d4791f05560252eddd, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.4
-      objectReference: {fileID: 0}
     - target: {fileID: 7945665055211121443, guid: c4976b493321a1d4791f05560252eddd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.03
+      value: 13.049
       objectReference: {fileID: 0}
     - target: {fileID: 7945665055211121443, guid: c4976b493321a1d4791f05560252eddd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.71
+      value: -6.754
       objectReference: {fileID: 0}
     - target: {fileID: 7945665055211121443, guid: c4976b493321a1d4791f05560252eddd, type: 3}
       propertyPath: m_LocalPosition.z
@@ -36289,24 +36279,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PollenManager
   honeyInterest: 0
-  nectarGenerationRate: 1
-  honeycombGeneration: 1
-  slowPower: 1
-  freezePower: 1
-  damage: 1
-  attackRate: 1
-  buffPower: 1
-  armorPierce: 1
-  resistancePierce: 1
-  dodgePierce: 1
+  nectarGenerationRate: 0
+  honeycombGeneration: 0
+  slowPower: 0
+  freezePower: 0
+  damage: 0
+  attackRate: 0
+  buffPower: 0
+  armorPierce: 0
+  resistancePierce: 0
+  dodgePierce: 0
   stealthDetection: 0
-  beeCarryCapacity: 1
-  beeMoveSpeed: 1
-  towerTargetingRange: 1
-  towerAoEArea: 1
-  towerAoEDamageDropOff: 1
-  towerExtraRampCount: 1
-  towerExtraRicochetCount: 1
+  beeCarryCapacity: 0
+  beeMoveSpeed: 0
+  towerTargetingRange: 0
+  towerAoEArea: 0
+  towerAoEDamageDropOff: 0
+  towerExtraRampCount: 0
+  towerExtraRicochetCount: 0
   flowersAvailable: 
   flowerLevel: 
   flowerPollen: []

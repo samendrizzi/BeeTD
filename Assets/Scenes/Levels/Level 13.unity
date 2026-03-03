@@ -2309,7 +2309,8 @@ MonoBehaviour:
   victorySound: 5
   defeatSound: 6
   waveStartSound: 8
-  hiveEntrance: {fileID: 638003904}
+  hiveEntrances:
+  - {fileID: 638003904}
   honeyRequired: 8000
   difficultyScaling: 0.05
   startingVision: 4.8
@@ -12019,23 +12020,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7945665055211121443, guid: c4976b493321a1d4791f05560252eddd, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7945665055211121443, guid: c4976b493321a1d4791f05560252eddd, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7945665055211121443, guid: c4976b493321a1d4791f05560252eddd, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7945665055211121443, guid: c4976b493321a1d4791f05560252eddd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.52
+      value: 13.39
       objectReference: {fileID: 0}
     - target: {fileID: 7945665055211121443, guid: c4976b493321a1d4791f05560252eddd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.88
+      value: 1.792
       objectReference: {fileID: 0}
     - target: {fileID: 7945665055211121443, guid: c4976b493321a1d4791f05560252eddd, type: 3}
       propertyPath: m_LocalPosition.z
@@ -32546,24 +32547,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PollenManager
   honeyInterest: 0
-  nectarGenerationRate: 1
-  honeycombGeneration: 1
-  slowPower: 1
-  freezePower: 1
-  damage: 1
-  attackRate: 1
-  buffPower: 1
-  armorPierce: 1
-  resistancePierce: 1
-  dodgePierce: 1
+  nectarGenerationRate: 0
+  honeycombGeneration: 0
+  slowPower: 0
+  freezePower: 0
+  damage: 0
+  attackRate: 0
+  buffPower: 0
+  armorPierce: 0
+  resistancePierce: 0
+  dodgePierce: 0
   stealthDetection: 0
-  beeCarryCapacity: 1
-  beeMoveSpeed: 1
-  towerTargetingRange: 1
-  towerAoEArea: 1
-  towerAoEDamageDropOff: 1
-  towerExtraRampCount: 1
-  towerExtraRicochetCount: 1
+  beeCarryCapacity: 0
+  beeMoveSpeed: 0
+  towerTargetingRange: 0
+  towerAoEArea: 0
+  towerAoEDamageDropOff: 0
+  towerExtraRampCount: 0
+  towerExtraRicochetCount: 0
   flowersAvailable: 
   flowerLevel: 
   flowerPollen: []

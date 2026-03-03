@@ -379,6 +379,10 @@ public class UIManager : MonoBehaviour
 
     public void CreateHoneyPanel()
     {
+        if (honeyEntries.Length == 0)
+        {
+            return;
+        }
         for (int i = 0; i < LevelManager.main.honeyBuffs.Length; i++)
         {
              honeyEntries[i].GetComponent<HoneyPanelEntry>().Setup(i);
