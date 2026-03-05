@@ -7,7 +7,6 @@ public class HoneyPanelEntry : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private TextMeshProUGUI honeyBuffText;
-    [SerializeField] private TextMeshProUGUI honeyBuffAmount;
     [SerializeField] private TextMeshProUGUI honeyBuffAmountText;
     [SerializeField] private Slider honeySlider;
     [SerializeField] private Image honeySliderImage;
@@ -27,14 +26,13 @@ public class HoneyPanelEntry : MonoBehaviour
         indexLevel = index;
         honeyBuff = LevelManager.main.honeyBuffs[index];
         indexGlobal = (int)honeyBuff;
-        honeyBuffText.text = GlobalValues.main.honeyBuffText[indexGlobal];
         if (GlobalValues.main.honeyBuffUnit[indexGlobal] == "%") 
         {
-            honeyBuffAmount.text = (LevelManager.main.honeyBuffAmount[indexLevel] * 100).ToString() + GlobalValues.main.honeyBuffUnit[indexGlobal];
+            honeyBuffText.text = GlobalValues.main.honeyBuffText[indexGlobal] + ": " + (LevelManager.main.honeyBuffAmount[indexLevel] * 100).ToString() + GlobalValues.main.honeyBuffUnit[indexGlobal];
         }
         else
         {
-            honeyBuffAmount.text = LevelManager.main.honeyBuffAmount[indexLevel].ToString() + GlobalValues.main.honeyBuffUnit[indexGlobal];
+            honeyBuffText.text = GlobalValues.main.honeyBuffText[indexGlobal] + ": " + LevelManager.main.honeyBuffAmount[indexLevel].ToString() + GlobalValues.main.honeyBuffUnit[indexGlobal];
         }
         honeyBuffAmountText.text = LevelManager.main.honey + " / " + Mathf.Round(HoneyBuffManager.main.honeyThresholds[indexLevel]);
         honeySlider.maxValue = HoneyBuffManager.main.honeyThresholds[indexLevel];

@@ -23,6 +23,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] public GameObject controlUI;
     [SerializeField] public GameObject enemyUI;
     [SerializeField] public GameObject pollenUI;
+    [SerializeField] public GameObject honeyUI;
     [SerializeField] public GameObject menuUI;
     [SerializeField] public GameObject[] pollenEntries;
     [SerializeField] public GameObject[] honeyEntries;
@@ -188,6 +189,7 @@ public class UIManager : MonoBehaviour
         SetDefeatUI(false);
         ResetPollenPanel();
         ResetHoneyPanel();
+        CreateHoneyPanel();
         //controlUI.transform.position = controlUI.GetComponent<DraggableUI>().startingPosition;
         //enemyUI.transform.position = enemyUI.GetComponent<DraggableUI>().startingPosition;
         //Set button colors
@@ -288,6 +290,11 @@ public class UIManager : MonoBehaviour
         SoundManager.main.PlaySound(clickToggle);
         pollenUI.SetActive(!pollenUI.activeSelf);
     }
+    public void ToggleHoneyUI()
+    {
+        SoundManager.main.PlaySound(clickToggle);
+        honeyUI.SetActive(!honeyUI.activeSelf);
+    }
 
     public void ToggleMenuUI()
     {
@@ -308,6 +315,10 @@ public class UIManager : MonoBehaviour
     public void SetPollenUI(bool state)
     {
         pollenUI.SetActive(state);
+    }
+    public void SetHoneyUI(bool state)
+    {
+        honeyUI.SetActive(state);
     }
 
     public void SetMenuUI(bool state)
@@ -385,7 +396,7 @@ public class UIManager : MonoBehaviour
         }
         for (int i = 0; i < LevelManager.main.honeyBuffs.Length; i++)
         {
-             honeyEntries[i].GetComponent<HoneyPanelEntry>().Setup(i);
+            honeyEntries[i].GetComponent<HoneyPanelEntry>().Setup(i);
         }
     }
 

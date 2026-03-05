@@ -51,7 +51,11 @@ public class WaveSpawner : MonoBehaviour
 
     private void Update()
     {
-         if (finalWave == false)
+        if (LevelManager.main.state == Level.VICTORY || LevelManager.main.state == Level.DEFEAT)
+        {
+            return;
+        }
+        if (finalWave == false)
          {
              waveCountdown -= Time.deltaTime;
              if (waveCountdown <= 0)
@@ -81,6 +85,7 @@ public class WaveSpawner : MonoBehaviour
 
     private void StartWave()
     {
+        LevelManager.main.Interest();
         SoundManager.main.PlaySound(LevelManager.main.waveStartSound);
         LevelManager.main.OrganizeBees();
         if (currentWave >= numberOfWaves)
@@ -91,7 +96,7 @@ public class WaveSpawner : MonoBehaviour
         {
             currentWave++;
             waveCountdown = timeBetweenWaves;
-            LevelManager.main.levelStarted = true;
+            LevelManager.main.state = Level.STARTED;
             UIManager.main.WaveUpdate();
             isSpawning = true;
             for (int i = 0; i < LevelManager.main.numberOfPaths; i++)
@@ -111,9 +116,9 @@ public class WaveSpawner : MonoBehaviour
                 pathIsSpawning[i] = true;
             }
         }
-        if (currentWave == numberOfWaves)
+        if (currentWave == numberOfWaves && finalWave == false)
         {
-            LevelManager.main.finalWave = true;
+            LevelManager.main.state = Level.FINALWAVE;
             finalWave = true;
             waveCountdown = 0f;
         }

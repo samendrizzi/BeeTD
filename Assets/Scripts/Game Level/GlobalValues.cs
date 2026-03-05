@@ -180,7 +180,7 @@ public class GlobalValues : MonoBehaviour
     [SerializeField] public float[] startingNectar = { 300f, 200f, 100f };
     [SerializeField] public float[] startingHoney = { 50f, 0f, 0f };
     [SerializeField] public float[] honeyDropRate = { 0.5f, 0.25f, 0f };
-    [SerializeField] public float honeyinterest = 0f;
+    [SerializeField] public float honeyInterest = 0f;
     [SerializeField] public float pollenGatherRatio = 0.25f;
     [SerializeField] public float pollenBuff = 0f;
     [SerializeField] public float nectarGenerationRate = 1f;

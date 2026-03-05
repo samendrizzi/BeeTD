@@ -2355,8 +2355,7 @@ MonoBehaviour:
   investmentRate: 0
   bonusInvestmentRate: 0
   flowers: []
-  levelStarted: 0
-  finalWave: 0
+  state: 0
   speed: Normal
   pause: 0
   timing: 1
@@ -21003,7 +21002,7 @@ MonoBehaviour:
   queenBeeReturnDamage: 0
   queenBeeArmor: 0
   honeyDropRate: 0
-  honeyinterest: 0
+  honeyInterest: 0
   pollenGatherRatio: 0.25
   pollenBuff: 1
   nectarGenerationRate: 1
@@ -40399,7 +40398,7 @@ MonoBehaviour:
   queenBeeReturnDamage: 0
   queenBeeArmor: 0
   honeyDropRate: 0
-  honeyinterest: 0
+  honeyInterest: 0
   pollenGather: 1
   pollenBuff: 0
   nectarGenerationRate: 1

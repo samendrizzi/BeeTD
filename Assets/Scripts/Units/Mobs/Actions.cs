@@ -268,7 +268,7 @@ public class Actions : MonoBehaviour
 
     private void StealHoney(float power, float pierce)
     {
-        if (Vector2.Distance(LevelManager.main.queenBee.transform.position, transform.position) <= attributes.wayPointDistance)
+        if (Vector2.Distance(attributes.path[attributes.path.Length - 1].position, transform.position) <= attributes.wayPointDistance)
         {
             if (attributes.pathIndex == attributes.path.Length - 1)
             {
@@ -297,7 +297,7 @@ public class Actions : MonoBehaviour
 
     private void AttackQueen(float damage, float armorPierce)
     {
-        if (Vector2.Distance(LevelManager.main.queenBee.transform.position, transform.position) <= attributes.wayPointDistance)
+        if (Vector2.Distance(attributes.path[attributes.path.Length - 1].position, transform.position) <= attributes.wayPointDistance)
         {
             LevelManager.main.HitQueen(damage, armorPierce);
             attributes.TakeDamage(damage * BuffManager.main.queenBeeReturnDamage, armorPierce);

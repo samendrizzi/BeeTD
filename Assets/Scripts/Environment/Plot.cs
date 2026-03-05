@@ -122,10 +122,6 @@ public class Plot : MonoBehaviour
         {
             UI.OpenUI();
         }
-        else
-        {
-            Debug.Log(gameObject.name + " doesn't have UI interaction to open.");
-        }
     }
 
     public void CloseUI()
@@ -240,7 +236,7 @@ public class Plot : MonoBehaviour
         {
             isDestroyed = true;
             GameObject newPlot = Instantiate(noObstructionPrefab, transform.position, Quaternion.identity);
-            newPlot.GetComponent<Plot>().fog = false;
+            newPlot.GetComponent<Plot>().Found();
             Destroy(gameObject);
         }
     }

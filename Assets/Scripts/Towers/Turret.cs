@@ -52,7 +52,7 @@ public class Turret : MonoBehaviour
 
     private void Update()
     {
-        if (attributes.frozen == true || attributes.pausing > 0f)
+        if (attributes.frozen == true || attributes.pausing > 0f || LevelManager.main.state == Level.DEFEAT || LevelManager.main.state == Level.VICTORY)
         {
             return;
         }

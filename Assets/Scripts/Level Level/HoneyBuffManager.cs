@@ -108,6 +108,11 @@ public class HoneyBuffManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        HoneyUpdate();
+    }
+
     public void HoneyUpdate() 
     {
         if (level == 0) 
@@ -145,17 +150,9 @@ public class HoneyBuffManager : MonoBehaviour
         {
             if (level > i)
             {
-                if (honeyBuffs[(int)LevelManager.main.honeyBuffs[i]] == LevelManager.main.honeyBuffAmount[i])
+                if (honeyBuffs[(int)LevelManager.main.honeyBuffs[i]] == 0f)
                 {
                     honeyBuffs[(int)LevelManager.main.honeyBuffs[i]] = LevelManager.main.honeyBuffAmount[i];
-                    changed = true;
-                }
-            }
-            else 
-            {
-                if (honeyBuffs[(int)LevelManager.main.honeyBuffs[i]] == honeyBuffsBase[i])
-                {
-                    honeyBuffs[(int)LevelManager.main.honeyBuffs[i]] = honeyBuffsBase[i];
                     changed = true;
                 }
             }

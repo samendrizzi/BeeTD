@@ -102,7 +102,7 @@ public class Projectile : MonoBehaviour
 
     private void Hit(GameObject other)
     {
-        if (((1 << other.layer) & enemyMask) == 0 || other.transform != target || (((1 << other.layer) & obstructionMask) != 0 && ignoreTerrain == false))
+        if (((1 << other.layer) & enemyMask) == 0 || (((1 << other.layer) & obstructionMask) != 0 && ignoreTerrain == false))
         {
             if (((1 << other.layer) & obstructionMask) != 0 && ignoreTerrain == false)
             {

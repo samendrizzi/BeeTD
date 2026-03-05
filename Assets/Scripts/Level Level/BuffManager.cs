@@ -14,7 +14,7 @@ public class BuffManager : MonoBehaviour
     public float queenBeeReturnDamage = 0f;
     public float queenBeeArmor = 0f;
     public float honeyDropRate = 0f;
-    public float honeyinterest = 0f;
+    public float honeyInterest = 0f;
     public float pollenGatherRatio = 0.25f;
     public float pollenBuff = 1f;
     public float nectarGenerationRate = 1f;
@@ -111,7 +111,7 @@ public class BuffManager : MonoBehaviour
     void Awake()
     {
         main = this;
-        RefreshBuffs();
+
     }
 
     void Start()
@@ -125,14 +125,14 @@ public class BuffManager : MonoBehaviour
         startingNectar = GlobalValues.main.startingNectar[(int)GlobalValues.main.difficulty] + (TechTreeManager.main.startingNectar); //LevelManager
         startingHoney = GlobalValues.main.startingHoney[(int)GlobalValues.main.difficulty] + (TechTreeManager.main.startingHoney); //LevelManager
         queenBeeHitPoints = GlobalValues.main.queenBeeHitPoints * (TechTreeManager.main.queenBeeHitPoints); //LevelManager
-        queenBeeReturnDamage = GlobalValues.main.queenBeeReturnDamage * (TechTreeManager.main.queenBeeReturnDamage + HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.QUEENTHORNS]); //Actions
+        queenBeeReturnDamage = GlobalValues.main.queenBeeReturnDamage + (TechTreeManager.main.queenBeeReturnDamage + HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.QUEENTHORNS]); //Actions
         queenBeeArmor = GlobalValues.main.queenBeeArmor * (TechTreeManager.main.queenBeeArmor + HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.QUEENARMOR]); //LevelManager
         honeyDropRate = GlobalValues.main.honeyDropRate[(int)GlobalValues.main.difficulty] + (TechTreeManager.main.honeyDropRate + HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.HONEYDROPRATE]); //Attributes
         if (honeyDropRate > 1f)
         {
             honeyDropRate = 1f;
         }
-        honeyinterest = GlobalValues.main.honeyinterest + (TechTreeManager.main.honeyinterest + PollenManager.main.honeyInterest + HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.HONEYINTEREST]); //Not Implemented
+        honeyInterest = GlobalValues.main.honeyInterest + (TechTreeManager.main.honeyInterest + PollenManager.main.honeyInterest + HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.HONEYINTEREST]); //LevelManager
         pollenGatherRatio = GlobalValues.main.pollenGatherRatio * (TechTreeManager.main.pollenGather + HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.POLLENGATHERRATE]); //PollenManager
         pollenBuff = GlobalValues.main.pollenBuff + (TechTreeManager.main.pollenBuff + HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.POLLENBUFF]); //Not Implemented
         nectarGenerationRate = GlobalValues.main.nectarGenerationRate * (TechTreeManager.main.nectarGenerationRate + PollenManager.main.nectarGenerationRate + HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.NECTARGENERATIONRATE]); //Plot
@@ -160,7 +160,6 @@ public class BuffManager : MonoBehaviour
         beeEffectPower = GlobalValues.main.beeEffectPower * (TechTreeManager.main.beeEffectPower + HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.BEEEFFECTPOWER]); //Attributes
         beeEffectRate = GlobalValues.main.beeEffectRate * (TechTreeManager.main.beeEffectRate + HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.BEEEFFECTRATE]); //Attributes
         beeCarryCapacity = GlobalValues.main.beeCarryCapacity * (TechTreeManager.main.beeCarryCapacity + PollenManager.main.beeCarryCapacity + HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.BEECARRYCAPACITY]); //Attributes
-        Debug.Log(TechTreeManager.main.beeCarryCapacity + " " + PollenManager.main.beeCarryCapacity + " " + HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.BEECARRYCAPACITY]);
         beeMoveSpeed = GlobalValues.main.beeMoveSpeed * (TechTreeManager.main.beeMoveSpeed + PollenManager.main.beeMoveSpeed + HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.BEEMOVESPEED]); //Attributes
         beeArmor = GlobalValues.main.beeArmor * (TechTreeManager.main.beeArmor + HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.BEEARMOR]); //Attributes
         beeResistance = GlobalValues.main.beeResistance * (TechTreeManager.main.beeResistance + HoneyBuffManager.main.honeyBuffs[(int)HoneyBuff.BEEREISTANCE]); //Attributes

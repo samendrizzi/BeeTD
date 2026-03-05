@@ -23,7 +23,7 @@ public class WorkerBee : MonoBehaviour
 
     private void Update()
     {    
-        if (LevelManager.main.levelStarted == false || attributes.work == "Unassigned" || attributes.frozen == true || attributes.pausing > 0f)
+        if (LevelManager.main.state == Level.NOTSTARTED || LevelManager.main.state == Level.VICTORY || LevelManager.main.state == Level.DEFEAT || attributes.work == "Unassigned" || attributes.frozen == true || attributes.pausing > 0f)
         {
             //Bee to do nothing
             attributes.HaltMovement();
@@ -94,7 +94,7 @@ public class WorkerBee : MonoBehaviour
         }
         else if (attributes.work == "Honey" && attributes.target == null)
         {
-            if (LevelManager.main.finalWave == true)
+            if (LevelManager.main.state == Level.FINALWAVE)
             {
                 LevelManager.main.AssignBeeToHoney(false);
                 LevelManager.main.AssignBeeToSoldier(true);

@@ -11,7 +11,7 @@ public class TechTreeManager : MonoBehaviour
     public float queenBeeReturnDamage = 0f;
     public float queenBeeArmor = 0f;
     public float honeyDropRate = 0f;
-    public float honeyinterest = 0f;
+    public float honeyInterest = 0f;
     public float pollenGather = 1f;
     public float pollenBuff = 0f;
     public float nectarGenerationRate = 1f;
@@ -109,6 +109,7 @@ public class TechTreeManager : MonoBehaviour
     void Awake()
     {
         main = this;
+        BuffManager.main.RefreshBuffs();
     }
 
     void Start()

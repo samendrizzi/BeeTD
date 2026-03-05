@@ -5,6 +5,15 @@ using System;
 using UnityEngine.SceneManagement;
 using System.Linq;
 
+public enum Level
+{
+    NOTSTARTED,
+    STARTED,
+    FINALWAVE,
+    VICTORY,
+    DEFEAT
+}
+
 public class LevelManager : MonoBehaviour
 {
     public static LevelManager main;
@@ -120,8 +129,7 @@ public class LevelManager : MonoBehaviour
     private float numberOfClosedFlowers = 0;
     public GameObject[] flowers = new GameObject[] { };
     private GameObject[] flowersToBloom = new GameObject[] { };
-    public bool levelStarted = false;
-    public bool finalWave = false;
+    public Level state = Level.NOTSTARTED;
     public string speed = "Normal";
     public bool pause = false;
     public float timing = 1f;
@@ -193,7 +201,6 @@ public class LevelManager : MonoBehaviour
         queenHP = queenMaxHP;
         StartingReveal();
         SpawnStartingBees();
-        UIManager.main.CreateHoneyPanel();
     }
 
     public void SetStats()
@@ -205,6 +212,39 @@ public class LevelManager : MonoBehaviour
         queenArmor = BuffManager.main.queenBeeArmor;
         queenHP = BuffManager.main.queenBeeHitPoints;
         CalculateIncome();
+    }
+
+    private void Update()
+    {
+        //maximum deltaTime
+        if (Time.deltaTime > GlobalValues.main.maxDeltaTime)
+        {
+            float newTimeScale = (GlobalValues.main.maxDeltaTime / Time.deltaTime) * timing;
+            Time.timeScale = newTimeScale;
+        }
+        else
+        {
+            Time.timeScale = timing;
+        }
+        if (state == Level.VICTORY || state == Level.DEFEAT)
+        {
+            return;
+        }
+        timeElapsed += Time.deltaTime;
+        if (timeElapsed >= GlobalValues.main.honeycombCheckTime)
+        {
+            timeElapsed = 0f;
+            CheckHoneyCombs();
+        }
+        if (state == Level.STARTED)
+        {
+            honey += (bonusInvestmentRate + investmentRate) * Time.deltaTime;
+            nectar += (incomeRate) * Time.deltaTime;
+        }
+        else if (state == Level.FINALWAVE)
+        {
+            nectar += (incomeRate) * Time.deltaTime;
+        }
     }
 
     public void IncreaseNectar(float amount)
@@ -238,33 +278,9 @@ public class LevelManager : MonoBehaviour
         bonusInvestmentRate = 0f;
     }
 
-    private void Update()
+    public void Interest()
     {
-        //maximum deltaTime
-        if (Time.deltaTime > GlobalValues.main.maxDeltaTime)
-        {
-            float newTimeScale = (GlobalValues.main.maxDeltaTime / Time.deltaTime) * timing;
-            Time.timeScale = newTimeScale;
-        }
-        else
-        {
-            Time.timeScale = timing;
-        }
-        timeElapsed += Time.deltaTime;
-        if (timeElapsed >= GlobalValues.main.honeycombCheckTime)
-        {
-            timeElapsed = 0f;
-            CheckHoneyCombs();
-        }
-        if (finalWave == false && levelStarted == true)
-        {
-            honey += (bonusInvestmentRate + investmentRate) * Time.deltaTime;
-            nectar += (incomeRate) * Time.deltaTime;
-        }
-        else if (levelStarted == true)
-        {
-            nectar += (incomeRate) * Time.deltaTime;
-        }
+        honey += honey * BuffManager.main.honeyInterest;
     }
 
     public void HitQueen(float dmg, float armorPierce)
@@ -370,6 +386,7 @@ public class LevelManager : MonoBehaviour
 
     private void Victory()
     {
+        state = Level.VICTORY;
         SoundManager.main.PlaySound(victorySound, 0f);
         CollectAllHoney();
         if (GlobalValues.main.difficulty == Difficulty.EASY)
@@ -399,6 +416,7 @@ public class LevelManager : MonoBehaviour
 
     private void Defeat()
     {
+        state = Level.DEFEAT;
         SoundManager.main.PlaySound(defeatSound, 0f);
         UIManager.main.DefeatUI();
     }
@@ -450,6 +468,10 @@ public class LevelManager : MonoBehaviour
             foreach (GameObject obj in discoveredFlowers)
             {
                 int maxnumberOfNectarBees = Mathf.FloorToInt((Vector2.Distance(obj.transform.position, queenBee.transform.position) * (2) / beeMoveSpeed) / (beeCarryCapacity / nectarGenerationRate));
+                if (maxnumberOfNectarBees == 0)
+                {
+                    maxnumberOfNectarBees = 1;
+                }
                 for (int i = 0; i < maxnumberOfNectarBees; i++)
                 {
                     if (assignedBees >= numberOfNectarBees)
