@@ -956,6 +956,44 @@ public class Variants : MonoBehaviour
                 gameObject.GetComponent<Passives>().AddPassive(extraPassivePink, passivePrefabPink, passiveSoundPink, passivePowerModifierPink, passiveRateModifierPink, passiveRangeModifierPink, passivePierceModifierPink, passiveDurationPink, passiveExtraModifierPink);
             }
         }
+        else if (variant == VariantType.GOLD)
+        {
+            //Change Sprite
+            SpriteRenderer sr = GetComponent<SpriteRenderer>();
+            sr.sprite = spriteGold;
+            //Update Stats
+            attributes.variantName = roleNameGold;
+            attributes.maxHP += attributes.maxHP * percentageHPGold + flatHPGold;
+            attributes.armor += attributes.armor * percentageArmorGold + flatArmorGold;
+            attributes.moveSpeed += attributes.moveSpeed * percentageMoveSpeedGold + flatMoveSpeedGold;
+            attributes.resistance += attributes.resistance * percentageResistanceGold + flatResistanceGold;
+            attributes.dodgeChance += attributes.dodgeChance * percentageDodgeGold + flatDodgeGold;
+            attributes.carryCapacity += (int)(attributes.carryCapacity * percentageCarryCapacityGold + flatCarryCapacityGold);
+            attributes.maxShield += attributes.maxHP * percentageShieldGold + flatShieldGold;
+            attributes.actionPower += attributes.actionPower * percentageActionPowerGold;
+            attributes.effectPower += attributes.effectPower * percentageEffectPowerGold;
+            attributes.passivePower += attributes.passivePower * percentagePassivePowerGold;
+            //Update Actions
+            if (stealHoneyGold == false && gameObject.GetComponent<Actions>().CheckAction("Steal Honey") == true)
+            {
+                gameObject.GetComponent<Actions>().RemoveAction("Steal Honey");
+                gameObject.GetComponent<Actions>().AddAction("Attack Queen", null, SoundType.EMPTY, 1, 1, 1, 1, 1, 1);
+            }
+            if (extraActionGold != "")
+            {
+                gameObject.GetComponent<Actions>().AddAction(extraActionGold, actionPrefabGold, actionSoundGold, actionPowerModifierGold, actionRateModifierGold, actionRangeModifierGold, actionPierceModifierGold, actionDurationGold, actionExtraModifierGold);
+            }
+            //Update Effects
+            if (extraEffectGold != "")
+            {
+                gameObject.GetComponent<Effects>().AddEffect(extraEffectGold, effectPrefabGold, effectSoundGold, effectPowerModifierGold, effectRateModifierGold, effectRangeModifierGold, effectPierceModifierGold, effectDurationGold, effectExtraModifierGold);
+            }
+            //Update Passives
+            if (extraPassiveGold != "")
+            {
+                gameObject.GetComponent<Passives>().AddPassive(extraPassiveGold, passivePrefabGold, passiveSoundGold, passivePowerModifierGold, passiveRateModifierGold, passiveRangeModifierGold, passivePierceModifierGold, passiveDurationGold, passiveExtraModifierPink);
+            }
+        }
         else
         {
             Debug.Log(attributes.sName + " has invalid variant: " + variant);

@@ -136,6 +136,7 @@ public class LevelManager : MonoBehaviour
     public float nectarGenerationRate = 3f;
     public float honeyGeneratedRatio = 0f;
     public GameObject[] discoveredFlowers = new GameObject[] { };
+    public GameObject[] organizedFlowers = new GameObject[] { };
     public GameObject[] honeyCombs = new GameObject[] { };
     public GameObject[] workerBees = new GameObject[] { };
     public GameObject[] unassignedBees = new GameObject[] { };
@@ -443,10 +444,38 @@ public class LevelManager : MonoBehaviour
         Time.timeScale = timing;
     }
 
+    public void OrganizeFlowers()
+    {
+        int totalFlowers = discoveredFlowers.Length;
+        int index = 0;
+        int priorityIndex = Priority.GetValues(typeof(Priority)).Length - 1;
+        GameObject[] tempFlowers = new GameObject[] { };
+        Array.Resize(ref organizedFlowers, totalFlowers);
+        while (priorityIndex >= 0)
+        {
+            foreach (GameObject flower in discoveredFlowers)
+            {
+                if ((int)flower.GetComponent<Plot>().priority == priorityIndex)
+                {
+                    Array.Resize(ref tempFlowers, tempFlowers.Length + 1);
+                    tempFlowers[tempFlowers.Length - 1] = flower;
+                }
+            }
+            tempFlowers = tempFlowers.OrderBy(point => Vector2.Distance(queenBee.transform.position, point.transform.position)).ToArray();
+            for (int i = 0; i < tempFlowers.Length; i++)
+            {
+                organizedFlowers[index] = tempFlowers[i];
+                index++;
+            }
+            priorityIndex--;
+        }
+    }
+
     public void OrganizeBees()
     {
         //Update UI Bee Count
         UIManager.main.UpdateQueensCommand();
+        OrganizeFlowers();
         //Direct Bees
         OrganizeNectarBees();
         OrganizeHoneyBees();
@@ -463,9 +492,8 @@ public class LevelManager : MonoBehaviour
             Attributes Bee = nectarBees[0].GetComponent<Attributes>();
             float beeMoveSpeed = Bee.moveSpeedBase;
             float beeCarryCapacity = Bee.carryCapacity;
-            discoveredFlowers = discoveredFlowers.OrderBy(point => Vector2.Distance(queenBee.transform.position, point.transform.position)).ToArray();
             int assignedBees = 0;
-            foreach (GameObject obj in discoveredFlowers)
+            foreach (GameObject obj in organizedFlowers)
             {
                 int maxnumberOfNectarBees = Mathf.FloorToInt((Vector2.Distance(obj.transform.position, queenBee.transform.position) * (2) / beeMoveSpeed) / (beeCarryCapacity / nectarGenerationRate));
                 if (maxnumberOfNectarBees == 0)
@@ -487,16 +515,16 @@ public class LevelManager : MonoBehaviour
                 }
             }
             int y = 0;
-            if (nectarBees.Length == 0 || discoveredFlowers.Length == 0)
+            if (nectarBees.Length == 0 || organizedFlowers.Length == 0)
             {
                 return;
             }
             while (assignedBees < numberOfNectarBees)
             {
-                AssignBeeToFlower(nectarBees[assignedBees], discoveredFlowers[y]);
+                AssignBeeToFlower(nectarBees[assignedBees], organizedFlowers[y]);
                 assignedBees++;
                 y++;
-                if (y >= discoveredFlowers.Length)
+                if (y >= organizedFlowers.Length)
                 {
                     y = 0;
                 }

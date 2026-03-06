@@ -190,6 +190,7 @@ public class GlobalValues : MonoBehaviour
     [SerializeField] public float honeycombCheckTime = 1f;
     [SerializeField] public float honeycombFillTime = 3f;
     [SerializeField] public float flowerRange = 1f;
+    [SerializeField] public string[] resourcePriority = new string[] { "Very Low", "Low", "Normal", "High", "Very High" };
 
     [Header("_______________________")]
     [Header("")]

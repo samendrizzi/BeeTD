@@ -4,6 +4,15 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using static UnityEngine.GraphicsBuffer;
 
+public enum Priority
+{
+    VERYLOW,
+    LOW,
+    NORMAL,
+    HIGH,
+    VERYHIGH
+}
+
 public class Plot : MonoBehaviour
 {
 
@@ -39,6 +48,7 @@ public class Plot : MonoBehaviour
     public float pause = 0f;
     public int honeyTicks = 0;
     public float honeyPerTick = 0f;
+    public Priority priority = Priority.NORMAL;
 
     private void Awake()
     {
@@ -296,5 +306,18 @@ public class Plot : MonoBehaviour
             LevelManager.main.IncreaseHoney(honeyPerTick * honeyTicks);
         }
         HoneyEmpty();
+    }
+
+    public void ChangeResourcePriority()
+    {
+        if ((int)priority >= Priority.GetValues(typeof(Priority)).Length - 1)
+        {
+            priority = (Priority)0;
+        }
+        else
+        {
+            priority = (Priority)((int)priority + 1);
+        }
+        LevelManager.main.OrganizeBees();
     }
 }

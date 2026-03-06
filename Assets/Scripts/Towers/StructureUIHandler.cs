@@ -24,6 +24,7 @@ public class StructureUIHandler : MonoBehaviour, IPointerExitHandler
     [SerializeField] private GameObject rangeIndicator;
     [SerializeField] public GameObject[] upgradeMatrix;
     public bool isTower = false;
+    public bool isResourceNode = false;
     private float[] upgradeCost;
     private float sellPrice;
     private float cost;
@@ -41,6 +42,7 @@ public class StructureUIHandler : MonoBehaviour, IPointerExitHandler
         plot = hits[0].transform.gameObject.GetComponent<Plot>();
         rangeIndicator = Instantiate(rangeIndicator, plot.gameObject.transform);
         rangeIndicator.SetActive(false);
+        isResourceNode = plot.isResourceNode;
         UpdateUI();
     }
 
@@ -76,6 +78,11 @@ public class StructureUIHandler : MonoBehaviour, IPointerExitHandler
             {
                 button5.gameObject.SetActive(true);
                 button5.gameObject.GetComponentInChildren<TMP_Text>().text = "Targeting: " + attributes.targetSetting;
+            }
+            else if (isResourceNode)
+            {
+                button5.gameObject.SetActive(true);
+                button5.gameObject.GetComponentInChildren<TMP_Text>().text = "Priority: " + GlobalValues.main.resourcePriority[(int)plot.priority];
             }
             if (attributes.sName == "Scout Tower")
             {
@@ -280,6 +287,11 @@ public class StructureUIHandler : MonoBehaviour, IPointerExitHandler
         if (upgradeMatrix.Length >= 5)
         {
             Upgrade(4);
+        }
+        else if (isResourceNode)
+        {
+            plot.ChangeResourcePriority();
+            button5.gameObject.GetComponentInChildren<TMP_Text>().text = "Priority: " + GlobalValues.main.resourcePriority[(int)plot.priority];
         }
         else
         {
