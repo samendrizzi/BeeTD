@@ -79,11 +79,6 @@ public class StructureUIHandler : MonoBehaviour, IPointerExitHandler
                 button5.gameObject.SetActive(true);
                 button5.gameObject.GetComponentInChildren<TMP_Text>().text = "Targeting: " + attributes.targetSetting;
             }
-            else if (isResourceNode)
-            {
-                button5.gameObject.SetActive(true);
-                button5.gameObject.GetComponentInChildren<TMP_Text>().text = "Priority: " + GlobalValues.main.resourcePriority[(int)plot.priority];
-            }
             if (attributes.sName == "Scout Tower")
             {
                 sellPrice = 0f;
@@ -115,6 +110,11 @@ public class StructureUIHandler : MonoBehaviour, IPointerExitHandler
                 {
                     upgradeMatrix = GlobalValues.main.buildable;
                 }
+            }
+            else if (isResourceNode)
+            {
+                button5.gameObject.SetActive(true);
+                button5.gameObject.GetComponentInChildren<TMP_Text>().text = "Priority: " + GlobalValues.main.resourcePriority[(int)plot.priority];
             }
         }
         //exit button

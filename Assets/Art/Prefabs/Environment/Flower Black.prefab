@@ -112,7 +112,7 @@ MonoBehaviour:
   hoverColor: {r: 0.22116414, g: 0.26248312, b: 0.6603774, a: 0.5882353}
   flowerType: 7
   isHive: 0
-  isBuildable: 1
+  isBuildable: 0
   isResourceNode: 1
   visionObstruction: 0
   isDestructible: 0
@@ -128,6 +128,7 @@ MonoBehaviour:
   pause: 0
   honeyTicks: 0
   honeyPerTick: 0
+  priority: 2
 --- !u!58 &-2766490005130576362
 CircleCollider2D:
   m_ObjectHideFlags: 0

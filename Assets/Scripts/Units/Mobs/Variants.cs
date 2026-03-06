@@ -36,6 +36,7 @@ public class Variants : MonoBehaviour
     [SerializeField] private Sprite spriteBlue;
     [SerializeField] private Sprite spritePurple;
     [SerializeField] private Sprite spritePink;
+    [SerializeField] private Sprite spriteGold;
 
     [Header("Orange Modifications")]
     [SerializeField] private string roleNameOrange = "Carrier";
@@ -991,7 +992,7 @@ public class Variants : MonoBehaviour
             //Update Passives
             if (extraPassiveGold != "")
             {
-                gameObject.GetComponent<Passives>().AddPassive(extraPassiveGold, passivePrefabGold, passiveSoundGold, passivePowerModifierGold, passiveRateModifierGold, passiveRangeModifierGold, passivePierceModifierGold, passiveDurationGold, passiveExtraModifierPink);
+                gameObject.GetComponent<Passives>().AddPassive(extraPassiveGold, passivePrefabGold, passiveSoundGold, passivePowerModifierGold, passiveRateModifierGold, passiveRangeModifierGold, passivePierceModifierGold, passiveDurationGold, passiveExtraModifierGold);
             }
         }
         else

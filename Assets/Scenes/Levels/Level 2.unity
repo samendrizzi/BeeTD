@@ -1972,7 +1972,7 @@ MonoBehaviour:
   - {fileID: 333592244}
   honeyRequired: 1000
   difficultyScaling: 0.02
-  startingVision: 4.8
+  startingVision: 6
   percentageOfFlowersUsed: 1
   bonusNectar: 0
   bonusHoney: 0
@@ -2651,6 +2651,7 @@ MonoBehaviour:
   nectarGenerationRate: 3
   honeyGeneratedRatio: 0
   discoveredFlowers: []
+  organizedFlowers: []
   honeyCombs: []
   workerBees: []
   unassignedBees: []
@@ -26535,7 +26536,7 @@ MonoBehaviour:
   queenBeeReturnDamage: 0
   queenBeeArmor: 0
   honeyDropRate: 0
-  honeyinterest: 0
+  honeyInterest: 0
   pollenGatherRatio: 0.25
   pollenBuff: 1
   nectarGenerationRate: 1
@@ -50972,7 +50973,7 @@ MonoBehaviour:
   queenBeeReturnDamage: 0
   queenBeeArmor: 0
   honeyDropRate: 0
-  honeyinterest: 0
+  honeyInterest: 0
   pollenGather: 1
   pollenBuff: 0
   nectarGenerationRate: 1

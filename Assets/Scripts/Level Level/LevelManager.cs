@@ -449,10 +449,10 @@ public class LevelManager : MonoBehaviour
         int totalFlowers = discoveredFlowers.Length;
         int index = 0;
         int priorityIndex = Priority.GetValues(typeof(Priority)).Length - 1;
-        GameObject[] tempFlowers = new GameObject[] { };
         Array.Resize(ref organizedFlowers, totalFlowers);
         while (priorityIndex >= 0)
         {
+            GameObject[] tempFlowers = new GameObject[] { };
             foreach (GameObject flower in discoveredFlowers)
             {
                 if ((int)flower.GetComponent<Plot>().priority == priorityIndex)
@@ -495,6 +495,11 @@ public class LevelManager : MonoBehaviour
             int assignedBees = 0;
             foreach (GameObject obj in organizedFlowers)
             {
+                if (obj == null)
+                {
+                    Debug.Log("No available flowers to assign to bees.");
+                    return;
+                }
                 int maxnumberOfNectarBees = Mathf.FloorToInt((Vector2.Distance(obj.transform.position, queenBee.transform.position) * (2) / beeMoveSpeed) / (beeCarryCapacity / nectarGenerationRate));
                 if (maxnumberOfNectarBees == 0)
                 {
