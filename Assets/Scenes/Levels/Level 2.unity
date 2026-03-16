@@ -2054,6 +2054,10 @@ MonoBehaviour:
     variant: 1
     prestiges: 
     path: 1
+  - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
+    variant: 1
+    prestiges: 
+    path: 1
   wave2:
   - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
     variant: 4
@@ -2086,15 +2090,11 @@ MonoBehaviour:
     path: 1
   - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
     variant: 5
-    prestiges: 
+    prestiges: 01000000
     path: 1
   - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
     variant: 5
-    prestiges: 
-    path: 1
-  - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
-    variant: 5
-    prestiges: 
+    prestiges: 01000000
     path: 1
   wave4:
   - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
@@ -2112,6 +2112,10 @@ MonoBehaviour:
   - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
     variant: 3
     prestiges: 
+    path: 1
+  - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
+    variant: 3
+    prestiges: 01000000
     path: 1
   wave5:
   - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
@@ -2140,7 +2144,15 @@ MonoBehaviour:
     path: 1
   - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
     variant: 1
-    prestiges: 
+    prestiges: 01000000
+    path: 1
+  - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
+    variant: 1
+    prestiges: 01000000
+    path: 1
+  - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
+    variant: 1
+    prestiges: 01000000
     path: 1
   - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
     variant: 1
@@ -2151,14 +2163,6 @@ MonoBehaviour:
     prestiges: 01000000
     path: 1
   wave6:
-  - prefab: {fileID: 5400552394083257877, guid: 7edde6e1950c5c344ba02af462354789, type: 3}
-    variant: 4
-    prestiges: 
-    path: 1
-  - prefab: {fileID: 5400552394083257877, guid: 7edde6e1950c5c344ba02af462354789, type: 3}
-    variant: 4
-    prestiges: 
-    path: 1
   - prefab: {fileID: 5400552394083257877, guid: 7edde6e1950c5c344ba02af462354789, type: 3}
     variant: 4
     prestiges: 
@@ -2224,6 +2228,10 @@ MonoBehaviour:
     variant: 5
     prestiges: 01000000
     path: 1
+  - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
+    variant: 5
+    prestiges: 01000000
+    path: 1
   wave8:
   - prefab: {fileID: 5400552394083257877, guid: 7edde6e1950c5c344ba02af462354789, type: 3}
     variant: 3
@@ -2231,15 +2239,11 @@ MonoBehaviour:
     path: 1
   - prefab: {fileID: 5400552394083257877, guid: 7edde6e1950c5c344ba02af462354789, type: 3}
     variant: 3
-    prestiges: 
+    prestiges: 01000000
     path: 1
   - prefab: {fileID: 5400552394083257877, guid: 7edde6e1950c5c344ba02af462354789, type: 3}
     variant: 3
-    prestiges: 
-    path: 1
-  - prefab: {fileID: 5400552394083257877, guid: 7edde6e1950c5c344ba02af462354789, type: 3}
-    variant: 3
-    prestiges: 
+    prestiges: 01000000
     path: 1
   wave9:
   - prefab: {fileID: 5400552394083257877, guid: 7a3239f965467034d895b2634983a931, type: 3}
@@ -2248,7 +2252,63 @@ MonoBehaviour:
     path: 1
   - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
     variant: 4
-    prestiges: 01000000
+    prestiges: 
+    path: 1
+  - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
+    variant: 4
+    prestiges: 
+    path: 1
+  - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
+    variant: 4
+    prestiges: 
+    path: 1
+  - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
+    variant: 4
+    prestiges: 
+    path: 1
+  - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
+    variant: 4
+    prestiges: 
+    path: 1
+  - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
+    variant: 4
+    prestiges: 
+    path: 1
+  - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
+    variant: 4
+    prestiges: 
+    path: 1
+  - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
+    variant: 4
+    prestiges: 
+    path: 1
+  - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
+    variant: 4
+    prestiges: 
+    path: 1
+  - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
+    variant: 4
+    prestiges: 
+    path: 1
+  - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
+    variant: 4
+    prestiges: 
+    path: 1
+  - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
+    variant: 4
+    prestiges: 
+    path: 1
+  - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
+    variant: 4
+    prestiges: 
+    path: 1
+  - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
+    variant: 4
+    prestiges: 
+    path: 1
+  - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
+    variant: 4
+    prestiges: 
     path: 1
   - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
     variant: 4
@@ -2261,18 +2321,6 @@ MonoBehaviour:
   - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
     variant: 4
     prestiges: 01000000
-    path: 1
-  - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
-    variant: 4
-    prestiges: 01000000
-    path: 1
-  - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
-    variant: 4
-    prestiges: 01000000
-    path: 1
-  - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
-    variant: 4
-    prestiges: 0100000001000000
     path: 1
   - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
     variant: 4
@@ -2300,52 +2348,16 @@ MonoBehaviour:
     prestiges: 
     path: 1
   - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
-    variant: 4
-    prestiges: 
+    variant: 1
+    prestiges: 0100000001000000
     path: 1
   - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
-    variant: 4
-    prestiges: 
+    variant: 1
+    prestiges: 0100000001000000
     path: 1
   - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
-    variant: 4
-    prestiges: 
-    path: 1
-  - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
-    variant: 4
-    prestiges: 
-    path: 1
-  - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
-    variant: 4
-    prestiges: 
-    path: 1
-  - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
-    variant: 4
-    prestiges: 
-    path: 1
-  - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
-    variant: 4
-    prestiges: 01000000
-    path: 1
-  - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
-    variant: 4
-    prestiges: 01000000
-    path: 1
-  - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
-    variant: 4
-    prestiges: 01000000
-    path: 1
-  - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
-    variant: 4
-    prestiges: 01000000
-    path: 1
-  - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
-    variant: 4
-    prestiges: 01000000
-    path: 1
-  - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
-    variant: 4
-    prestiges: 01000000
+    variant: 1
+    prestiges: 0100000001000000
     path: 1
   - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
     variant: 1
@@ -2358,6 +2370,62 @@ MonoBehaviour:
   - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
     variant: 1
     prestiges: 0100000001000000
+    path: 1
+  - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
+    variant: 1
+    prestiges: 0100000001000000
+    path: 1
+  - prefab: {fileID: 5400552394083257877, guid: 7a3239f965467034d895b2634983a931, type: 3}
+    variant: 4
+    prestiges: 
+    path: 1
+  - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
+    variant: 1
+    prestiges: 
+    path: 1
+  - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
+    variant: 1
+    prestiges: 
+    path: 1
+  - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
+    variant: 1
+    prestiges: 
+    path: 1
+  - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
+    variant: 1
+    prestiges: 
+    path: 1
+  - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
+    variant: 1
+    prestiges: 
+    path: 1
+  - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
+    variant: 1
+    prestiges: 
+    path: 1
+  - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
+    variant: 1
+    prestiges: 01000000
+    path: 1
+  - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
+    variant: 1
+    prestiges: 01000000
+    path: 1
+  - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
+    variant: 1
+    prestiges: 01000000
+    path: 1
+  - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
+    variant: 1
+    prestiges: 01000000
+    path: 1
+  - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
+    variant: 1
+    prestiges: 01000000
+    path: 1
+  - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
+    variant: 1
+    prestiges: 01000000
     path: 1
   wave11:
   - prefab: {fileID: 5400552394083257877, guid: 7edde6e1950c5c344ba02af462354789, type: 3}
@@ -2418,39 +2486,87 @@ MonoBehaviour:
     prestiges: 0100000001000000
     path: 1
   - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
-    variant: 5
+    variant: 4
+    prestiges: 0100000001000000
+    path: 1
+  - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
+    variant: 4
+    prestiges: 0100000001000000
+    path: 1
+  - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
+    variant: 4
+    prestiges: 0100000001000000
+    path: 1
+  - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
+    variant: 4
+    prestiges: 0100000001000000
+    path: 1
+  - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
+    variant: 4
+    prestiges: 0100000001000000
+    path: 1
+  - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
+    variant: 4
+    prestiges: 0100000001000000
+    path: 1
+  - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
+    variant: 4
+    prestiges: 0100000001000000
+    path: 1
+  - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
+    variant: 4
     prestiges: 
     path: 1
   - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
-    variant: 5
+    variant: 4
     prestiges: 
     path: 1
   - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
-    variant: 5
+    variant: 4
+    prestiges: 
+    path: 1
+  - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
+    variant: 4
     prestiges: 01000000
     path: 1
   - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
-    variant: 5
+    variant: 4
     prestiges: 01000000
     path: 1
   - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
-    variant: 5
+    variant: 4
     prestiges: 01000000
     path: 1
   - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
-    variant: 5
+    variant: 4
     prestiges: 01000000
     path: 1
   - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
-    variant: 5
+    variant: 4
     prestiges: 01000000
     path: 1
   - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
-    variant: 5
+    variant: 4
     prestiges: 01000000
     path: 1
   - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
-    variant: 5
+    variant: 4
+    prestiges: 01000000
+    path: 1
+  - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
+    variant: 4
+    prestiges: 01000000
+    path: 1
+  - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
+    variant: 4
+    prestiges: 01000000
+    path: 1
+  - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
+    variant: 4
+    prestiges: 01000000
+    path: 1
+  - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
+    variant: 4
     prestiges: 01000000
     path: 1
   wave13:
@@ -2468,7 +2584,11 @@ MonoBehaviour:
     path: 1
   - prefab: {fileID: 5400552394083257877, guid: 7edde6e1950c5c344ba02af462354789, type: 3}
     variant: 1
-    prestiges: 01000000
+    prestiges: 
+    path: 1
+  - prefab: {fileID: 5400552394083257877, guid: 7edde6e1950c5c344ba02af462354789, type: 3}
+    variant: 1
+    prestiges: 
     path: 1
   - prefab: {fileID: 5400552394083257877, guid: 7edde6e1950c5c344ba02af462354789, type: 3}
     variant: 1
@@ -2485,6 +2605,18 @@ MonoBehaviour:
   - prefab: {fileID: 5400552394083257877, guid: 7edde6e1950c5c344ba02af462354789, type: 3}
     variant: 1
     prestiges: 01000000
+    path: 1
+  - prefab: {fileID: 5400552394083257877, guid: 7edde6e1950c5c344ba02af462354789, type: 3}
+    variant: 1
+    prestiges: 01000000
+    path: 1
+  - prefab: {fileID: 5400552394083257877, guid: 7edde6e1950c5c344ba02af462354789, type: 3}
+    variant: 1
+    prestiges: 01000000
+    path: 1
+  - prefab: {fileID: 5400552394083257877, guid: 7edde6e1950c5c344ba02af462354789, type: 3}
+    variant: 1
+    prestiges: 0100000001000000
     path: 1
   wave14:
   - prefab: {fileID: 5400552394083257877, guid: 7a3239f965467034d895b2634983a931, type: 3}
@@ -2579,6 +2711,22 @@ MonoBehaviour:
     variant: 4
     prestiges: 0100000001000000
     path: 1
+  - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
+    variant: 4
+    prestiges: 0100000001000000
+    path: 1
+  - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
+    variant: 4
+    prestiges: 0100000001000000
+    path: 1
+  - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
+    variant: 4
+    prestiges: 0100000001000000
+    path: 1
+  - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
+    variant: 4
+    prestiges: 0100000001000000
+    path: 1
   wave15:
   - prefab: {fileID: 5400552394083257877, guid: 7edde6e1950c5c344ba02af462354789, type: 3}
     variant: 4
@@ -2591,6 +2739,10 @@ MonoBehaviour:
   - prefab: {fileID: 5400552394083257877, guid: 7edde6e1950c5c344ba02af462354789, type: 3}
     variant: 4
     prestiges: 0100000001000000
+    path: 1
+  - prefab: {fileID: 5400552394083257877, guid: 7edde6e1950c5c344ba02af462354789, type: 3}
+    variant: 4
+    prestiges: 010000000100000001000000
     path: 1
   - prefab: {fileID: 5400552394083257877, guid: 7edde6e1950c5c344ba02af462354789, type: 3}
     variant: 4

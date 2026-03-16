@@ -38,7 +38,6 @@ public class GlobalPlot : MonoBehaviour
         {
             return;
         }
-        
         GlobalMap.main.ChangeLevel(level);
     }
 }

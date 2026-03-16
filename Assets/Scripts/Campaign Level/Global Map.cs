@@ -13,6 +13,7 @@ public class GlobalMap : MonoBehaviour
     [SerializeField] private GameObject levelDescriptionUI;
     [SerializeField] public TextMeshProUGUI levelDescription;
     [SerializeField] private TextMeshProUGUI difficultySetting;
+    [SerializeField] private int numberOfLevels = 15;
 
     public string levelSelect = "Level 1";
 
@@ -40,8 +41,9 @@ public class GlobalMap : MonoBehaviour
 
     public void ChangeLevel(int level)
     {
+        Debug.Log(level);
         levelSelect = "Level " + level.ToString();
-        levelDescription.text = levelSelect + "\n\n High Score (Easy) = " + SaveFile.main.easyScores[level-1] + "\n High Score (Medium) = " + SaveFile.main.mediumScores[level - 1] + "\n High Score (Hard) = " + SaveFile.main.hardScores[level - 1];
+        levelDescription.text = levelSelect ;//+ "\n\n High Score (Easy) = " + SaveFile.main.easyScores[level-1] + "\n High Score (Medium) = " + SaveFile.main.mediumScores[level - 1] + "\n High Score (Hard) = " + SaveFile.main.hardScores[level - 1];
         GlobalValues.main.levelIndex = level - 1;
         if (level == 0)
         {

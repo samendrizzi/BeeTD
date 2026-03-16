@@ -486,7 +486,7 @@ MonoBehaviour:
   effectRate: 1
   resistancePierce: 0
   effects:
-  - Teleport
+  - Blink
   effectPrefabs: []
   effectSounds: 
   effectPowerModifiers:
@@ -519,7 +519,7 @@ MonoBehaviour:
   ignoreTerrain: 0
   hasTargetSettings: 0
   targetSetting: 
-  variant: 0
+  variant: 7
   variantName: 
   prestiges: 
   hitPoints: 1
@@ -536,7 +536,7 @@ MonoBehaviour:
   timeUntilEffects: []
   timeUntilPassives: []
   wayPointDistance: 0.2
-  onPath: 1
+  onPath: 0
   path: []
   targetingOptions: []
   rampCount: 0
@@ -657,6 +657,7 @@ MonoBehaviour:
   spriteBlue: {fileID: 254707649, guid: 03256aab536f8a44c8f451208c502c91, type: 3}
   spritePurple: {fileID: -714385318, guid: 03256aab536f8a44c8f451208c502c91, type: 3}
   spritePink: {fileID: -102078599, guid: 03256aab536f8a44c8f451208c502c91, type: 3}
+  spriteGold: {fileID: 0}
   roleNameOrange: Carrier
   flatHPOrange: 0
   percentageHPOrange: 0.3

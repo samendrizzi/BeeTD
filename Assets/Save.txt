@@ -1,1 +1,1 @@
-{"easyScores":[8210.0,8330.0,4232.0,0.0],"easyUnlocks":[],"mediumScores":[0.0,0.0,0.0,0.0],"mediumUnlocks":[],"hardScores":[0.0,0.0,0.0,0.0],"hardUnlocks":[]}
+{"easyScores":[0.0],"easyUnlocks":[],"mediumScores":[0.0],"mediumUnlocks":[],"hardScores":[0.0],"hardUnlocks":[]}
