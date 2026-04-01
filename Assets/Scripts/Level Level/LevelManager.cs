@@ -63,6 +63,7 @@ public class LevelManager : MonoBehaviour
 
     [Header("Enemy Waves")]
     [SerializeField] public int numberOfWaves = 15;
+    [SerializeField] public TextAsset waveFile;
     [SerializeField] public MobStruct[] wave1;
     [SerializeField] public MobStruct[] wave2;
     [SerializeField] public MobStruct[] wave3;
@@ -500,12 +501,12 @@ public class LevelManager : MonoBehaviour
                     Debug.Log("No available flowers to assign to bees.");
                     return;
                 }
-                int maxnumberOfNectarBees = Mathf.FloorToInt((Vector2.Distance(obj.transform.position, queenBee.transform.position) * (2) / beeMoveSpeed) / (beeCarryCapacity / nectarGenerationRate));
-                if (maxnumberOfNectarBees == 0)
-                {
-                    maxnumberOfNectarBees = 1;
-                }
-                for (int i = 0; i < maxnumberOfNectarBees; i++)
+                //int maxnumberOfNectarBees = Mathf.FloorToInt((Vector2.Distance(obj.transform.position, queenBee.transform.position) * 2 * BuffManager.main.nectarGenerationRate) / (beeMoveSpeed * beeCarryCapacity));
+                float distance = Vector2.Distance(obj.transform.position, queenBee.transform.position);
+                float roundTripTime = (distance * 2f) / beeMoveSpeed;
+                float nectarGenerated = roundTripTime * BuffManager.main.nectarGenerationRate;
+                int maxNumberOfNectarBees = Mathf.Max(1, Mathf.FloorToInt(nectarGenerated / beeCarryCapacity));
+                for (int i = 0; i < maxNumberOfNectarBees; i++)
                 {
                     if (assignedBees >= numberOfNectarBees)
                     {

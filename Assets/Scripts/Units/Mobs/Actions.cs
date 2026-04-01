@@ -383,7 +383,7 @@ public class Actions : MonoBehaviour
         if (attributes.flower.GetComponent<Plot>().isSapped == false)
         {
             attributes.nectar = attributes.carryCapacity;
-            attributes.flower.GetComponent<Plot>().SapFlower(attributes.carryCapacity / LevelManager.main.nectarGenerationRate);
+            attributes.flower.GetComponent<Plot>().SapFlower(attributes.carryCapacity);
             attributes.inventoryFull = true;
             attributes.target = LevelManager.main.queenBee.gameObject.transform;
         }

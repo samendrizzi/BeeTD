@@ -16,11 +16,6 @@ public class HoneyPanelEntry : MonoBehaviour
     private int indexLevel;
     private HoneyBuff honeyBuff;
 
-    private void Awake()
-    {
-        gameObject.SetActive(false);
-    }
-
     public void Setup(int index)
     {
         indexLevel = index;

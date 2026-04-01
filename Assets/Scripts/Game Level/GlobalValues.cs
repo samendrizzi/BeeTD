@@ -122,6 +122,7 @@ public class GlobalValues : MonoBehaviour
     [SerializeField] public float hummingbirdRange = 100f;
     [SerializeField] public float hummingbirdSapTimeModifier = 1f;
     [SerializeField] public float hummingbirdWaitTime = 3f;
+    [SerializeField] public GameObject[] spawnPrefabs;
 
     [Header("_______________________")]
     [Header("Boss Mobs")]
@@ -401,6 +402,7 @@ public class GlobalValues : MonoBehaviour
     public string targetingOptionDefault;
     public bool gameLoaded = false;
     public Difficulty difficulty;
+    public string[] spawnPrefabReferences;
 
     // Define parameter arrays
     //Flowers
@@ -425,7 +427,7 @@ public class GlobalValues : MonoBehaviour
     public void Awake()
     {
         main = this;
-        difficulty = Difficulty.EASY;
+        difficulty = Difficulty.MEDIUM;
         SetUI(false);
         //
         targetingOptionDefault = targetingOptions[0];
@@ -436,6 +438,20 @@ public class GlobalValues : MonoBehaviour
         FLOWERBuffModifier = new float[][] { closedFlowerBuffModifier, orangeFlowerBuffModifier, brownFlowerBuffModifier, greenFlowerBuffModifier, blueFlowerBuffModifier, yellowFlowerBuffModifier, redFlowerBuffModifier, blackFlowerBuffModifier, whiteFlowerBuffModifier, purpleFlowerBuffModifier, pinkFlowerBuffModifier, goldFlowerBuffModifier };
         FLOWERPollenThreshold = new float[][] { closedFlowerPollenThreshold, orangeFlowerPollenThreshold, brownFlowerPollenThreshold, greenFlowerPollenThreshold, blueFlowerPollenThreshold, yellowFlowerPollenThreshold, redFlowerPollenThreshold, blackFlowerPollenThreshold, whiteFlowerPollenThreshold, purpleFlowerPollenThreshold, pinkFlowerPollenThreshold, goldFlowerPollenThreshold };
         FLOWERRarity = new float[] { closedFlowerRarity, orangeFlowerRarity, brownFlowerRarity, greenFlowerRarity, blueFlowerRarity, yellowFlowerRarity, redFlowerRarity, blackFlowerRarity, whiteFlowerRarity, purpleFlowerRarity, pinkFlowerRarity, goldFlowerRarity };
+        BuildSpawnPrefabReferences();
+    }
+
+    private void BuildSpawnPrefabReferences()
+    {
+        Array.Resize(ref spawnPrefabReferences, spawnPrefabs.Length);
+        for (int i = 0; i < spawnPrefabs.Length; i++)
+        {
+            spawnPrefabReferences[i] = spawnPrefabs[i].GetComponent<Attributes>().sName;
+            if (spawnPrefabs[i].GetComponent<Attributes>().sName == null)
+            {
+                Debug.Log("No sName assigned to " + spawnPrefabs[i] + " in attributes.");
+            }
+        }
     }
 
     public void SetUI(bool state)

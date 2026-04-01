@@ -41,7 +41,6 @@ public class GlobalMap : MonoBehaviour
 
     public void ChangeLevel(int level)
     {
-        Debug.Log(level);
         levelSelect = "Level " + level.ToString();
         levelDescription.text = levelSelect ;//+ "\n\n High Score (Easy) = " + SaveFile.main.easyScores[level-1] + "\n High Score (Medium) = " + SaveFile.main.mediumScores[level - 1] + "\n High Score (Hard) = " + SaveFile.main.hardScores[level - 1];
         GlobalValues.main.levelIndex = level - 1;

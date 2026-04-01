@@ -1931,6 +1931,7 @@ MonoBehaviour:
   path10: []
   flyingPath10: []
   numberOfWaves: 20
+  waveFile: {fileID: 0}
   wave1:
   - prefab: {fileID: 5400552394083257877, guid: 747afda42bd07844f8f7a20d7e6488ee, type: 3}
     variant: 7
@@ -62211,6 +62212,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1676794942}
   - component: {fileID: 1676794943}
+  - component: {fileID: 1676794944}
   m_Layer: 0
   m_Name: WaveSpawner
   m_TagString: Untagged
@@ -62246,8 +62248,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WaveSpawner
   currentWave: 0
+  waveDescriptions: []
   enemiesAlive: 0
   waveCountdown: 10
+--- !u!114 &1676794944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1676794941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9aefa29c6ec4071408b1eaca28f48941, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WaveDataLoader
 --- !u!1001 &1681185300
 PrefabInstance:
   m_ObjectHideFlags: 0

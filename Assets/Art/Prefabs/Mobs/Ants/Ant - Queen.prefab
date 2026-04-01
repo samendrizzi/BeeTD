@@ -583,7 +583,7 @@ MonoBehaviour:
   effectPierceModifiers:
   - 1
   effectRateModifiers:
-  - 0.1
+  - 0.2
   effectRangeModifiers:
   - 1
   effectDurations:
@@ -610,7 +610,7 @@ MonoBehaviour:
   targetSetting: 
   variant: 3
   variantName: 
-  prestiges: 01000000010000000100000001000000
+  prestiges: 010000000100000001000000
   hitPoints: 1
   shield: 0
   isDestroyed: 0
@@ -746,6 +746,7 @@ MonoBehaviour:
   spriteBlue: {fileID: 1691999660, guid: 8ac32df7d86baf04f9e6ce58fa88f7e5, type: 3}
   spritePurple: {fileID: 1800663728, guid: 8ac32df7d86baf04f9e6ce58fa88f7e5, type: 3}
   spritePink: {fileID: 550547417, guid: 8ac32df7d86baf04f9e6ce58fa88f7e5, type: 3}
+  spriteGold: {fileID: 0}
   roleNameOrange: Carrier
   flatHPOrange: 0
   percentageHPOrange: 0.3

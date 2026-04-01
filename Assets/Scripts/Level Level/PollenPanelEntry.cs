@@ -21,11 +21,6 @@ public class PollenPanelEntry : MonoBehaviour
     private int indexGlobal;
     private int indexLevel;
 
-    private void Awake()
-    {
-        gameObject.SetActive(false);
-    }
-
     public void Setup(FlowerType type)
     {
         flowerType = type;

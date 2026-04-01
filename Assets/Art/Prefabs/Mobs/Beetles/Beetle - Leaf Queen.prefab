@@ -495,7 +495,7 @@ MonoBehaviour:
   effectPierceModifiers:
   - 1
   effectRateModifiers:
-  - 0.1
+  - 0.2
   effectRangeModifiers:
   - 1
   effectDurations:
@@ -658,6 +658,7 @@ MonoBehaviour:
   spriteBlue: {fileID: 9064049434946978857, guid: da87b53541512df40969c6edceeaac86, type: 3}
   spritePurple: {fileID: -7586082927216783627, guid: da87b53541512df40969c6edceeaac86, type: 3}
   spritePink: {fileID: 3758059953426150775, guid: da87b53541512df40969c6edceeaac86, type: 3}
+  spriteGold: {fileID: 0}
   roleNameOrange: Carrier
   flatHPOrange: 0
   percentageHPOrange: 0.3

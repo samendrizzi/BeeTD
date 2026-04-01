@@ -10,10 +10,12 @@ public class WaveSpawner : MonoBehaviour
     public static WaveSpawner main;
 
     [Header("Trackers")]
-    private MobStruct[][] enemySpawns;
+    public MobStruct[][] enemySpawns;
     private int numberOfWaves;
     public int currentWave = 0;
     private MobStruct[][] enemiesToSpawnThisWave;
+    public string[][] waveTags;
+    public string[] waveDescriptions;
     private float[] timeSinceLastSpawn;
     private int[] enemiesLeftToSpawn;
     private int[] spawnIndex;
@@ -40,7 +42,8 @@ public class WaveSpawner : MonoBehaviour
         waveCountdown = GlobalValues.main.startingWaveCountdown;
         waveSpawnRatio = GlobalValues.main.waveSpawnRatio;
         timeBetweenWaves = GlobalValues.main.waveLength;
-        enemySpawns = new MobStruct[][] {LevelManager.main.wave1, LevelManager.main.wave2, LevelManager.main.wave3, LevelManager.main.wave4, LevelManager.main.wave5, LevelManager.main.wave6, LevelManager.main.wave7, LevelManager.main.wave8, LevelManager.main.wave9, LevelManager.main.wave10, LevelManager.main.wave11, LevelManager.main.wave12, LevelManager.main.wave13, LevelManager.main.wave14, LevelManager.main.wave15, LevelManager.main.wave16, LevelManager.main.wave17, LevelManager.main.wave18, LevelManager.main.wave19, LevelManager.main.wave20, LevelManager.main.wave21, LevelManager.main.wave22, LevelManager.main.wave23, LevelManager.main.wave24, LevelManager.main.wave25, LevelManager.main.wave26, LevelManager.main.wave27, LevelManager.main.wave28, LevelManager.main.wave29, LevelManager.main.wave30, LevelManager.main.wave31, LevelManager.main.wave32, LevelManager.main.wave33, LevelManager.main.wave34, LevelManager.main.wave35, LevelManager.main.wave36, LevelManager.main.wave37, LevelManager.main.wave38, LevelManager.main.wave39, LevelManager.main.wave40, LevelManager.main.wave41, LevelManager.main.wave42, LevelManager.main.wave43, LevelManager.main.wave44, LevelManager.main.wave45, LevelManager.main.wave46, LevelManager.main.wave47, LevelManager.main.wave48, LevelManager.main.wave49, LevelManager.main.wave50};
+        //enemySpawns = new MobStruct[][] {LevelManager.main.wave1, LevelManager.main.wave2, LevelManager.main.wave3, LevelManager.main.wave4, LevelManager.main.wave5, LevelManager.main.wave6, LevelManager.main.wave7, LevelManager.main.wave8, LevelManager.main.wave9, LevelManager.main.wave10, LevelManager.main.wave11, LevelManager.main.wave12, LevelManager.main.wave13, LevelManager.main.wave14, LevelManager.main.wave15, LevelManager.main.wave16, LevelManager.main.wave17, LevelManager.main.wave18, LevelManager.main.wave19, LevelManager.main.wave20, LevelManager.main.wave21, LevelManager.main.wave22, LevelManager.main.wave23, LevelManager.main.wave24, LevelManager.main.wave25, LevelManager.main.wave26, LevelManager.main.wave27, LevelManager.main.wave28, LevelManager.main.wave29, LevelManager.main.wave30, LevelManager.main.wave31, LevelManager.main.wave32, LevelManager.main.wave33, LevelManager.main.wave34, LevelManager.main.wave35, LevelManager.main.wave36, LevelManager.main.wave37, LevelManager.main.wave38, LevelManager.main.wave39, LevelManager.main.wave40, LevelManager.main.wave41, LevelManager.main.wave42, LevelManager.main.wave43, LevelManager.main.wave44, LevelManager.main.wave45, LevelManager.main.wave46, LevelManager.main.wave47, LevelManager.main.wave48, LevelManager.main.wave49, LevelManager.main.wave50};
+        WaveDataLoader.main.Load(LevelManager.main.waveFile);
         Array.Resize(ref timeSinceLastSpawn, LevelManager.main.numberOfPaths);
         Array.Resize(ref enemiesLeftToSpawn, LevelManager.main.numberOfPaths);
         Array.Resize(ref spawnIndex, LevelManager.main.numberOfPaths);
